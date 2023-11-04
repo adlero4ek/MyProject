@@ -1,0 +1,165 @@
+entities:
+
+  links:
+    presentations:
+      blank:
+        title: Основная карточка потока данных
+        type: markdown
+        template: templates/link_main_card.md
+        source: >
+          (
+          
+            $MANIFEST := $;
+  
+            $distinct(links.$spread().(
+  
+                $link_id := $keys()[0];
+  
+                $.*.{
+                    "id": $link_id,
+                    "title": title,
+                    "code": code,
+                    "description": description,
+                    "component_from": $lookup($MANIFEST.components, from).title,
+                    "component_from_link": "/architect/components/" & from,
+                    "component_to": $lookup($MANIFEST.components, to).title,
+                    "component_to_link": "/architect/components/" & to,
+                    "state": state,
+                    "state_update_date": state_update_date,
+                    "interface": interface,
+                    "interface_standard_type": interface_standard_type,
+                    "asynchronous": asynchronous,
+                    "size_mb": size_mb,
+                    "periodicity": periodicity,
+                    "interface_via": $lookup($MANIFEST.components, interface_via).title,
+                    "interface_via_link": $contains(interface_via, "Systems") ? "/architect/components/" & interface_via : "undefined" 
+                };          
+            ))[id=$params.id]
+          
+          )
+      filtered:
+        type: table
+        headers:
+          - value: link_code
+            text: Код
+            sortable: true
+            link: link_id
+          - value: link_title
+            text: Описание
+          - value: component_from_title
+            text: Источник
+            sortable: true
+            link: component_from_link
+          - value: component_to_title
+            text: Получатель
+            sortable: true
+            link: component_to_link
+          - value: interface_via_title
+            text: Транспорт
+            sortable: true
+            link: interface_via_link
+          - value: link_state
+            text: Статус
+            sortable: true
+        origin: links.dataset.MainListOfLinks
+        source: >
+          (
+            $from := $params.from != "" ? $params.from : "";
+            $to := $params.to != "" ? $params.to : "";
+            [$[$contains(component_from_id, $from) and $contains(component_to_id, $to)]]
+          )
+
+      OutgoingLinksFilteredBy_SystemID:
+        type: table
+        title: Таблица исходящих интеграционных потоков с фильтром по ID приложения/сервиса
+        headers:
+          - value: link_code
+            text: Код
+            sortable: true
+            link: link_id
+          - value: link_title
+            text: Описание
+          - value: component_from_title
+            text: Источник
+            sortable: true
+            link: component_from_link
+          - value: component_to_title
+            text: Получатель
+            sortable: true
+            link: component_to_link
+          - value: interface_via_title
+            text: Транспорт
+            sortable: true
+            link: interface_via_link
+          - value: link_state
+            text: Статус
+            sortable: true
+          - value: link_state_update_date
+            text: Дата актуализации статуса
+            sortable: true
+        origin: links.dataset.MainListOfLinks
+        source: >
+          (
+            $id := $params.id != "" ? $params.id : "";
+            [$[ $count($split($id, "."))=4 ? component_from_id=$id : $contains(component_from_id, $id) ]]  
+          )
+      IncomingLinksFilteredBy_SystemID:
+        type: table
+        title: Таблица входящих интеграционных потоков с фильтром по ID приложения/сервиса
+        headers:
+          - value: link_code
+            text: Код
+            sortable: true
+            link: link_id
+          - value: link_title
+            text: Описание
+          - value: component_from_title
+            text: Источник
+            sortable: true
+            link: component_from_link
+          - value: component_to_title
+            text: Получатель
+            sortable: true
+            link: component_to_link
+          - value: interface_via_title
+            text: Транспорт
+            sortable: true
+            link: interface_via_link
+          - value: link_state
+            text: Статус
+            sortable: true
+          - value: link_state_update_date
+            text: Дата актуализации статуса
+            sortable: true
+        origin: links.dataset.MainListOfLinks
+        source: >
+          (
+            $id := $params.id != "" ? $params.id : "";
+            [$[ $count($split($id, "."))=4 ? component_to_id=$id : $contains(component_to_id, $id) ]]
+          )
+      mainlist:
+        type: table
+        headers:
+          - value: link_code
+            text: Код
+            sortable: true
+            link: link_id
+          - value: link_title
+            text: Описание
+          - value: component_from_title
+            text: Источник
+            sortable: true
+            link: component_from_link
+          - value: component_to_title
+            text: Получатель
+            sortable: true
+            link: component_to_link
+          - value: interface_via_title
+            text: Транспорт
+            sortable: true
+            link: interface_via_link
+          - value: link_state
+            text: Статус
+            sortable: true
+        origin: links.dataset.MainListOfLinks
+        source: ($)

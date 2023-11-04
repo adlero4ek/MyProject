@@ -1,0 +1,128 @@
+datasets:
+
+  # Подразделения организаций [компания].Divisions.[Имя подразделения]
+
+  Business.dataset.DivisionList:
+    source: >
+      (
+        $distinct(components.$spread().(
+        
+          $COMPONENT_ID := $keys()[0];
+          
+          $.*.{
+            "id": $COMPONENT_ID,
+            "link_id": "/architect/components/" & $COMPONENT_ID,
+            "title": title,
+            "entity": entity,
+            "description": description,
+            "type": extension.type,
+            "owner": extension.owner
+          };
+        
+        ))[type="division"]^(title)
+      
+      )
+
+  Business.dataset.ActorList:
+    source: >
+      (
+      
+        $distinct(components.$spread().(
+  
+          $COMPONENT_ID := $keys()[0];
+          
+          $.*.{
+          
+            "id": $COMPONENT_ID,
+            "link":"/architect/components/" & $COMPONENT_ID,
+            "title": title,
+            "entity": entity,
+            "description": description
+          };
+          
+          ))[entity="actor"]^(title)
+      )
+
+  BusinessObjects.dataset.ListOfBusinessObjects:
+    source: >
+      (
+
+        $.BusinessObjects.$spread().(
+
+          $ENTITY_ID :=  $keys()[0];
+
+          $entities := $.*.{
+              "id": $ENTITY_ID,
+              "link_id": "/entities/BusinessObjects/blank?id=" & $ENTITY_ID,
+              "title": title,
+              "description":       description,
+              "type": type,
+              "state": state,
+              "state_update_date": state_update_date,
+              "owner": owner,
+              "division_owner": division_owner
+              
+          };
+
+        )^(title)
+
+      ) 
+
+  BusinessObjects.dataset.ParametersList:
+    source: >
+      (
+      
+        $GetTypeAsLink := function($typeid) {(
+            $lookup(BusinessObjects, $typeid).{"title": type&" <"&title&">"}.title)};
+  
+        $.BusinessObjects.$spread().(
+  
+            $ENTITY_ID :=  $keys()[0];
+            $.*.parameters.{
+                "id": $ENTITY_ID,
+                "name": name,
+                "description": description,
+                "type": $contains(type, "BusinessObject")? $GetTypeAsLink(type):type,
+                "link": $contains(type, "BusinessObject")? "/entities/BusinessObjects/blank?id="&type:"" 
+            } 
+        )[id=$params.id]
+      
+      )
+      
+  BusinessObjects.dataset.BusinessObjectsInSystems:
+    source: >      
+      (
+
+        $MANIFEST := $;
+        $distinct($MANIFEST.components.$spread().(
+
+          $SubSystem := $;
+          
+          $SubSystem_ID    := $keys()[0];
+          $System_ID       := $split($SubSystem_ID, ".", 4)~> $join('.');
+          $Organization_ID := $split($SubSystem_ID, ".", 1)~> $join('.');
+
+          $BusinessObjects := $distinct($SubSystem.*.*.BusinessObjects.(
+
+            $Object := $;
+            $Objects := $lookup($MANIFEST.BusinessObjects, $Object);
+            $Objects := $merge([$Objects, {"id": $Object}]);
+            $SubSystem := $lookup($MANIFEST.components, $SubSystem_ID);
+
+              {
+                "Organization_id": $Organization_ID,          
+                "System_id": "/architect/components/" & $System_ID,
+                "System_name": $lookup($MANIFEST.components, $System_ID).title,
+                "Subsystem_id": "/architect/components/" & $SubSystem_ID,
+                "Subsystem_name": $SubSystem.title,
+                "BusinessObject_id": $Objects.id,
+                "BusinessObject_type": $Objects.type,
+                "BusinessObject_title": $Objects.title,
+                "BusinessObject_description": $Objects.description,
+                "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $Objects.id
+              }
+
+            ));
+
+        ))^(BusinessObject_title)
+      )

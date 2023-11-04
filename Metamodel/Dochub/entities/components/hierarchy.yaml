@@ -1,0 +1,84 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          hierarchy: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Иерархия компонента
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: hierarchy
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 1100
+            # Определяем стиль виджета
+            style:
+              border: false
+              margin: 4px
+      hierarchy:
+        title: Иерархия компонента
+        params:
+          type: object
+          properties:
+            component:
+              title: Идентификатор компонента
+              type: string
+          required:
+            - component
+        type: plantuml
+        template: templates/hierarchy.puml
+        source: >
+          (
+            /* Запоминаем ссылки на контексты и объекты */
+            $CONTEXTS := contexts;
+            $COMPONENTS := components;
+            /* Определяем фильтр для выделяемой иерархической структуры */
+            $FILTER := $params.component;
+            $FILTER_LN := $length($FILTER);
+            /* Определяем иерархию владельцев */
+            $PARENTS := $FILTER.$split(".")~>$map(function($v, $LIMIT, $a){(
+                $a~>$map(function($v, $i) { $i <= $LIMIT ? $v})~>$join(".");
+            )});
+            $merge((
+                /* Выбираем их компонентов нужные для построения диаграммы */
+                [components.$spread().(
+                      $ID := $keys()[0];
+                      $PREFIX := $substring($ID, 0, $FILTER_LN + 1);
+                      $FILTER_LN = 0
+                      or ($PREFIX = $FILTER) or ($PREFIX = ($FILTER & "."))
+                      or ($ID in $PARENTS) ? $ID;
+                  )]
+                ).(
+                  /* Готовим полный массив идентификаторов */
+                  ($~>$split(".")~>$map(function($v, $limit, $struct) {
+                    {
+                      $struct~>$map(function($pice, $index) {
+                        $index <= $limit ? $pice
+                      })~>$join("."): true
+                    }
+                  }))
+              )
+            ).$spread().(
+              /* Готовим массив для вывода */
+              $ID := $keys()[0];
+              $CONTEXT := $lookup($CONTEXTS, $ID);
+              $COMPONENT := $lookup($COMPONENTS, $ID);
+              {
+                "id": $ID,
+                "title": $COMPONENT.title ? $COMPONENT.title : (
+                  $CONTEXT.title ? $CONTEXT.title : $reverse($split($ID, "."))[0]
+                ),
+                "link": $CONTEXT ? "/architect/contexts/" & $ID : "/architect/components/" & $ID
+              }            
+            )^(id).(
+              /* Готовим PlantUML код для MindMap */
+              $color := id = $FILTER ? "[#FFBBCC]" : "";
+              "*" & $join($split(id, ".").("*")) & $color & " [[" & link & " " & title & "]]"
+            )~>$join("\n");
+          )

@@ -1,0 +1,64 @@
+# Сводка по архитектурному аспекту
+entities:
+  aspects:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          summary: # Идентификатор виджета
+            # Иконка виджета
+            icon: settings
+            # Название виджета
+            title: Сводка по аспекту
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: summary
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 10
+            # Определяем стиль виджета
+            style:
+              margin: 4px
+              border: true
+      summary:
+        title: Сводка по аспекту
+        params:
+          type: object
+          properties:
+            aspect:
+              title: Идентификатор аспекта
+              type: string
+          required:
+            - aspect
+        type: markdown
+        template: templates/summary.md
+        source: >
+          (
+            $ASPECT_ID := $params.aspect;
+            $MANIFEST := $;
+            $lookup(aspects, $ASPECT_ID).(
+                $ASPECT := $;
+                $FORM := $MANIFEST.forms["aspect" in entity].fields;
+                $FIELDS := $append([
+                    {
+                        "title": "Идентификатор",
+                        "content": $ASPECT_ID,
+                        "field": "id",
+                        "required": true
+                    },
+                    {
+                        "title": "Название",
+                        "content": title,
+                        "field": "title",
+                        "required": true
+                    }
+                ], $FORM.$spread().{
+                    "title": $.*.title,
+                    "required": $.*.required,
+                    "content": $lookup($ASPECT, $keys()[0]),
+                    "field": $keys()[0]
+                });
+            )
+          )
+

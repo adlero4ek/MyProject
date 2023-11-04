@@ -1,0 +1,80 @@
+# Сводка по архитектурному аспекту
+entities:
+  aspects:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          hierarchy: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Иерархия аспекта
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: hierarchy
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 30
+            # Определяем стиль виджета
+            style:
+              border: true
+              margin: 4px
+      hierarchy:
+        title: Иерархия аспекта
+        params:
+          type: object
+          properties:
+            aspect:
+              title: Идентификатор аспекта
+              type: string
+          required:
+            - aspect
+        type: plantuml
+        template: templates/hierarchy.puml
+        source: >
+          (
+            $ASPECTS := aspects;
+            /* Определяем фильтр для выделяемой иерархической структуры */
+            $FILTER := $params.aspect;
+            $FILTER_LN := $length($FILTER);
+            /* Определяем иерархию владельцев */
+            $PARENTS := $FILTER.$split(".")~>$map(function($v, $LIMIT, $a){(
+                $a~>$map(function($v, $i) { $i <= $LIMIT ? $v})~>$join(".");
+            )});
+            $merge((
+                /* Выбираем их компонентов нужные для построения диаграммы */
+                [$ASPECTS.$spread().(
+                      $ID := $keys()[0];
+                      $PREFIX := $substring($ID, 0, $FILTER_LN + 1);
+                      $FILTER_LN = 0
+                      or ($PREFIX = $FILTER) or ($PREFIX = ($FILTER & "."))
+                      or ($ID in $PARENTS) ? $ID;
+                  )]
+                ).(
+                  /* Готовим полный массив идентификаторов */
+                  ($~>$split(".")~>$map(function($v, $limit, $struct) {
+                    {
+                      $struct~>$map(function($pice, $index) {
+                        $index <= $limit ? $pice
+                      })~>$join("."): true
+                    }
+                  }))
+              )
+            ).$spread().(
+              /* Готовим массив для вывода */
+              $ID := $keys()[0];
+              $ASPECT := $lookup($ASPECTS, $ID);
+              {
+                "id": $ID,
+                "title": $ASPECT.title ? $ASPECT.title : $ID,
+                "link": $CONTEXT ? "/architect/aspects/" & $ID : "/architect/aspects/" & $ID
+              }            
+            )^(id).(
+              /* Готовим PlantUML код для MindMap */
+              $color := id = $FILTER ? "[#FFBBCC]" : "";
+              $content := id = title ? " " & title : " [[" & link & " " & title & "]]";
+              "*" & $join($split(id, ".").("*")) & $color & $content
+            )~>$join("\n");
+          )

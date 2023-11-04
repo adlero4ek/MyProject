@@ -1,0 +1,41 @@
+datasets:
+
+  Appication.dataset.ListOfInformationSystems:
+    source: >
+      (
+
+        $manifest := $;
+  
+        $distinct(components.$spread().(
+      
+          $component_id := $keys()[0];
+          $organization_id := $split($component_id, ".", 1) ~> $join('.');
+          $functional_area_id := $split($component_id, ".", 3) ~> $join('.');
+      
+          $.*.{
+            "id":                      "/architect/components/" & $component_id,
+            "extended_component_card": "/entities/extended_application_card/blank?id=" & $component_id,
+            "title":                   title,
+            "entity":                  entity,
+            "description":             description,
+            "type":                    extension.type,
+            "area":                    $functional_area_id ? $lookup($manifest.components, $functional_area_id).title : $functional_area_id,
+            "area_id":                 $functional_area_id ? "/architect/components/" & $functional_area_id: "",
+            "state":                   extension.state,
+            "state_update_date":       extension.state_update_date,
+            "development_platform":    extension.development_platform,
+            "basic_solution":          extension.basic_solution,
+            "basic_solution_link":     extension.basic_solution_link,
+            "basic_solution_state":    extension.basic_solution_state,
+            "basic_solution_summary":  (extension.basic_solution & ", статус: " & extension.basic_solution_state),
+            "provider":                extension.provider,
+            "provider_type":           extension.provider_type,
+            "owner":                   (extension.owner_name & ", e-mail: " & extension.owner_email),
+            "owner_name":              (extension.owner_name),
+            "organization_title":      $organization_id ? $lookup($manifest.components, $organization_id).title : $organization_id,
+            "organization_link":       $organization_id ? "/architect/components/" & $organization_id: ""
+          };
+      
+        ))[type="system" or type="external system"]^(organization_title)
+      
+      )

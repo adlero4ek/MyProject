@@ -1,0 +1,55 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          contexts: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Контексты
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: contexts
+            # Расположение слева
+            align: ">"
+            # Порядок расположения
+            order: 1100
+            # Определяем стиль виджета
+            style:
+              border: false
+              min-height: 300px
+              margin: 4px
+      contexts:
+        title: Контексты где встречается компонент
+        params:
+          type: object
+          properties:
+            component:
+              title: Идентификатор компонента
+              type: string
+          required:
+            - component
+        type: mkr-select
+        source: >
+          (
+            $component_id := $params.component;
+            $append(
+              [
+                {
+                  "title": "SELF",
+                  "src": "@entity/contexts/plantuml?dh-context-id=SELF&componentId=" & $component_id & "&dh-focus-id=" & $component_id
+                }
+              ],
+              [$distinct([contexts.$spread().(
+                  $CONTEXT := $;
+                  $ID := $keys()[0];
+                  *.components[$wcard($component_id, $)].{
+                      "src": "@entity/contexts/plantuml?dh-context-id=" & $ID & "&dh-focus-id=" & $component_id,
+                      "title": $CONTEXT.*.title ? $CONTEXT.*.title : $ID
+                  }
+              )])]^(title)
+            )
+          )

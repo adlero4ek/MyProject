@@ -1,0 +1,53 @@
+docs:
+
+  Common.doc.ApplicationsListOfInformationSystems:
+    location: "Архитектура приложений/Общий список систем и сервисов"
+    type: table
+    headers:
+      - value: organization_title
+        text: "Организация"
+        sortable: true
+        link: organization_link
+      - value: title
+        text: "Наименование"
+        sortable: true
+        link: extended_component_card
+      - value: description
+        text: "Описание"
+      - value: area
+        text: "Функ. область"
+        sortable: true
+        link: area_id
+      - value: state
+        text: "Статус"
+        sortable: true
+      - value: development_platform
+        text: "Платформа"
+        sortable: true
+    source: Appication.dataset.ListOfInformationSystems
+
+  Common.doc.DataListOfInformationSystems:
+    location: "Архитектура данных/Общий список систем и сервисов"
+    type: table
+    headers:
+      - value: organization_title
+        text: "Организация"
+        sortable: true
+        link: organization_link
+      - value: title
+        text: "Наименование"
+        sortable: true
+        link: extended_component_card
+      - value: description
+        text: "Описание"
+      - value: area
+        text: "Функ. область"
+        sortable: true
+        link: area_id
+      - value: state
+        text: "Статус"
+        sortable: true
+      - value: development_platform
+        text: "Платформа"
+        sortable: true
+    source: Appication.dataset.ListOfInformationSystems

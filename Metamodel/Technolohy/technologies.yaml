@@ -1,0 +1,167 @@
+technologies:
+
+  sections:
+
+    Frameworks:
+      title: Фреймворки
+
+    Languages:
+      title: Языки программирования
+
+    Tools:
+      title: Инструментарий
+
+    Infrastructure:
+      title: Инфраструктурные приложения
+
+  items:
+
+    #    Имя технологии:
+    #      section: # Frameworks/ Languages / Tools  Infrastructure
+    #      status:  # Статус технологии adopt / trial / assess / hold
+    #      title:   # Описание технологии
+    #      link:    # Ссылка разработчика на технологию
+    #      aliases: # Синонимы
+    #        - синоним 1
+    #        - синоним N
+
+    # Описание инструментария (Tools)
+
+    Git:
+      section: Tools
+      status: adopt
+      title: "Cистема управления версиями. Это означает, что локальный клон проекта является полным репозиторием управления версиями. Полнофункциональные локальные
+       репозитории упрощают работу в автономном режиме или в удаленном расположении. Разработчики фиксируют свою работу локально, а затем синхронизируют свою 
+       копию репозитория с копией на сервере."
+      link: https://git-scm.com/
+      aliases:
+        - git
+        - vcs
+        - Version Control System
+        - гит
+
+    Allure:
+      section: Tools
+      status: adopt
+      title: "Инструмент для создания отчетов о результатах тестирования в автоматизированных тестовых сценариях. Он предоставляет красиво оформленные
+        и интерактивные отчеты, которые позволяют легко анализировать результаты тестирования и принимать информированные решения на основе полученных данных"
+      link: https://allurereport.org/docs/
+      aliases:
+        - allure
+
+    Vanessa Automation:
+      section: Tools
+      status: adopt
+      title: Инструмент тестирования прикладных решений на платформе "1С:Предприятие 8"
+      link: https://pr-mex.github.io/vanessa-automation/
+      aliases:
+        - Vanessa
+
+    Markdown:
+      title: Markdown
+      link: pass
+      section: Tools
+      status: trial
+
+    PlantUML:
+      section: Tools
+      status: trial
+      title: "Универсальный компонент, позволяющий быстро и просто создавать диаграммы. Пользователи могут создавать различные диаграммы, используя простой и 
+        интуитивно понятный язык"
+      link: https://plantuml.com/ru/
+
+    # Описание инфраструктурных приложений (Infrastructure)
+
+    Postgresql Pro Enterprise:
+      section: Infrastructure
+      status: adopt
+      title: СУБД "Postgresql Pro Enterprise"
+      link: https://postgrespro.ru/products/postgrespro/enterprise
+      aliases:
+        - Postgresql
+        - Postgre
+
+    MSSQL:
+      section: Infrastructure
+      status: hold
+      title: СУБД "MSSQL"
+      link: https://postgrespro.ru/products/postgrespro/enterprise
+
+    # Описание фреймворков (Frameworks)
+
+    UML (sequence diagram):
+      section: Frameworks
+      status: adopt
+      title: UML (sequence diagram)
+      link: https://www.uml.org/
+
+    EPC (business process diagram):
+      section: Frameworks
+      status: Hold
+      title: EPC
+      link: pass
+      aliases:
+        - еписи
+        - епс
+
+    IDEF0 (business process diagram):
+      section: Frameworks
+      status: adopt
+      title: IDEF0
+      link: pass
+      aliases:
+        - яйдеф
+        - идеф
+        - idef
+
+    1C "Предприятие 8":
+      section: Frameworks
+      status: adopt
+      title: "Технологическая платформа, то есть программная среда, внутри которой могут работать отдельные конфигурации. Среда имеет собственный язык 
+        программирования, на котором разрабатываются прикладные решения, поэтому она полностью определяет их функционал и возможности"
+      link: https://v8.1c.ru/tekhnologii/overview/
+      aliases:
+        - 1C
+        - 1C 8 3
+        - Восьмерка
+        - восьмерка
+
+    1C "Предприятие 7.7":
+      section: Frameworks
+      status: hold
+      title: "Технологическая платформа, то есть программная среда, внутри которой могут работать отдельные конфигурации. Среда имеет собственный язык 
+        программирования, на котором разрабатываются прикладные решения, поэтому она полностью определяет их функционал и возможности"
+      link: https://1c.ru/rus/products/1c/predpr/default.jsp
+      aliases:
+        - 1C 7 7
+        - семерка
+        - Семерка
+
+    Camunda:
+      section: Frameworks
+      status: assess
+      title: Camunda
+      link: https://camundarus.ru/
+
+    # Описание языков программирования (Languages)
+
+    JSONata:
+      section: Languages
+      status: adopt
+      title: "Язык запросов, разработанный для работы с JSON-структурами. Он позволяет выбирать, фильтровать и преобразовывать данные в JSON-формате, используя 
+        простой и выразительный синтаксис. JSONata позиционируется как универсальное решение для преобразования и фильтрации JSON-данных, независимо 
+        от используемого языка программирования или платформы"
+      link: https://jsonata.org/
+
+    JavaScript:
+      section: Languages
+      status: trial
+      title: JavaScript
+      link: https://ru.wikipedia.org/wiki/JavaScript
+      aliases:
+        - js
+        - ts
+        - ecmascript
+        - javascript
+        - TypeScript
+        - typescript

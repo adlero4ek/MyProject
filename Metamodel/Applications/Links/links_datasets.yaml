@@ -1,0 +1,91 @@
+datasets:
+
+  links.dataset.MainListOfLinks:
+    source: >
+      (
+          $c := $.components;
+          
+          $.links.$spread().(
+          
+            $d := *.$;
+            
+            {
+              "link_id": "/entities/links/blank?id=" & $keys()[0],
+              "link_code": $d.code,
+              "link_title": $d.title,
+              "link_description": $d.description,
+              "link_state": $d.state,
+              "link_state_update_date": $d.state_update_date,
+      
+              "component_from_id": $d.from,
+              "component_from_link": "/architect/components/" & $d.from,
+              "component_from_title": $lookup($c, $d.from).title,
+      
+              "component_from_sybsystem_id": $d.sybsystem_from,
+              "component_from_sybsystem_link": "/architect/components/" & $d.from_sybsystem,
+              "component_from_sybsystem_title": $lookup($c, $d.from_sybsystem).title,
+            
+              "component_to_id": $d.to,
+              "component_to_link": "/architect/components/" & $d.to,
+              "component_to_title": $lookup($c, $d.to).title,
+      
+              "interface_via": $d.interface_via,
+              "interface_via_title": $lookup($c, $d.interface_via).title,
+              "interface_via_link": $contains($d.interface_via, "Systems") ? "/architect/components/" & $d.interface_via : "undefined"      
+            }
+      
+          )^(link_code)
+      
+      )
+
+  links.dataset.ParametersList:
+    source: >
+      (
+
+        $log($params.id);
+      
+        $.links.$spread().(
+
+          $link_id :=  $keys()[0];
+
+          $.*.parameters.{
+              "id": $link_id,
+              "name": name,
+              "description": description,
+              "type": type
+          } 
+
+        )[id=$params.id]
+      
+      )
+  links.dataset.BusinessObjects:
+    source: >
+      (
+
+        $MANIFEST := $;
+  
+        $.links.$spread().(
+        
+          $link_id :=  $keys()[0];
+          
+          $.*.BusinessObjects.(
+          
+            $Object  := $;
+            $Objects := $lookup($MANIFEST.BusinessObjects, $Object);
+            $Objects := $merge([$Objects, {"id": $Object}]);
+            
+            {
+              
+              "link_id": $link_id,
+              "BusinessObject_id": $Objects.id,
+              "BusinessObject_title": $Objects.title,
+              "BusinessObject_description": $Objects.description,
+              "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $Objects.id
+            
+            }
+          
+          )
+        
+        )[link_id=$params.id]
+      
+      )

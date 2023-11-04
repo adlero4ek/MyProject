@@ -1,0 +1,3 @@
+imports:    
+  - dochub_menu_model.yaml
+  - dochub_menu.yaml

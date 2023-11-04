@@ -1,0 +1,87 @@
+rules:
+  validators:
+    BusinessObjects:
+      title: "Объекты бизнеса (BusinessObjects): Базовые проверки полноты и корректности заполнения"
+      schema:
+        type: object
+        properties:
+          # Основные атрибуты
+          title:
+            type: string
+            minLength: 10
+          description:
+            type: string
+            minLength: 9
+          type:
+            type: string
+            minLength: 5
+          division_owner:
+            type: string
+            minLength: 9
+          state:
+            type: string
+            minLength: 5
+          state_update_date:
+            type: string
+            pattern: \d{2}[-.]\d{2}[-.]\d{4}
+          owner:
+            type: string
+            minLength: 5
+          # Состав атрибутов
+          parameters:
+            title: Атрибуты
+            type: array
+            minItems: 2
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 2
+                description:
+                  type: string
+                  minLength: 5
+                type:
+                  type: string
+                  minLength: 4
+              required:
+                - name
+                - description
+                - type
+        required:
+          - title
+          - description
+          - type
+          - division_owner
+          - state
+          - state_update_date
+          - owner
+          - parameters
+        additionalProperties: true
+      source: >
+        (
+          $validator := $jsonschema(rules.validators.BusinessObjects.schema);
+
+          $Query := $.BusinessObjects.$spread().(
+
+              $ID := $keys()[0];
+
+              {
+                  "id": $ID,
+                  "isvalid": $validator($.*)
+              }
+
+          )[isvalid != true and $contains(id, "Romashka")];
+        
+          [$Query.(
+        
+            $id := id;
+        
+            $.isvalid.{
+              "uid": "$custom-BusinessObjects-main-attributes-" & $id & "-" & params.missingProperty & $replace(instancePath, "/", "-"),
+              "location": "/entities/BusinessObjects/blank?id=" & $id,
+              "correction": "Корректно заполните реквизит: " & $replace(instancePath, "/", "",1),
+              "description": message
+            }
+          )]
+        )

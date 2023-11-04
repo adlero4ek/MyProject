@@ -1,0 +1,6 @@
+@startwbs
+* Sequence-диаграммы
+{{#.}}
+{{level}} [[{{&link}} {{{title}}}]]
+{{/.}}
+@endwbs

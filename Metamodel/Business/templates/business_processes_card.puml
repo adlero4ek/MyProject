@@ -1,0 +1,32 @@
+@startuml
+
+autonumber
+skinparam ParticipantPadding 20
+skinparam BoxPadding 20
+
+{{#.}}
+title {{{title}}}
+
+{{#components}}
+{{entity}} "{{{value}}}" as {{id}}
+{{/components}}
+
+{{#groups}}
+    group {{title}}
+    {{#triggers}}
+        note across: {{{.}}}
+    {{/triggers}}
+    {{#steps}}
+        {{from}} -> {{to}} : {{{value}}}
+        {{#return}}
+        return {{{return}}}
+        {{/return}}
+    {{/steps}}
+    {{#results}}
+        note across: {{{.}}}
+    {{/results}}
+    end
+{{/groups}}
+{{/.}}
+
+@enduml

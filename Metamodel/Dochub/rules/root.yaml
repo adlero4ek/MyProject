@@ -1,0 +1,11 @@
+imports:
+  - accounts.yaml  
+  - technologies.yaml
+  - validators.yaml
+  - systems.yaml
+  - valid_system.yaml
+
+rules:
+  validators:
+    swamp:
+      title: ГК Болото

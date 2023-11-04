@@ -1,0 +1,57 @@
+# Сводка по архитектурному аспекту
+entities:
+  aspects:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          contexts: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Контексты
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: contexts
+            # Расположение слева
+            align: ">"
+            # Порядок расположения
+            order: 10
+            # Определяем стиль виджета
+            style:
+              border: true
+              min-height: 300px
+              margin: 4px
+      contexts:
+        title: Контексты где встречается аспект
+        params:
+          type: object
+          properties:
+            aspect:
+              title: Идентификатор аспекта
+              type: string
+          required:
+            - aspect
+        type: mkr-select
+        source: >
+          (
+            $aspect_id := $params.aspect;
+            $MANIFEST := $;
+            [$distinct(
+            components.$spread().(
+                $COMPONENT_ID := $keys()[0];
+                *.[$aspect_id in aspects] ? 
+                (
+                    [$MANIFEST.contexts.$spread().(
+                        $CONTEXT_ID := $keys()[0];
+                        $TITLE := *.title;
+                        *.components[$wcard($COMPONENT_ID, $)].{
+                            "id": $CONTEXT_ID,
+                            "title": $TITLE,
+                            "src": "@entity/contexts/plantuml?dh-context-id=" & $CONTEXT_ID & "&dh-focus-id=" & $aspect_id
+                        }
+                    )];
+                ) : undefined
+            ))];
+          )
+

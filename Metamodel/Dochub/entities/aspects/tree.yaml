@@ -1,0 +1,37 @@
+# Сводка по архитектурному аспекту
+entities:
+  aspects:
+    presentations:
+      tree:
+        title: Иерархия аспектов
+        type: plantuml
+        template: templates/tree.puml
+        source: >
+          (
+            $ASPECTS := aspects;
+            $merge((
+                [$ASPECTS.$spread().(
+                    $keys()[0]~>$split(".")~>$map(function($v, $limit, $struct) {
+                        {
+                        $struct~>$map(function($pice, $index) {
+                            $index <= $limit ? $pice
+                        })~>$join("."): true
+                        }
+                    })
+                )]
+              )
+            ).$spread().(
+              /* Готовим массив для вывода */
+              $ID := $keys()[0];
+              $ASPECT := $lookup($ASPECTS, $ID);
+              {
+                "id": $ID,
+                "title": $ASPECT.title ? $ASPECT.title : $ID,
+                "link": "/entities/aspects/blank?dh-aspect-id=" & $ID
+              }            
+            )^(id).(
+              /* Готовим PlantUML код для MindMap */
+              $content := " [[" & link & " " & title & "]]";
+              "*" & $join($split(id, ".").("*")) & $content
+            )~>$join("\n");
+          )

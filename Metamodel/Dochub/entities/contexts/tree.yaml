@@ -1,0 +1,39 @@
+# Сводка по архитектурному аспекту
+entities:
+  contexts:
+    presentations:
+      tree:
+        title: Иерархия контекстов
+        type: plantuml
+        template: templates/tree.puml
+        source: >
+          (
+            $CONTEXTS := contexts;
+            /* Получаем нужную презентацию из конфигурации */
+            $presentation := entities.contexts.config.defaultPresentation;
+            $merge((
+                [$CONTEXTS.$spread().(
+                    $keys()[0]~>$split(".")~>$map(function($v, $limit, $struct) {
+                        {
+                        $struct~>$map(function($pice, $index) {
+                            $index <= $limit ? $pice
+                        })~>$join("."): true
+                        }
+                    })
+                )]
+              )
+            ).$spread().(
+              /* Готовим массив для вывода */
+              $ID := $keys()[0];
+              $CONTEXT := $lookup($CONTEXTS, $ID);
+              {
+                "id": $ID,
+                "title": $CONTEXT.title ? $CONTEXT.title : $ID,
+                "link": "/entities/contexts/" & $presentation & "?dh-context-id=" & $ID
+              }            
+            )^(id).(
+              /* Готовим PlantUML код для MindMap */
+              $content := " [[" & link & " " & title & "]]";
+              "*" & $join($split(id, ".").("*")) & $content
+            )~>$join("\n");
+          )

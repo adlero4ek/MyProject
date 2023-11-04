@@ -1,0 +1,80 @@
+rules:
+  validators:
+    Systems:
+      title: "Системы и сервисы: Базовые проверки полноты и корректноти заполнения"
+      schema:
+        type: object
+        properties:
+          extension:
+            type: object
+            properties:
+              state:
+                type: string
+                minLength: 5
+              state_update_date:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              development_platform:
+                type: string
+                minLength: 5
+              basic_solution:
+                type: string
+                minLength: 5
+              basic_solution_state:
+                type: string
+                minLength: 5
+              provider:
+                type: string
+                minLength: 5
+              provider_type:
+                type: string
+                minLength: 5
+              owner_name:
+                type: string
+                minLength: 5
+              owner_email:
+                type: string
+                minLength: 5
+            required:
+              - state
+              - state_update_date
+              - development_platform
+              - basic_solution
+              - basic_solution_state
+              - provider
+              - provider_type
+              - owner_name
+              - owner_email
+        required:
+          - extension
+          - title
+          - description
+        additionalProperties: true
+      source: > 
+        (
+          $validator := $jsonschema(rules.validators.Systems.schema);
+      
+          $Query := components.$spread().(
+        
+            $ID := $keys()[0];
+        
+            {
+              "id": $ID,
+              "isSystem": (*.extension.type = "system") or (*.entity = "component" and $count(($split($ID, ".")))=4),
+              "isvalid": $validator($.*)
+            }
+        
+          )[isSystem=true and isvalid != true];
+          
+          [$Query.(
+        
+            $id := id;
+        
+            $.isvalid.{
+              "uid": "$custom-systems-main-attributes-" & $id & "-" & params.missingProperty & $replace(instancePath, "/", "-"),
+              "location": "/architect/components/" & $id,
+              "correction": "Корректно заполните реквизит: " & $replace(instancePath, "/", "",1),
+              "description": message
+            }
+          )]
+        )

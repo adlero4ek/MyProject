@@ -1,0 +1,126 @@
+entities:
+
+  SequenceDiagrams:
+    title: Диаграммы последовательности
+    description: "Бизнес-процессы в формате диаграмм последовательности. Диаграмма последовательности:
+      — это подвид диаграмм взаимодействия, который позволяет описать взаимодействие между объектами в системе в виде последовательности сообщений, действий и операций,
+        отображая порядок выполнения действий и обмена информацией между объектами во времени.
+      — отображают взаимодействия между объектами, порядок выполнения операций и обмена информацией во времени. Они помогают улучшить понимание функционирования системы, 
+        выявить потенциальные ошибки и проблемы в процессе взаимодействия объектов."
+    menu: >
+      (
+        $append(
+      
+          [{
+            "icon": "swap_horiz",
+            "link": "entities/SequenceDiagrams/TreeView",
+            "location": "Бизнес архитектура/Ромашка/Бизнес процессы (as-is)/Дерево процессов"
+          }],
+          
+          [$.SequenceDiagrams.$spread().{
+            "icon": *.icon,
+            "link": "entities/SequenceDiagrams/blank?id=" & $keys()[0],
+                                          /* Можно явно указать адрес схемы через location */
+            "location": *.location
+          }][location!=""]
+          
+        );
+      
+      )
+    presentations:
+      blank:
+        type: plantuml
+        title: Основная карточка бизнес процесса
+        template: Templates/business_processes_card.puml
+        source: > 
+          (
+              $components := $.components;
+              $obj := $lookup($.SequenceDiagrams, $params.id);
+              $makeLink := function($entity) {(
+                /* В зависимости от контракта ссылка формируется разными способами */
+                $entity.link ?
+                  $join([
+                    "[[",
+                    $substring($entity.link, 0, 4) = 'http' ?
+                      "" : /* готовые ссылки не трогаем, выведем как есть */
+                      $contains($entity.link, "/") ?
+                        "" : /* наличие слэша говорит, что это ссылка на документ докхаба, в том числе на другую диаграмму */
+                        "/docs/", /* по умолчанию считаем, что все прочее это id документа */
+                      $entity.link,
+                      " ",
+                      $entity.value,
+                      "]]"
+                  ]) :
+                  $entity.value; /* контракт не указан, ссылки не будет */
+              )};
+
+              $components := $distinct($obj.groups.steps.$spread().($merge([{"id": $.from}, {"id": $.to}, $res]))).$spread().(
+                  $component := $lookup($components, $.id);
+                  $component ?
+                    { /* компонент с таким id есть, линкуем */
+                        "id": $.id,
+                        "entity": $component.entity in ['actor', 'database', 'queue', 'collections', 'entity'] ? $component.entity : "participant",
+                        "value": "[[/architect/components/" & $.id & " " & $component.title & "]]"
+                    } :
+                    { /* покажем простой блок с текстом */
+                      "id": $.id,
+                      "entity": "participant",
+                      "value": $.id
+                    }
+              );
+
+              $merge([{"components": $components, "title":$obj.title}, {
+                  "groups": $obj.groups.(
+                  {
+                      "title": $.title,
+                      "steps": $map($.steps, function($v, $i) {
+                          {
+                              "from": $components[id=$v.from].id,
+                              "to": $components[id=$v.to].id,
+                              /* Проверяем, нужна ли стрелка с возвратом управления. Если текст не указан, подставляем пробел */
+                              "return": $exists($v.return) ? ($v.return ? $v.return : " ") : false,
+                              "value": $makeLink($v)
+                          }
+                      }),
+                      "triggers": $.triggers,
+                      "results": $.results
+                  }
+              )
+              }])
+          
+          )
+
+      TreeView:
+        type: plantuml
+        template: Templates/business_processes_tree_view.puml
+        source: >       
+          (
+
+              $set("prev-id", undefined);
+              $arrleft := function($arr ,$count) {
+                  $map($arr, function($v, $i) {
+                      $i <= $count ? $v
+                  })
+              };
+              $SequenceDiagrams := $.SequenceDiagrams;
+              [$SequenceDiagrams.$spread().($merge([{"id" : $keys()[0]}, $.*]))^(id).(
+                  $prev_nodes := $split($get("prev-id"), ".");
+                  $prev_level := $count($prev_nodes);
+                  $curr_nodes := $split(id, ".");
+                  $set("isdiff", false);
+                  $result := $map($curr_nodes, function($v, $i) {(
+                      $set("isdiff", $get("isdiff") or $prev_level = 0 or $prev_level <= $i or $v != $prev_nodes[$i]) ? (
+                          $id := $join($arrleft($curr_nodes, $i), ".");
+                          $SequenceDiagrams :=  $lookup($SequenceDiagrams, $id);
+                          {
+                              "id": $id,
+                              "level": $pad("", $i+2, "*"),
+                              "title": $SequenceDiagrams ? $SequenceDiagrams.title : $id,
+                              "link": "/entities/SequenceDiagrams/blank?id=" & $id
+                          }
+                      );
+                  )});
+                  $set("prev-id", id);
+                  $result 
+              )];
+          )

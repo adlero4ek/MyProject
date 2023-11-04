@@ -1,0 +1,52 @@
+# Сводка по архитектурному аспекту
+entities:
+  aspects:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          components: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Встречается в компонентах
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: components
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 15
+            # Определяем стиль виджета
+            style:
+              border: true
+              padding: 0px
+              margin: 0px
+      components:
+        title: Компоненты
+        params:
+          type: object
+          properties:
+            aspect:
+              title: Идентификатор аспекта
+              type: string
+          required:
+            - aspect
+        type: markdown
+        template: templates/components.md
+        source: >
+          (
+              $MANIFEST := $;
+              $ASPECT := $params.aspect;
+              { "components": components.$spread().(
+                  $KEY := $keys()[0];
+                  $.*.aspects[$ = $ASPECT] ? [(
+                      $COMPONENT := $lookup($MANIFEST.components, $KEY);
+                      {
+                          "title": $COMPONENT.title,
+                          "id" : $KEY
+                      }
+                  )]
+                )
+              }
+          )

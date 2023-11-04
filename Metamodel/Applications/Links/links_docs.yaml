@@ -1,0 +1,27 @@
+docs:
+
+  links.doc.ParametersList:
+    type: table
+    headers:
+      - value: name
+        text: "Наименование"
+        sortable: true
+      - value: description
+        text: "Описание"
+        wight: 50%
+      - value: type
+        text: "Тип"
+        link: link
+    source: links.dataset.ParametersList
+
+  links.doc.BusinessObjects:
+    type: table
+    headers:
+      - value: BusinessObject_title
+        text: "Наименование"
+        sortable: true
+        link: BusinessObject_link
+      - value: BusinessObject_description
+        text: "Описание"
+        wight: 50%
+    source: links.dataset.BusinessObjects

@@ -1,0 +1,64 @@
+# Бланк архитектурного компонента
+entities:
+  components:
+    presentations:
+      blank:
+        title: Карточка компонента
+        params:
+          type: object
+          properties:
+            dh-component-id:
+              title: Идентификатор компонента
+              type: string
+          required:
+            - dh-component-id
+        type: mkr-grid
+        source: >
+          (
+            /* Получаем идентификатор компонента для карточки */
+            $component_id := $params."dh-component-id";
+            
+            /* Получаем виджеты, которые нужно отобразить */
+            $widgets := entities.components.presentations.blank.widgets;
+            $wleft := $widgets.*[align="<"]^(order);
+            $wright := $widgets.*[align=">"]^(order);
+            $wcenter := $widgets.*[$not(align=">" or align="<")]^(order);
+
+            /* Функция генерации  профиля виджета для секции разметки */
+            $makeWidget := function($widgets) {(
+              [$widgets.{
+                  "title": title,
+                  "icon": icon,
+                  "style": style ? style : {},
+                  "src": "@entity/components/" & presentation & "?component=" & $component_id
+              }];
+            )};
+
+            /* Строим разметку страницы */
+            {
+              "type": "rows",
+              "items": $append(
+                [
+                  {
+                    "type": "columns",
+                    "items": [
+                      {
+                        "type": "rows",
+                        "width": "40%",
+                        /* Строим список виджетов левой секции */
+                        "items": $makeWidget($wleft)
+                      },
+                      {
+                        "type": "rows",
+                        "width": "60%",
+                        /* Строим список виджетов правой секции */
+                        "items": $makeWidget($wright)
+                      }
+                    ]
+                  }
+                ],
+                /* Добавляем центральные виджеты */
+                $makeWidget($wcenter)
+              )
+            }
+          )

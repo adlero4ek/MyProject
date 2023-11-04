@@ -1,0 +1,220 @@
+#todo отдельная проверка что компоненты from, from_sybsystem подчиненны друг другу
+rules:
+  validators:
+    ComponentLinks:
+      title: "Интеграционные связи (links): Базовые проверки полноты и корректности заполнения"
+      schema:
+        type: object
+        properties:
+          # Основные атрибуты
+          from:
+            type: string
+            minLength: 10
+          from_sybsystem:
+            type: string
+            minLength: 9
+          to:
+            type: string
+            minLength: 10
+          to_sybsystem:
+            type: string
+            minLength: 9
+          title:
+            type: string
+            minLength: 5
+          description:
+            type: string
+            minLength: 9
+          code:
+            type: string
+            minLength: 5
+          state:
+            type: string
+            minLength: 5
+          state_update_date:
+            type: string
+            pattern: \d{2}[-.]\d{2}[-.]\d{4}
+          interface:
+            type: string
+            minLength: 5
+          interface_via:
+            type: string
+            minLength: 5
+          interface_standard_type:
+            type: string
+            minLength: 5
+          asynchronous:
+            type: string
+            minLength: 2
+          size_mb:
+            type: number
+            minimum: 0.5
+            maximum: 10
+          # Состав спецификации связи (атрибуты)
+          parameters:
+            title: Состав спецификации связи (атрибуты)
+            type: array
+            minItems: 2
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 2
+                description:
+                  type: string
+                  minLength: 5
+                type:
+                  type: string
+                  minLength: 4
+              required:
+                - name
+                - description
+                - type
+        required:
+          - from
+          - from_sybsystem
+          - to
+          - to_sybsystem
+          - title
+          - description
+          - code
+          - state
+          - state_update_date
+          - interface
+          - interface_via
+          - interface_standard_type
+          - asynchronous
+          - size_mb
+          - periodicity
+          - parameters
+        additionalProperties: true
+      source: >
+        (
+          $validator := $jsonschema(rules.validators.ComponentLinks.schema);
+
+          $Query := $.links.$spread().(
+
+              $ID := $keys()[0];
+
+              {
+                  "id": $ID,
+                  "isvalid": $validator($.*)
+              }
+
+          )[isvalid != true and $contains(id, "Romashka")];
+        
+          [$Query.(
+        
+            $id := id;
+        
+            $.isvalid.{
+              "uid": "$custom-links-main-attributes-" & $id & "-" & params.missingProperty & $replace(instancePath, "/", "-"),
+              "location": "/entities/links/blank?id=" & $id,
+              "correction": "Корректно заполните реквизит: " & $replace(instancePath, "/", "",1),
+              "description": message
+            }
+          )]
+        )
+    ComponentIsExist:
+      title: "Интеграционные связи (links): Компоненты, указанные в атрибутах связей существуют (описаны) в проекте"
+      source: >  
+        (
+        
+          $IsComponent := function($c, $component_id) {(
+              $type($lookup($c, $component_id).title)="string")};
+  
+          $c := $.components;
+  
+          $Query_from := $.links.$spread().(
+  
+              $ID := $keys()[0];
+  
+              $append(
+                  {
+                      "id": $ID,
+                      "attribute": "from",
+                      "attribute_value": *.from,
+                      "isvalid": $IsComponent($c, *.from)
+                  },
+                  {
+                      "id": $ID,
+                      "attribute": "from_sybsystem",
+                      "attribute_value": *.from_sybsystem,
+                      "isvalid": $IsComponent($c, *.from_sybsystem)
+                  }
+              )
+          )[isvalid!=true and attribute_value!="undefined"];
+  
+          $Query_to := $.links.$spread().(
+  
+              $ID := $keys()[0];
+  
+              $append(
+                  {
+                      "id": $ID,
+                      "attribute": "to",
+                      "attribute_value": *.to,
+                      "isvalid": $IsComponent($c, *.to)
+                  },
+                  {
+                      "id": $ID,
+                      "attribute": "to_sybsystem",
+                      "attribute_value": *.to_sybsystem,
+                      "isvalid": $IsComponent($c, *.to_sybsystem)
+                  }
+              )
+          )[isvalid!=true and attribute_value!="undefined"];
+  
+          $Query := $distinct($append($Query_from, $Query_to));
+  
+          [$Query.(
+              {
+                  "uid": "$custom-ComponentIsExist-" & id & "-" & attribute,
+                  "location": "/entities/links/blank?id=" & id,
+                  "correction": "Корректно заполните реквизит: " & attribute,
+                  "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
+              }
+          )]
+        )
+    ComponentsWithinSameDomain:
+      title: "Интеграционные связи (links): Компоненты, указанные в атрибутах связей (from+from_sybsystem или to+to_sybsystem) принадлежат одному домену"
+      source: >
+        (
+          $IsComponent := function($c, $component_id) {(
+                        $type($lookup($c, $component_id).title)="string")};
+
+          $c := $.components;
+
+          $Query := $.links.$spread().(
+
+              $ID := $keys()[0];
+
+              $append(
+                  {
+                      "id": $ID,
+                      "attribute": "from_sybsystem",
+                      "attribute_value": *.from_sybsystem,
+                      "attribute_domain": *.from,              
+                      "isvalid": ($IsComponent($c, *.from) and $IsComponent($c, *.from_sybsystem)) and ($contains(*.from_sybsystem, *.from)=true)
+                  },
+                  {
+                      "id": $ID,
+                      "attribute": "to_sybsystem",
+                      "attribute_value": *.to_sybsystem,
+                      "attribute_domain": *.to,
+                      "isvalid": ($IsComponent($c, *.to) and $IsComponent($c, *.to_sybsystem)) and ($contains(*.to_sybsystem, *.to)=true)
+                  }
+              )
+
+          )[isvalid=false and $contains(id, "Romashka") and attribute_value!="undefined"];
+                
+          [$Query.(
+              {
+                  "uid": "$custom-ComponentsWithinSameDomain-" & id & "-" & attribute,
+                  "location": "/entities/links/blank?id=" & id,
+                  "correction": "Корректно заполните реквизит: " & attribute,
+                  "description": "Значение реквизита должно быть заполнено подчиненным комопнентом: " & attribute_domain & ".[Имя подчиненного компонента]" 
+              }
+          )]
+        )

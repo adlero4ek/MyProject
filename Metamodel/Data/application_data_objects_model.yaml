@@ -1,0 +1,131 @@
+entities:
+
+  ApplicationDataObjects:
+    title: Объекты данных приложений
+    description: "Объекты данных приложений"
+    presentations:
+      blank:
+        title: Основная карточка Объекты данных приложений
+        type: markdown
+        template: templates/application_data_object_card.md
+        source: >
+          (
+          
+            $MANIFEST := $;
+          
+            $query := $.ApplicationDataObjects.$spread().(
+
+               $app_data_obj_id := $keys()[0];
+  
+               *.business_Objects.(
+  
+                   $array_busness_obj := $;
+                   $busness_obj := $lookup($MANIFEST.BusinessObjects, $array_busness_obj);
+                   $busness_obj := $merge([$busness_obj, {"id": $array_busness_obj}]);
+  
+                   {
+                     "AppDataObject_id": $app_data_obj_id,              
+                     "BusinessObject_id": $busness_obj.id
+                   }       
+               );
+    
+            )[AppDataObject_id=$params.id];
+
+            $count_business_data_obj := $count($query);
+          
+            $distinct(ApplicationDataObjects.$spread().(
+          
+              $Object_id := $keys()[0];
+            
+                $.*.{
+                  "id": $Object_id,
+                  "title": title,
+                  "description": description,
+                  "system_id": system,
+                  "system_link": "/entities/extended_application_card/blank?id=" & system,
+                  "system_title": $lookup($MANIFEST.components, system).title,
+                  "sybsystem_link": "/architect/components/" & sybsystem,
+                  "sybsystem_title": $lookup($MANIFEST.components, sybsystem).title,
+                  "type": type,
+                  "state": state,
+                  "state_update_date": state_update_date,
+                  "owner": owner,
+                  "division_owner": division_owner,
+                  "division_owner_link": "/architect/components/" & division_owner,
+                  "division_owner_title": $lookup($MANIFEST.components, division_owner).title,
+                  "count_business_data_obj": $count_business_data_obj
+                };
+            
+              ))[id=$params.id]
+          
+          )
+      filteredBy_SystemID:
+        title: Таблица объектов приложения, отфильтрованных по ID приложения/сервиса
+        type: table
+        headers:
+          - value: title
+            text: Объект приложения/сервиса
+            sortable: true
+            link: link_id
+          - value: description
+            text: Описание
+          - value: state
+            text: Статус
+            sortable: true
+          - value: state_update_date
+            text: Дата актуализации статуса
+            sortable: true
+        origin: ApplicationDataObjects.dataset.ListOfApplicationDataObjects
+        source: >
+          (
+            $SystemID := $params.SystemID != "" ? $params.SystemID : "";
+            [$[$contains(system_id, $SystemID)]]
+          )
+      filteredBy_BusinessObjectID:
+        title: Таблица объектов приложений, отфильтрованных по ID бизнес объекта
+        type: table
+        headers:
+          - value: System_title
+            text: Приложение/Сервис
+            link: System_link
+          - value: AppDataObject_title
+            text: Объект приложения/сервиса
+            link: AppDataObject_link
+            sortable: true
+          - value: AppDataObject_description
+            text: Описание
+          - value: AppDataObject_state
+            text: Статус
+            sortable: true
+          - value: AppDataObject_state_update_date
+            text: Дата актуализации статуса
+            sortable: true
+        origin: ApplicationDataObjects.dataset.MainListOfApplicationDataObjects
+        source: >
+          (
+            $id := $params.id != "" ? $params.id : "";
+            [$[BusinessObject_id=$id]]
+          )
+      filteredBy_AppDataObjID_and_SystemID:
+        title: Таблица бизнес обектов, отфильтрованных по объекту приложения и приложению
+        type: table
+        headers:
+          - value: BusinessObject_title
+            text: Бизнес-объект
+            link: BusinessObject_link
+            sortable: true
+          - value: BusinessObject_description
+            text: Описание
+          - value: BusinessObject_state
+            text: Статус
+            sortable: true
+          - value: BusinessObject_state_update_date
+            text: Дата актуализации статуса
+            sortable: true
+        origin: ApplicationDataObjects.dataset.MainListOfApplicationDataObjects
+        source: >
+          (
+            $system_id := $params.system_id != "" ? $params.system_id : "";
+            $app_data_id := $params.app_data_id != "" ? $params.app_data_id : "";
+            [$[System_id=$system_id and AppDataObject_id=$app_data_id]]
+          ) 

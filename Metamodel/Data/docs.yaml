@@ -1,0 +1,16 @@
+docs:
+
+  ApplicationDataObjects.doc.ParametersList:
+    type: table
+    headers:
+      - value: name
+        text: "Наименование"
+        sortable: true
+        link: link
+      - value: description
+        text: "Описание"
+        wight: 50%
+      - value: type
+        text: "Тип"
+        wight: 50%
+    source: ApplicationDataObjects.dataset.ParametersList

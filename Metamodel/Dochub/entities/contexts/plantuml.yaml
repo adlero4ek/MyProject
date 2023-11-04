@@ -1,0 +1,261 @@
+# Расширение сущности "Contexts" для генерации PlantUML диаграмм
+entities:
+  contexts:
+    # Предопределенные конфигурационные параметры для генерации PlantUML
+    config:
+      # Какой движок будет использоваться для рендера
+      renderCore: elk # elk / smetana / graphviz
+    # API функции, используемые для генерации PlantUML
+    api:
+      # Генерирует на данных о компонентах и областях PlantUML диаграмму компонентов
+      # Входящие параметры:
+      #   manifest   - данные архитектуры
+      #   components - список компонентов в формате fetchComponents
+      #   areas      - список компонентов в формате fetchAreas
+      #   focusId    - идентификатор требующий фокус
+      makePumlComponentDiagram: >
+        (
+          /* Обрабатываем параметры */
+          $areas := areas;
+          $components := components;
+          $manifest := manifest;
+          $focusId := focusId;
+        
+          $stopBracketsCount := function($a, $b) {$a = 0 ? "}\n" : $a & "}\n"};
+          
+          $join($map($areas, function($domain, $index) {(
+              $result := "";
+              $component := $lookup($components, $domain);
+              $originComponent := $lookup($manifest.components, $domain);
+              $context := $lookup($manifest.contexts, $domain);
+              $domain_plantuml := $replace($domain, '-', '_');
+              /* Определяем является ли элемент областью */
+              $isAreaBegin := $areas[$index + 1].$substring(0, $domain.$length() + 1) = $domain & ".";
+        
+              $result := $result & ($isAreaBegin ? (
+                  $title := $originComponent.title ? $originComponent.title : (
+                      $context.title ? $context.title : $domain
+                  );
+                      "$Region("
+                      & $domain_plantuml
+                      & ",\"[[/architect/components/"
+                      & $domain_plantuml
+                      & " " & $title
+                      & "]]\", ) {\n";
+              ) : "");
+        
+              /* Если домен является компонентом, выводим его на диаграмму */
+              $result := $result & (
+                  $not($isAreaBegin) and $component ? (
+                      /* Открываем секцию компонента */
+                      $entity := $component.entity ? $component.entity : "component";
+                      $system_rate := $eval($manifest.functions.get_systems_total_rating, {'system_id': $domain,
+                        'components': $manifest.components, 'dictionaries': $manifest.dictionaries, 'functions': $manifest.functions});
+                      $color := $domain = $focusId ? "#FFBBCC" : ($exists($system_rate.color) ? $system_rate.color : "");
+                      $result := "$Entity(\"" 
+                          & $entity 
+                          & "\", \""
+                          & "[[/architect/components/" & $domain_plantuml & " " & $component.title & "]]"
+                          & "\", " 
+                          & $domain_plantuml                          
+                          & ", \""
+                          & $component.type
+                          & "\", \""
+                          & $color
+                          & "\" )\n";
+        
+                      /* Добавляем аспекты */
+                      $result := $result & $join($component.aspects.(
+                          $aspect := $lookup($manifest.aspects, $);
+                          $title := $aspect ? $aspect.title : $;
+                          $ = $focusId ?
+                          "$EntityAspect(\""
+                          & $entity
+                          & "\",\" <back:#FFBBCC>"
+                          & $title
+                          & "\")\n"
+                          :
+                          "$EntityAspect(\""
+                          & $entity
+                          & "\",\"* [[/architect/aspects/"
+                          & $encodeUrlComponent($)
+                          & " " 
+                          & $title
+                          & "]]\")\n"
+                      ));
+        
+                      /* Если компонент является контекстом добавляем дрилдаун */
+                      $context ? 
+                          $result := $result & "$EntityExpand(\""
+                          & $entity
+                          & "\", "
+                          & $domain
+                          & ")\n";
+        
+                      /* Закрываем секцию компонента */
+                      $result := $result & 
+                          "$EntityEnd(\""
+                          & $entity
+                          & "\")\n";
+                  ): "";
+              );
+        
+              /* Определяем, что область нужно закрыть*/
+              $result & (
+                $count($split($domain, ".")) > 1 
+                and ($count($split($domain, ".")) > $count($split($areas[$index + 1], "."))
+              ) ? (
+                $m := $areas[$index + 1] ? 0 : -1;
+                $reduce([0..($count($split($domain, ".")) - $count($split($areas[$index + 1], ".")) + $m)], $stopBracketsCount);
+              ) : "");
+          )}));
+        )
+      # Генерирует PlantUML код связей для диаграммы компонентов
+      # Входящие параметры:
+      #   links - список связей в формате fetchLinks
+      makePumlComponentsLinks: >
+        (
+          /*$join(links.(
+            $replace(from, '-', '_') & " " & direction & " " & $replace(to, '-', '_') & (title ? ": " & title : "") & "\n"
+          ))*/
+            $join(links.(
+               from & " " & direction & " " & to & (title ? ": [[" & contract & " "  & title & "]]" : "") & "\n"
+            ))
+        )
+    # Представления контекстов в PlantUML
+    presentations:
+      plantuml:
+        title: Представление в PlantUML
+        params:
+          title: Требуемые параметры для презентации
+          type: object
+          properties:
+            "dh-context-id":
+              title: Идентификатор контекста
+              type: string
+              pattern: ^[0-9a-zA-Z][a-zA-Z0-9_-]*(\.[0-9a-zA-Z][a-zA-Z0-9_-]*)*$
+            "dh-focus-id":
+              title: Идентификатор требующий подсветку
+              type: string
+              pattern: ^[0-9a-zA-Z][a-zA-Z0-9_-]*(\.[0-9a-zA-Z][a-zA-Z0-9_-]*)*$
+          required:
+            - dh-context-id
+        type: plantuml
+        $constructor: >  # Переносим необходимую информацию из контекста в презентацию 
+          (
+            $id := $params."dh-context-id";
+            $context := $lookup(contexts, $id);
+            $prototype := entities.contexts.presentations.plantuml;
+          
+            /* Преобразует относительные пути к файлам в прямые*/
+            $toDirectRes := function($value) {
+                $substring($value, 0, 4) = "res:" ? $value : "res://contexts/" & $id & "#" & $value
+            };
+
+            /* Если явно указан puml файл, просто рендерим его */
+            ($type($context.uml) = "string") and ($substring($context.uml, -5) = ".puml") ? (
+                {
+                  "type": "plantuml",
+                  "source": $toDirectRes($context.uml)
+                }
+            ) : (
+                $result := $context.source ? ($merge([$prototype, {
+                    "origin": { "_source": $context.source, "_origin": "($)" }
+                }])) : $prototype;
+
+                /* Если в контексте переопределен шаблон, используем его по прямой ссылке */
+                $result := $context.template 
+                    ? $merge([$result, { "template":  $toDirectRes($context.template) }])
+                    : $result;
+            )
+          )
+        template: templates/template.puml
+        source: >
+          (
+            $id := $params."dh-context-id";
+            $focusId := $params."dh-focus-id";
+            /* Получаем доступ к оригинальным данным */
+            $manifest := _origin ? _origin : $;
+            /* Получаем контекст */
+            $context := $lookup($manifest.contexts, $id);
+            /* Если в контексте задан источник, берем его за основу */
+            $manifest := _source ? _source : $;
+          
+            $isExtraLinks := $not($string($context."extra-links") = "false");
+          
+            /* Получаем коллекцию дефолтных вспомогательных функций */
+            $defFunctions := $manifest.entities.contexts.api;
+          
+            /* Получаем коллекцию дефолтных параметров */
+            $defConfig := $manifest.entities.contexts.config;
+          
+            /* Получаем параметры из контекста */
+            $customConfig := $context.config;
+          
+            /* Формируем итоговый конфиг */
+            $config := $mergedeep([$defConfig,$customConfig]);
+          
+            /* Определяем движок рендеринга */
+            $renderCore := $lookup({
+              "elk": "!pragma layout elk",
+              "smetana": "!pragma layout smetana"
+            }, $config.renderCore);
+
+            /* Формируем заголовок */ 
+            $header := "$Header(\"" & ($context.title ? $context.title : $id ) & "\", \"" & $context.uml."$autor" & "\", \"" & $context.uml."$version" & "\" , \"" & $context.uml."$moment" & "\")\n";
+           
+
+            /* Получаем все компоненты входящие в контекст */
+            $components := $eval($defFunctions.fetchComponents, $merge([$params, {
+              "manifest": $manifest,
+              "contextId": $id,
+              "extra-links": $isExtraLinks,
+              "componentId": $params.componentId
+            }]));
+          
+             /* Получаем список связей*/
+             
+             /* +++ДОБАВЛЕНИЕ: связи как сущеность
+             /* +++ОРИГИНАЛ
+              $links := $eval($defFunctions.fetchLinks, {
+                        "components": $components
+              });
+             /*---ОРИГИНАЛ*/
+          
+            $links := $eval($defFunctions.fetchLinks, {
+              "manifest": $manifest,
+              "components": $components
+            });          
+          
+            $components := $eval($defFunctions.fetchComponentsFromLinks, {
+              "links": $links,
+              "components": $manifest.components,
+              "required": $components
+            });
+            /* ---ДОБАВЛЕНИЕ: связи как сущеность*/
+          
+            /* Генерируем области */
+            $areas := $eval($defFunctions.fetchAreas, {
+              "components": $components
+            });
+          
+            /* Генерируем PlantUML диаграмму компонентов */
+            $elements := $eval($defFunctions.makePumlComponentDiagram, {
+              "manifest": $manifest,
+              "areas": $areas,
+              "components": $components,
+              "focusId": $focusId
+            });
+          
+            /* Генерируем код связей */
+            $linksCode := $eval($defFunctions.makePumlComponentsLinks, {
+              "links": $links
+            });
+          
+            /* Готовим данные для передачи в шаблон */
+            {
+              "renderCore": $renderCore,
+              "presentation": $defConfig.defaultPresentation,
+              "code": $header & $elements & $linksCode
+            }
+          )

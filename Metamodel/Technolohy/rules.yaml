@@ -1,0 +1,31 @@
+rules:
+  validators:
+    technologiesIsEmpty:
+      title: "Техрадар: Контроль заполнения технологий (technologies)"
+      source: >
+        (
+
+          $Query := $.components.$spread().(
+          
+            $COMPONENT_ID := $keys()[0];
+          
+            $.*.{
+        
+              "id": $COMPONENT_ID,
+              "title": title,
+              "type": extension.type,
+              "technologies": technologies,
+              "technologies_count": $count(technologies)
+            }
+          
+          )[type="system" and technologies_count=0];
+
+          $Query.(
+            {
+              "uid": "$custom-technologies-empty-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите технологии (свойство technologies) системы '" & title,
+              "description": "У каждой системы должен быть указан список технологий c целью контроля технологического радара"
+            }
+          )
+        )

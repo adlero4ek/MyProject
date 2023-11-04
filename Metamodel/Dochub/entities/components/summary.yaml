@@ -1,0 +1,63 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          summary: # Идентификатор виджета
+            # Иконка виджета
+            # icon: settings
+            # Название виджета
+            # title: О системе
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: summary
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 10
+            # Определяем стиль виджета
+            style:
+              margin: -8px
+              border: false
+      summary:
+        # title: О системе
+        params:
+          type: object
+          properties:
+            component:
+              title: Идентификатор системы
+              type: string
+          required:
+            - component
+        type: markdown
+        template: templates/summary.md
+        source: >
+          (
+            $COMPONENT_ID := $params.component;
+            $MANIFEST := $;
+            $lookup(components, $COMPONENT_ID).(
+                $COMPONENT := $;
+                $ENTITY := $.entity ? $.entity : "component";
+                $FORM := $MANIFEST.forms[entity.$contains($ENTITY)].fields;
+                $append([
+                    {
+                        "title": "Идентификатор",
+                        "content": $COMPONENT_ID
+                    },
+                    {
+                        "title": "Название",
+                        "content": title
+                    }
+                    /* +++ОРИГИНАЛ,
+                    {
+                        "title": "Краткое описание 1",
+                        "content": short_description
+                    }*/ 
+                  ], $merge($FORM).$spread().{
+                    "title": $.*.title,
+                    "content": $lookup($COMPONENT, $.$keys())
+                });
+            )
+          )

@@ -1,0 +1,38 @@
+# Сводка по архитектурному аспекту
+entities:
+  components:
+    presentations:
+      tree:
+        title: Иерархия компонентов
+        type: plantuml
+        template: templates/tree.puml
+        source: >
+          (
+            $COMPONENTS := components;
+            $merge((
+                /* Выбираем из компонентов нужные для построения диаграммы */
+                [$COMPONENTS.$spread().(
+                    $keys()[0]~>$split(".")~>$map(function($v, $limit, $struct) {
+                        {
+                        $struct~>$map(function($pice, $index) {
+                            $index <= $limit ? $pice
+                        })~>$join("."): true
+                        }
+                    })
+                )]
+              )
+            ).$spread().(
+              /* Готовим массив для вывода */
+              $ID := $keys()[0];
+              $COMPONENT := $lookup($COMPONENTS, $ID);
+              {
+                "id": $ID,
+                "title": $COMPONENT.title ? $COMPONENT.title : $ID,
+                "link": "/entities/components/blank?dh-component-id=" & $ID
+              }            
+            )^(id).(
+              /* Готовим PlantUML код для MindMap */
+              $content := " [[" & link & " " & title & "]]";
+              "*" & $join($split(id, ".").("*")) & $content
+            )~>$join("\n");
+          )

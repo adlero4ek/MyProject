@@ -1,0 +1,50 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          docs: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Документы
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: docs
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 1200
+            # Определяем стиль виджета
+            style:
+              border: false
+              padding: 12px
+              margin: 4px
+      docs:
+        title: Документы
+        params:
+          type: object
+          properties:
+            component:
+              title: Идентификатор компонента
+              type: string
+          required:
+            - component
+        type: mkr-tree
+        source: >
+          (
+              $COMPONENT_ID := $params.component;
+              $MANIFEST := $;
+              [docs.$spread().(
+                  $LINK := "/docs/" & $keys()[0];
+                  $COMPONENT_ID in *.subjects ?
+                  [$[$COMPONENT_ID in *.subjects]
+                      {
+                          "location": *.location,
+                          "title": *.description,
+                          "link": $LINK
+                      }] : undefined;
+              )[location]^(location)];
+          )

@@ -1,0 +1,13 @@
+docs:
+
+  BusinessObjects.doc.ParametersList:
+    type: table
+    headers:
+      - value: name
+        text: "Наименование"
+        sortable: true
+        link: link
+      - value: description
+        text: "Описание"
+        wight: 50%
+    source: BusinessObjects.dataset.ParametersList

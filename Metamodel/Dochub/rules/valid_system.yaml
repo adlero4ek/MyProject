@@ -1,0 +1,285 @@
+rules:
+  validators:
+    system: # https://dochub.swampgroup.ru/docs/dochub_system_structure
+      title: Валидатор систем/сервисов
+      schema:                                         # JSON Schema
+        type: object
+        properties:
+        # ------------------------
+          short_description:
+            type: string
+            minLength: 10
+        # ------------------------
+          critical_level:
+            enum:
+            - low
+            - middle
+            - high
+            - critical
+        # ------------------------
+          customer_type:
+            type: array
+            minItems: 1
+            items:
+              type: string
+              minLength: 3
+        # ------------------------
+          system_category:
+            type: array
+            minItems: 1
+            items:
+              type: string
+              minLength: 5
+          # ------------------------
+          risk_functional_fit:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4} # 09.10.2022 или 09-10-2022
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------          
+          risk_arch_maturity:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------
+          app_rating:
+            type: object
+            properties:
+              value:                  
+                enum:
+                - A
+                - B
+                - C
+                - D
+              spot_link:
+                type: string
+                pattern: https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
+          # ------------------------
+          risk_code_control:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------
+          risk_sustainability:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------
+          risk_security:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------
+          risk_capacity:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------
+          risk_vendor:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------ 
+          risk_financial:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------   
+          risk_team_skills:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------
+          risk_team_capacity:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4}
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------      
+          risk_process:
+            type: object
+            properties:
+              value:
+                type: integer
+                minimum: 1
+                maximum: 10
+              date_value:
+                type: string
+                pattern: \d{2}[-.]\d{2}[-.]\d{4} # 09.10.2022 или 09-10-2022
+              comments:
+                type: string
+                minLength: 5          
+            required:
+              - value
+              - date_value
+              - comments
+          # ------------------------                     
+        required:
+          - short_description
+          - critical_level
+          - customer_type
+          - system_category
+          - risk_functional_fit
+          - risk_arch_maturity
+          - app_rating
+          - risk_code_control
+          - risk_sustainability
+          - risk_security
+          - risk_capacity
+          - risk_vendor
+          - risk_financial
+          - risk_team_skills
+          - risk_team_capacity
+          - risk_process
+
+        additionalProperties: true
+      source: >                                       # Источник данных об ошибках
+        (
+          /* Создаем валидатор JSON schema */
+          $validator := $jsonschema(rules.validators.system.schema);  /* Схему валидата получаем из контекста отклонения (rules.validators.system.schema)*/
+          /* Формируем базу для проверки */
+          ([([
+            components_test.$spread().( /* Сканируем все компоненты */
+              $ID := $keys()[0];              
+              {                                                               /* Генерируем массив признаков проблем */
+                "isSystem": *.entity = "system",                           /* Это система */
+                "isFitDomain": $boolean($match($ID, /swamp\.*\.*/)), 
+                "id": $ID,                                                    /* Запоминаем идентификатор компонента */
+                "isvalid": $validator($.*)                                    /* Валидируем компонент по схеме */									
+              }
+            )        
+          ][isFitDomain and isSystem and isvalid != true]).isvalid.{    /* Генерируем отклонения по выявленным нарушениям */
+            "uid": %.id  & "-" & $replace($replace(instancePath, "/", "-"), "-", "",1),           /* Уникальный идентификатор выявленной ошибки */
+            "location": "/architect/components/" & %.id,                      /* Ссылка на расположение объекта ошибки */
+            "correction": "Корректно заполните реквизит: "& $replace(instancePath, "/", "",1),                       /* Рекомендации как исправить проблему */
+            "description": message
+          }])
+        )

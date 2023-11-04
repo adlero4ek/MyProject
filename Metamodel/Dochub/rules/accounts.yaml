@@ -1,0 +1,62 @@
+rules:
+  validators:
+    swamp.accounts:
+      title: Контроль аккаунтов
+    swamp.accounts.null:
+      title: Не заполнена одна из ключевых ролей системы      
+      source: >
+        (
+          $MANIFEST := $;
+          $DICTIONARIES := $.dictionaries;
+          $FUNCTIONS := $.functions;
+
+          $MANIFEST.components.$spread().(
+              $COMPONENT_ID := $keys()[0];
+              $.*.{
+                  "id": $COMPONENT_ID,
+                  "entity": entity,
+                  "budget_holder": budget_holder,
+                  "application_owner": application_owner,
+                  "business_owners": business_owners,
+                  "architect": architect
+              }
+          )[entity="system" and ($not(budget_holder) or $not(application_owner) or $not(business_owners) or $not(architect))].(
+            $problems := $join([(budget_holder ? '': 'budget_holder'), (application_owner ? '': 'application_owner'), (business_owners ? '': 'business_owners'), (architect ? '': 'architect')][$], ", ");
+            {
+              "uid": "$smlt-accounts-null-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите эксперта по системе (" & $problems & ')',
+              "description": "Системы должны иметь сведения об экспертах: budget_holder, application_owner, business_owners, architect"
+            }
+          )
+        )
+
+    swamp.accounts.nousername:
+      title: Не корректно заполнена одна из ключевых ролей системы      
+      source: >
+        (
+          $MANIFEST := $;
+          $DICTIONARIES := $.dictionaries;
+          $FUNCTIONS := $.functions;
+          $matcher := /^[А-я]/;
+
+          $MANIFEST.components.$spread().(
+            $COMPONENT_ID := $keys()[0];
+            $.*.{
+              "id": $COMPONENT_ID,
+              "entity": entity,
+              "budget_holder": budget_holder,
+              "application_owner": application_owner,
+              "business_owners": business_owners,
+              "architect": architect
+            }
+          )[entity="system" and ($matcher(budget_holder) or $matcher(application_owner) or $matcher(business_owners) or $matcher(architect))].(
+            $problems := $join([($matcher(budget_holder) ? 'budget_holder': ''), ($matcher(application_owner) ? 'application_owner': ''), ($matcher(business_owners) ? 'business_owners': ''), ($matcher(architect) ? 'architect': '')][$], ", ");
+            {
+              "uid": "$smlt-accounts-nousername-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите эксперта по системе в виде username (" & $problems & ")",
+              "description": "Системы должны иметь сведения об экспертах в атрибутах budget_holder, application_owner, business_owners, architect в виде username"
+            }
+          )
+        )

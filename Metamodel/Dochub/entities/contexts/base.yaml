@@ -1,0 +1,400 @@
+#  Базовое описание сущности "Contexts"
+entities:
+  contexts:
+    title: Контексты
+    description: >
+      Представляет указанные архитектурные компоненты в виде диаграмм.
+    schema:
+      type: object
+      patternProperties:
+        "^[0-9a-zA-Z][a-zA-Z0-9_-]*(\\.[0-9a-zA-Z][a-zA-Z0-9_-]*)*$":
+          type: object
+          properties:
+            title:
+              title: Название контекста
+              type: string
+            location:
+              title: Место расположения в меню
+              type: string
+            icon:
+              title: Иконка в меню
+              type: string
+            components:
+              title: Компоненты контекста
+              type: array
+              items:
+                type: string
+                title: Идентификатор компонента или маска
+                pattern: "^[0-9a-zA-Z][a-zA-Z0-9\\_]*(\\.([0-9a-zA-Z][a-zA-Z0-9\\_]*|\\*))*$"
+            extra-links:
+              title: Отображать компоненты ближайших связей
+              type: boolean
+            presentation:
+              title: Принудительно определяет презентацию
+              type: string
+              enum:
+                - plantuml
+                - smartants
+            uml:
+              title: Кастомизация контекста
+              oneOf:
+                - type: string
+                  title: Путь к файлу PlantUML
+                - type: object
+                  title: Дополнительные параметры
+                  properties:
+                    $before:
+                      title: Код встраиваемый до сгенерированного
+                      type: string
+                    $after:
+                      title: Код встраиваемый после сгенерированного
+                      type: string
+            api:
+              type: object
+              title: Переопределяемые API
+              properties:
+                fetchComponents:
+                  type: string
+                  title: Возвращает список компонентов в кормате ключ-значение
+                fetchLinks:
+                  type: string
+                  title: Возвращает список связей компонентов
+            source:
+              title: Источник данный (запрос или dataset)
+              type: string
+              anyOf:
+                - type: string
+                  title: Идентификатор dataset
+                  pattern: "^[0-9a-zA-Z][a-zA-Z0-9\_]*(\\.[0-9a-zA-Z][a-zA-Z0-9\\_]*)*$"
+                - type: string
+                  title: JSONata запрос
+                  pattern: "\\s*\\((.|\\s)*\\)\\s*"
+          required:
+            - title
+            - components
+      additionalProperties: false
+    menu: >
+      (
+          $presentation := entities.contexts.config.defaultPresentation;
+          [
+              contexts.$spread().(
+                  /* Если указана явно презентация, используем ее */
+                  $presentation := $.*.presentation ? *.presentation : $presentation;
+                  *.location ? {
+                      "location": "Архитектура приложений/" & *.location,
+                      "link": "entities/contexts/" & $presentation & "?dh-context-id=" & $keys()[0]
+                  }
+              )
+          ]
+      )
+    # Предопределенные конфигурационные параметры для генерации контекстов
+    config:
+      # Идентификатор презентации по умолчанию
+      defaultPresentation: plantuml # plantuml / smartants / c4_context
+    # Общие API функции для генерирования контекста
+    api:
+      # Возвращает компоненты входящие в контекст
+      # Входящие параметры:
+      #   manifest      - данные архитектуры
+      #   contextId     - идентификатор контекста
+      #   extra-links   - признак необходимости отразить окружение
+      #   componentId   - идентификатор компонента для контекста SELF
+      fetchComponents: >
+        (
+          /* Обрабатываем параметры */
+          $params := $;
+          $manifest := $params.manifest;
+          /* Признак SELF контекста */
+          $isSelf := $params.componentId ? true : false;
+          /* Получаем объект контекста */
+          $context := $lookup($params.manifest.contexts, contextId);
+           
+          /* Определяем необходимость показывать ближайшие связи */
+          $isExtraLinks := $params.componentId ? true : $params."extra-links";
+        
+          /* Определяем, какие компоненты покажем в контексте */
+          $showComponents := $params.componentId
+            /* Если контекст под определенный компонент, ограничиваемся им. */
+            ? [$params.componentId]
+            /* Если нет берем все компоненты указанные в контексте */
+            : $context.components; 
+          
+          /* Если в контексте переопределена функция получения компонентов, используем ее*/
+          $context.api.fetchComponents ? (
+            $eval($context.api.fetchComponents, $params)
+          ) : (
+            /* Получаем все компоненты входящие в контекст */
+            $components := $merge($showComponents.(
+                $mask := $;
+                $manifest.components.$spread().(
+                    $componentId := $keys()[0];
+                    $result := $wcard($componentId, $mask) ? $
+                )
+            ));
+          
+            /* Добавляем окружение, если это нужно 
+            $merge([$components, $isExtraLinks ? (
+                $components.*.links.(
+                    {
+                        id: $isSelf 
+                          ? $merge([$lookup($manifest.components, id), { "links": [] }])
+                          : $lookup($manifest.components, id)
+                    }
+                );
+            ) : {}]);*/
+          )
+        )
+      # На основании списка компонентов генерирует массива областей которые они затрагивают
+      # Входящие параметры:
+      #   components - список компонентов в формате fetchComponents
+      fetchAreas: >
+        (
+          $distinct(components.$spread().(
+              $componentId := $keys()[0];
+              $domains := $componentId.$split(".");
+              $limit := $count($domains) - 1;
+              $areaId := $map($domains, function($v, $i) {(
+                  $join($map($domains, function($sv, $si) {
+                      $si <= $i ? $sv
+                  }), ".")
+              )});
+          ))^($);
+        )
+      # Генерирует список отображаемых связей
+      # Входящие параметры:
+      #   components - список компонентов в формате fetchComponents
+      fetchLinks: >
+        (
+          
+          $log("fetchLinks");
+          /* Обрабатываем параметры*/
+          /* +++ДОБАВЛЕНИЕ: связи как сущеность (метод добавить новый)*/
+          /* +++ОРИГИНАЛ
+          $components := components;
+          $distinct(
+              $components.$spread().(
+                  $from := $keys()[0];
+                  $direction := $.*.direction ? $.*.direction : "--";
+                  $.*.links[$lookup($components, id)].(
+                    $title := title ? title : contract;
+                    $title := contract ? ("[[/docs/" & contract & " " & $title & "]]") : $title;
+                    {
+                      "from": $from,
+                      "to": (id ? id : "undefined"),
+                      "title": $title,
+                      "contract": contract,
+                      "direction": direction ? direction : "--"
+                    }
+                  )
+              )
+          );
+          /* ---ОРИГИНАЛ*/          
+        
+          $manifest := manifest;
+          $components := $manifest.components;
+          $cmp := [components.$keys()];
+          $first := $cmp[0];
+          $v := $cmp.(
+            $split($first, ".") ~> $count() = $split($, ".") ~> $count() ? true : false;
+          );
+          
+          $isDomainLevel:=$reduce($v, function($a, $b) {$a and $b});
+          
+          $isExtraLinks := false;
+          $isExtraLinks:= $count($cmp) = 1 ? true : extraLinks;
+          
+          $domainLevel := $isDomainLevel ? $count($split($cmp[0], "."));
+          
+          $rawLinks := $manifest.links.$spread().{
+            "from": *.from,
+            "to": *.to,
+            "title": *.title,
+            "via": *.via,
+            "contract": *.contract
+          }[from != ""];
+          
+          $c := $components.$spread().$keys().{"key":$};
+          
+          $services := $cmp.(
+            $key:=$;
+            $c[($contains(key, $key) and $not($substringBefore(key, $key)))]{"list": key, "key": $key};
+          );
+          
+          $l := $not($isExtraLinks) ? $rawLinks[from in $services.list and to in $services.list][from != to] : $rawLinks[from in $services.list or to in $services.list][from != to];
+          
+          $links:= $l{from & "-" & to & "-" & via:{
+            "from": [from],
+            "to": [to],
+            "via": [via],
+            "contract": [contract],
+            "title": [title],
+            "count": $count(from)}
+          };
+          
+          $res := $links.$spread().(
+            $l := *.$;
+            $from := $l.from[0];
+            $to := $l.to[0];
+            $fromService := $domainLevel ? $split($from,".", $domainLevel) ~> $join(".") : ($services[$from in list])[0].key;
+            $toService := $domainLevel ? $split($to,".", $domainLevel) ~> $join(".") : ($services[$to in list])[0].key;
+            $count(*.via) > 0 ? (
+              $data := [$from, *.via, $to];
+              $data#$i.(
+                $fromVia := $;
+                $data[$i+1] ? (
+                  $toVia := $data[$i+1];
+                  $fromServiceVia := $domainLevel ? $split($fromVia,".", $domainLevel) ~> $join(".") : ($services[$fromVia in list])[0].key;
+                  $toServiceVia := $domainLevel ? $split($toVia,".", $domainLevel) ~> $join(".") : ($services[$toVia in list])[0].key;
+                  {
+                    "realFrom": $from,
+                    "realTo": $to,
+                    "from": $fromServiceVia,
+                    "to": $toServiceVia,
+                    "from_query": $fromService,
+                    "to_query": $toService,
+                    "count": $l.count,
+                    "via": $from & "-" & $to,
+                    "contract": $l.contract,
+                    "title": $l.title
+                  }
+                )
+              )
+            ) : (
+              {
+                "realFrom": $fromService,
+                "realTo": $toService,
+                "from": $fromService,
+                "to": $toService,
+                "from_query": $fromService,
+                "to_query": $toService,
+                "via": false,
+                "count": $l.count,
+                "contract": $l.contract,
+                "title": $l.title
+              }
+            )
+          );
+          
+          $mainRes :=[$res{from & "-" & to & "-" & via:
+          {
+            "realFrom": [realFrom],
+            "realTo": [realTo],
+            "from": [from],
+            "to": [to],
+            "from_query": [from_query],
+            "to_query": [to_query],
+            "via": via,
+            "count": $sum(count),
+            "title": [title],
+            "contract": contract
+          }}.$spread().(
+            $contract := (*.count > 1 or $not(*.contract)) ? "/entities/links/filtered?from=" & *.from_query[0] & "&to=" & *.to_query[0] : "/entities/docs/blank?dh-doc-id=" & *.contract[0];
+            $fromServiceName := $lookup($components, *.from_query[0]).title;
+            $toServiceName := $lookup($components, *.to_query[0]).title;
+            $title := (*.count > 1 or $not(*.title)) ? (
+                $fromServiceName & " -> " & $toServiceName & " (" & *.count & ")") : *.title[0];
+                {
+                  "realFrom": [*.realFrom],
+                  "realTo": [*.realTo],
+                  "from":*.from[0],
+                  "fromServiceName":$fromServiceName,
+                  "to": *.to[0],
+                  "toServiceName":$toServiceName,
+                  "count": *.count,
+                  "via": *.via,
+                  "direction": ".>",
+                  "contract": $contract,
+                  "title": $title
+              }
+          )];
+          
+          $groupExternal := $.groups;
+          $except := $.exceptGroups;
+          
+          $s := $distinct($mainRes.(
+            [to, from]
+          ));
+        
+          $grouped := $groupExternal.(
+            $e := $;
+            $s.(
+              $r := $contains($, $e) and $not($ in $except);
+              $r ? {"group": $e, "element":$, "is":$r}
+            )
+          );
+          
+          $result := $mainRes.(
+            $data := $;
+            $from := $grouped[element = $data.from] ? $grouped[element = $data.from].group : $data.from;
+            $to := $grouped[element = $data.to] ? $grouped[element = $data.to].group : $data.to;
+            $merge([$data, {"from": $from, "to":$to}])
+          );
+          
+          $getMatched := function($array){(
+            $v1 := ($array)[0];
+            $sv1 := $split($v1, ".");
+            $cnt := $count($sv1);
+            $rf := $array;
+            
+            $rfr := $sv1#$i.(
+              $matcher := $join($split($v1, ".", $cnt-$i),".");
+              $res := $count([$filter($rf, function($v){
+                $contains($v, $matcher)
+              })]);
+              {
+                "matcher": $matcher,
+                "num": $i,
+                "res": $res,
+                "crf": $count($rf)
+              }
+            );
+            $rss:= $min($rfr[res=crf].num);
+            $q := $rfr[num=$rss].matcher;
+            $q;
+          )};
+          
+          $r:=$result{from & "-" & to: (
+            $lFrom := $getMatched(realFrom);
+            $lTo := $getMatched(realTo);
+            $values := $count(from);
+            $cnt := $sum(count);
+            $contract := $values > 1 ? "/entities/links/filtered?from=" & $lFrom & "&to=" & $lTo : contract;
+            $to := (to)[0];
+            
+            $title := $values > 0 ? (
+              $r:=$domainLevel ? $split($to,".", $domainLevel) ~> $join(".") : ($services[$to in list])[0];
+              "(" & $cnt & ")"
+            ) : title;
+            
+            {
+              "from":(from)[0],
+              "to": (to)[0],
+              "count": $cnt,
+              "direction": (direction)[0],
+              "contract": $contract,
+              "title": $title
+            }
+          )}.$spread().*;
+        
+          $r[count>0];
+          /* ---ДОБАВЛЕНИЕ*/
+       
+        )
+      fetchComponentsFromLinks: >
+        (
+          /* +++ДОБАВЛЕНИЕ: связи как сущеность (метод добавить новый)*/
+  
+          $requiredComponents := $.required;
+          $components := $.components;
+          $links := $.links;
+          $neededComponents := $distinct($append($links.from, $links.to) ~> $append($requiredComponents.$keys()));
+          $neededComponents.(
+            $id := $;
+            {$id:$lookup($components, $id).{
+              "title": title,
+              "entity": entity,
+              "aspects": aspects
+            }};          
+          );
+          /* ---ДОБАВЛЕНИЕ: связи как сущеность*/
+        )      

@@ -1,0 +1,8 @@
+#contexts:
+#
+#  organisations:
+#    title: Организации
+#    location: Организации
+#    extra-links: false
+#    components:
+#      - organisations

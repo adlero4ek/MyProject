@@ -1,0 +1,52 @@
+datasets:
+
+  technology.dataset.SystemsWithEmptyListOfTechnologies:
+    source: >
+      (
+
+        $Query := $.components.$spread().(
+
+            $COMPONENT_ID := $keys()[0];
+
+            $.*.{
+
+                "id": $COMPONENT_ID,
+                "title": title,
+                "type": extension.type,
+                "technologies": technologies,
+                "technologies_count": $count(technologies)
+            }
+
+        )[type="system" and technologies_count=0];
+      
+      )
+
+  technology.dataset.technologies_list:
+    source: >
+      (
+        $ALL := $distinct($.components.*.technologies);
+
+        $GOOD := $.technologies.items.*.aliases;
+
+        $BAD_RESULT := $ALL[$not($ in $GOOD)].(
+            {"title": $, "link": "", "section": "", "status": "Не определён", "aliases": ""}
+        );
+
+        $GOOD_RESULT := $.technologies.(
+          $SECTIONS := $.sections;
+          $.items.$spread().(
+            $_id := $keys()[0];
+            $.*.(
+              {"title": $_id, "link": $.link, "section": $lookup($SECTIONS, $.section).title, "status": $.status, "aliases": $join($.aliases, ", ")}
+            )
+          );
+        )^(section);
+      
+        /*+++ДОБАВЛЕНИЕ
+        +++ОРИГИНАЛ
+        $append($GOOD_RESULT, $BAD_RESULT);
+        ---ОРИГИНАЛ*/  
+        $GOOD_RESULT;
+        /*---ДОБАВЛЕНИЕ*/
+      
+      )

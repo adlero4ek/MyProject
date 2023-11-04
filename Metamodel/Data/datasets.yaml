@@ -1,0 +1,88 @@
+datasets:
+
+  ApplicationDataObjects.dataset.MainListOfApplicationDataObjects:
+    source: >
+      (
+        $MANIFEST := $;        
+
+        $.ApplicationDataObjects.$spread().(
+
+            $app_data_obj_id := $keys()[0];
+            $app_data_obj    := $lookup($MANIFEST.ApplicationDataObjects, $app_data_obj_id);
+
+            *.business_Objects.(
+
+                $array_busness_obj := $;
+                $busness_obj := $lookup($MANIFEST.BusinessObjects, $array_busness_obj);
+                $busness_obj := $merge([$busness_obj, {"id": $array_busness_obj}]);
+      
+                {
+                    "AppDataObject_id": $app_data_obj_id,
+                    "AppDataObject_link": "/entities/ApplicationDataObjects/blank?id=" & $app_data_obj_id,
+                    "AppDataObject_title": $app_data_obj.title,
+                    "AppDataObject_state": $app_data_obj.state,
+                    "AppDataObject_state_update_date": $app_data_obj.state_update_date,
+                    "AppDataObject_description": $app_data_obj.description,
+                    "System_id": $app_data_obj.system,
+                    "System_title":  $lookup($MANIFEST.components, $app_data_obj.system).title,
+                    "System_link": "/entities/extended_application_card/blank?id=" & $app_data_obj.system,
+                    "BusinessObject_id": $busness_obj.id,
+                    "BusinessObject_title": $busness_obj.title,
+                    "BusinessObject_description": $busness_obj.description,
+                    "BusinessObject_state": $busness_obj.state,
+                    "BusinessObject_state_update_date": $busness_obj.state_update_date,
+                    "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $busness_obj.id
+                }       
+            );
+        )^(BusinessObject_title)
+      
+      )
+
+  ApplicationDataObjects.dataset.ListOfApplicationDataObjects:
+    source: >
+      (
+
+        $MANIFEST := $;        
+        $.ApplicationDataObjects.$spread().(
+
+          $ENTITY_ID :=  $keys()[0];
+
+          $entities := $.*.{
+              "id": $ENTITY_ID,
+              "link_id": "/entities/ApplicationDataObjects/blank?id=" & $ENTITY_ID,
+              "title": title,
+              "description": description,      
+              "system_id": system,
+              "system_link": "/entities/extended_application_card/blank?id=" & system,
+              "system_title": $lookup($MANIFEST.components, system).title,
+              "type": type,
+              "state": state,
+              "state_update_date": state_update_date,
+              "owner": owner,
+              "division_owner": division_owner
+          };
+
+        )^(system_title)
+
+      ) 
+
+  ApplicationDataObjects.dataset.ParametersList:
+    source: >
+      (
+        $GetTypeAsLink := function($typeid) {(
+            $lookup(ApplicationDataObjects, $typeid).title)};
+      
+        $.ApplicationDataObjects.$spread().(
+      
+            $ENTITY_ID :=  $keys()[0];
+            $.*.parameters.{
+                "id": $ENTITY_ID,
+                "name": name,
+                "description": description,
+                "type": $contains(type, "ApplicationDataObject")? $GetTypeAsLink(type):type,
+                "link": $contains(type, "ApplicationDataObject")? "/entities/ApplicationDataObjects/blank?id="&type:"" 
+            } 
+        )[id=$params.id]
+      
+      )
+

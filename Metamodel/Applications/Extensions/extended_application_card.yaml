@@ -1,0 +1,59 @@
+entities:
+
+  extended_application_card:
+    title: Расширенная карточка информационной системы/сервиса
+    description: ""
+    presentations:
+      blank:
+        title: Расширенная карточка информационной системы/сервиса
+        type: markdown
+        template: extended_application_card.md
+        source: >
+          (
+
+              $id := $params.id;
+              $IsDomain := $count($split($id, "."))=3;
+              $DomainName := $split($id, ".", 2)~> $join('.');
+              
+              $query_count_app_data_obj := $.ApplicationDataObjects.$spread().(
+                $.*.{
+                  "system_id": system,
+                  "count_app": system=$id ? 1 : 0,
+                  "count_domain": $contains(system, $DomainName) ? 1 : 0
+                }
+              )[system_id=$id or $contains(system_id, $DomainName)]; 
+          
+              $query_count_links := $.links.$spread().(
+                  $.*.{"count_from": ($IsDomain=false ? from=$id : $contains(from, $id)) ? 1 : 0,
+                       "count_to": ($IsDomain=false ? to=$id : $contains(to, $id)) ? 1 : 0});
+          
+              components.$spread().(
+              
+                $link_id := $keys()[0];
+            
+                $.*.{
+                  "id": $link_id,
+                  "id_link": "/architect/components/" & $link_id,
+                  "title": title,
+                  "entity": entity,
+                  "description": description,
+                  "type": extension.type,
+                  "area": extension.area,
+                  "state": extension.state,
+                  "state_update_date": extension.state_update_date,
+                  "development_platform": extension.development_platform,
+                  "basic_solution": extension.basic_solution,
+                  "basic_solution_link": extension.basic_solution_link,
+                  "basic_solution_state": extension.basic_solution_state,
+                  "provider": extension.provider,
+                  "provider_type": extension.provider_type,
+                  "owner":  (extension.owner_name&", e-mail: "&extension.owner_email),
+                  "owner_name": (extension.owner_name),
+                  "count_app_data_obj": $IsDomain = true ? $sum($query_count_app_data_obj.count_domain) : $sum($query_count_app_data_obj.count_app),
+                  "count_links_from": $sum($query_count_links.count_from),
+                  "count_links_to": $sum($query_count_links.count_to)
+                }
+          
+              )[id=$params.id]
+     
+          )

@@ -1,0 +1,7 @@
+imports:
+  - Business/root.yaml
+  - Applications/root.yaml
+  - Data/root.yaml
+  - Technolohy/root.yaml
+  - Dochub/root.yaml
+  - Dochub_menu/root.yaml

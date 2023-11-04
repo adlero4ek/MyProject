@@ -1,0 +1,51 @@
+# Сводка по архитектурному аспекту
+entities:
+  aspects:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          docs: # Идентификатор виджета
+            # Иконка виджета
+            icon: description
+            # Название виджета
+            title: Документы
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: docs
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 20
+            # Определяем стиль виджета
+            style:
+              border: true
+              padding: 12px
+              margin: 4px
+      docs:
+        title: Документы
+        params:
+          type: object
+          properties:
+            aspect:
+              title: Идентификатор аспекта
+              type: string
+          required:
+            - aspect
+        type: mkr-tree
+        source: >
+          (
+              $ASPECT_ID := $params.aspect;
+              $MANIFEST := $;
+              [docs.$spread().(
+                  $LINK := "/docs/" & $keys()[0];
+                  $ASPECT_ID in *.subjects ?
+                  [$[$ASPECT_ID in *.subjects]
+                      {
+                          "location": *.location,
+                          "title": *.description,
+                          "link": $LINK
+                      }] : undefined;
+              )[location]^(location)];
+          )
+
