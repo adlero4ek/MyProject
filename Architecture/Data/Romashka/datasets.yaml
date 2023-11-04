@@ -1,0 +1,8 @@
+datasets:
+
+  Romashka.dataset.ListOfApplicationDataObjects:
+    origin: ApplicationDataObjects.dataset.ListOfApplicationDataObjects
+    source: >
+      (
+         [$[$contains(id, "Romashka.ApplicationDataObject")]]
+      )

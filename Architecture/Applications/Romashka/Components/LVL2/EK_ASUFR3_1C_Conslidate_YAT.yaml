@@ -1,0 +1,22 @@
+components:
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.UserPermissions:
+    title: Права и роли пользователей
+    entity: component
+    description: Права и роли пользователей
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.MDM:
+    title: Управление НСИ
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.Reporting:
+    title: Формирование консолидированной отчетности
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem

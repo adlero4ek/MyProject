@@ -1,0 +1,57 @@
+ApplicationDataObjects:
+
+  Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_ERP.Organizations:
+    uuid:
+    system: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
+    title: Справочник "Организации"
+    type: Справочник
+    table_name: Справочники.Организации
+    description: Юридические лица и предприниматели нашего предприятия.
+    parameters:
+      - name: Наименование
+        description: "Полное официальное наименование организации (по учредительным документам) для вывода в печатные формы документов"
+        type: Строка (150)
+      - name: НаименованиеСокращенное
+        description: "Сокращенное официальное наименование организации (по учредительным документам) для вывода в печатные формы документов"
+        type: Строка (150)
+      - name: ИНН
+        description: "Идентификационный номер налогоплательщика представляет собой цифровой код, упорядочивающий сбор налогов с налогоплательщиков. ИНН присваивается
+          как юридическим, так и физическим лицам"
+        type: Число
+      - name: КПП
+        description: "Код причины постановки на учет используется только для юридических лиц и является дополнением к ИНН в связи с постановкой на учет в
+          разных налоговых органах"
+        type: Число
+      - name: ОГРН
+        description: "Основной государственный регистрационный номер. Получение ОГРН свидетельствует о внесении предприятия в государственный реестр"
+        type:  Строка (15)
+      - name: Префикс
+        description: "Используется при нумерации документов. В начало каждого номера документов данной организации добавляется два буквенных символа"
+        type: Строка (2)
+    state: Проектируется
+    state_update_date: 01.01.2023
+    owner: Иванов И.И
+    division_owner: Romashka.Divisions.FinancialService
+    business_Objects: #todo добавить контроль наличия объектов
+      - Romashka.BusinessObject.Organizations
+
+  Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_ERP.Warehouses:
+    uuid:
+    system: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.RegulatedAccounting
+    title: Справочник "Склады"
+    type: Справочник
+    table_name: Справочники.Склады
+    description: Сведения о местах хранения товаров (складах), их структуре и физических лицах, назначенных материально ответственными (МОЛ) за тот или иной склад
+    parameters:
+      - name: Код
+        description: Код склада
+        type: Строка
+      - name: Наименование
+        description: Наименование склада организации
+        type: Строка
+    state: Проектируется
+    state_update_date: 01.01.2023
+    owner: Иванов И.И
+    division_owner: Romashka.Divisions.FinancialService

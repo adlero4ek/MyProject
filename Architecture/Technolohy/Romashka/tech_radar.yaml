@@ -1,0 +1,124 @@
+components:
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.Technological.SPPR:
+    technologies:
+      - 1C "Предприятие 8"
+      - Allure
+      - IDEF0 (business process diagram)
+      - Vanessa Automation
+
+  Romashka.Systems.ArchitectureManagement.Dochub:
+    technologies:
+      - PlantUML
+      - Markdown
+      - UML (sequence diagram)
+      - JavaScript
+      - JSONata
+      - Git
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_Conslidate:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_OpenSource:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_MDM:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.Technological.GeneralTaskBook:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.Technological.ESB_1CIntegrationCORP:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Lutik.Systems.FinancialManagement.System1:
+    technologies:
+      - 1C "Предприятие 7.7"
+      - Postgresql Pro Enterprise
+
+  Lutik.Systems.FinancialManagement.System2:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+      - Allure
+
+  Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+      - Allure

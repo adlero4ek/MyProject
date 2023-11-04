@@ -1,0 +1,122 @@
+ApplicationDataObjects:
+
+  Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.Organizations:
+    uuid: 35a6d3c8-3832-419f-81ef-fc7c113af6a4
+    system: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.MDM
+    title: Справочник "Организации"
+    type: Справочник
+    table_name: Справочники.Организации
+    description: Юридические лица и предприниматели нашего предприятия.
+    parameters:
+      - name: Наименование
+        description: "Полное официальное наименование организации (по учредительным документам) для вывода в печатные формы документов"
+        type: Строка (150)
+      - name: НаименованиеСокращенное
+        description: "Сокращенное официальное наименование организации (по учредительным документам) для вывода в печатные формы документов"
+        type: Строка (150)
+      - name: ИНН
+        description: "Идентификационный номер налогоплательщика представляет собой цифровой код, упорядочивающий сбор налогов с налогоплательщиков. ИНН присваивается
+          как юридическим, так и физическим лицам"
+        type: Число
+      - name: КПП
+        description: "Код причины постановки на учет используется только для юридических лиц и является дополнением к ИНН в связи с постановкой на учет в
+          разных налоговых органах"
+        type: Число
+      - name: ОГРН
+        description: "Основной государственный регистрационный номер. Получение ОГРН свидетельствует о внесении предприятия в государственный реестр"
+        type:  Строка (15)
+      - name: Префикс
+        description: "Используется при нумерации документов. В начало каждого номера документов данной организации добавляется два буквенных символа"
+        type: Строка (2)
+    state: Проектируется
+    state_update_date: 01.01.2023
+    owner: Иванов И.И
+    division_owner: Romashka.Divisions.FinancialService
+    business_Objects: #todo добавить контроль наличия объектов
+      - Romashka.BusinessObject.Organizations
+
+  Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.GoodsTransfer:
+    uuid: 050b09a5-e36c-42b6-b337-cdddd2968bea
+    system: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.RegulatedAccounting
+    title: Документ "Перемещение товаров"
+    type: Документ
+    table_name: Документы.ПеремещениеТоваров
+    description: Документы, регистрирующие факты перемещения товаров между складами предприятия
+    parameters:
+      - name: Дата
+        description: Дата регистрации документа
+        type: Дата
+      - name: Номер
+        description: Номер требования-накладной в соответствии с внутренним документооборотом организации
+        type: Строка
+      - name: Организация
+        description: Организация предприятия, от имени которой оформляется документ перемещения.
+        type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.Organizations
+      - name: СкладОтправитель
+        description: Необходимо выбрать склад, с которого товары перемещаются.
+        type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.Warehouses
+      - name: ОрганизацияПолучатель
+        description: Организация предприятия, в которую перемещаются товары.
+        type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.Organizations
+      - name: СкладПолучатель
+        description: Номер требования-накладной в соответствии с внутренним документооборотом организации
+        type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.Warehouses
+      - name: Товары
+        description: Перемещаемые товары между складами предприятия
+        type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.GoodsTransfer_TableGoods
+    state: Проектируется
+    state_update_date: 01.01.2023
+    owner: Иванов И.И
+    division_owner: Romashka.Divisions.FinancialService
+    business_Objects: #todo добавить контроль наличия объектов
+      - Romashka.BusinessObject.Document_M11
+
+  Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.GoodsTransfer_TableGoods:
+    uuid: Документы.ПеремещениеТоваров.Табличная часть.Товары
+    system: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.RegulatedAccounting
+    title: Табличная часть "Товары" документа "Перемещение товаров"
+    type: Табличная часть
+    table_name: Документы.ПеремещениеТоваров.Товары
+    description: Перемещаемые товары между складами предприятия
+    parameters:
+      - name: Номенклатура
+        description: Перемещаемая номенклатура
+        type: Строка
+      - name: Характеристика
+        description: Характеристика перемещаемоей номенклатуры
+        type: Строка
+      - name: Количество
+        description: Количество (в единицах хранения) перемещаемоей номенклатуры
+        type: Строка
+      - name: ЗаказНаПеремещение
+        description: Заказ на перемещение, по которому оформляется строка перемещения
+        type: Строка
+    state: Проектируется
+    state_update_date: 01.01.2023
+    owner: Иванов И.И
+    division_owner: Romashka.Divisions.FinancialService
+    business_Objects: #todo добавить контроль наличия объектов приложений
+      - Romashka.BusinessObject.TableOfMaterials
+
+  Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.Warehouses:
+    uuid:
+    system: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.RegulatedAccounting
+    title: Справочник "Склады"
+    type: Справочник
+    table_name: Справочники.Склады
+    description: Сведения о местах хранения товаров (складах), их структуре и физических лицах, назначенных материально ответственными (МОЛ) за тот или иной склад
+    parameters:
+      - name: Код
+        description: Код склада
+        type: Строка
+      - name: Наименование
+        description: Наименование склада организации
+        type: Строка
+    state: Проектируется
+    state_update_date: 01.01.2023
+    owner: Иванов И.И
+    division_owner: Romashka.Divisions.FinancialService

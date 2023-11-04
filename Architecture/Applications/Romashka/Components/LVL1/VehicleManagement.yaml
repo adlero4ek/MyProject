@@ -1,0 +1,77 @@
+components:
+
+  # Системы конутра управления автотранспортом
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ
+    entity: component
+    description:
+      "Автоматизации управления на автотранспортных предприятиях различного масштаба, использующих автотранспорт для собственных нужд, с расширенными
+       возможностями: спутниковый мониторинг, картографические сервисы и многое другое."
+    extension:
+      type: system
+      area: Управление автотранспортом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/autotransport-prof
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+      owner_name: Сидоров С. С.
+      owner_email: fio@mail.ru
+    aspects:
+      - DocumentManagement.EDO
+      - VehicleManagement.Vehicles
+      - VehicleManagement.ApplicationsRoadTransport
+      - VehicleManagement.Waybills
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ (эталон)
+    entity: component
+    description:
+      "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,
+       влияющими на функционирование «ЕК АСУФР-3. 1С:УАТ ПРОФ», а также реализации функций моделирования и контроля над изменениями учетной политики
+       обеспечением переноса выполненных изменений в «ЕК АСУФР-3. 1С:УАТ ПРОФ». Дополнительно копия системы может использоваться для проведения обучения
+       пользователей, например, в процессе тиражирования или различных видов тестирования (функциональное, регрессионное и прочее)."
+    extension:
+      type: system
+      area: Управление автотранспортом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/autotransport-prof
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+      owner_name: Сидоров С. С.
+      owner_email: fio@mail.ru
+    aspects:
+      - CommonAspects.ReferenceClassifiers
+      - CommonAspects.ReferenceMDM
+      - CommonAspects.ReferenceSettings
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ (консолидация)
+    entity: component
+    description:
+      "Автоматизированная система для централизованного хранения данных «ЕК АСУФР-3. 1С:УАТ всех бизнес-единиц ОАО «Ромашка» с целью организации оперативного
+       доступа к данным только тех пользователей, которые выполняют централизованные функции (консолидация, поиск и обработка данных всех бизнес-единиц ОАО «Ромашка»)
+       и для решения которых не предусмотрено использование общего «Задачника/Отчетника»"
+    extension:
+      type: system
+      area: Управление автотранспортом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/autotransport-prof
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+      owner_name: Сидоров С. С.
+      owner_email: fio@mail.ru
+    aspects:
+      - CommonAspects.ConsolidatedStatements

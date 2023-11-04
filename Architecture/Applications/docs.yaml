@@ -1,0 +1,6 @@
+docs:
+
+  Common.doc.lvl_0_Architecture:
+    type: markdown
+    location: Архитектура приложений/Общий ландшафт
+    source: Templates/common_architecture_lvl_0.md

@@ -1,0 +1,45 @@
+contexts:
+
+  # Контекст расчета з/п и управления персоналом
+
+  Romashka.Systems.HRManagement:
+    title: "Расчет з/п и управления персоналом"
+    location: "Ромашка/Архитектурные схемы/Уровень 3/Расчет заработной платы и HR"
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.*
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_CORP:
+    title: "Расчет з/п и управления персоналом"
+    location: 
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP.*
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP:
+    title: "Расчет з/п и управления персоналом"
+    location: 
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.*
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_Conslidate:
+    title: "Расчет з/п и управления персоналом"
+    location: 
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_Conslidate.*
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ:
+    title: "Расчет з/п и управления персоналом"
+    location: 
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ.*
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_OpenSource:
+    title: "Расчет з/п и управления персоналом"
+    location: 
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_OpenSource.*

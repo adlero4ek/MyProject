@@ -1,0 +1,16 @@
+imports:
+
+  - EK_ASUFR3_1C_Etalon_DO.yaml
+  - EK_ASUFR3_1C_DO.yaml
+
+  - EK_ASUTR2_1C_Etalon_ZUP.yaml
+
+  - EK_ASUFR3_1C_Etalon_ERP.yaml
+  - EK_ASUFR3_1C_MDM_ERP.yaml
+
+  - EK_ASUFR3_1C_Etalon_YAT.yaml
+
+  - EK_ASUTR2_UserPermissionsAndMonitoring.yaml
+  - EK_ASUFR3_UserPermissionsAndMonitoring.yaml
+
+  - EK_ASUFR3_1C_ERP.yaml

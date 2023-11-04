@@ -1,0 +1,134 @@
+SequenceDiagrams:
+
+  Romashka:
+    title: Процессы организации "Ромашка"
+
+  Romashka.DocumentManagement:
+    title: ЭДО, ЮЗЭДО, ВКЭДО
+
+  Romashka.DocumentManagement.EDO_VK:
+    title: ВКЭДО
+
+  Romashka.DocumentManagement.EDO_VK.EDO_M4:
+    title: ЭДО №М-4
+    location: "Бизнес архитектура/Ромашка/Бизнес процессы (as-is)/ВКЭДО/ЭДО №М-4"
+    groups:
+      - title: Функции в системе БЕ (отправителя)
+        triggers:
+          - Получены документы на приход ТМЦ
+        steps:
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Создание М-4 на основании \nзаказа на поставку/инвентаризации/\nбух-го документа перемещения
+            link: /entities/BusinessObjects/blank?id=Romashka.BusinessObject.Document_M4
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Генерация М-4 (XML, PDF)
+            link: https://belblanktorg.by/wp-content/uploads/2021/03/Приходный-ордер-М-4_page-0001-1536x1086.jpg
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Просмотр М-4 (PDF)
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.AccountantMaterials
+            value: Просмотр М-4 (PDF)
+            return:
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Формирование КЭП для М-4\n(Утверждение)
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Systems.Supporting.EK_ASUD_2
+            value: И.11.1.4 Передача пакета М-4 с КЭП в АСД
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+            return:
+        results:
+          - М-4 подготовлен и утвержден
+      - title: Функции в ЕК АСУД-2
+        triggers:
+          - М-4 успешно
+        steps:
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Просмотр пакета с М-4 в АСД
+          - from: Romashka.Roles.AccountantMaterials
+            to: Romashka.Roles.AccountantMaterials
+            value: Просмотр пакета с М-4 в АСД
+        results:
+          - М-4 проверен
+      - title: Функции в системе БЕ (отправителя)
+        triggers:
+          - Зафиксирована потребность аннулировать М-4
+        steps:
+          - from: Romashka.Roles.AccountantMaterials
+            to: Romashka.Roles.Storekeeper
+            value: Запрос аннулирования утвержденного М-4
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Подтверждение аннулирования М-4 с формированием КЭП
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Systems.Supporting.EK_ASUD_2
+            value: И.11.1.4 Передача ЭД аннулирования с КЭП в пакет ЭД М-4 в АСД
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+        results:
+          - М-4 аннулирован
+
+  Romashka.DocumentManagement.EDO_VK.EDO_M11:
+    title: ЭДО №М-11
+    location: "Бизнес архитектура/Ромашка/Бизнес процессы (as-is)/ВКЭДО/ЭДО №М-11"
+    groups:
+      - title: Функции в системе БЕ (отправителя)
+        triggers:
+          - Получены документы на приход ТМЦ
+        steps:
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Создание М-11 на основании \nзаказа на поставку/инвентаризации/\nбух-го документа перемещения
+            link: /entities/BusinessObjects/blank?id=Romashka.BusinessObject.Document_M11
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Генерация М-11 (XML, PDF)
+            link: https://buhguru.com/wp-content/uploads/2018/04/c-users-vova-desktop-buhguru-aprel-2018-168-treb.png
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Просмотр М-11 (PDF)
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.AccountantMaterials
+            value: Просмотр М-11 (PDF)
+            return:
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Формирование КЭП для М-11\n(Утверждение)
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Systems.Supporting.EK_ASUD_2
+            value: И.11.1.4 Передача пакета М-11 с КЭП в АСД
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+            return:
+        results:
+          - М-11 подготовлен и утвержден
+      - title: Функции в ЕК АСУД-2
+        triggers:
+          - М-11 успешно
+        steps:
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Просмотр пакета с М-11 в АСД
+          - from: Romashka.Roles.AccountantMaterials
+            to: Romashka.Roles.AccountantMaterials
+            value: Просмотр пакета с М-11 в АСД
+        results:
+          - М-11 проверен
+      - title: Функции в системе БЕ (отправителя)
+        triggers:
+          - Зафиксирована потребность аннулировать М-11
+        steps:
+          - from: Romashka.Roles.AccountantMaterials
+            to: Romashka.Roles.Storekeeper
+            value: Запрос аннулирования утвержденного М-11
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Roles.Storekeeper
+            value: Подтверждение аннулирования М-11 с формированием КЭП
+          - from: Romashka.Roles.Storekeeper
+            to: Romashka.Systems.Supporting.EK_ASUD_2
+            value: И.11.1.4 Передача ЭД аннулирования с КЭП в пакет ЭД М-11 в АСД
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+        results:
+          - М-11 аннулирован

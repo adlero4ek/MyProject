@@ -1,0 +1,22 @@
+components:
+
+  # Управление архитектурой
+
+  Romashka.Systems.ArchitectureManagement.Dochub:
+    title: "Dochub"
+    entity: component
+    description:
+      "DocHub - инструмент описания архитектуры через код (Architecture as a code). Код архитектуры - ансамбль файлов на языках, решающих задачу описания архитектуры."
+    extension:
+      type: external system
+      area: Технологический контур
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: JavaScript
+      basic_solution: dochub
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://dochub.info/main
+      provider: Роман Пионтик
+      provider_type: Роман Пионтик
+      owner_name: Султанов С. В.
+      owner_email: fio@mail.ru

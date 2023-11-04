@@ -1,0 +1,21 @@
+dochub_menu:
+
+  dochub.BusinessArchitecture.Romashka:
+    title: Ромашка
+    order: 2100
+    visible: true
+
+  dochub.BusinessArchitecture.Romashka.ListOfDivisions:
+    title: Подразделения
+    order: 2110
+    visible: true
+
+  dochub.BusinessArchitecture.Romashka.Roles:
+    title: Бизнес роли
+    order: 2120
+    visible: true
+
+  dochub.BusinessArchitecture.Romashka.BuisnessObjs:
+    title: Объекты бизнеса и процессов
+    order: 2130
+    visible: true

@@ -1,0 +1,46 @@
+dochub_menu:
+
+  dochub.ApplicationsArchitecture.Common:
+    title: Общий ландшафт
+    order: 4050
+    visible: true
+
+  dochub.ApplicationsArchitecture.CommonListOfSystems:
+    title: Общий список систем и сервисов
+    order: 4060
+    visible: true
+
+  dochub.ApplicationsArchitecture.Romashka:
+    title: Ромашка
+    order: 4100
+    visible: true
+
+  dochub.ApplicationsArchitecture.Romashka.views:
+    title: Архитектурные схемы
+    order: 4110
+    visible: true
+
+  dochub.ApplicationsArchitecture.Romashka.systems_list:
+    title: Приложения и сервисы
+    order: 4120
+    visible: true
+
+  dochub.ApplicationsArchitecture.Romashka.Links:
+    title: Интеграционные потоки приложений и сервисов
+    order: 4140
+
+  dochub.ApplicationsArchitecture.Lutik:
+    title: Лютик
+    order: 4200
+    visible: true
+
+  dochub.ApplicationsArchitecture.Lutik.systems_list:
+    title: Приложения и сервисы
+    order: 4220
+
+  dochub.ApplicationsArchitecture.Lutik.Links:
+    title: Интеграционные потоки приложений и сервисов
+    order: 4240
+
+
+

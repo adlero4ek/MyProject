@@ -1,0 +1,3 @@
+imports:
+  - Metamodel/root.yaml
+  - Architecture/root.yaml

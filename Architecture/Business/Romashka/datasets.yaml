@@ -1,0 +1,15 @@
+datasets:
+
+  Romashka.dataset.ListOfDivisions:
+    origin: Business.dataset.DivisionList
+    source: >
+      (
+          [$[$contains(id, "Romashka.Divisions")]]
+      )
+
+  Romashka.dataset.ListOfBusinessObjects:
+    origin: BusinessObjects.dataset.ListOfBusinessObjects
+    source: >
+      (
+         [$[$contains(id, "Romashka.BusinessObject")]]
+      )

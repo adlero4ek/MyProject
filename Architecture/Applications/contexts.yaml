@@ -1,0 +1,13 @@
+contexts:
+
+  Common.context.Architecture_lvl_0:
+    title: Общий ландшафт
+#    location: Общий ландшафт
+    extra-links: true
+    uml:
+      $autor: Султанов Станислав
+      $version: '0.0.1'
+      $moment: 01.11.2023
+    components:
+      - Romashka.Systems.*
+      - Lutik.Systems.*

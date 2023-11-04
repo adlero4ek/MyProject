@@ -1,0 +1,15 @@
+datasets:
+
+  Lutik.dataset.ListOfInformationSystems:
+    origin: Appication.dataset.ListOfInformationSystems
+    source: >
+      (
+          [$[$contains(id, "Lutik.Systems")]]
+      )
+
+  Lutik.dataset.IntegrationsList:
+    origin: links.dataset.MainListOfLinks
+    source: >
+      (
+        [$[$contains(component_from_id, "Lutik") or $contains(component_to_id, "Lutik")]]
+      )

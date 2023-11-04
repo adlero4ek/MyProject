@@ -1,0 +1,21 @@
+contexts:
+
+  Lutik.context.Architecture_lvl_0:
+    title: "Архитектура/Уровень 0"
+    extra-links: false
+    uml:
+      $autor: Султанов Станислав
+      $version: '0.0.1'
+      $moment: 01.11.2023
+    components:
+      - Lutik.Systems.*
+
+  Lutik.context.Architecture_lvl_1:
+    title: "Архитектура/Уровень 1"
+    extra-links: false
+    uml:
+      $autor: Султанов Станислав
+      $version: '0.0.1'
+      $moment: 01.12.2023
+    components:
+      - Lutik.Systems.EnvironmentalHealthSafety.*

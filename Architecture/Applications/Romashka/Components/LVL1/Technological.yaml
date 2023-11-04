@@ -1,0 +1,67 @@
+components:
+
+  # Системы технологического контура
+
+  Romashka.Systems.Technological.GeneralTaskBook:
+    title: Общий Задачник/Отчетник
+    entity: component
+    description:
+      "Автоматизированная система, предназначенная для замещения функциональности платформы SAP в части работы с несколькими мандантами в пределах одного сеанса"
+    extension:
+      type: system
+      area: Технологический контур
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: 1С:Библиотека стандартных подсистем
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
+      provider: ООО "Ромашка"
+      provider_type: Собственная разработка
+      owner_name: Корпоративный архитектор
+      owner_email: fio@mail.ru
+
+  Romashka.Systems.Technological.ESB_1CIntegrationCORP:
+    title: ESB-1C
+    entity: component
+    description:
+      "Корпоративная шина данных (ESB), которая применяется для обмена данными между различными системами в виде канонической модели данных"
+    extension:
+      type: system
+      area: Технологический контур
+      state: Опытная эксплуатация
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: 1С:Интеграция КОРП, редакция 1.0
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/integracorp
+      provider: ООО "Внедренец 1С"
+      provider_type: Заказная разработка
+      owner_name: Корпоративный архитектор
+      owner_email: fio@mail.ru
+
+  Romashka.Systems.Technological.SPPR:
+    title: СППР
+    entity: component
+    description:
+      "Система проектирования прикладных решений (СППР) предназначена для проектирования прикладных решений (конфигураций) на платформе «1С:Предприятие» и 
+       ведения технической документации проекта. СППР может быть использована как в качестве инструмента для проектирования новых информационных систем,
+       разрабатываемых в среде «1С:Предприятия 8», так и для описания и документирования существующих систем, разработанных ранее без использования СППР."
+    extension:
+      type: system
+      area: Технологический контур
+      state: Опытная эксплуатация
+      state_update_date: 01.01.2023
+      development_platform: 1С:Предприятие 8
+      basic_solution: "1С:СППР"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://v8.1c.ru/tekhnologii/sistema-proektirovaniya-prikladnykh-resheniy/
+      provider: ООО "Внедренец 1С"
+      provider_type: Заказная разработка
+      owner_name: Корпоративный архитектор
+      owner_email: fio@mail.ru
+    aspects:
+      - Technological.ProcessModeling
+      - Technological.Designing
+      - Technological.SoftwareDevelopmentManagement
+      - Technological.ErrorLoggingAndTracking

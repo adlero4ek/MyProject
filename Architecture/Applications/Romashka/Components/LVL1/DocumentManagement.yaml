@@ -1,0 +1,52 @@
+components:
+
+  # Системы конутра документооботора (ЭДО, ЮЗЭДО, ВКЭДО)
+
+  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO:
+    title: ЕК АСУФР-3. 1С:ДО
+    entity: component
+    description:
+      "Автоматизированная система управления задачами ЭДО, ЮЗЭДО, ВК ЭДО, формирования и согласования реестров ПУД внутри контура ЕК АСУФР-3"
+    extension:
+      type: system
+      area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Документооборот 8 КОРП, редакция 3.0"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/doc8-corp
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+      owner_name: Петров П. П.
+      owner_email: fio@mail.ru
+    aspects:
+      - DocumentManagement.EDO
+      - DocumentManagement.EDO_VK
+      - DocumentManagement.YUZEDO
+
+  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO:
+    title: ЕК АСУФР-3. 1С:ДО (эталон)
+    entity: component
+    description:
+      "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,
+       влияющими на функционирование «ЕК АСУФР-3. 1С:ДО», а также реализации функций моделирования и контроля над изменениями учетной политики с
+       обеспечением переноса выполненных изменений в «ЕК АСУФР-3. 1С:ДО». Дополнительно копия системы может использоваться для проведения обучения пользователей,
+       например, в процессе тиражирования или различных видов тестирования (функциональное, регрессионное и прочее)"
+    extension:
+      type: system
+      area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Документооборот 8 КОРП, редакция 3.0"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/doc8-corp
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+      owner_name: Петров П. П.
+      owner_email: fio@mail.ru
+    aspects:
+      - CommonAspects.ReferenceClassifiers
+      - CommonAspects.ReferenceMDM
+      - CommonAspects.ReferenceSettings

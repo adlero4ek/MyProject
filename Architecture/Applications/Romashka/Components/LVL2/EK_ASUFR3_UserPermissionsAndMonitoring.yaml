@@ -1,0 +1,15 @@
+components:
+
+  Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions:
+    title: Права и роли пользователей
+    entity: component
+    description: Права и роли пользователей
+    extension:
+      type: subsystem
+
+  Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.Monitoring:
+    title: Мониторинг
+    entity: component
+    description: Мониторинг
+    extension:
+      type: subsystem

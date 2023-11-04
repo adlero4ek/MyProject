@@ -1,0 +1,18 @@
+docs:
+
+  Lutik.doc.ListOfDivisions:
+    location: "Бизнес архитектура/Лютик/Подразделения"
+    type: table
+    headers:
+      - value: title
+        text: "Наименование"
+        sortable: true
+        align: left
+        link: id
+      - value: description
+        text: "Описание"
+        align: left
+      - value: owner
+        text: "Руководитель"
+        align: left
+    source: Lutik.doc.ListOfDivisions

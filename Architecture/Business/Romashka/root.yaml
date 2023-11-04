@@ -1,0 +1,8 @@
+imports:
+  - docs.yaml
+  - components.yaml
+  - contexts.yaml
+  - datasets.yaml
+  - business_objects.yaml
+  - business_roles.yaml
+  - business_processes.yaml

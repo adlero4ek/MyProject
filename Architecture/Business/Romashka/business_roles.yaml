@@ -1,0 +1,61 @@
+components:
+
+  Romashka.Roles:
+    title: Функцицональные роли пользователей
+    description: pass
+    entity: actor
+
+  Romashka.Roles.Storekeeper:
+    title: Кладовщик
+    description: pass
+    entity: actor
+
+  Romashka.Roles.EconomistForAccountingAndAnalysisOfExpensesForOrdinaryActivities:
+    title: Экономист по учету и анализу расходов по обычным видам деятельности
+    description: pass
+    entity: actor
+
+  Romashka.Roles.AccountantMaterials:
+    title: Бухгалтер по учёту материалов
+    description: pass
+    entity: actor
+
+  Romashka.Roles.AccountantFixedAssets:
+    title: Бухгалтер по учёту ОС, НМА
+    description: pass
+    entity: actor
+
+  Romashka.Roles.AccountantOnFarmCalculations:
+    title: Бухгалтер по внутрихозяйственным расчетам
+    description: pass
+    entity: actor
+
+  Romashka.Roles.AccountantForSettlementsWithDebtorsCreditors:
+    title: Бухгалтер по расчётам с дебиторами-кредиторами
+    description: pass
+    entity: actor
+
+  Romashka.Roles.EngineerLogisticsDepartment:
+    title: Инженер отдела Материально-технического обеспечения
+    description: pass
+    entity: actor
+
+  Romashka.Roles.HeadOfEDO:
+    title: Руководитель ЭДО
+    description: pass
+    entity: actor
+
+  Romashka.Roles.ReceivingSpecialist:
+    title: Принимающий специалист
+    description: pass
+    entity: actor
+
+  Romashka.Roles.SpecialistOfStructuralUnit:
+    title: Специалист СП
+    description: pass
+    entity: actor
+
+  Romashka.Roles.MembersAndChairmanOfCommission:
+    title: Члены и председатель комиссии
+    description: pass
+    entity: actor

@@ -1,0 +1,6 @@
+imports:
+  - Romashka/root.yaml
+  - Lutik/root.yaml
+  - dochub_menu.yaml
+  - contexts.yaml
+  - docs.yaml

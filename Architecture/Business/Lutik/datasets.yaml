@@ -1,0 +1,22 @@
+datasets:
+
+  Lutik.doc.ListOfDivisions:
+    source: >
+      (
+         $matcher := /Lutik.Divisions./;
+      
+         $distinct(components.$spread().(
+      
+            $COMPONENT_ID := $keys()[0];
+      
+            $.*.{
+              "id": $COMPONENT_ID,
+              "entity": entity,
+              "title": title,
+              "description": description,
+              "owner": owner
+            };
+      
+        ))[entity="component"][$matcher(id)]^(title)
+      
+      )

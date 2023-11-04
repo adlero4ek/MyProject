@@ -1,0 +1,91 @@
+docs:
+
+  Romashka.doc.ListOfDivisions:
+    location: "Бизнес архитектура/Ромашка/Подразделения"
+    type: table
+    headers:
+      - value: title
+        text: "Наименование"
+        sortable: true
+        align: left
+        link: link_id
+      - value: description
+        text: "Описание"
+        align: left
+      - value: owner
+        text: "Руководитель"
+        align: left
+    source: Romashka.dataset.ListOfDivisions
+
+  Romashka.doc.ActorList:
+    location: "Бизнес архитектура/Ромашка/Бизнес роли"
+    type: table
+    headers:
+      - value: title
+        text: "Наименование"
+        sortable: true
+        align: left
+        link: link
+      - value: description
+        text: "Описание"
+        align: left
+    source: Business.dataset.ActorList
+
+  Romashka.doc.ListOfBusinessObjectsAsTable:
+    type: table
+    location: "Бизнес архитектура/Ромашка/Объекты бизнеса и процессов"
+    headers:
+      - value: title
+        text: Бизнес объект
+        sortable: true
+        link: link_id
+      - value: description
+        text: Описание
+        wight: 75%
+        sortable: false
+      - value: type
+        text: Тип
+        sortable: true
+      - value: state
+        text: Статус
+        sortable: true
+    source: Romashka.dataset.ListOfBusinessObjects
+
+  Romashka.doc.ListOfSystemFilltedByBusinessObject:
+    type: table
+    headers:
+      - value: System_name
+        text: Система
+        link: System_id
+      - value: Subsystem_name
+        text: Подсистема
+        link: Subsystem_id
+    origin: BusinessObjects.dataset.BusinessObjectsInSystems
+    source: >
+      (
+          $[BusinessObject_id=$params.id]
+      )
+
+  Romashka.doc.ListOfBusinessObject:
+    type: table
+    headers:
+      - value: BusinessObject_title
+        text: Бизнес-объект
+        link: BusinessObject_link
+        sortable: true
+      - value: BusinessObject_type
+        text: Тип
+        sortable: true
+      - value: System_name
+        text: Система
+        link: System_id
+        sortable: true
+      - value: Subsystem_name
+        text: Подсистема
+        link: Subsystem_id
+        sortable: true
+    origin: BusinessObjects.dataset.BusinessObjectsInSystems
+    source: >
+      (
+          $[Organization_id="Romashka"]
+      )

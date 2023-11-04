@@ -1,0 +1,43 @@
+components:
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.Vehicles:
+    title: Учет транспортных средств
+    entity: component
+    description: Учет транспортных средств
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.PrimaryDocuments:
+    title: Учёт первичных документов работы транспортных средств, находящихся в собственной эксплуатации
+    entity: component
+    description: Учёт первичных документов работы транспортных средств, находящихся в собственной эксплуатации
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.ApplicationsRoadTransport:
+    title: Учет заявок на автоперевозки
+    entity: component
+    description: Учет заявок на автоперевозки
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.Waybills:
+    title: Учет путевых листов
+    entity: component
+    description: Учет путевых листов
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.MDM:
+    title: Управление НСИ
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.UserPermissions:
+    title: Права и роли пользователей
+    entity: component
+    description: Права и роли пользователей
+    extension:
+      type: subsystem

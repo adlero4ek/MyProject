@@ -1,0 +1,15 @@
+datasets:
+
+  Romashka.dataset.ListOfInformationSystems:
+    origin: Appication.dataset.ListOfInformationSystems
+    source: >
+      (
+          [$[$contains(id, "Romashka.Systems")]]
+      )
+
+  Romashka.dataset.IntegrationsList:
+    origin: links.dataset.MainListOfLinks
+    source: >
+      (
+        [$[$contains(component_from_id, "Romashka") or $contains(component_to_id, "Romashka")]]
+      )

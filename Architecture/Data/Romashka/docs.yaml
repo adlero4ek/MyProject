@@ -1,0 +1,25 @@
+docs:
+
+  Romashka.doc.ListOfApplicationDataObjectsAsTable:
+    type: table
+    location: "Архитектура данных/Ромашка/Объекты приложений и сервисов"
+    headers:
+      - value: system_title
+        text: "Приложение/Сервис"
+        link: system_link
+        wight: 200%
+      - value: title
+        text: Объект приложения/сервиса
+        sortable: true
+        link: link_id
+      - value: description
+        text: Описание
+        wight: 75%
+        sortable: false
+      - value: type
+        text: Тип
+        sortable: true
+      - value: state
+        text: Статус
+        sortable: true
+    source: Romashka.dataset.ListOfApplicationDataObjects

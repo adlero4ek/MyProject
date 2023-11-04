@@ -1,0 +1,21 @@
+components:
+
+  Lutik:
+    title: "Лютик"
+    entity: component
+
+  Lutik.Divisions:
+    title: "Подразделения"
+    entity: component
+
+  Lutik.Divisions.FinancialService:
+    title: "Департамент управления персоналом"
+    entity: component
+    description: pass
+    owner: Иванов Иван Иванович
+
+  Lutik.Divisions.InformationTechnology:
+    title: "Департамент информатизации компании"
+    entity: component
+    description: pass
+    owner: Петров Петр Петрович

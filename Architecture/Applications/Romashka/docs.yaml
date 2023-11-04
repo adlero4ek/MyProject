@@ -1,0 +1,78 @@
+docs:
+
+  # Архитектура/Уровень 0
+
+  Romashka.doc.lvl_0_Architecture:
+    type: markdown
+    location: "Архитектура приложений/Ромашка/Архитектурные схемы/Уровень 0"
+    source: Templates/architecture_lvl_0.md
+
+  # Архитектура/Уровень 1
+
+  Romashka.doc.lvl_1_Architecture:
+    type: markdown
+    location: "Архитектура приложений/Ромашка/Архитектурные схемы/Уровень 1"
+    source: Templates/architecture_lvl_1.md
+
+  Romashka.doc.lvl_1_SystemsList:
+    type: table
+    headers:
+      - value: title
+        text: "Наименование"
+        sortable: true
+        link: id
+      - value: description
+        text: "Описание"
+        width: 70%
+      - value: state
+        text: "Статус"
+    source: Romashka.dataset.ListOfInformationSystems
+
+  # Прочее
+
+  Romashka.doc.ListOfInformationSystems:
+    location: "Архитектура приложений/Ромашка/Приложения и сервисы"
+    type: table
+    headers:
+      - value: title
+        text: "Наименование"
+        sortable: true
+        link: extended_component_card
+      - value: description
+        text: "Описание"
+      - value: area
+        text: "Функ. область"
+        sortable: true
+        link: area_id
+      - value: state
+        text: "Статус"
+        sortable: true
+      - value: development_platform
+        text: "Платформа"
+        sortable: true
+    source: Romashka.dataset.ListOfInformationSystems
+
+  Romashka.doc.IntegrationsList:
+    location: "Архитектура приложений/Ромашка/Интеграционные потоки приложений и сервисов"
+    type: table
+    headers:
+      - value: link_code
+        text: Код
+        sortable: true
+        link: link_id
+      - value: link_title
+        text: Описание
+        link: link_id
+      - value: component_from_title
+        text: Источник
+        sortable: true
+        link: component_from_link
+      - value: component_from_sybsystem_title
+        text: Подсистема/Модуль источника
+        sortable: true
+        link: component_from_sybsystem_link
+      - value: component_to_title
+        text: Получатель
+        sortable: true
+        link: component_to_link
+    source: Romashka.dataset.IntegrationsList
