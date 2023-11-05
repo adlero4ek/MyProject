@@ -42,14 +42,16 @@ entities:
             style:
               border: false
               margin: 4px
-          sys_urls:
-            title: Полезные ссылки
-            presentation: sys_urls
-            align: "<"
-            order: 1000
-            style:
-              border: false
-              margin: 4px
+          #+++ОРИГИНАЛ
+#          sys_urls:
+#            title: Полезные ссылки
+#            presentation: sys_urls
+#            align: "<"
+#            order: 1000
+#            style:
+#              border: false
+#              margin: 4px
+          #---ОРИГИНАЛ
           sys_docs:
             title: Документация системы
             presentation: sys_docs
@@ -224,28 +226,7 @@ entities:
             align: left
             width: 100%
             link: Doc_Link
-        source: >
-          (
-            
-            $system_id := $params.component;
-            
-            docs.$spread().(
-            
-              $DocID := $keys()[0];
-              $DocIsDesignedForSystem := $system_id in *.subjects;
-              
-              {
-                
-                "Doc_ID": $DocID,
-                "Doc_Link": "/docs/" & $DocID,
-                "Doc_Description": *.description,
-                "Doc_Category": *.category
-              
-              }[$DocIsDesignedForSystem and Doc_Category="Документация по системе или её компонентам"]
-            
-            )
-          
-          )
+        source: Application.dataset.Technologies
 
       sys_technologies:
         # Контракт по параметрам представления в формате JSONSchema
@@ -285,29 +266,7 @@ entities:
             sortable: true
             align: left
             width: 40%
-        source: >
-            (
-            
-              $manifest    := $;
-              $system_id   := $params.component;
-              $system_tech := $lookup($.components, $system_id).technologies;
-            
-              $system_tech.(
-            
-                $technology := $lookup($manifest.technologies.items, $);
-              
-                {
-                  "technology_ID": $,
-                  "technology_title": $technology ? $technology.title : "",
-                  "technology_link": $technology ? $technology.link : "",
-                  "technology_section": $technology? $technology.section : "",
-                  "technology_status": $technology ? $technology.status : "Не определён",
-                  "technology_aliases": $technology ? $join($technology.aliases, ", ") : ""
-                }
-          
-              )
-          
-            )
+        source: Application.dataset.Technologies
 
       sys_problems:
         params:

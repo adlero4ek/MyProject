@@ -6,8 +6,6 @@
 ## Приложение/сервис "{{title}}"
 - **ID**: [{{id}}]({{id_link}})
 - **Описание**: {{description}}
-
-### Статус использования
 - **Статус:** {{state}}
 - **Дата актуализации:** {{state_update_date}}
 
@@ -21,3 +19,13 @@
 - **Базовое решение:** {{basic_solution}}
 - **Официальный сайт:** {{basic_solution_link}}
 - **Статус развития:** {{basic_solution_state}}
+
+#### Технологии
+![Технологии](@document/Application.doc.ApplicationTechnologies?component={{id}})
+
+#### Документация
+
+![Документация](@document/Application.doc.ApplicationDocs?component={{id}})
+
+
+

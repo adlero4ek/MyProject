@@ -51,3 +51,42 @@ docs:
         text: "Платформа"
         sortable: true
     source: Appication.dataset.ListOfInformationSystems
+
+  # Опциональная документация по системе или её компонентам, документация не выводится в меню, он прикрепляется к карточке системы
+
+  Application.doc.ApplicationDocs:
+    type: table
+    headers:
+      - value: Doc_Description
+        text: Описание документа
+        sortable: true
+        align: left
+        width: 100%
+        link: Doc_Link
+    source: Application.dataset.ApplicationDocs
+
+  Application.doc.ApplicationTechnologies:
+    type: table
+    headers:
+      - value: technology_ID
+        text: Технология
+        sortable: true
+        align: left
+        width: 30%
+        link: technology_link
+      - value: technology_section
+        text: Секция
+        sortable: true
+        align: left
+        width: 20%
+      - value: technology_status
+        text: Статус
+        sortable: false
+        align: left
+        width: 10%
+      - value: technology_aliases
+        text: Синонимы
+        sortable: true
+        align: left
+        width: 40%
+    source: Application.dataset.Technologies

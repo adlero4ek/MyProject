@@ -39,3 +39,50 @@ datasets:
         ))[type="system" or type="external system"]^(organization_title)
       
       )
+
+  # Опциональная документация по системе или её компонентам, документация не выводится в меню, он прикрепляется к карточке системы
+
+  Application.dataset.ApplicationDocs:
+    source: >
+      (
+          $system_id := $params.component;
+
+          docs.$spread().(
+
+            $DocID := $keys()[0];
+            $DocIsDesignedForSystem := $system_id in *.subjects;
+
+            {
+
+              "Doc_ID": $DocID,
+              "Doc_Link": "/docs/" & $DocID,
+              "Doc_Description": *.description,
+              "Doc_Category": *.category
+
+            }[$DocIsDesignedForSystem and Doc_Category="Документация по системе или её компонентам"]
+
+          )
+
+      )
+  Application.dataset.Technologies:
+    source: >
+      (
+          $manifest    := $;
+          $system_id   := $params.component;
+          $system_tech := $lookup($.components, $system_id).technologies;
+  
+          $system_tech.(
+  
+            $technology := $lookup($manifest.technologies.items, $);
+  
+            {
+              "technology_ID": $,
+              "technology_title": $technology ? $technology.title : "",
+              "technology_link": $technology ? $technology.link : "",
+              "technology_section": $technology? $technology.section : "",
+              "technology_status": $technology ? $technology.status : "Не определён",
+              "technology_aliases": $technology ? $join($technology.aliases, ", ") : ""
+            }
+  
+          )
+      )
