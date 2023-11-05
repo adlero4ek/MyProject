@@ -7,6 +7,11 @@ components:
     entity: component
     description:
       "Автоматизированная система управления задачами ЭДО, ЮЗЭДО, ВК ЭДО, формирования и согласования реестров ПУД внутри контура ЕК АСУФР-3"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
@@ -18,8 +23,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/doc8-corp
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Петров П. П.
-      owner_email: fio@mail.ru
     aspects:
       - DocumentManagement.EDO
       - DocumentManagement.EDO_VK
@@ -33,6 +36,11 @@ components:
        влияющими на функционирование «ЕК АСУФР-3. 1С:ДО», а также реализации функций моделирования и контроля над изменениями учетной политики с
        обеспечением переноса выполненных изменений в «ЕК АСУФР-3. 1С:ДО». Дополнительно копия системы может использоваться для проведения обучения пользователей,
        например, в процессе тиражирования или различных видов тестирования (функциональное, регрессионное и прочее)"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
@@ -44,8 +52,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/doc8-corp
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Петров П. П.
-      owner_email: fio@mail.ru
     aspects:
       - CommonAspects.ReferenceClassifiers
       - CommonAspects.ReferenceMDM

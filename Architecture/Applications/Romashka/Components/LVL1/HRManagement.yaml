@@ -8,6 +8,12 @@ components:
     description:
       "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков контра расчета заработной платы
        и управления персоналом в соответствии с законодательством Российской Федерации"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
@@ -19,8 +25,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/hrm
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Султанов С. В.
-      owner_email: fio@mail.ru
 
   Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP:
     title: ЕК АСУТР-2. 1С:ЗУП (эталон)
@@ -31,6 +35,12 @@ components:
        над изменениями учетной политики с обеспечением переноса выполненных изменений в «ЕК АСУТР-2. 1С:ЗУП КОРП» и «ЕК АСУТР-2. 1С:ЗУП КОРП (Казахстан)».
        Дополнительно копия системы может использоваться для проведения обучения пользователей, например, в процессе тиражирования или различных видов
        тестирования (функциональное, регрессионное и прочее)"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
@@ -42,8 +52,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/hrm
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Султанов С. В.
-      owner_email: fio@mail.ru
     aspects:
       - CommonAspects.ReferenceClassifiers
       - CommonAspects.ReferenceMDM
@@ -56,6 +64,12 @@ components:
       "Автоматизированная система для централизованного хранения данных «ЕК АСУТР-2. 1С:ЗУП КОРП» и «ЕК АСУТР-2. 1С:ЗУП КОРП (Казахстан)» всех бизнес-единиц
        ОАО «Ромашка» с целью организации оперативного доступа к данным только тех пользователей, которые выполняют централизованные функции
        (консолидация, поиск и обработка данных всех бизнес-единиц ОАО «Ромашка») и для решения которых не предусмотрено использование общего «Задачника/Отчетника»"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
@@ -67,8 +81,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/hrm
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Султанов С. В.
-      owner_email: fio@mail.ru
     aspects:
       - CommonAspects.ConsolidatedStatements
 
@@ -78,6 +90,12 @@ components:
     description:
       "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков контра расчета заработной платы и управления
        персоналом в соответствии с законодательством республики Казахстан"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
@@ -98,6 +116,12 @@ components:
     description:
       "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков контура расчета заработной платы и
        управления персоналом – Нормирование труда, Нормативная численность, Корпоративная система премирования, График рабочего времени"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
@@ -109,14 +133,18 @@ components:
       basic_solution_link: undefined
       provider: ООО "Ромашка"
       provider_type: Собственная разработка
-      owner_name: Султанов С. В.
-      owner_email: fio@mail.ru
 
   Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_MDM:
     title: ЕК АСУТР-2. ЦНСИ
     entity: component
     description:
       "Единая корпоративная платформа управления процессом ведения нормативно-справочной информации функциональных компонент ЕК АСУТР-2"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
@@ -128,7 +156,5 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/mdm
       provider: ООО "Разработчик 1С"
       provider_type: Заказная разработка
-      owner_name: Султанов С. В.
-      owner_email: fio@mail.ru
     aspects:
       - CommonAspects.ReferenceMDM

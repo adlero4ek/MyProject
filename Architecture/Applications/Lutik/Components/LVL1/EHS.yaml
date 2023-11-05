@@ -27,8 +27,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/ehs_compl_corp
       provider: undefined
       provider_type: undefined
-      owner_name: undefined
-      owner_email: undefined
 
   Lutik.Systems.EnvironmentalHealthSafety.System2:
     title: Охрана окружающей среды КОРП
@@ -47,8 +45,7 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/ehs_envprot_corp
       provider: undefined
       provider_type: undefined
-      owner_name: undefined
-      owner_email: undefined
+
     aspects:
       - DocumentManagement.EDO
       - VehicleManagement.ApplicationsRoadTransport

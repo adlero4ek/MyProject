@@ -30,8 +30,6 @@ datasets:
             "basic_solution_summary":  (extension.basic_solution & ", статус: " & extension.basic_solution_state),
             "provider":                extension.provider,
             "provider_type":           extension.provider_type,
-            "owner":                   (extension.owner_name & ", e-mail: " & extension.owner_email),
-            "owner_name":              (extension.owner_name),
             "organization_title":      $organization_id ? $lookup($manifest.components, $organization_id).title : $organization_id,
             "organization_link":       $organization_id ? "/architect/components/" & $organization_id: ""
           };
@@ -64,6 +62,9 @@ datasets:
           )
 
       )
+
+  # Используемые технологии при разработке приложения
+
   Application.dataset.Technologies:
     source: >
       (
@@ -84,5 +85,51 @@ datasets:
               "technology_aliases": $technology ? $join($technology.aliases, ", ") : ""
             }
   
+          );
+      )
+
+  # Ключевые сотрудники, контакты
+
+  Application.dataset.KeyContacts:
+    source: >
+      (
+      
+        $system_id := $params.component;          
+      
+        $manifest := $;        
+        $dictionaries := $manifest.dictionaries;
+        $functions := $manifest.functions;
+        $accounts := $dictionaries."accounts".parameters;
+        $systems := $manifest.components;
+      
+        $sys_pattern := $eval("/^" &  $system_id & "$/");
+        $system := $systems.$sift(function($v, $k) {$k ~> $sys_pattern});
+      
+        $contacts := $dictionaries."settings.contacts".parameters.(
+          $name := name;
+          $contact_account_names := $spread($system.*).$sift(function ($v, $k) { $k = $name }).*;
+          {
+            "title": title,
+            "scrum_title": scrum_title,
+            "is_optional": is_optional,
+            "order_index": order_index,
+            "account_names": [$contact_account_names]
+          };
+        )[$not(is_optional) or $count(account_names) > 0];
+      
+        $sort($contacts, function ($l, $r) { $l.order_index > $r.order_index }).(
+          $contact_settings := $;
+          account_names.(
+            $account := $eval($functions.get_account,{"username": $, "accounts": $accounts});
+            {
+              "title": $contact_settings.title,
+              "scrum": $contact_settings.scrum_title,
+              "res_persons": $account.title,
+              "acc_persons": $account.name,
+              "acc_link": $account.acc_link,
+              "acc_email": $account.email          
+            } 
           )
+        );
+      
       )

@@ -14,26 +14,26 @@ entities:
             align: ">"
           #---ДОБАВЛЕНИЕ
           #+++ОРИГИНАЛ
-#          sys_responsible_employees: # Идентификатор виджета
-#            # Название виджета
-#            title: Ключевые контакты
-#            # Идентификатор презентации, которая будет использоваться в виджете
-#            presentation: sys_responsible_employees
-#            # В params можно передать дополнительные параметры
-#            # презентации, которые будут доступны в переменной $params
-#            #params:
-#            #  param1: Значение параметра 1
-#            #  param2: Значение параметра 2
-#            # Расположение
-#            # < - слева
-#            # > - справа
-#            # = - Растянуть на 100%
-#            align: "<"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-          #--ОРИГИНАЛ
+          sys_responsible_employees: # Идентификатор виджета
+            # Название виджета
+            title: Ключевые контакты
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: sys_responsible_employees
+            # В params можно передать дополнительные параметры
+            # презентации, которые будут доступны в переменной $params
+            #params:
+            #  param1: Значение параметра 1
+            #  param2: Значение параметра 2
+            # Расположение
+            # < - слева
+            # > - справа
+            # = - Растянуть на 100%
+            align: "<"
+            order: 1000
+            style:
+              border: false
+              margin: 4px
+#          --ОРИГИНАЛ
           sys_technologies:
             title: Технологии
             presentation: sys_technologies
@@ -97,8 +97,7 @@ entities:
             }
           )
       #---ДОБАВЛЕНИЕ
-      sys_responsible_employees: # Идентификатор представления
-        # Контракт по параметрам представления в формате JSONSchema
+      sys_responsible_employees: # Ключевые сотрудники, контакты
         params:
           type: object
           properties:
@@ -107,71 +106,25 @@ entities:
               type: string
           required:
             - component
-        # Тип документа шаблона
         type: table
-        # Определяем заголовок таблицы
         headers:
-          - value: title             # Идентификатор зависимого компонента
-            text: Должность   # Заголовок колонки
-            sortable: true        # Производить сортировку по колонке
-            align: left           # Форматирование по горизонтали
-            width: 30%            # Ширина колонки
-          - value: scrum          # Наименование зависимого компонента
-            text: SCRUM
+          - value: title
+            text: Роль
             sortable: true
-            align: left           # Форматирование по горизонтали
-            width: 20%
-          - value: res_persons          # Наименование зависимого компонента
+            align: left
+            width: 30%
+          - value: res_persons
             text: ФИО
             sortable: true
-            align: left           # Форматирование по горизонтали
+            align: left
             width: 40%
             link: acc_link
-          - value: acc_persons          # Наименование зависимого компонента
-            text: Логин
+          - value: acc_email
+            text: Почта
             sortable: true
-            align: left           # Форматирование по горизонтали
+            align: left
             width: 40%
-        source: >
-          (
-            $system_id := $params.component;
-
-            $manifest := $;        
-            $dictionaries := $manifest.dictionaries;
-            $functions := $manifest.functions;
-            $accounts := $dictionaries."accounts".parameters;
-            $systems := $manifest.components;
-            
-            $sys_pattern := $eval("/^" &  $system_id & "$/");
-            $system := $systems.$sift(function($v, $k) {$k ~> $sys_pattern});
-            
-            $contacts := $dictionaries."settings.contacts".parameters.(
-              $name := name;
-              $contact_account_names := $spread($system.*).$sift(function ($v, $k) { $k = $name }).*;
-              {
-                "title": title,
-                "scrum_title": scrum_title,
-                "is_optional": is_optional,
-                "order_index": order_index,
-                "account_names": [$contact_account_names]
-              };
-            )[$not(is_optional) or $count(account_names) > 0];
-
-            $sort($contacts, function ($l, $r) { $l.order_index > $r.order_index }).(
-              $contact_settings := $;
-              account_names.(
-                $account := $eval($functions.get_account,{"username": $, "accounts": $accounts});
-                {
-                  "title": $contact_settings.title,
-                  "scrum": $contact_settings.scrum_title,
-                  "res_persons": $account.title,
-                  "acc_persons": $account.name,
-                  "acc_link": $account.acc_link
-                } 
-              )
-            );
-          )
-
+        source: Application.dataset.KeyContacts
       sys_urls:
         params:
           type: object
@@ -226,8 +179,7 @@ entities:
             align: left
             width: 100%
             link: Doc_Link
-        source: Application.dataset.Technologies
-
+        source: Application.dataset.ApplicationDocs
       sys_technologies:
         # Контракт по параметрам представления в формате JSONSchema
         params:
@@ -267,7 +219,6 @@ entities:
             align: left
             width: 40%
         source: Application.dataset.Technologies
-
       sys_problems:
         params:
           type: object

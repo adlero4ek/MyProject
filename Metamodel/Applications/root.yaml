@@ -1,6 +1,7 @@
 imports:
   - datasets.yaml
   - rules.yaml
+  - dictionaries.yaml
   - Extensions/root.yaml
   - Links/root.yaml
   - docs.yaml

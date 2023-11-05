@@ -5,3 +5,4 @@ imports:
   - Technolohy/root.yaml
   - Dochub/root.yaml
   - Dochub_menu/root.yaml
+  - JSONata/functions.yaml

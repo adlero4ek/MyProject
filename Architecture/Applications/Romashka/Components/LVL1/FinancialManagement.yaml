@@ -9,6 +9,11 @@ components:
       "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков – Бухгалтерский учет по разделам учета,
        Налоговый учет, Управленческий учет по видам затрат, Функции казначейского контроля (казначейский учет), Учет по МСФО, Управление снабжением МТР,
        Система внутренних контролей и Мониторинги функциональности"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Финансовый контур
@@ -20,8 +25,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/1cerp
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Иванов И. И.
-      owner_email: fio@mail.ru
     aspects:
       - FinancialManagement.RegulatedAccounting
       - FinancialManagement.TaxAccounting
@@ -41,6 +44,11 @@ components:
        влияющими на функционирование «ЕК АСУФР-3. 1С:ERP», а также реализации функций моделирования и контроля над изменениями учетной политики с обес-печением
        переноса выполненных изменений в «ЕК АСУФР-3. 1С:ERP». Дополнительно копия системы может использоваться для проведения обучения пользователей, например,
        в процессе тиражирования или различных видов тестирования (функциональное, ре-грессионное и прочее)"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Финансовый контур
@@ -67,6 +75,11 @@ components:
        влияющими на функционирование «ЕК АСУФР-3. 1С:ERP», а также реализации функций моделирования и контроля над изменениями учетной политики с
        обеспечением переноса выполненных изменений в «ЕК АСУФР-3. 1С:ERP». Дополнительно копия системы может использоваться для проведения обучения
        пользователей, например, в процессе тиражирования или различных видов тестирования (функциональное, ре-грессионное и прочее)"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Финансовый контур
@@ -78,8 +91,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/1cerp
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Иванов И. И.
-      owner_email: fio@mail.ru
     aspects:
       - CommonAspects.ConsolidatedStatements
 
@@ -88,6 +99,11 @@ components:
     entity: component
     description:
       "Единая корпоративная платформа управление процессом ведения нормативно-справочной информации функциональных компонент ЕК АСУФР-3"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Финансовый контур
@@ -99,7 +115,6 @@ components:
       basic_solution_link: https://solutions.1c.ru/catalog/mdm
       provider: ООО "Разработчик 1С"
       provider_type: Заказная разработка
-      owner_name: Иванов И. И.
-      owner_email: fio@mail.ru
+
     aspects:
       - CommonAspects.ReferenceMDM

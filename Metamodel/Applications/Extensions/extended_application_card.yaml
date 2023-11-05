@@ -47,8 +47,6 @@ entities:
                   "basic_solution_state": extension.basic_solution_state,
                   "provider": extension.provider,
                   "provider_type": extension.provider_type,
-                  "owner":  (extension.owner_name&", e-mail: "&extension.owner_email),
-                  "owner_name": (extension.owner_name),
                   "count_app_data_obj": $IsDomain = true ? $sum($query_count_app_data_obj.count_domain) : $sum($query_count_app_data_obj.count_app),
                   "count_links_from": $sum($query_count_links.count_from),
                   "count_links_to": $sum($query_count_links.count_to)

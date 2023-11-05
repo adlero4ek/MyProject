@@ -29,12 +29,6 @@ rules:
               provider_type:
                 type: string
                 minLength: 5
-              owner_name:
-                type: string
-                minLength: 5
-              owner_email:
-                type: string
-                minLength: 5
             required:
               - state
               - state_update_date
@@ -43,8 +37,6 @@ rules:
               - basic_solution_state
               - provider
               - provider_type
-              - owner_name
-              - owner_email
         required:
           - extension
           - title

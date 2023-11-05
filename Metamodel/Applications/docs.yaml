@@ -65,6 +65,8 @@ docs:
         link: Doc_Link
     source: Application.dataset.ApplicationDocs
 
+  # Используемые технологии при разработке приложения
+
   Application.doc.ApplicationTechnologies:
     type: table
     headers:
@@ -90,3 +92,31 @@ docs:
         align: left
         width: 40%
     source: Application.dataset.Technologies
+
+  # Ключевые сотрудники, контакты
+
+  Application.doc.KeyContacts:
+    type: table
+    headers:
+      - value: title
+        text: Роль
+        sortable: true
+        align: left
+        width: 30%
+      - value: scrum
+        text: SCRUM
+        sortable: true
+        align: left
+        width: 20%
+      - value: res_persons
+        text: ФИО
+        sortable: true
+        align: left
+        width: 40%
+        link: acc_link
+      - value: acc_email
+        text: Почта
+        sortable: true
+        align: left
+        width: 40%
+    source: Application.dataset.KeyContacts

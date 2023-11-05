@@ -13,12 +13,15 @@
 - **Функциональная область:** {{area}}
 - **Платформа:** {{development_platform}}
 - **Разработчик:** {{provider}}, {{provider_type}}
-- **Владелец**: {{owner}}
 
 ### Базовое решение:
 - **Базовое решение:** {{basic_solution}}
 - **Официальный сайт:** {{basic_solution_link}}
 - **Статус развития:** {{basic_solution_state}}
+
+#### Ключевые сотрудники, контакты
+
+![Документация](@document/Application.doc.KeyContacts?component={{id}})
 
 #### Технологии
 ![Технологии](@document/Application.doc.ApplicationTechnologies?component={{id}})
@@ -26,6 +29,3 @@
 #### Документация
 
 ![Документация](@document/Application.doc.ApplicationDocs?component={{id}})
-
-
-

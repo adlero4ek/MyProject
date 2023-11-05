@@ -8,6 +8,12 @@ components:
     description:
       "Единая корпоративная платформа автоматизация процессов ведения пользователей и полномочий пользователей, а также обеспечение технического мониторинга функциональных
        компонент ЕК АСУТР-2"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Обеспечивающие (поддерживающие) системы
@@ -19,8 +25,6 @@ components:
       basic_solution_link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Корпоративный архитектор
-      owner_email: fio@mail.ru
 
   Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring:
     title: ЕК АСУТР-3. ПИМ
@@ -28,6 +32,12 @@ components:
     description:
       "Единая корпоративная платформа автоматизация процессов ведения пользователей и полномочий пользователей, а также обеспечение технического мониторинга функциональных
        компонент ЕК АСУФР-3"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Обеспечивающие (поддерживающие) системы
@@ -39,14 +49,18 @@ components:
       basic_solution_link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
       provider: ООО Ромашка
       provider_type: Собственная разработка
-      owner_name: Корпоративный архитектор
-      owner_email: fio@mail.ru
 
   Romashka.Systems.Supporting.EK_ASUD_2:
     title: EК АСУД-2
     entity: component
     description:
       "Единая корпоративная платформа хранения файлов, связаных объектами информационных систем"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
     extension:
       type: external system
       state: Проектируется
@@ -57,5 +71,3 @@ components:
       basic_solution_link: undefined
       provider: undefined
       provider_type: undefined
-      owner_name: undefined
-      owner_email: undefined
