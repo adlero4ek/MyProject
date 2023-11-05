@@ -3,3 +3,4 @@ imports:
   - Applications/root.yaml
   - Technolohy/root.yaml
   - Data/root.yaml
+  - Welcome/root.yaml

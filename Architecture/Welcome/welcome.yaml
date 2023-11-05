@@ -1,0 +1,6 @@
+docs:
+
+  dochub.welcome:
+    title: Моя стартовая страница
+    type: markdown
+    source: welcome.md
