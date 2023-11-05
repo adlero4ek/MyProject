@@ -7,6 +7,8 @@ xcopy "D:\Dev\Dochub\MyProject\Architecture" "D:\Dev\Dochub\MyProject_Web\manife
 
 explorer "D:\Dev\Dochub\MyProject_Web"
 
+explorer "http://localhost:8080/main"
+
 
 
 
