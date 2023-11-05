@@ -4,3 +4,7 @@ docs:
     title: Моя стартовая страница
     type: markdown
     source: welcome.md
+
+  swamp.welcome:
+    type: markdown
+    source: welcome.md
