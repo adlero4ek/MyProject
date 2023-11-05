@@ -1,6 +1,6 @@
 imports:
   - Business/root.yaml
   - Applications/root.yaml
-  - Technolohy/root.yaml
+  - Technology/root.yaml
   - Data/root.yaml
   - Welcome/root.yaml
