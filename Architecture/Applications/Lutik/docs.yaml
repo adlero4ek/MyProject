@@ -12,20 +12,6 @@ docs:
     location: "Архитектура приложений/Лютик/Архитектурные схемы/Уровень 1"
     source: Templates/architecture_lvl_1.md
 
-  Lutik.doc.lvl_1_SystemsList:
-    type: table
-    headers:
-      - value: title
-        text: "Наименование"
-        sortable: true
-        link: id
-      - value: description
-        text: "Описание"
-        width: 70%
-      - value: state
-        text: "Статус"
-    source: Lutik.dataset.ListOfInformationSystems
-
   # Прочее
 
   Lutik.doc.ListOfInformationSystems:
