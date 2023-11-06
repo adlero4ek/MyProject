@@ -1,2 +1,5 @@
 imports:
   - prod_fin_node1.yaml
+  - prod_fin_node2.yaml
+  - prod_fin_node3.yaml
+  - contexts.yaml

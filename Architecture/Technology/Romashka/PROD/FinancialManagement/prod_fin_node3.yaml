@@ -1,0 +1,145 @@
+contexts:
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3:
+    title: Нода ЕК АСУФР-3 1С-ДО №3
+    extra-links: true
+    entity: collections
+    location:
+    components:
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.*
+
+components:
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3:
+    title: Нода ЕК АСУФР-3 1С-ДО №3
+    entity: collections
+    Architect: Zvereva Ksenia Matveevna
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Нода
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.WS1:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-ws1\nIP: 127.0.0.21'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.WS2:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-ws2\nIP: 127.0.0.22'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.App1:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-app1\nIP: 127.0.0.23'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.App2:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-app2\nIP: 127.0.0.24'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.App3:
+    title: 'Сервер приложений 1С\n(Рабочий сервер)\nname: node1-app3\nIP: 127.0.0.25'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.App4:
+    title: 'Сервер приложений 1С\n(Рабочий сервер под рег. задания)\nname: node1-app4\nIP: 127.0.0.26'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.Db1:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-db1\nIP: 127.0.0.27'
+    entity: database
+
+  Romashka.Clusters.Prod.FinancialManagement.Node3.Db2:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-db2\nIP: 127.0.0.28'
+    entity: database
+
+
+links:
+
+  #  WS - APP
+
+  Romashka.link.from.Node3.WS1.to.Node3.App1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.WS1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.WS1.to.Node3.App2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.WS1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.WS2.to.Node3.App1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.WS2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.WS2.to.Node3.App2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.WS2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - APP
+
+  Romashka.link.from.Node3.App1.to.Node3.App3:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App3
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.App1.to.Node3.App4:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App4
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.App2.to.Node3.App3:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App3
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.App2.to.Node3.App4:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.App4
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - DB
+
+  Romashka.link.from.Node3.App1.to.Node3.Db1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.App1.to.Node3.Db2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.App2.to.Node3.Db1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node3.App2.to.Node3.Db2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db2
+    title: undefined
+    description: undefined
+    code: undefined

@@ -1,0 +1,8 @@
+contexts:
+
+  Romashka.Clusters.Prod.FinancialManagement:
+    title: "Уровень 1/Продуктивные сервера/Финансовый контур"
+    extra-links: true
+    location:
+    components:
+      - Romashka.Clusters.Prod.FinancialManagement.*

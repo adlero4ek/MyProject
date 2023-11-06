@@ -1,32 +1,8 @@
 contexts:
 
   Romashka.Clusters.Prod:
-    title: "Технологическая архитектура/Ромашка/Уровень 1/Продуктивные сервера"
+    title: "Уровень 1/PROD-сервера"
     extra-links: true
     location:
     components:
       - Romashka.Clusters.Prod.*
-
-#  Romashka.Clusters.Prod.Node1:
-#    title: Нода ЕК АСУФР-3 1С-ДО №1
-#    extra-links: true
-#    entity: collections
-#    location:
-#    components:
-#      - Romashka.Clusters.Prod.Node1.*
-#
-#  Romashka.Clusters.Prod.Node2:
-#    title: Нода ЕК АСУФР-3 1С-ДО №2
-#    extra-links: true
-#    entity: collections
-#    location:
-#    components:
-#      - Romashka.Clusters.Prod.Node2.*
-#
-#  Romashka.Clusters.Prod.Node3:
-#    title: Нода ЕК АСУФР-3 1С-ДО №3
-#    extra-links: true
-#    entity: collections
-#    location:
-#    components:
-#      - Romashka.Clusters.Prod.Node3.*

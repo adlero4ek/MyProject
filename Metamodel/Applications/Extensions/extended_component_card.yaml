@@ -7,7 +7,7 @@ entities:
       blank:
         title: Расширенная карточка информационной системы/сервиса
         type: markdown
-        template: extended_application_card.md
+        template: extended_card_application.md
         source: >
           (
 
@@ -54,4 +54,28 @@ entities:
           
               )[id=$params.id]
      
+          )
+      extended_card_node:
+        title: Расширенная карточка Ноды
+        type: markdown
+        template: extended_card_node.md
+        source: >
+          (
+              $id := $params.id;
+          )
+      extended_card_cluster:
+        title: Расширенная карточка кластера
+        type: markdown
+        template: extended_card_cluster.md
+        source: >
+          (
+              $id := $params.id;
+          )
+      extended_card_functional_cluster:
+        title: Расширенная карточка функционального кластера
+        type: markdown
+        template: extended_card_functional_cluster.md
+        source: >
+          (
+              $id := $params.id;
           )

@@ -11,23 +11,23 @@ docs:
 
   Romashka.doc.Tech_Architecture_Dev:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Сервера контура разработки
+    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Dev - сервера
     source: Templates/tech_landscape_lvl_0.md
 
   Romashka.doc.Tech_Architecture_Test:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Сервера контура тестирования
+    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Test - сервера
     source: Templates/tech_landscape_lvl_0.md
 
   Romashka.doc.Tech_Architecture_Stage:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Сервера подготовительного конутра
+    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Stage - сервера
     source: Templates/tech_landscape_lvl_0.md
 
   Romashka.doc.Tech_Architecture_Prod:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Продуктивные сервера
-    source: Templates/tech_landscape_lvl_0.md
+    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Prod - сервера
+    source: Templates/prod_landscape_lvl_1.md
 
   technologies_table_list:
     type: table

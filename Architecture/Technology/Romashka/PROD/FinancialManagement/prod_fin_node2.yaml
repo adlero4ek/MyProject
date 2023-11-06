@@ -1,0 +1,126 @@
+contexts:
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2:
+    title: Нода ЕК АСУФР-3 1С-ДО №2
+    extra-links: true
+    entity: collections
+    location:
+    components:
+      - Romashka.Clusters.Prod.FinancialManagement.Node2.*
+
+components:
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2:
+    title: Нода ЕК АСУФР-3 1С-ДО №2
+    entity: collections
+    Architect: Zvereva Ksenia Matveevna
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Нода
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.WS1:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node2-ws1\nIP: 127.0.0.11'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.WS2:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node2-ws2\nIP: 127.0.0.12'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.App1:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node2-app1\nIP: 127.0.0.13'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.App2:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node2-app2\nIP: 127.0.0.14'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.App3:
+    title: 'Сервер приложений 1С\n(Рабочий сервер)\nname: node2-app3\nIP: 127.0.0.15'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.Db1:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node2-db1\nIP: 127.0.0.17'
+    entity: database
+
+  Romashka.Clusters.Prod.FinancialManagement.Node2.Db2:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node2-db2\nIP: 127.0.0.18'
+    entity: database
+
+links:
+
+  #  WS - APP
+
+  Romashka.link.from.Node2.WS1.to.Node2.App1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.WS1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.WS1.to.Node2.App2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.WS1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.WS2.to.Node2.App1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.WS2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.WS2.to.Node2.App2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.WS2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - APP
+
+  Romashka.link.from.Node2.App1.to.Node2.App3:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.App3
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.App2.to.Node2.App3:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.App3
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - DB
+
+  Romashka.link.from.Node2.App1.to.Node2.Db1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.App1.to.Node2.Db2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.App1
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.Db2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.App2.to.Node2.Db1:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node2.App2.to.Node2.Db2:
+    from: Romashka.Clusters.Prod.FinancialManagement.Node2.App2
+    to: Romashka.Clusters.Prod.FinancialManagement.Node2.Db2
+    title: undefined
+    description: undefined
+    code: undefined

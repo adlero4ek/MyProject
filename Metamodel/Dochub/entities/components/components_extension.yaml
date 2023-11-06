@@ -1,84 +1,13 @@
 entities:
   components:
-    # Расширяем презентацию сущности
     presentations:
-      # Встраиваемся в основную перезентацию (т.е. она уже существует)
       blank:
-        # Добавляем собственный виджет
         widgets:
-          #+++ДОБАВЛЕНИЕ
           ExtendedDescription:
             title:
             order: 800
             presentation: ExtendedDescription
             align: ">"
-          #---ДОБАВЛЕНИЕ
-          #+++ОРИГИНАЛ
-#          sys_responsible_employees: # Идентификатор виджета
-#            # Название виджета
-#            title: Ключевые контакты
-#            # Идентификатор презентации, которая будет использоваться в виджете
-#            presentation: sys_responsible_employees
-#            # В params можно передать дополнительные параметры
-#            # презентации, которые будут доступны в переменной $params
-#            #params:
-#            #  param1: Значение параметра 1
-#            #  param2: Значение параметра 2
-#            # Расположение
-#            # < - слева
-#            # > - справа
-#            # = - Растянуть на 100%
-#            align: "<"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-##          --ОРИГИНАЛ
-#          sys_technologies:
-#            title: Технологии
-#            presentation: sys_technologies
-#            align: "<"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-          #+++ОРИГИНАЛ
-#          sys_urls:
-#            title: Полезные ссылки
-#            presentation: sys_urls
-#            align: "<"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-          #---ОРИГИНАЛ
-#          sys_docs:
-#            title: Документация системы
-#            presentation: sys_docs
-#            align: "<"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-          #+++ОРИГИНАЛ
-#          sys_problems:
-#            title: Проблемы
-#            presentation: sys_problems
-#            align: "<"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-#          outside_links:
-#            title: Кто зависит от этого компонента
-#            presentation: outside_links
-#            align: ">"
-#            order: 1000
-#            style:
-#              border: false
-#              margin: 4px
-          #+++ОРИГИНАЛ
-      #+++ДОБАВЛЕНИЕ
       ExtendedDescription:
         params:
           type: object
@@ -92,208 +21,25 @@ entities:
         template: templates/extended_description.md
         source: >
           (
-            {
-              "system_link": "/entities/extended_application_card/blank?id=" & $params.component
-            }
+            
+            $id := $params.component;
+            $Component := $lookup($.components, $id);
+  
+            $type := $Component ? ($Component.extension.type) : "";
+  
+            $Query := [
+              {"link": $type = "Группа серверов" ? "/entities/extended_application_card/extended_card_cluster?id=" : false},              
+              {"link": $type = "Группа серверов функциональной области" ? "/entities/extended_application_card/extended_card_functional_cluster?id=" : false},
+              {"link": $type = "Нода" ? "/entities/extended_application_card/extended_card_node?id=" : false},
+              {"link": $type = "system" ? "/entities/extended_application_card/blank?id=" : false},
+              {"link": $type = "subsystem" ? "/entities/extended_application_card/blank?id=" : false}
+            ];
+  
+            $Query.(
+              {
+                "link": link,
+                "system_link": link & $id
+              } 
+            )[link!=false]
+          
           )
-      #---ДОБАВЛЕНИЕ
-      sys_responsible_employees: # Ключевые сотрудники, контакты
-        params:
-          type: object
-          properties:
-            component:
-              title: Идентификатор компонента
-              type: string
-          required:
-            - component
-        type: table
-        headers:
-          - value: title
-            text: Роль
-            sortable: true
-            align: left
-            width: 30%
-          - value: res_persons
-            text: ФИО
-            sortable: true
-            align: left
-            width: 40%
-            link: acc_link
-          - value: acc_email
-            text: Почта
-            sortable: true
-            align: left
-            width: 40%
-        source: Application.dataset.KeyContacts
-      sys_urls:
-        params:
-          type: object
-          properties:
-            component:
-              title: Идентификатор компонента
-              type: string
-          required:
-            - component
-        type: table
-        headers:
-          - value: type
-            text: Тип ссылки
-            sortable: true
-            align: left
-            width: 10%
-
-          - value: title
-            text: Имя
-            sortable: true
-            align: left
-            width: 40%
-            link: url
-        source: >
-          (
-            $system_id := $params.component;
-            /*$system_id := "swamp.bu_csp.sid";*/
-            $field_id := $params.field_id;
-            $field_id := "urls";
-            $_manifest := $;
-            $_systems := $_manifest.components;
-            $sys_pattern := $eval("/^" &  $system_id & "$/");
-            $sys_accounts := [$_systems.$sift(function($v, $k) {$k ~> $sys_pattern}).*.(
-              $.urls
-            )];
-          )
-
-      sys_docs:
-        params:
-          type: object
-          properties:
-            component:
-              title: Идентификатор компонента
-              type: string
-          required:
-            - component
-        type: table
-        headers:
-          - value: Doc_Description
-            text: Описание документа
-            sortable: true
-            align: left
-            width: 100%
-            link: Doc_Link
-        source: Application.dataset.ApplicationDocs
-      sys_technologies:
-        # Контракт по параметрам представления в формате JSONSchema
-        params:
-          type: object
-          properties:
-            component:
-              title: Идентификатор компонента
-              type: string
-          required:
-            - component
-        # Тип документа шаблона
-        type: table
-        # Определяем заголовок таблицы
-        headers:
-          - value: technology_ID
-            text: Технология
-            sortable: true
-            align: left
-            width: 30%
-            link: technology_link
-
-          - value: technology_section
-            text: Секция
-            sortable: true
-            align: left
-            width: 20%
-
-          - value: technology_status
-            text: Статус
-            sortable: false
-            align: left
-            width: 10%
-
-          - value: technology_aliases
-            text: Синонимы
-            sortable: true
-            align: left
-            width: 40%
-        source: Application.dataset.Technologies
-      sys_problems:
-        params:
-          type: object
-          properties:
-            component:
-              title: Идентификатор компонента
-              type: string
-          required:
-            - component
-        # Тип документа шаблона
-        type: table
-        # Определяем заголовок таблицы
-        headers:
-          - value: correction
-            text: Что нужно исправить
-          - value: description
-            text: Описание
-        source: >
-          (
-            /* $system_id := "swamp.bu_csp.sid"; */
-            $system_id := $params.component;
-            $matcher := $eval("/^.*" & $system_id & "$/");
-            $MANIFEST := $;
-            $problems := (
-              $.rules.validators.$spread().(
-                $self := $.*;
-                $eval($.*.source, $MANIFEST);
-              )
-            )[$matcher(uid)]
-          )
-
-      outside_links: # Идентификатор представления
-        # Контракт по параметрам представления в формате JSONSchema
-        params:
-          type: object
-          properties:
-            component:
-              title: Идентификатор компонента
-              type: string
-          required:
-            - component
-        # Тип документа шаблона
-        type: table
-        # Определяем заголовок таблицы
-        headers:
-          - value: id             # Идентификатор зависимого компонента
-            text: Идентификатор   # Заголовок колонки
-            sortable: true        # Производить сортировку по колонке
-            align: left           # Форматирование по горизонтали
-            width: 40%            # Ширина колонки
-            link: link
-          - value: title          # Наименование зависимого компонента
-            text: Наименование
-            sortable: true
-            align: left           # Форматирование по горизонтали
-            width: 40%
-            link: link
-          - value: direction      # Направление связи
-            text: Направление связи
-            sortable: true
-            align: center
-            width: 20%
-        # Данные для шаблона
-        source: >
-          (
-            [$distinct(components.$spread().(
-              $id := $keys()[0];
-              $title := *.title;
-              $links := $distinct($.*.links[id=$params.component].("" & direction));
-              $links.{
-                "id": $id,
-                "title": $title,
-                "direction": $links,
-                "link": "/architect/components/" & $id
-              }
-            ))^(id)]
-          )
-
