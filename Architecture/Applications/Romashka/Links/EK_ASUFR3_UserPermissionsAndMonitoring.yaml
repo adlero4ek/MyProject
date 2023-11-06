@@ -78,7 +78,7 @@ links:
   #  EK_ASUFR3_UserPermissionsAndMonitoring - > EK_ASUFR3_1C_DO -> Учетные записи пользователей
   Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_DO._.23.1.4:
     from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.UserPermissions
+    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
     to_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.UserPermissions
     title: Учетные записи пользователей
@@ -103,7 +103,7 @@ links:
   #  EK_ASUFR3_UserPermissionsAndMonitoring - > EK_ASUFR3_1C_Etalon_DO -> Учетные записи пользователей
   Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Etalon_DO._.23.1.5:
     from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.UserPermissions
+    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO
     to_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.UserPermissions
     title: Учетные записи пользователей

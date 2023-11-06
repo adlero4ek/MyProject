@@ -113,6 +113,7 @@ datasets:
             "scrum_title": scrum_title,
             "is_optional": is_optional,
             "order_index": order_index,
+            "description": description,
             "account_names": [$contact_account_names]
           };
         )[$not(is_optional) or $count(account_names) > 0];
@@ -127,7 +128,8 @@ datasets:
               "res_persons": $account.title,
               "acc_persons": $account.name,
               "acc_link": $account.acc_link,
-              "acc_email": $account.email          
+              "acc_email": $account.email,
+              "acc_description": $contact_settings.description
             } 
           )
         );

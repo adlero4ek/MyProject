@@ -103,8 +103,8 @@ docs:
         sortable: true
         align: left
         width: 30%
-      - value: scrum
-        text: SCRUM
+      - value: acc_description
+        text: Описание
         sortable: true
         align: left
         width: 20%

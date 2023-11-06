@@ -1,0 +1,36 @@
+components:
+
+  Romashka.Clusters.Prod:
+    title: Сервера продуктивного контура
+    entity: collections
+    description: "Совокупность версий информационных систем, предназначенных для выполнения процессов, имеющих юридическую значимость"
+
+  Romashka.Clusters.Prod.FinancialManagement:
+    title: Сервера финансового контура
+    entity: collections
+
+  Romashka.Clusters.Prod.DocumentManagement:
+    title: Сервера документооборота (ЭДО, ЮЗЭДО, ВКЭДО)
+    entity: collections
+
+  Romashka.Clusters.Prod.VehicleManagement:
+    title: Сервера управления автотранспортом
+    entity: collections
+
+  Romashka.Clusters.Prod.Other:
+    title: Прочие сервера (HR, обеспечивающие системы)
+    entity: collections
+
+#
+
+##
+##  Romashka.Clusters.Prod.Node2:
+##    title: Нода ЕК АСУФР-3 1С-ДО №2
+##    entity: collections
+##
+##  Romashka.Clusters.Prod.Node3:
+##    title: Нода ЕК АСУФР-3 1С-ДО №3
+##    entity: collections
+#
+#    #todo список орагнихация в БА, чтобы видеть общий контектс
+#

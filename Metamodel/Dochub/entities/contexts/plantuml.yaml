@@ -16,6 +16,7 @@ entities:
       makePumlComponentDiagram: >
         (
           /* Обрабатываем параметры */
+        
           $areas := areas;
           $components := components;
           $manifest := manifest;

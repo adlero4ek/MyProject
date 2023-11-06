@@ -1,0 +1,26 @@
+contexts:
+
+  Romashka.Tech_Architecture_lvl_0:
+    title: "Технологическая архитектура/Ромашка/Уровень 0"
+    extra-links: true
+    location:
+    components:
+      - Romashka.Clusters.*
+
+  Romashka.Clusters.Dev:
+    title: "Технологическая архитектура/Ромашка/Уровень 1/Сервера контура разработки"
+    extra-links: true
+    components:
+      - Romashka.Clusters.Dev.*
+
+  Romashka.Clusters.Test:
+    title: "Технологическая архитектура/Ромашка/Уровень 1/Сервера контура тестирования"
+    extra-links: true
+    components:
+      - Romashka.Clusters.Test.*
+
+  Romashka.Clusters.Stage:
+    title: "Технологическая архитектура/Ромашка/Уровень 1/Сервера подготовительного конутра"
+    extra-links: true
+    components:
+      - Romashka.Clusters.Stage.*

@@ -1,0 +1,40 @@
+components:
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1:
+    title: Нода ЕК АСУФР-3 1С-ДО №1
+    entity: collections
+    Architect: Zvereva Ksenia Matveevna
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.App11:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: srv-app1\nIP: 127.0.0.1'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.App21:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: srv-app2\nIP: 127.0.0.2'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.App31:
+    title: 'Сервер приложений 1С\n(Рабочий сервер)\nname: srv-app3\nIP: 127.0.0.23'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.App41:
+    title: 'Сервер приложений 1С\n(Рабочий сервер под рег. задания)\nname: srv-app4\nIP: 127.0.0.24'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.Db11:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: srv-db1\nIP: 127.0.0.30'
+    entity: database
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.Db21:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: srv-db2\nIP: 127.0.0.31'
+    entity: database
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.WS11:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: srv-ws1\nIP: 127.0.0.5'
+    entity: component
+
+  Romashka.Clusters.Prod.FinancialManagement.Node1.WS21:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: srv-ws2\nIP: 127.0.0.6'
+    entity: component

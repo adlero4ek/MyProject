@@ -29,15 +29,21 @@ dictionaries:
       - name: business_owners
         title: Бизнес-заказчик
         scrum_title: Business Owner
-        description: Вопросы по функционалу отдельных направления системы.
+        description: "Вопросы по функционалу отдельных направления системы"
         is_optional: false
         order_index: 4
       - name: access_approver
         title: Согласование доступа
         scrum_title:
-        description: Согласование пользовательского доступа к системе и ее данным.
+        description: "Согласование пользовательского доступа к системе и ее данным"
         is_optional: true
         order_index: 5
+      - name: technical_support
+        title: Специалист технической поддержки 1-й линии
+        scrum_title:
+        description: "Оказание помощи новым сотрудникам: регистрация телефонов, настройка удаленного доступа, помощь с доступом к удаленному рабочему столу"
+        is_optional: true
+        order_index: 6
 
   accounts:
     title: Учётные записи пользователей

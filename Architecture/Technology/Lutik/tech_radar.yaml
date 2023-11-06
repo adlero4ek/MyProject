@@ -1,0 +1,11 @@
+components:
+
+  Lutik.Systems.EnvironmentalHealthSafety.System1:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+
+  Lutik.Systems.EnvironmentalHealthSafety.System2:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise

@@ -14,34 +14,34 @@ entities:
             align: ">"
           #---ДОБАВЛЕНИЕ
           #+++ОРИГИНАЛ
-          sys_responsible_employees: # Идентификатор виджета
-            # Название виджета
-            title: Ключевые контакты
-            # Идентификатор презентации, которая будет использоваться в виджете
-            presentation: sys_responsible_employees
-            # В params можно передать дополнительные параметры
-            # презентации, которые будут доступны в переменной $params
-            #params:
-            #  param1: Значение параметра 1
-            #  param2: Значение параметра 2
-            # Расположение
-            # < - слева
-            # > - справа
-            # = - Растянуть на 100%
-            align: "<"
-            order: 1000
-            style:
-              border: false
-              margin: 4px
-#          --ОРИГИНАЛ
-          sys_technologies:
-            title: Технологии
-            presentation: sys_technologies
-            align: "<"
-            order: 1000
-            style:
-              border: false
-              margin: 4px
+#          sys_responsible_employees: # Идентификатор виджета
+#            # Название виджета
+#            title: Ключевые контакты
+#            # Идентификатор презентации, которая будет использоваться в виджете
+#            presentation: sys_responsible_employees
+#            # В params можно передать дополнительные параметры
+#            # презентации, которые будут доступны в переменной $params
+#            #params:
+#            #  param1: Значение параметра 1
+#            #  param2: Значение параметра 2
+#            # Расположение
+#            # < - слева
+#            # > - справа
+#            # = - Растянуть на 100%
+#            align: "<"
+#            order: 1000
+#            style:
+#              border: false
+#              margin: 4px
+##          --ОРИГИНАЛ
+#          sys_technologies:
+#            title: Технологии
+#            presentation: sys_technologies
+#            align: "<"
+#            order: 1000
+#            style:
+#              border: false
+#              margin: 4px
           #+++ОРИГИНАЛ
 #          sys_urls:
 #            title: Полезные ссылки
@@ -52,14 +52,14 @@ entities:
 #              border: false
 #              margin: 4px
           #---ОРИГИНАЛ
-          sys_docs:
-            title: Документация системы
-            presentation: sys_docs
-            align: "<"
-            order: 1000
-            style:
-              border: false
-              margin: 4px
+#          sys_docs:
+#            title: Документация системы
+#            presentation: sys_docs
+#            align: "<"
+#            order: 1000
+#            style:
+#              border: false
+#              margin: 4px
           #+++ОРИГИНАЛ
 #          sys_problems:
 #            title: Проблемы
