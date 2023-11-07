@@ -1,0 +1,9 @@
+components:
+
+  Lutik.Systems:
+    title: Приложения и сервисы
+    entity: component
+
+  Lutik.Systems.EnvironmentalHealthSafety:
+    title: Охрана труда и окружающей среды, безопасность
+    entity: component

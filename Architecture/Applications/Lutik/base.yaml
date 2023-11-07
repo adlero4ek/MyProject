@@ -1,0 +1,5 @@
+components:
+
+  Lutik.Systems:
+    title: Приложения и сервисы
+    entity: component

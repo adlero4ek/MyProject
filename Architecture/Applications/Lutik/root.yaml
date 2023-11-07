@@ -1,6 +1,8 @@
 imports:
-  - Links/root.yaml
-  - Components/LVL1/root.yaml
+#  - Links/root.yaml
+#  - Components/LVL1/root.yaml
+  - base.yaml
   - docs.yaml
   - datasets.yaml
   - contexts.yaml
+  - EnvironmentalHealthSafety/root.yaml

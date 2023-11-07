@@ -1,0 +1,5 @@
+components:
+
+  Romashka.Systems.ReportingSystems:
+    title: Консолидированная отчетность
+    entity: component

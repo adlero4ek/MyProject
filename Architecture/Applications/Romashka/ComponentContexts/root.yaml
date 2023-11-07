@@ -1,8 +1,0 @@
-imports:
-#  - DocumentManagement.yaml
-#  - FinancialManagement.yaml
-#  - HRManagement.yaml
-  - Technological.yaml
-#  - VehicleManagement.yaml
-  - Supporting.yaml
-

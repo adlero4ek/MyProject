@@ -1,0 +1,19 @@
+components:
+
+  Lutik.Systems.EnvironmentalHealthSafety.System1:
+    title: Комплексная производственная безопасность
+    entity: component
+    description: "Продукт предназначен для комплексной автоматизации производственной безопасности в крупных
+     территориально-распределенных и холдинговых компаниях. Решение позволяет автоматизировать задачи охраны труда, ГО и ЧС, экологической, промышленной, пожарной,
+     транспортной безопасности и электробезопасности; позволяет обеспечить формирование необходимой корпоративной и аналитической отчетности"
+    extension:
+      type: system
+      area: Финансовый контур
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: undefined
+      basic_solution: undefined
+      basic_solution_state: undefined
+      basic_solution_link: https://solutions.1c.ru/catalog/ehs_compl_corp
+      provider: undefined
+      provider_type: undefined

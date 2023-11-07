@@ -1,0 +1,36 @@
+components:
+
+  Romashka.Systems.Technological:
+    title: Технологический контур
+    entity: component
+
+contexts:
+
+  Romashka.Systems.Technological:
+    title: Технологический контур
+    location: "Ромашка/Архитектурные схемы/Уровень 3/Технологический контур"
+    extra-links: true
+    components:
+      - Romashka.Systems.Technological.*
+
+aspects:
+
+  Technological:
+    title: Технологический контур
+    location: Технологический контур
+
+  Technological.ProcessModeling:
+    title: Моделирование процессов
+    location: Моделирование процессов
+
+  Technological.Designing:
+    title: Проектирование
+    location: Проектирование
+
+  Technological.SoftwareDevelopmentManagement:
+    title: Управление разработкой программного обеспечения
+    location: Управление разработкой программного обеспечения
+
+  Technological.ErrorLoggingAndTracking:
+    title: Регистрация и отслеживание ошибок
+    location: Регистрация и отслеживание ошибок

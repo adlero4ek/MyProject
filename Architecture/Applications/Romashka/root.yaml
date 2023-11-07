@@ -1,17 +1,20 @@
 imports:
 
-  - Components/root.yaml
-  - ComponentContexts/root.yaml
+#  - Components/root.yaml
+#  - ComponentContexts/root.yaml
 
   - docs.yaml
 #  - aspects.yaml
   - contexts.yaml
   - datasets.yaml
 
-  - Links/root.yaml
+#  - Links/root.yaml
 
   - base.yaml
   - FinancialManagement/root.yaml
   - DocumentManagement/root.yaml
   - HRManagement/root.yaml
   - VehicleManagement/root.yaml
+  - Supporting/root.yaml
+  - Technological/root.yaml
+  - ArchitectureManagement/root.yaml
