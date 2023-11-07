@@ -1,2 +1,3 @@
 imports:
   - EK_ASUFR3_1C_MDM_ERP.yaml
+  - EK_ASUFR3_1C_MDM_ERP_Links.yaml

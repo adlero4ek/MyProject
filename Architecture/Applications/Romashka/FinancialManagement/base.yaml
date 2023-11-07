@@ -1,10 +1,14 @@
 components:
 
+  # Функциональная область
+
   Romashka.Systems.FinancialManagement:
     title: Финансовый контур
     entity: component
 
 contexts:
+
+  # Конктест функциональной область для схемы
 
   Romashka.Systems.FinancialManagement:
     title: Финансовый контур
@@ -15,7 +19,7 @@ contexts:
 
 aspects:
 
-  # FinancialManagement
+  # Функциональность функциональной области
 
   FinancialManagement:
     title: Финансовый контур

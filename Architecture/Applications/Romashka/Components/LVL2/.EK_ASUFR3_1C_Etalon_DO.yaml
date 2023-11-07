@@ -1,0 +1,15 @@
+#components:
+#
+#  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.UserPermissions:
+#    title: Права и роли пользователей
+#    entity: component
+#    description: Права и роли пользователей
+#    extension:
+#      type: subsystem
+#
+#  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.MDM:
+#    title: Управление НСИ
+#    entity: component
+#    description: Управление НСИ
+#    extension:
+#      type: subsystem

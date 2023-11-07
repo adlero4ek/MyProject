@@ -1,0 +1,85 @@
+components:
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ
+    entity: component
+    description:
+      "Автоматизации управления на автотранспортных предприятиях различного масштаба, использующих автотранспорт для собственных нужд, с расширенными
+       возможностями: спутниковый мониторинг, картографические сервисы и многое другое."
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
+    extension:
+      type: system
+      area: Управление автотранспортом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/autotransport-prof
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+    aspects:
+      - DocumentManagement.EDO
+      - VehicleManagement.Vehicles
+      - VehicleManagement.ApplicationsRoadTransport
+      - VehicleManagement.Waybills
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.Vehicles:
+    title: Учет транспортных средств
+    entity: component
+    description: Учет транспортных средств
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.PrimaryDocuments:
+    title: Учёт первичных документов работы транспортных средств, находящихся в собственной эксплуатации
+    entity: component
+    description: Учёт первичных документов работы транспортных средств, находящихся в собственной эксплуатации
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.ApplicationsRoadTransport:
+    title: Учет заявок на автоперевозки
+    entity: component
+    description: Учет заявок на автоперевозки
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.Waybills:
+    title: Учет путевых листов
+    entity: component
+    description: Учет путевых листов
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.MDM:
+    title: Управление НСИ
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.UserPermissions:
+    title: Права и роли пользователей
+    entity: component
+    description: Права и роли пользователей
+    extension:
+      type: subsystem
+
+contexts:
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ
+    location:
+    extra-links: false
+    components:
+      - Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.Vehicles
+      - Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.ApplicationsRoadTransport
+      - Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.PrimaryDocuments
+      - Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.Waybills
+      - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP

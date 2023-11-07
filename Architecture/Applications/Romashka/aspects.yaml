@@ -1,58 +1,57 @@
 aspects:
 
   # Прикладная функциональность (функции систем / подсистем)
-
   # Централизованные функии
 
-  CommonAspects:
-    title: Базовые функции
-    location: Базовые функции
-
-  CommonAspects.ReferenceClassifiers:
-    title: Эталонные классификаторы
-    location: Эталонные классификаторы
-
-  CommonAspects.ReferenceMDM:
-    title: Эталонные НСИ
-    location: Эталонные классификаторы
-
-  CommonAspects.ReferenceSettings:
-    title: Эталонные настройки
-    location: Эталонные классификаторы
-
-  CommonAspects.MonitoringFunctionality:
-    title: Мониторинг функциональности
-    location: Эталонные классификаторы
-
-  CommonAspects.StatisticsManagement:
-    title: Управление статистикой
-    location: Эталонные классификаторы
-
-  CommonAspects.InternalControlSystem:
-    title: Система внутренних контролей
-    location: Эталонные классификаторы
-
-  CommonAspects.ConsolidatedStatements:
-    title: Формирование консолидированной отчетности
-    location: Эталонные классификаторы
+#  CommonAspects:
+#    title: Базовые функции
+#    location: Базовые функции
+#
+#  CommonAspects.ReferenceClassifiers:
+#    title: Эталонные классификаторы
+#    location: Эталонные классификаторы
+#
+#  CommonAspects.ReferenceMDM:
+#    title: Эталонные НСИ
+#    location: Эталонные классификаторы
+#
+#  CommonAspects.ReferenceSettings:
+#    title: Эталонные настройки
+#    location: Эталонные классификаторы
+#
+#  CommonAspects.MonitoringFunctionality:
+#    title: Мониторинг функциональности
+#    location: Эталонные классификаторы
+#
+#  CommonAspects.StatisticsManagement:
+#    title: Управление статистикой
+#    location: Эталонные классификаторы
+#
+#  CommonAspects.InternalControlSystem:
+#    title: Система внутренних контролей
+#    location: Эталонные классификаторы
+#
+#  CommonAspects.ConsolidatedStatements:
+#    title: Формирование консолидированной отчетности
+#    location: Эталонные классификаторы
 
   # DocumentManagement
 
-  DocumentManagement:
-    title: Документооборот
-    location: Документооборот
-
-  DocumentManagement.EDO:
-    title: ЭДО
-    location: ЭДО
-
-  DocumentManagement.EDO_VK:
-    title: ВКЭДО
-    location: ВКЭДО
-
-  DocumentManagement.YUZEDO:
-    title: ЮЗЭДО
-    location: ЮЗЭДО
+#  DocumentManagement:
+#    title: Документооборот
+#    location: Документооборот
+#
+#  DocumentManagement.EDO:
+#    title: ЭДО
+#    location: ЭДО
+#
+#  DocumentManagement.EDO_VK:
+#    title: ВКЭДО
+#    location: ВКЭДО
+#
+#  DocumentManagement.YUZEDO:
+#    title: ЮЗЭДО
+#    location: ЮЗЭДО
 
 #  # FinancialManagement
 #

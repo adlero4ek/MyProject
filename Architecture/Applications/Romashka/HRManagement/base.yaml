@@ -1,0 +1,16 @@
+components:
+
+  Romashka.Systems.HRManagement:
+    title: Расчет заработной платы и управление персоналом
+    entity: component
+
+contexts:
+
+  # Контекст расчета з/п и управления персоналом
+
+  Romashka.Systems.HRManagement:
+    title: "Расчет з/п и управления персоналом"
+    location: "Ромашка/Архитектурные схемы/Уровень 3/Расчет заработной платы и HR"
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.*

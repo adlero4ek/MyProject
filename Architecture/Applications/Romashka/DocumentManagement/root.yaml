@@ -1,0 +1,4 @@
+imports:
+  - base.yaml
+  - EK_ASUFR3_1C_DO/root.yaml
+  - EK_ASUFR3_1C_Etalon_DO/root.yaml

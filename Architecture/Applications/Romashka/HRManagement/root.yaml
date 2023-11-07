@@ -1,0 +1,8 @@
+imports:
+  - base.yaml
+  - EK_ASUTR2_1C_ZUP/root.yaml
+  - EK_ASUTR2_1C_Etalon_ZUP/root.yaml
+  - EK_ASUTR2_1C_ZUP_Conslidate/root.yaml
+  - EK_ASUTR2_1C_ZUP_KZ/root.yaml
+  - EK_ASUTR2_OpenSource/root.yaml
+  - EK_ASUTR2_1C_ZUP_MDM/root.yaml

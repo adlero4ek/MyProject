@@ -1,0 +1,257 @@
+#links:
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.Supporting.EK_ASUD_2
+#    to_sybsystem: undefined
+#    title: Передача пакета М-11 с КЭП в АСД
+#    description: undefined
+#    code: И.11.1.4
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: NUMBER
+#        description: Номер документа
+#        type: Строка (35)
+#      - name: DATE
+#        description: Дата документа
+#        type: Дата (ГГГГ-ММ-ДД)
+#      - name: ACTION
+#        description: "Действия. Возможные коды действий:\n
+#         4 — повреждение,\n
+#            15 — товар устарел,\n
+#            12E — товар будет возвращен,\n
+#            14E — товар будет уничтожен,\n
+#            15E — товар должен быть  восстановлен/отремонтирован"
+#        type: Число (3)
+#      - name: VAT
+#        description: "Ставка НДС, %, Принимает значение: 0 | 10 | 18 | 20"
+#        type: Число положительное
+#    BusinessObjects:
+#      - Romashka.BusinessObject.Contractor
+#      - Romashka.BusinessObject.Document_M4
+#      - Romashka.BusinessObject.Organizations
+#      - Romashka.BusinessObject.Materials
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.1.2:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Данные ЭД
+#    description: undefined
+#    code: И.11.1.2
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.1.7:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Получение статусов обработки ЭД
+#    description: undefined
+#    code: И.11.1.7
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 0.5
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.2.4:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to_sybsystem: undefined
+#    title: Получение статусов обработки ЭД
+#    description: undefined
+#    code: И.11.2.4
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.5.2:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Получение ЭД, запросы на генерацию визуальных форм
+#    description: undefined
+#    code: И.11.5.2
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.5.4:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Получение статусов обработки ЭД, получение ЭД
+#    description: undefined
+#    code: И.11.5.4
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.6.4:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Получение статусов обработки ЭД, получение ЭД
+#    description: undefined
+#    code: И.11.6.4
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.9.4:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Получение статусов обработки ЭД, получение ЭД
+#    description: undefined
+#    code: И.11.9.4
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 0.5
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._.11.9.5:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    to_sybsystem: undefined
+#    title: Данные ЭД
+#    description: undefined
+#    code: И.11.9.5
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)
+#
+#  Romashka.link.from.EK_ASUFR3_1C_DO.to.SPPR._.11.9.6:
+#    from: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+#    from_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+#    to: Romashka.Systems.Technological.SPPR
+#    to_sybsystem: undefined
+#    title: Обращения пользователей (ошибки)
+#    description: undefined
+#    code: И.11.9.6
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)

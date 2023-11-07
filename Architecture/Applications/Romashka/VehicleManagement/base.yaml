@@ -1,0 +1,14 @@
+components:
+
+  Romashka.Systems.VehicleManagement:
+    title: Управление автотранспортом
+    entity: component
+
+contexts:
+
+  Romashka.Systems.VehicleManagement:
+    title: Управление автотранспортом
+    location: "Ромашка/Архитектурные схемы/Уровень 3/Управление автотранспортом"
+    extra-links: true
+    components:
+      - Romashka.Systems.VehicleManagement.*

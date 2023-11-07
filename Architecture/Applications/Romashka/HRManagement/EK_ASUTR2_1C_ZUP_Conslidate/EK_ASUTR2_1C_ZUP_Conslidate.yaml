@@ -1,0 +1,37 @@
+components:
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_Conslidate:
+    title: ЕК АСУТР-2. 1С:ЗУП (консолидация)
+    entity: component
+    description:
+      "Автоматизированная система для централизованного хранения данных «ЕК АСУТР-2. 1С:ЗУП КОРП» и «ЕК АСУТР-2. 1С:ЗУП КОРП (Казахстан)» всех бизнес-единиц
+       ОАО «Ромашка» с целью организации оперативного доступа к данным только тех пользователей, которые выполняют централизованные функции
+       (консолидация, поиск и обработка данных всех бизнес-единиц ОАО «Ромашка») и для решения которых не предусмотрено использование общего «Задачника/Отчетника»"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
+    extension:
+      type: system
+      area: Расчет з/п и управления персоналом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Зарплата и управление персоналом 8 КОРП, редакция 3.0"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/hrm
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+    aspects:
+      - CommonAspects.ConsolidatedStatements
+
+contexts:
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_Conslidate:
+    title: "Расчет з/п и управления персоналом"
+    location:
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_Conslidate.*

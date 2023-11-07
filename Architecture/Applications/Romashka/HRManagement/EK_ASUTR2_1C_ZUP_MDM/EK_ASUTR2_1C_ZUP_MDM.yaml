@@ -1,0 +1,26 @@
+components:
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_MDM:
+    title: ЕК АСУТР-2. ЦНСИ
+    entity: component
+    description:
+      "Единая корпоративная платформа управления процессом ведения нормативно-справочной информации функциональных компонент ЕК АСУТР-2"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
+    extension:
+      type: system
+      area: Расчет з/п и управления персоналом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:MDM"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/mdm
+      provider: ООО "Разработчик 1С"
+      provider_type: Заказная разработка
+    aspects:
+      - CommonAspects.ReferenceMDM

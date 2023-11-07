@@ -1,0 +1,34 @@
+components:
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ:
+    title: ЕК АСУТР-2. 1С:ЗУП (Казахстан)
+    entity: component
+    description:
+      "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков контра расчета заработной платы и управления
+       персоналом в соответствии с законодательством республики Казахстан"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
+    extension:
+      type: system
+      area: Расчет з/п и управления персоналом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Зарплата и управление персоналом 8 КОРП, редакция 3.0"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/hrm
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+
+contexts:
+
+  Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ:
+    title: "Расчет з/п и управления персоналом"
+    location:
+    extra-links: true
+    components:
+      - Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ.*

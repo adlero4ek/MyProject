@@ -1,0 +1,58 @@
+components:
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ (консолидация)
+    entity: component
+    description:
+      "Автоматизированная система для централизованного хранения данных «ЕК АСУФР-3. 1С:УАТ всех бизнес-единиц ОАО «Ромашка» с целью организации оперативного
+       доступа к данным только тех пользователей, которые выполняют централизованные функции (консолидация, поиск и обработка данных всех бизнес-единиц ОАО «Ромашка»)
+       и для решения которых не предусмотрено использование общего «Задачника/Отчетника»"
+    business_owners:
+      - Egorov Demid Nikitich
+      - Solovyova Vera Georgievna
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
+    extension:
+      type: system
+      area: Управление автотранспортом
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/autotransport-prof
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+    aspects:
+      - CommonAspects.ConsolidatedStatements
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.UserPermissions:
+    title: Права и роли пользователей
+    entity: component
+    description: Права и роли пользователей
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.MDM:
+    title: Управление НСИ
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.Reporting:
+    title: Формирование консолидированной отчетности
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem
+
+contexts:
+
+  Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT:
+    title: ЕК АСУФР-3. 1С:УАТ (консолидация)
+    location:
+    extra-links: true
+    components:
+      - Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.*

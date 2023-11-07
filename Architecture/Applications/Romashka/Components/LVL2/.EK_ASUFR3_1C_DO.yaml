@@ -1,0 +1,71 @@
+#components:
+#
+#  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.MDM:
+#    title: Управление НСИ
+#    entity: component
+#    description: Управление НСИ
+#    extension:
+#      type: subsystem
+#
+#  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.UserPermissions:
+#    title: Права и роли пользователей
+#    entity: component
+#    description: Права и роли пользователей
+#    extension:
+#      type: subsystem
+#
+#
+#
+##  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK:
+##    title: ВКЭДО
+##    entity: component
+##    description: Внутрикорпоративный электронный документооборот (ВКЭДО)»
+##    extension:
+##      type: subsystem
+##      BusinessObjects:
+##        - Romashka.BusinessObject.Contractor
+##        - Romashka.BusinessObject.Document_M4
+##        - Romashka.BusinessObject.Organizations
+##        - Romashka.BusinessObject.Materials
+##        - Romashka.BusinessObject.Document_M11
+##
+##  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.YUZEDO_Revenue:
+##    title: ЮЗЭДО (Доходные)
+##    entity: component
+##    description: Юридически значимый электронный документооборот с контрагентами по доходным договорам (ЮЗЭДО доходные)
+##    extension:
+##      type: subsystem
+##      BusinessObjects:
+##        - Romashka.BusinessObject.Contractor
+##        - Romashka.BusinessObject.Organizations
+##        - Romashka.BusinessObject.Materials
+##        - Romashka.BusinessObject.Document_M4
+##        - Romashka.BusinessObject.Document_M11
+##
+##  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.YUZEDO_Expenses:
+##    title: ЮЗЭДО (Расходные)
+##    entity: component
+##    description: Юридически значимый электронный документооборот с контрагентами по доходным договорам (ЮЗЭДО расходные)
+##    extension:
+##      type: subsystem
+##
+##  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.YUZEDO_Unformalized_Incoming:
+##    title: ЮЗЭДО неформализованных документов (входящие)
+##    entity: component
+##    description: Юридически значимый электронный документооборот неформализованных документов (входящие)
+##    extension:
+##      type: subsystem
+##
+##  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.YUZEDO_Unformalized_Outgoing:
+##    title: ЮЗЭДО неформализованных документов (исходящие)
+##    entity: component
+##    description: Юридически значимый электронный документооборот неформализованных документов (исходящие)
+##    extension:
+##      type: subsystem
+##
+##  Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.YUZEDO_CentralDdepartment:
+##    title: ЮЗЭДО ЦД
+##    entity: component
+##    description: Юридически значимый электронный документооборот с контрагентами по централизованным расходным договорам (ЮЗЭДО ЦД)»
+##    extension:
+##      type: subsystem

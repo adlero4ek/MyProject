@@ -4,12 +4,13 @@ imports:
   - ComponentContexts/root.yaml
 
   - docs.yaml
-  - aspects.yaml
+#  - aspects.yaml
   - contexts.yaml
   - datasets.yaml
 
   - Links/root.yaml
 
-
-
+  - base.yaml
   - FinancialManagement/root.yaml
+  - DocumentManagement/root.yaml
+  - HRManagement/root.yaml

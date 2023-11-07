@@ -1,0 +1,38 @@
+components:
+
+  # Функциональная область
+
+  Romashka.Systems.DocumentManagement:
+    title: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
+    entity: component
+
+contexts:
+
+  # Конктест функциональной область для схемы
+
+  Romashka.Systems.DocumentManagement:
+    title: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
+    location: "Ромашка/Архитектурные схемы/Уровень 3/ЭДО,ЮЗЭДО,ВКЭДО"
+    extra-links: true
+    components:
+      - Romashka.Systems.DocumentManagement.*
+
+aspects:
+
+  # Функциональность функциональной области
+
+  DocumentManagement:
+    title: Документооборот
+    location: Документооборот
+
+  DocumentManagement.EDO:
+    title: ЭДО
+    location: ЭДО
+
+  DocumentManagement.EDO_VK:
+    title: ВКЭДО
+    location: ВКЭДО
+
+  DocumentManagement.YUZEDO:
+    title: ЮЗЭДО
+    location: ЮЗЭДО

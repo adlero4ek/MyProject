@@ -1,0 +1,15 @@
+#components:
+#
+#  Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions:
+#    title: Права и роли пользователей
+#    entity: component
+#    description: Права и роли пользователей
+#    extension:
+#      type: subsystem
+#
+#  Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.MDM:
+#    title: Управление НСИ
+#    entity: component
+#    description: Управление НСИ
+#    extension:
+#      type: subsystem
