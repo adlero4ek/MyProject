@@ -85,21 +85,21 @@ aspects:
 
   # VehicleManagement
 
-  VehicleManagement:
-    title: Транспортные средства
-    location: Транспортные средства
-
-  VehicleManagement.Vehicles:
-    title: Учет транспортных средств
-    location: Учет транспортных средств
-
-  VehicleManagement.ApplicationsRoadTransport:
-    title: Учет заявок на автоперевозки
-    location: Учет заявок на автоперевозки
-
-  VehicleManagement.Waybills:
-    title: Учет путевых листов
-    location: Учет путевых листов
+#  VehicleManagement:
+#    title: Транспортные средства
+#    location: Транспортные средства
+#
+#  VehicleManagement.Vehicles:
+#    title: Учет транспортных средств
+#    location: Учет транспортных средств
+#
+#  VehicleManagement.ApplicationsRoadTransport:
+#    title: Учет заявок на автоперевозки
+#    location: Учет заявок на автоперевозки
+#
+#  VehicleManagement.Waybills:
+#    title: Учет путевых листов
+#    location: Учет путевых листов
 
   # Technological
 

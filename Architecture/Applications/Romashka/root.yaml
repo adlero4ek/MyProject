@@ -14,3 +14,4 @@ imports:
   - FinancialManagement/root.yaml
   - DocumentManagement/root.yaml
   - HRManagement/root.yaml
+  - VehicleManagement/root.yaml

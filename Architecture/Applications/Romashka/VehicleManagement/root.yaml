@@ -1,2 +1,5 @@
 imports:
   - base.yaml
+  - EK_ASUFR3_1C_Conslidate_YAT/root.yaml
+  - EK_ASUFR3_1C_Etalon_YAT/root.yaml
+  - EK_ASUFR3_1C_YAT/root.yaml
