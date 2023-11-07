@@ -6,9 +6,9 @@ components:
 
   # Контура автоматизации предприятия
 
-  Romashka.Systems.FinancialManagement:
-    title: Финансовый контур
-    entity: component
+#  Romashka.Systems.FinancialManagement:
+#    title: Финансовый контур
+#    entity: component
 
   Romashka.Systems.DocumentManagement:
     title: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)

@@ -1,0 +1,31 @@
+#contexts:
+#
+#  # Контекст Финансового контура
+
+#  Romashka.Systems.FinancialManagement:
+#    title: Финансовый контур
+#    location: "Ромашка/Архитектурные схемы/Уровень 3/Финансовый контур"
+#    extra-links: true
+#    components:
+#      - Romashka.Systems.FinancialManagement.*
+
+#  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP:
+#    title: ЕК АСУФР-3. 1С:ERP
+#    location:
+#    extra-links: true
+#    components:
+#      - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.*
+
+#  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP:
+#    title: ЕК АСУФР-3. 1С:ERP (эталон)
+#    location:
+#    extra-links: true
+#    components:
+#      - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.*
+
+#  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP:
+#    title: ЕК АСУФР-3. 1С:ERP (консолидация)
+#    location:
+#    extra-links: true
+#    components:
+#      - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP.*

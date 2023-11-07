@@ -1,25 +1,25 @@
-links:
-
-  Romashka.link.from.EK_ASUFR3_1C_ERP.to.SPPR._.9.9.1:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-    from_sybsystem: undefined
-    to: Romashka.Systems.Technological.SPPR
-    to_sybsystem: undefined
-    title: Обращения пользователей (ошибки)
-    description: undefined
-    code: И.9.9.1
-    state: Проектируется
-    state_update_date: 01.01.2023
-    interface: WEB-сервис
-    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
-    interface_standard_type: Канонический формат
-    asynchronous: Да
-    size_mb: 10
-    periodicity: По запросу
-    parameters:
-      - name: ATTRIBUTE 1
-        description: Расширенное описание атрибута, используемое для идентификации правил использования
-        type: Строка (35)
-      - name: ATTRIBUTE 2
-        description: Расширенное описание атрибута, используемое для идентификации правил использования
-        type: Дата (ГГГГ-ММ-ДД)
+#links:
+#
+#  Romashka.link.from.EK_ASUFR3_1C_ERP.to.SPPR._.9.9.1:
+#    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+#    from_sybsystem: undefined
+#    to: Romashka.Systems.Technological.SPPR
+#    to_sybsystem: undefined
+#    title: Обращения пользователей (ошибки)
+#    description: undefined
+#    code: И.9.9.1
+#    state: Проектируется
+#    state_update_date: 01.01.2023
+#    interface: WEB-сервис
+#    interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
+#    interface_standard_type: Канонический формат
+#    asynchronous: Да
+#    size_mb: 10
+#    periodicity: По запросу
+#    parameters:
+#      - name: ATTRIBUTE 1
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Строка (35)
+#      - name: ATTRIBUTE 2
+#        description: Расширенное описание атрибута, используемое для идентификации правил использования
+#        type: Дата (ГГГГ-ММ-ДД)

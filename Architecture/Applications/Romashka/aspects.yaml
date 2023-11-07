@@ -54,35 +54,35 @@ aspects:
     title: ЮЗЭДО
     location: ЮЗЭДО
 
-  # FinancialManagement
-
-  FinancialManagement:
-    title: Финансовый контур
-    location: Финансовый контур
-
-  FinancialManagement.RegulatedAccounting:
-    title: Регламентированный учет
-    location: Регламентированный учет
-
-  FinancialManagement.TaxAccounting:
-    title: Налоговый учет
-    location: Налоговый учет
-
-  FinancialManagement.ManagementAccounting:
-    title: Управленческий учет
-    location: Управленческий учет
-
-  FinancialManagement.IFRSAccounting:
-    title: Учет по МСФО
-    location: Учет по МСФО
-
-  FinancialManagement.TreasuryAccounting:
-    title: Казначейский учет
-    location: Казначейский учет
-
-  FinancialManagement.MTR:
-    title: Управление снабжением (МТР)
-    location: Управление снабжением (МТР)
+#  # FinancialManagement
+#
+#  FinancialManagement:
+#    title: Финансовый контур
+#    location: Финансовый контур
+#
+#  FinancialManagement.RegulatedAccounting:
+#    title: Регламентированный учет
+#    location: Регламентированный учет
+#
+#  FinancialManagement.TaxAccounting:
+#    title: Налоговый учет
+#    location: Налоговый учет
+#
+#  FinancialManagement.ManagementAccounting:
+#    title: Управленческий учет
+#    location: Управленческий учет
+#
+#  FinancialManagement.IFRSAccounting:
+#    title: Учет по МСФО
+#    location: Учет по МСФО
+#
+#  FinancialManagement.TreasuryAccounting:
+#    title: Казначейский учет
+#    location: Казначейский учет
+#
+#  FinancialManagement.MTR:
+#    title: Управление снабжением (МТР)
+#    location: Управление снабжением (МТР)
 
   # VehicleManagement
 

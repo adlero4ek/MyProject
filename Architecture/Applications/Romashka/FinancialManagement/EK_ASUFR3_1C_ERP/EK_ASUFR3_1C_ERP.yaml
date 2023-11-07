@@ -1,0 +1,66 @@
+components:
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP:
+    title: ЕК АСУФР-3. 1С:ERP
+    entity: component
+    description: "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков – Бухгалтерский учет по разделам учета,
+       Налоговый учет, Управленческий учет по видам затрат, Функции казначейского контроля (казначейский учет), Учет по МСФО, Управление снабжением МТР,
+       Система внутренних контролей и Мониторинги функциональности"
+    business_owners:
+      - Egorov Demid Nikitich
+    application_owner: Zvereva Ksenia Matveevna
+    budget_holder: Zakharova Vasilisa Artemovna
+    architect: Solovyova Vera Georgievna
+    extension:
+      type: system
+      area: Финансовый контур
+      state: Проектируется
+      state_update_date: 01.01.2023
+      development_platform: "1С:Предприятие 8"
+      basic_solution: "1С:ERP, редакция 2.5"
+      basic_solution_state: Развивается поставщиком
+      basic_solution_link: https://solutions.1c.ru/catalog/1cerp
+      provider: ООО Ромашка
+      provider_type: Собственная разработка
+    aspects:
+      - FinancialManagement.RegulatedAccounting
+      - FinancialManagement.TaxAccounting
+      - FinancialManagement.ManagementAccounting
+      - FinancialManagement.IFRSAccounting
+      - FinancialManagement.TreasuryAccounting
+      - FinancialManagement.MTR
+      - CommonAspects.MonitoringFunctionality
+      - CommonAspects.StatisticsManagement
+      - CommonAspects.InternalControlSystem
+
+  # Подсистемы
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.UserPermissions:
+    title: Права и роли пользователей
+    entity: component
+    description: Права и роли пользователей
+    extension:
+      type: subsystem
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.RegulatedAccounting:
+    title: Регламентированный учет
+    entity: component
+    description: Регламентированный учет
+    extension:
+      type: subsystem
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.MDM:
+    title: Управление НСИ
+    entity: component
+    description: Управление НСИ
+    extension:
+      type: subsystem
+
+contexts:
+
+  Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP:
+    title: ЕК АСУФР-3. 1С:ERP
+    location:
+    extra-links: true
+    components:
+      - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.*

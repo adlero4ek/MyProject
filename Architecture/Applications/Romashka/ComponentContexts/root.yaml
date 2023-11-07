@@ -1,6 +1,6 @@
 imports:
   - DocumentManagement.yaml
-  - FinancialManagement.yaml
+#  - ..FinancialManagement.yaml
   - HRManagement.yaml
   - Technological.yaml
   - VehicleManagement.yaml
