@@ -1,6 +1,4 @@
 imports:
-#  - Links/root.yaml
-#  - Components/LVL1/root.yaml
   - base.yaml
   - docs.yaml
   - datasets.yaml

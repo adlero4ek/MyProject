@@ -1,9 +1,14 @@
 components:
 
-  Lutik.Systems:
-    title: Приложения и сервисы
-    entity: component
-
   Lutik.Systems.EnvironmentalHealthSafety:
     title: Охрана труда и окружающей среды, безопасность
     entity: component
+
+contexts:
+
+  Lutik.Systems.EnvironmentalHealthSafety:
+    title: Финансовый контур
+    location:
+    extra-links: true
+    components:
+      - Lutik.Systems.EnvironmentalHealthSafety.*

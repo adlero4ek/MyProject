@@ -3,3 +3,14 @@ components:
   Romashka.Systems.ReportingSystems:
     title: Консолидированная отчетность
     entity: component
+
+contexts:
+
+  # Контекст расчета з/п и управления персоналом
+
+  Romashka.Systems.ReportingSystems:
+    title: Консолидированная отчетность
+    location: "Ромашка/Архитектурные схемы/Уровень 3/Консолидированная отчетность"
+    extra-links: true
+    components:
+      - Romashka.Systems.ReportingSystems.*
