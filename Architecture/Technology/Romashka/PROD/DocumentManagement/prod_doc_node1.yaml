@@ -1,0 +1,169 @@
+contexts:
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1:
+    title: Нода ЕК АСУФР-3. 1C:ДО №1
+    extra-links: true
+    entity: collections
+    location:
+    components:
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.*
+
+components:
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1:
+    title: Нода ЕК АСУФР-3. 1C:ДО №1
+    entity: collections
+    description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы ЕК АСУФР-3. 1С:ДО в продуктивном контуре организации.
+      Сайзинг Ноды рассчитан на 3 000 одномерно работающих пользователей"
+    Architect: Zvereva Ksenia Matveevna
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Нода
+    parameters:
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.WS1
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.WS2
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.App1
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.App2
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.Db1
+      - Romashka.Clusters.Prod.DocumentManagement.Node1.Db2
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1.WS1:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-doc-ws1\nIP: 127.0.0.41'
+    role: Web-сервер
+    entity: component
+    name: node1-doc-ws1
+    ip: 127.0.0.41
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 50
+    storage_size_hdd_type_3: 50
+    isVM: false
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1.WS2:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-doc-ws2\nIP: 127.0.0.42'
+    role: Web-сервер
+    entity: component
+    name: node1-doc-ws2
+    ip: 127.0.0.42
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 50
+    storage_size_hdd_type_3: 50
+    isVM: false
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1.App1:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-doc-app1\nIP: 127.0.0.43'
+    entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: node1-doc-app1
+    ip: 127.0.0.43
+    cpu: 48
+    ram: 500
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 50
+    isVM: true
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1.App2:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-doc-app2\nIP: 127.0.0.44'
+    entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: node1-doc-app2
+    ip: 127.0.0.44
+    cpu: 48
+    ram: 500
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 50
+    isVM: true
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1.Db1:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-doc-db1\nIP: 127.0.0.47'
+    entity: database
+    role: Сервер СУБД
+    name: node1-doc-db1
+    ip: 127.0.0.47
+    cpu: 48
+    ram: 500
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 12000
+    storage_size_hdd_type_3: 100
+    isVM: true
+
+  Romashka.Clusters.Prod.DocumentManagement.Node1.Db2:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-doc-db2\nIP: 127.0.0.48'
+    entity: database
+    role: Сервер СУБД
+    name: node1-doc-db2
+    ip: 127.0.0.48
+    cpu: 48
+    ram: 500
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 12000
+    storage_size_hdd_type_3: 100
+    isVM: true
+
+links:
+
+  #  WS - APP
+
+  Romashka.link.from.Node1-Doc.WS1.to.Node1.App1:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.WS1
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1-Doc.WS1.to.Node1.App2:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.WS1
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1-Doc.WS2.to.Node1.App1:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.WS2
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1-Doc.WS2.to.Node1.App2:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.WS2
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - DB
+
+  Romashka.link.from.Node1-Doc.Node1.App1.to.Node1.Db1:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.App1
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1-Doc.Node1.App1.to.Node1.Db2:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.App1
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.Db2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1-Doc.Node1.App2.to.Node1.Db1:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.App2
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1-Doc.Node1.App2.to.Node1.Db2:
+    from: Romashka.Clusters.Prod.DocumentManagement.Node1.App2
+    to: Romashka.Clusters.Prod.DocumentManagement.Node1.Db2
+    title: undefined
+    description: undefined
+    code: undefined

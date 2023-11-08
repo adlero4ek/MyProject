@@ -1,7 +1,7 @@
 contexts:
 
   Romashka.Clusters.Prod.FinancialManagement.Node1:
-    title: Нода ЕК АСУФР-3 1С-ДО №1
+    title: Нода ЕК АСУФР-3. 1C:ERP №1
     extra-links: true
     entity: collections
     location:
