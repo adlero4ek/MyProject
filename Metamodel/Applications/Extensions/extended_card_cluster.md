@@ -2,6 +2,10 @@
 - **ID**: [{{Cluster_id}}]({{Cluster_link}})
 - **Описание**: {{Cluster_description}}
 
+#### Ключевые сотрудники, контакты
+
+![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{Cluster_id}})
+
 ### Итоговые аппаратные ресурсы:
 
 ![Сайзинг_Итоговый_Таблицей](@document/technology.doc.CharacteristicsCluster.Total?Cluster_id={{Cluster_id}})

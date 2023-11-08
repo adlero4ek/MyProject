@@ -3,6 +3,8 @@ components:
   Romashka.Clusters.Prod:
     title: Продуктивный контур
     entity: collections
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
     description: "Совокупность версий информационных систем, предназначенных для выполнения процессов, имеющих юридическую значимость"
     extension:
       type: Группа серверов
@@ -11,24 +13,32 @@ components:
     title: Сервера финансовых систем
     entity: collections
     description: "Cовокупность серверов для функционирования информационных систем финансового контура в ПРОДУКТИВНОМ контуре"
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
     extension:
       type: Группа серверов функциональной области
 
   Romashka.Clusters.Prod.DocumentManagement:
     title: Сервера (ЭДО, ЮЗЭДО, ВКЭДО)
     entity: collections
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
     extension:
       type: Группа серверов функциональной области
 
   Romashka.Clusters.Prod.VehicleManagement:
     title: Сервера управления автотранспортом
     entity: collections
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
     extension:
       type: Группа серверов функциональной области
 
   Romashka.Clusters.Prod.Other:
     title: Прочие сервера (HR, обеспечивающие системы)
     entity: collections
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
     extension:
       type: Группа серверов функциональной области
 

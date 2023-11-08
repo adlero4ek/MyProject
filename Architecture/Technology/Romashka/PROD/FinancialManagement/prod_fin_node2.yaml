@@ -1,7 +1,7 @@
 contexts:
 
   Romashka.Clusters.Prod.FinancialManagement.Node2:
-    title: Нода ЕК АСУФР-3 1С-ДО №2
+    title: Нода ЕК АСУФР-3. 1C:ERP №2
     extra-links: true
     entity: collections
     location:
@@ -15,9 +15,8 @@ components:
     entity: collections
     description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы ЕК АСУФР-3. 1С:ERP в продуктивном контуре организации.
       Сайзинг Ноды рассчитан на 3 000 одномерно работающих пользователей"
-    Architect: Zvereva Ksenia Matveevna
+    responsible_for_configuration: Zvereva Ksenia Matveevna
     access_approver: Egorov Demid Nikitich
-    budget_holder: Zakharova Vasilisa Artemovna
     extension:
       type: Нода
     parameters:

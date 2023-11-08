@@ -63,10 +63,18 @@ entities:
           (
               $id := $params.id;
               $node := $lookup($.components, $id);
+              
               $Domain_id := $split($id, ".", 4)~> $join('.');
+              $Domain_title := $lookup($.components, $Domain_id).title;
+          
+              $Cluster_id := $split($id, ".", 3)~> $join('.');              
+              $Cluster_title := $lookup($.components, $Cluster_id).title;
           
               {
-                "Domain_id": $Domain_id,                
+                "Cluster_id": $Cluster_id,
+                "Cluster_title": $Cluster_title,                
+                "domain_id": $Domain_id,                
+                "domain_title": $Domain_title,
                 "node_id": $id,
                 "node_link": "/architect/components/" & $id,
                 "node_title": $node.title,
@@ -101,9 +109,12 @@ entities:
           
               $id := $params.id;
               $Domain := $lookup($.components, $id);
+              $Cluster_id := $split($id, ".", 3)~> $join('.');              
+              $Cluster_title := $lookup($.components, $Cluster_id).title;
 
               {
-                "Cluster_id": $split($id, ".", 3)~> $join('.'),                
+                "Cluster_id": $Cluster_id,                
+                "Cluster_title": $Cluster_title,
                 "Domain_id": $id,
                 "Domain_link": "/architect/components/" & $id,
                 "Domain_title": $Domain.title,

@@ -21,7 +21,7 @@
 
 #### Ключевые сотрудники, контакты
 
-![Документация](@document/Application.doc.KeyContacts?component={{id}})
+![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{id}})
 
 #### Технологии
 ![Технологии](@document/Application.doc.ApplicationTechnologies?component={{id}})

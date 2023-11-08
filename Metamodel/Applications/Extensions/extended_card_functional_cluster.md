@@ -1,9 +1,13 @@
 **Перейти**
-| [Сервера контура](/entities/extended_application_card/extended_card_cluster?id={{Cluster_id}})
+| [{{Cluster_title}}](/entities/extended_application_card/extended_card_cluster?id={{Cluster_id}})
 
 ## Функциональный кластер "{{Domain_title}}"
 - **ID**: [{{Domain_id}}]({{Domain_link}})
 - **Описание**: {{Domain_description}}
+
+#### Ключевые сотрудники, контакты
+
+![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{Domain_id}})
 
 ### Итоговые аппаратные ресурсы:
 

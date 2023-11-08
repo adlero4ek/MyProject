@@ -1,10 +1,15 @@
 **Перейти** 
-| [Сервера функциональной области](/entities/extended_application_card/extended_card_functional_cluster?id={{Domain_id}}) 
+| [{{domain_title}}](/entities/extended_application_card/extended_card_functional_cluster?id={{domain_id}})
+| [{{Cluster_title}}](/entities/extended_application_card/extended_card_cluster?id={{Cluster_id}})
 
 ## Нода "{{node_title}}"
 - **ID**: [{{node_id}}]({{node_link}})
 - **Описание**: {{node_description}}
-  
+
+#### Ключевые сотрудники, контакты
+
+![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{node_id}})
+
 ### Итоговые аппаратные ресурсы:
 
 ![Сайзинг_Итоговый_Таблицей](@document/technology.doc.CharacteristicsNode.Total?node_id={{node_id}})
