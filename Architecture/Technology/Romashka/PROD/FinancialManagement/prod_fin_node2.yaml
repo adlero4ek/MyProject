@@ -91,6 +91,9 @@ components:
     storage_size_hdd_type_2: 10000
     storage_size_hdd_type_3: 100
     isVM: true
+    installed_systems:
+      - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+        db_name: erp_2
   
   Romashka.Clusters.Prod.FinancialManagement.Node2.Db2:
     title: 'СУБД\n(Postgres Pro Enterprise)\nname: node2-db2\nIP: 127.0.0.18'
@@ -104,6 +107,9 @@ components:
     storage_size_hdd_type_2: 10000
     storage_size_hdd_type_3: 100
     isVM: true
+    installed_systems:
+      - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+        db_name: erp_2_copy
 
 links:
 

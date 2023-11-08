@@ -91,6 +91,9 @@ components:
     storage_size_hdd_type_2: 12000
     storage_size_hdd_type_3: 100
     isVM: true
+    installed_systems:
+      - system_id: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+        db_name: doc_1
 
   Romashka.Clusters.Prod.DocumentManagement.Node1.Db2:
     title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-doc-db2\nIP: 127.0.0.48'
@@ -104,6 +107,9 @@ components:
     storage_size_hdd_type_2: 12000
     storage_size_hdd_type_3: 100
     isVM: true
+    installed_systems:
+      - system_id: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
+        db_name: doc_1_copy
 
 links:
 

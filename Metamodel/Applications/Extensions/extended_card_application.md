@@ -23,9 +23,14 @@
 
 ![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{id}})
 
-#### Технологии
-![Технологии](@document/Application.doc.ApplicationTechnologies?component={{id}})
-
 #### Документация
 
 ![Документация](@document/Application.doc.ApplicationDocs?component={{id}})
+
+#### Технологии
+![Технологии](@document/Application.doc.ApplicationTechnologies?component={{id}})
+
+#### Фактические инсталяции
+
+![Ключевые сотрудники](@document/technology.doc.ListServersWhereApplicationIsInstalled?component={{id}})
+

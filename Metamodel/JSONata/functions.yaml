@@ -96,3 +96,52 @@ functions:
   
       )[c_type = "Нода"];
     )
+
+  get_installed_systems: >
+    (
+    
+      $datalake := $;
+      $datalake.components.$spread().(
+      
+        $server_id  := $keys()[0];
+        $server     := $lookup($datalake.components, $server_id);
+        
+        $node_id    := $split($server_id, ".", 5)~> $join('.');
+        $node       := $lookup($datalake.components, $node_id);
+        
+        $domain_id  := $split($server_id, ".", 4)~> $join('.');
+        $domain     := $lookup($datalake.components, $domain_id);
+        
+        $cluster_id := $split($server_id, ".", 3)~> $join('.');
+        $cluster    := $lookup($datalake.components, $cluster_id);
+        
+        *.installed_systems.(
+          {
+            "system_id": system_id,
+            
+            "server_id": $server_id,
+            "server_title": $server.name & "\n(" & $server.role & ")\nIP:" & $server.ip,
+            "server_link": "/architect/components/" & $server_id,
+            
+            "db_name": db_name,
+            "description": description,
+            
+            "cluster_title": $cluster.title,
+            "cluster_id": $cluster_id,
+            "cluster_link": "/entities/extended_application_card/extended_card_cluster?id=" & $cluster_id,
+            
+            "domain_title": $domain.title,
+            "domain_link": "/entities/extended_application_card/extended_card_functional_cluster?id=" & $domain_id,
+            "domain_id": $domain_id,
+            
+            "node_title": $node.title,
+            "node_link": "/entities/extended_application_card/extended_card_node?id=" & $node_id,
+            "node_id": $node_id,
+            
+            "system_title": $lookup($datalake.components, system_id).title,
+            "system_link": "/entities/extended_application_card/blank?id=" & system_id
+          
+          }
+        )
+      )
+    )

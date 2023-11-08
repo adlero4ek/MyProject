@@ -10,6 +10,10 @@
 
 ![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{node_id}})
 
+#### Фактические инсталяции
+
+![Ключевые сотрудники](@document/technology.doc.ListApplicationsInstalledOnNode?component={{node_id}})
+
 ### Итоговые аппаратные ресурсы:
 
 ![Сайзинг_Итоговый_Таблицей](@document/technology.doc.CharacteristicsNode.Total?node_id={{node_id}})

@@ -342,3 +342,51 @@ docs:
              }
              )^(Cluster_title)]
       )
+
+
+  # Сервера, на которых установлены приложения
+
+  technology.doc.ListServersWhereApplicationIsInstalled:
+    type: table
+    headers:
+      - value: cluster_title
+        text: "Контур"
+        link: cluster_link
+      - value: domain_title
+        text: "Функ. область"
+        link: domain_link
+      - value: node_title
+        text: "Нода"
+        link: node_link
+      - value: server_title
+        text: "Сервер"
+        link: server_link
+      - value: db_name
+        text: "Имя БД"
+      - value: description
+        text: "Назначение"
+    source: >
+      (            
+          $datalake := $;
+          $eval($datalake.functions.get_installed_systems)[system_id=$params.component];          
+      )
+
+  technology.doc.ListApplicationsInstalledOnNode:
+    type: table
+    headers:
+      - value: system_title
+        text: "Приложение"
+        link: system_link
+      - value: server_title
+        text: "Сервер"
+        link: server_link
+      - value: db_name
+        text: "Имя БД"
+      - value: description
+        text: "Назначение"
+    source: >
+      (            
+         $log($params.component);
+         $datalake := $;
+         $eval($datalake.functions.get_installed_systems)[node_id=$params.component]         
+      )
