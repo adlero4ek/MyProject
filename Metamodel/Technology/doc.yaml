@@ -76,6 +76,7 @@ docs:
       )
 
 
+
   # Аппартаные ресурсы функционального кластера в разре Нод
   technology.doc.CharacteristicsFunctionalCluster:
     type: table
@@ -136,6 +137,7 @@ docs:
       )
 
 
+
   # Итоговые (сводные) ресурсы функционального кластера
   technology.doc.CharacteristicsFunctionalCluster.Total:
     type: table
@@ -166,6 +168,7 @@ docs:
           "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
         }]
       )
+
 
   # Аппартаные ресурсы кластера в разрезе функционаьльных групп серверов
   technology.doc.CharacteristicsCluster:
@@ -227,8 +230,9 @@ docs:
       )
       
 
-    # Итоговые (сводные) ресурсы кластера
-    technology.doc.CharacteristicsCluster.Total:
+
+  # Итоговые (сводные) ресурсы кластера
+  technology.doc.CharacteristicsCluster.Total:
       type: table
       headers:
         - value: total_cpu
