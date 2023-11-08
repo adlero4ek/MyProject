@@ -21,6 +21,7 @@ components:
   Romashka.Clusters.Prod.DocumentManagement:
     title: Сервера (ЭДО, ЮЗЭДО, ВКЭДО)
     entity: collections
+    description: "Cовокупность серверов для функционирования информационных систем ЭДО, ЮЗЭДО, ВКЭДО в ПРОДУКТИВНОМ контуре"
     access_approver: Egorov Demid Nikitich
     budget_holder: Zakharova Vasilisa Artemovna
     extension:

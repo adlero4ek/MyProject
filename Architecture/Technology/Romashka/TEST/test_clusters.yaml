@@ -7,3 +7,21 @@ components:
       будут копироваться (переноситься) в подготовительный контур. Процедуры тестирования и проверок производятся на тестовых данных"
     area: Technology
 
+  Romashka.Clusters.Test.FinancialManagement:
+    title: Сервера тестирования финансовых систем
+    entity: collections
+    description: "Cовокупность серверов для функционирования информационных систем финансового контура в ТЕСТОВОМ контуре"
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Группа серверов функциональной области
+
+  Romashka.Clusters.Test.DocumentManagement:
+    title: Сервера тестирования ЭДО, ЮЗЭДО, ВКЭДО
+    entity: collections
+    description: "Cовокупность серверов для функционирования информационных систем ЭДО, ЮЗЭДО, ВКЭДО в ТЕСТОВОМ контуре"
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Группа серверов функциональной области
+

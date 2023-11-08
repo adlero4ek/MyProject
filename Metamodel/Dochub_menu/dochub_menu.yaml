@@ -97,15 +97,20 @@ dochub_menu:
     order: 5000
     visible: true
 
-  dochub.TechnologyArchitecture:
-    title: Технологическая архитектура
-    order: 6000
-    visible: true
+#  dochub.TechnologyArchitecture:
+#    title: Технологическая архитектура
+#    order: 6000
+#    visible: true
+#
+#  dochub.TechnologyArchitecture.technology_list:
+#    title: Таблица технологий
+#    order: 6100
+#    visible: true
 
-  dochub.TechnologyArchitecture.technology_list:
-    title: Таблица технологий
-    order: 6100
-    visible: true
+#  dochub.TechnologyArchitecture.technology_list:
+#    title: Общий ландшафт
+#    order: 6200
+#    visible: true
 
 #  dochub.tech_arch.environments:
 #    title: Среды развертывания ГК Болото

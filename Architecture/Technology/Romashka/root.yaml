@@ -1,6 +1,6 @@
 imports:
   - tech_radar.yaml
-  - DEV/dev_clusters.yaml
   - STAGE/stage_clusters.yaml
-  - TEST/test_clusters.yaml
+  - TEST/root.yaml
   - PROD/root.yaml
+  - DEV/dev_clusters.yaml

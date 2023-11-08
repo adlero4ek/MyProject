@@ -1,0 +1,48 @@
+dochub_menu:
+
+  dochub.TechnologyArchitecture:
+    title: Технологическая архитектура
+    order: 6000
+    visible: true
+
+  dochub.TechnologyArchitecture.technology_list:
+    title: Таблица технологий
+    order: 6100
+    visible: true
+
+  dochub.TechnologyArchitecture.Romashka:
+    title: Ромашка
+    order: 6200
+    visible: true
+
+  dochub.TechnologyArchitecture.Romashka.views.Lvl0:
+    title: Уровень 0
+    order: 6300
+    visible: true
+
+  dochub.TechnologyArchitecture.Romashka.views.Lvl1:
+    title: Уровень 1
+    order: 6310
+    visible: true
+
+  dochub.TechnologyArchitecture.Romashka.views.Couturs:
+    title: Контура
+    order: 6400
+    visible: true
+
+  dochub.TechnologyArchitecture.Romashka.views.Couturs.Prod:
+    title: Prod
+    order: 6410
+    visible: true
+  dochub.TechnologyArchitecture.Romashka.views.Couturs.Stage:
+    title: Stage
+    order: 6420
+    visible: true
+  dochub.TechnologyArchitecture.Romashka.views.Couturs.Test:
+    title: Test
+    order: 6430
+    visible: true
+  dochub.TechnologyArchitecture.Romashka.views.Couturs.Dev:
+    title: Dev
+    order: 6440
+    visible: true

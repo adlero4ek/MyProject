@@ -4,30 +4,36 @@ docs:
 
   Romashka.doc.lvl_0_Tech_Architecture:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 0
+    location: Технологическая архитектура/Ромашка/Уровень 0
     source: Templates/tech_landscape_lvl_0.md
+
+  # Уровень 1 ландшафта слоя ИТ-приложений
+  Romashka.doc.lvl_1_Tech_Architecture:
+    type: markdown
+    location: Технологическая архитектура/Ромашка/Уровень 1
+    source: Templates/tech_landscape_lvl_1.md
 
   # Уровень 1 ландшафта слоя ИТ-приложений
 
   Romashka.doc.Tech_Architecture_Dev:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Dev - сервера
-    source: Templates/tech_landscape_lvl_0.md
+    location: Технологическая архитектура/Ромашка/Контура/Dev
+    source: Templates/dev_landscape.md
 
   Romashka.doc.Tech_Architecture_Test:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Test - сервера
-    source: Templates/tech_landscape_lvl_0.md
+    location: Технологическая архитектура/Ромашка/Контура/Test
+    source: Templates/test_landscape.md
 
   Romashka.doc.Tech_Architecture_Stage:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Stage - сервера
-    source: Templates/tech_landscape_lvl_0.md
+    location: Технологическая архитектура/Ромашка/Контура/Stage
+    source: Templates/stage_landscape.md
 
   Romashka.doc.Tech_Architecture_Prod:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1/Prod - сервера
-    source: Templates/prod_landscape_lvl_1.md
+    location: Технологическая архитектура/Ромашка/Контура/Prod
+    source: Templates/prod_landscape.md
 
   technologies_table_list:
     type: table

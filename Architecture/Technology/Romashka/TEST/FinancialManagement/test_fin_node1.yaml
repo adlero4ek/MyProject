@@ -1,0 +1,226 @@
+contexts:
+
+  Romashka.Clusters.Test.FinancialManagement.Node1:
+    title: Нода (тестирование) ЕК АСУФР-3. 1C:ERP №1
+    extra-links: true
+    entity: collections
+    location:
+    components:
+      - Romashka.Clusters.Test.FinancialManagement.Node1.*
+
+components:
+
+  Romashka.Clusters.Test.FinancialManagement.Node1:
+    title: Нода (тестирование) ЕК АСУФР-3. 1C:ERP №1
+    entity: collections
+    description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы ЕК АСУФР-3. 1С:ERP в тестовом контуре организации.
+      Сайзинг Ноды рассчитан на 1 000 одномерно работающих пользователей"
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Нода
+    parameters:
+      - Romashka.Clusters.Test.FinancialManagement.Node1.WS1
+      - Romashka.Clusters.Test.FinancialManagement.Node1.WS2
+      - Romashka.Clusters.Test.FinancialManagement.Node1.App1
+      - Romashka.Clusters.Test.FinancialManagement.Node1.App2
+      - Romashka.Clusters.Test.FinancialManagement.Node1.App3
+      - Romashka.Clusters.Test.FinancialManagement.Node1.App4
+      - Romashka.Clusters.Test.FinancialManagement.Node1.Db1
+      - Romashka.Clusters.Test.FinancialManagement.Node1.Db2
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.WS1:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-test-ws1\nIP: 127.0.0.51'
+    role: Web-сервер
+    entity: component
+    name: node1-test-ws1
+    ip: 127.0.0.51
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 0
+    storage_size_hdd_type_3: 0
+    isVM: false
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.WS2:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-test-ws2\nIP: 127.0.0.52'
+    role: Web-сервер
+    entity: component
+    name: node1-test-ws2
+    ip: 127.0.0.52
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 0
+    storage_size_hdd_type_3: 0
+    isVM: false
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.App1:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-test-app1\nIP: 127.0.0.53'
+    entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: node1-test-app1
+    ip: 127.0.0.53
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.App2:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-test-app2\nIP: 127.0.0.54'
+    entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: node1-test-app2
+    ip: 127.0.0.54
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.App3:
+    title: 'Сервер приложений 1С\n(Рабочий сервер)\nname: node1-test-app3\nIP: 127.0.0.55'
+    entity: component
+    role: Рабочий сервер 1С:Предприятие 8
+    name: node1-test-app3
+    ip: 127.0.0.55
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.App4:
+    title: 'Сервер приложений 1С\n(Рабочий сервер под рег. задания)\nname: node1-test-app4\nIP: 127.0.0.56'
+    entity: component
+    role: Рабочий сервер 1С:Предприятие 8 (рег. задания)
+    name: node1-test-app4
+    ip: 127.0.0.56
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.Db1:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-test-db1\nIP: 127.0.0.57'
+    entity: database
+    role: Сервер СУБД
+    name: node1-test-db1
+    ip: 127.0.0.57
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 0
+    storage_size_hdd_type_2: 10000
+    storage_size_hdd_type_3: 100
+    isVM: true
+
+  Romashka.Clusters.Test.FinancialManagement.Node1.Db2:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-test-db2\nIP: 127.0.0.58'
+    entity: database
+    role: Сервер СУБД
+    name: node1-test-db2
+    ip: 127.0.0.58
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 0
+    storage_size_hdd_type_2: 10000
+    storage_size_hdd_type_3: 100
+    isVM: true
+
+links:
+
+  #  WS - APP
+
+  Romashka.link.from.Node1.WS1.to.Node1.App1:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.WS1
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1.WS1.to.Node1.App2:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.WS1
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1.WS2.to.Node1.App1:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.WS2
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1.WS2.to.Node1.App2:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.WS2
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - APP
+
+  Romashka.link.from.Node1.App1.to.Node1.App3:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App3
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1.App1.to.Node1.App4:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App4
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1.App2.to.Node1.App3:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App2
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App3
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Node1.App2.to.Node1.App4:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App2
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.App4
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - DB
+
+  Romashka.link.from.Test.Node1.App1.to.Node1.Db1:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Test.Node1.App1.to.Node1.Db2:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.Db2
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Test.Node1.App2.to.Node1.Db1:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App2
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.Db1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  Romashka.link.from.Test.Node1.App2.to.Node1.Db2:
+    from: Romashka.Clusters.Test.FinancialManagement.Node1.App2
+    to: Romashka.Clusters.Test.FinancialManagement.Node1.Db2
+    title: undefined
+    description: undefined
+    code: undefined

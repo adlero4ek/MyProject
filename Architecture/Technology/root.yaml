@@ -3,3 +3,4 @@ imports:
   - Lutik/root.yaml
   - docs.yaml
   - contexts.yaml
+  - dochub_menu.yaml

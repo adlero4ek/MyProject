@@ -1,4 +1,4 @@
-## Контрур информационных систем предприятия "{{Cluster_title}}"
+## Контур информационных систем предприятия "{{Cluster_title}}"
 - **ID**: [{{Cluster_id}}]({{Cluster_link}})
 - **Описание**: {{Cluster_description}}
 

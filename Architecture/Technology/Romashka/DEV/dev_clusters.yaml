@@ -13,3 +13,12 @@ components:
      Все завершенные и протестированные изменения, впоследствии переносятся в тестовый и предпродуктивные контура"
     entity: collections
     area: Technology
+
+  Romashka.Clusters.Dev.Common:
+    title: Сервера разработки
+    entity: collections
+    description: "Cовокупность серверов, преднахначенных для работы разработчиков в контуре РАЗРАБОТКИ"
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Группа серверов функциональной области

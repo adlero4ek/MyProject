@@ -1,0 +1,8 @@
+contexts:
+
+  Romashka.Clusters.Test:
+    title: "Уровень 1/Test-сервера"
+    extra-links: true
+    location:
+    components:
+      - Romashka.Clusters.Test.*
