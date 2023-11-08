@@ -56,8 +56,9 @@ functions:
           $Node_title := *.title;
           $c_type     := *.extension.type;
   
-          $DomainName := $split($Node_id, ".", 4)~> $join('.');
-          $Cluster    := $split($Node_id, ".", 3)~> $join('.');
+          $DomainName   := $split($Node_id, ".", 4)~> $join('.');
+          $Cluster      := $split($Node_id, ".", 3)~> $join('.');
+          $organization := $split($Node_id, ".", 2)~> $join('.');
   
           $component := $;
           $component_id := $keys()[0];
@@ -70,6 +71,7 @@ functions:
               $component := $lookup($DataLake.components, $component_id);
   
               {
+                  "Organization_id": $organization,    
                   "Cluster_id": $Cluster,
                   "Domain_id": $DomainName,
                   "c_type": $c_type,

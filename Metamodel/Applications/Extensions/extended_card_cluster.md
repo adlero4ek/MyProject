@@ -1,3 +1,7 @@
+**Перейти** 
+| [Архитектура уровня 0](/docs/Romashka.doc.lvl_0_Tech_Architecture) |
+| [Архитектура уровня 1](/docs/Romashka.doc.lvl_1_Tech_Architecture) |
+
 ## Контур информационных систем предприятия "{{Cluster_title}}"
 - **ID**: [{{Cluster_id}}]({{Cluster_link}})
 - **Описание**: {{Cluster_description}}

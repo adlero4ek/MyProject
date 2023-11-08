@@ -1,6 +1,6 @@
 **Перейти** 
-| [{{domain_title}}](/entities/extended_application_card/extended_card_functional_cluster?id={{domain_id}})
-| [{{Cluster_title}}](/entities/extended_application_card/extended_card_cluster?id={{Cluster_id}})
+| [{{domain_title}}](/entities/extended_application_card/extended_card_functional_cluster?id={{domain_id}}) 
+| [{{Cluster_title}}](/entities/extended_application_card/extended_card_cluster?id={{Cluster_id}}) |
 
 ## Нода "{{node_title}}"
 - **ID**: [{{node_id}}]({{node_link}})

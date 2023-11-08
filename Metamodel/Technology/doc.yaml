@@ -77,6 +77,7 @@ docs:
 
 
 
+
   # Аппартаные ресурсы функционального кластера в разре Нод
   technology.doc.CharacteristicsFunctionalCluster:
     type: table
@@ -138,6 +139,7 @@ docs:
 
 
 
+
   # Итоговые (сводные) ресурсы функционального кластера
   technology.doc.CharacteristicsFunctionalCluster.Total:
     type: table
@@ -168,6 +170,8 @@ docs:
           "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
         }]
       )
+
+
 
 
   # Аппартаные ресурсы кластера в разрезе функционаьльных групп серверов
@@ -231,6 +235,7 @@ docs:
       
 
 
+
   # Итоговые (сводные) ресурсы кластера
   technology.doc.CharacteristicsCluster.Total:
       type: table
@@ -261,3 +266,79 @@ docs:
             "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
           }]
         )
+
+
+  # Аппартаные ресурсы кластера в разрезе функционаьльных групп серверов
+  technology.doc.CharacteristicsOrg:
+    title: Текущие аппаратные ресурсы
+    location: "Технологическая архитектура/Ромашка/Текущие аппаратные ресурсы"
+    type: table
+    headers:
+      - value: Cluster_title
+        text: "Контур"
+        sortable: true
+        link: Cluster_link
+      - value: total_count_nodes
+        text: "Кол-во нод"
+        sortable: true
+        align: right
+      - value: total_count_servers
+        text: "Кол-во серверов"
+        sortable: true
+        align: right
+      - value: total_cpu
+        text: "CPU/vCPU"
+        sortable: true
+        align: right
+      - value: total_ram
+        text: "ОЗУ, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_1
+        text: "Диск тип 1, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_2
+        text: "Диск тип 2, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_3
+        text: "Диск тип 3, ГБ"
+        sortable: true
+        align: right
+
+    source: >
+      (
+         $datalake := $;
+         $query := $eval($datalake.functions.get_hardware_resources);
+  
+         $Cluster := $distinct($query.Cluster_id);
+  
+         $total_cpu := $query{`Cluster_id`: $sum(server_cpu)};
+         $total_ram := $query{`Cluster_id`: $sum(server_ram)};
+         $total_storage_size_hdd_type_1 := $query{`Cluster_id`: $sum(server_storage_size_hdd_type_1)};
+         $total_storage_size_hdd_type_2 := $query{`Cluster_id`: $sum(server_storage_size_hdd_type_2)};
+         $total_storage_size_hdd_type_3 := $query{`Cluster_id`: $sum(server_storage_size_hdd_type_3)};
+  
+         $count_servers :=  $query{`Cluster_id`: $count(server_id)};
+         $count_nodes :=  $query{`Cluster_id`: $count($distinct(node_id))};
+  
+         [$Cluster.(
+  
+             $Cluster_id := $;
+             $Cluster := $lookup($datalake.components, $Cluster_id);
+  
+             {
+                 "Cluster_id": $Cluster_id,
+                 "Cluster_title": $Cluster.title,
+                 "Cluster_link": "/entities/extended_application_card/extended_card_cluster?id=" & $Cluster_id,
+                 "total_cpu": $lookup($total_cpu, $Cluster_id),
+                 "total_ram": $lookup($total_ram, $Cluster_id),
+                 "total_storage_size_hdd_type_1": $lookup($total_storage_size_hdd_type_1, $Cluster_id),
+                 "total_storage_size_hdd_type_2": $lookup($total_storage_size_hdd_type_2, $Cluster_id),
+                 "total_storage_size_hdd_type_3": $lookup($total_storage_size_hdd_type_3, $Cluster_id),
+                 "total_count_servers": $lookup($count_servers, $Cluster_id),
+                 "total_count_nodes": $lookup($count_nodes, $Cluster_id)
+             }
+             )^(Cluster_title)]
+      )

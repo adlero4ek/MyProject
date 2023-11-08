@@ -1,13 +1,13 @@
 contexts:
 
   Romashka.Tech_Architecture_lvl_0:
-    title: "Технологическая архитектура/Ромашка/Уровень 0"
+    title: "Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 0"
     extra-links: true
     components:
       - Romashka.Clusters.*
 
   Romashka.Tech_Architecture_lvl_1:
-    title: "Технологическая архитектура/Ромашка/Уровень 1"
+    title: "Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1"
     extra-links: true
     components:
       - Romashka.Clusters.Prod.*

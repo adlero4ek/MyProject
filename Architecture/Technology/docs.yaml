@@ -4,13 +4,13 @@ docs:
 
   Romashka.doc.lvl_0_Tech_Architecture:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Уровень 0
+    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 0
     source: Templates/tech_landscape_lvl_0.md
 
   # Уровень 1 ландшафта слоя ИТ-приложений
   Romashka.doc.lvl_1_Tech_Architecture:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Уровень 1
+    location: Технологическая архитектура/Ромашка/Архитектурные схемы/Уровень 1
     source: Templates/tech_landscape_lvl_1.md
 
   # Уровень 1 ландшафта слоя ИТ-приложений

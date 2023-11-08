@@ -15,13 +15,18 @@ dochub_menu:
     order: 6200
     visible: true
 
+  dochub.TechnologyArchitecture.Romashka.views.CommonList:
+    title: Текущие аппаратные ресурсы
+    order: 6210
+    visible: true
+
   dochub.TechnologyArchitecture.Romashka.views.Lvl0:
-    title: Уровень 0
+    title: Архитектурные схемы/Уровень 0
     order: 6300
     visible: true
 
   dochub.TechnologyArchitecture.Romashka.views.Lvl1:
-    title: Уровень 1
+    title: Архитектурные схемы/Уровень 1
     order: 6310
     visible: true
 
