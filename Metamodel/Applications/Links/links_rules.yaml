@@ -99,10 +99,11 @@ rules:
 
               {
                   "id": $ID,
-                  "isvalid": $validator($.*)
+                  "isvalid": $validator($.*),
+                  "isTechnologyLink": $contains(*.from, "Clusters")
               }
 
-          )[isvalid != true and $contains(id, "Romashka")];
+          )[isvalid != true and $contains(id, "Romashka") and isTechnologyLink = false];
         
           [$Query.(
         

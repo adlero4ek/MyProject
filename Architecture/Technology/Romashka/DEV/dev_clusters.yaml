@@ -1,7 +1,7 @@
 components:
 
   Romashka.Clusters:
-    title: Контуры информационных систем
+    title: Контура информационных систем
     description: "Контуры информационных систем"
     entity: collections
     area: Technology

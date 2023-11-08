@@ -50,3 +50,9 @@ datasets:
         /*---ДОБАВЛЕНИЕ*/
       
       )
+
+  technology.dataset.ServersCharacteristics:
+    source: >
+      (
+         $eval($.functions.get_hardware_resources);
+      )

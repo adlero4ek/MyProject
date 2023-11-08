@@ -1,0 +1,259 @@
+docs:
+
+  # Аппартаные ресурсы Ноды в разре компонент (сереверов)
+  technology.doc.CharacteristicsNode:
+    type: table
+    headers:
+      - value: server_role
+        text: "Роль"
+        sortable: true
+        link: server_link
+      - value: server_name
+        text: "Имя"
+        sortable: true
+        wight: 200%
+      - value: server_ip
+        text: IP
+        align: right
+      - value: server_cpu
+        text: "CPU/vCPU"
+        sortable: true
+        align: right
+      - value: server_ram
+        text: "ОЗУ, ГБ"
+        sortable: true
+        align: right
+      - value: server_storage_size_hdd_type_1
+        text: "Диск тип 1, ГБ"
+        sortable: true
+        align: right
+      - value: server_storage_size_hdd_type_2
+        text: "Диск тип 2, ГБ"
+        sortable: true
+        align: right
+      - value: server_storage_size_hdd_type_3
+        text: "Диск тип 3, ГБ"
+        sortable: true
+        align: right
+      - value: server_isVM
+        text: "VM"
+        sortable: true
+    origin: technology.dataset.ServersCharacteristics
+    source:
+      (
+         $[node_id=$params.node_id];
+      )
+
+  # Итоговые (сводные) ресурсы Ноды
+  technology.doc.CharacteristicsNode.Total:
+    type: table
+    headers:
+      - value: total_cpu
+        text: "CPU/vCPU"
+        align: right
+      - value: total_ram
+        text: "ОЗУ, ГБ"
+        align: right
+      - value: total_storage_size_hdd_type_1
+        text: "Диск тип 1, ГБ"
+        align: right
+      - value: total_storage_size_hdd_type_2
+        text: "Диск тип 2, ГБ"
+        align: right
+      - value: total_storage_size_hdd_type_3
+        text: "Диск тип 3, ГБ"
+        align: right
+    source: >
+      (
+        $query := $eval($.functions.get_hardware_resources)[node_id=$params.node_id];
+        [{
+          "total_cpu": $sum($query.server_cpu),
+          "total_ram": $sum($query.server_ram),
+          "total_storage_size_hdd_type_1": $sum($query.server_storage_size_hdd_type_1),
+          "total_storage_size_hdd_type_2": $sum($query.server_storage_size_hdd_type_2),
+          "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
+        }]
+      )
+
+
+  # Аппартаные ресурсы функционального кластера в разре Нод
+  technology.doc.CharacteristicsFunctionalCluster:
+    type: table
+    headers:
+      - value: node_title
+        text: "Нода"
+        sortable: true
+        link: node_link
+      - value: total_cpu
+        text: "CPU/vCPU"
+        sortable: true
+        align: right
+      - value: total_ram
+        text: "ОЗУ, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_1
+        text: "Диск тип 1, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_2
+        text: "Диск тип 2, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_3
+        text: "Диск тип 3, ГБ"
+        sortable: true
+        align: right
+    source: >
+      (
+        $datalake := $;
+        $query := $eval($datalake.functions.get_hardware_resources)[Domain_id=$params.Domain_id];
+
+        $nodes := $distinct($query.node_id);
+
+        $total_cpu := $query{`node_id`: $sum(server_cpu)};
+        $total_ram := $query{`node_id`: $sum(server_ram)};
+        $total_storage_size_hdd_type_1 := $query{`node_id`: $sum(server_storage_size_hdd_type_1)};
+        $total_storage_size_hdd_type_2 := $query{`node_id`: $sum(server_storage_size_hdd_type_2)};
+        $total_storage_size_hdd_type_3 := $query{`node_id`: $sum(server_storage_size_hdd_type_3)};
+
+        [$nodes.(
+
+            $node_id := $;
+            $nodes := $lookup($datalake.components, $node_id);
+
+            {
+                "node_id": $node_id,
+                "node_title": $nodes.title,
+                "node_link": "/entities/extended_application_card/extended_card_node?id=" & $node_id,
+                "total_cpu": $lookup($total_cpu, $node_id),
+                "total_ram": $lookup($total_ram, $node_id),
+                "total_storage_size_hdd_type_1": $lookup($total_storage_size_hdd_type_1, $node_id),
+                "total_storage_size_hdd_type_2": $lookup($total_storage_size_hdd_type_2, $node_id),
+                "total_storage_size_hdd_type_3": $lookup($total_storage_size_hdd_type_3, $node_id)
+            }
+        )^(node_title)]
+      )
+
+
+  # Итоговые (сводные) ресурсы функционального кластера
+  technology.doc.CharacteristicsFunctionalCluster.Total:
+    type: table
+    headers:
+      - value: total_cpu
+        text: "CPU/vCPU"
+        align: right
+      - value: total_ram
+        text: "ОЗУ, ГБ"
+        align: right
+      - value: total_storage_size_hdd_type_1
+        text: "Диск тип 1, ГБ"
+        align: right
+      - value: total_storage_size_hdd_type_2
+        text: "Диск тип 2, ГБ"
+        align: right
+      - value: total_storage_size_hdd_type_3
+        text: "Диск тип 3, ГБ"
+        align: right
+    source: >
+      (
+        $query := $eval($.functions.get_hardware_resources)[Domain_id=$params.Domain_id];
+        [{
+          "total_cpu": $sum($query.server_cpu),
+          "total_ram": $sum($query.server_ram),
+          "total_storage_size_hdd_type_1": $sum($query.server_storage_size_hdd_type_1),
+          "total_storage_size_hdd_type_2": $sum($query.server_storage_size_hdd_type_2),
+          "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
+        }]
+      )
+
+  # Аппартаные ресурсы кластера в разрезе функционаьльных групп серверов
+  technology.doc.CharacteristicsCluster:
+    type: table
+    headers:
+      - value: domain_title
+        text: "Функ. область"
+        sortable: true
+        link: domain_link
+      - value: total_cpu
+        text: "CPU/vCPU"
+        sortable: true
+        align: right
+      - value: total_ram
+        text: "ОЗУ, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_1
+        text: "Диск тип 1, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_2
+        text: "Диск тип 2, ГБ"
+        sortable: true
+        align: right
+      - value: total_storage_size_hdd_type_3
+        text: "Диск тип 3, ГБ"
+        sortable: true
+        align: right
+    source: >
+      (
+        $datalake := $;
+        $query := $eval($datalake.functions.get_hardware_resources)[Cluster_id=$params.Cluster_id];
+      
+        $Domain := $distinct($query.Domain_id);
+      
+        $total_cpu := $query{`Domain_id`: $sum(server_cpu)};
+        $total_ram := $query{`Domain_id`: $sum(server_ram)};
+        $total_storage_size_hdd_type_1 := $query{`Domain_id`: $sum(server_storage_size_hdd_type_1)};
+        $total_storage_size_hdd_type_2 := $query{`Domain_id`: $sum(server_storage_size_hdd_type_2)};
+        $total_storage_size_hdd_type_3 := $query{`Domain_id`: $sum(server_storage_size_hdd_type_3)};
+      
+        [ $Domain.(
+          
+          $Domain_id := $;
+          $Domain := $lookup($datalake.components, $Domain_id);
+          
+          {
+            "domain_id": $Domain_id,
+            "domain_title": $Domain.title,
+            "domain_link": "/entities/extended_application_card/extended_card_functional_cluster?id=" & $Domain_id,
+            "total_cpu": $lookup($total_cpu, $Domain_id),
+            "total_ram": $lookup($total_ram, $Domain_id),
+            "total_storage_size_hdd_type_1": $lookup($total_storage_size_hdd_type_1, $Domain_id),
+            "total_storage_size_hdd_type_2": $lookup($total_storage_size_hdd_type_2, $Domain_id),
+            "total_storage_size_hdd_type_3": $lookup($total_storage_size_hdd_type_3, $Domain_id)
+          }
+          )^(domain_title)]
+      )
+      
+
+    # Итоговые (сводные) ресурсы кластера
+    technology.doc.CharacteristicsCluster.Total:
+      type: table
+      headers:
+        - value: total_cpu
+          text: "CPU/vCPU"
+          align: right
+        - value: total_ram
+          text: "ОЗУ, ГБ"
+          align: right
+        - value: total_storage_size_hdd_type_1
+          text: "Диск тип 1, ГБ"
+          align: right
+        - value: total_storage_size_hdd_type_2
+          text: "Диск тип 2, ГБ"
+          align: right
+        - value: total_storage_size_hdd_type_3
+          text: "Диск тип 3, ГБ"
+          align: right
+      source: >
+        (
+          $query := $eval($.functions.get_hardware_resources)[Cluster_id=$params.Cluster_id];
+          [{
+            "total_cpu": $sum($query.server_cpu),
+            "total_ram": $sum($query.server_ram),
+            "total_storage_size_hdd_type_1": $sum($query.server_storage_size_hdd_type_1),
+            "total_storage_size_hdd_type_2": $sum($query.server_storage_size_hdd_type_2),
+            "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
+          }]
+        )

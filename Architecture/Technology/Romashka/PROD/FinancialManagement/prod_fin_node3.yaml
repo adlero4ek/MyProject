@@ -13,44 +13,126 @@ components:
   Romashka.Clusters.Prod.FinancialManagement.Node3:
     title: Нода ЕК АСУФР-3 1С-ДО №3
     entity: collections
+    description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы ЕК АСУФР-3. 1С:ERP в продуктивном контуре организации.
+      Сайзинг Ноды рассчитан на 5 000 одномерно работающих пользователей"
     Architect: Zvereva Ksenia Matveevna
     access_approver: Egorov Demid Nikitich
     budget_holder: Zakharova Vasilisa Artemovna
     extension:
       type: Нода
+    parameters:
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.WS1
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.WS2
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.App1
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.App2
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.App3
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.App4
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.Db1
+      - Romashka.Clusters.Prod.FinancialManagement.Node3.Db2
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.WS1:
-    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-ws1\nIP: 127.0.0.21'
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node3-ws1\nIP: 127.0.0.21'
     entity: component
+    role: Web-сервер
+    name: node3-ws1
+    ip: 127.0.0.21
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 0
+    storage_size_hdd_type_3: 0
+    isVM: false
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.WS2:
-    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-ws2\nIP: 127.0.0.22'
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node3-ws2\nIP: 127.0.0.22'
     entity: component
+    role: Web-сервер
+    name: node3-ws2
+    ip: 127.0.0.22
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 0
+    storage_size_hdd_type_3: 0
+    isVM: false
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.App1:
-    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-app1\nIP: 127.0.0.23'
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node3-app1\nIP: 127.0.0.23'
     entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: node3-app1
+    ip: 127.0.0.23
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.App2:
-    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-app2\nIP: 127.0.0.24'
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node3-app2\nIP: 127.0.0.24'
     entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: node3-app2
+    ip: 127.0.0.24
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.App3:
-    title: 'Сервер приложений 1С\n(Рабочий сервер)\nname: node1-app3\nIP: 127.0.0.25'
+    title: 'Сервер приложений 1С\n(Рабочий сервер)\nname: node3-app3\nIP: 127.0.0.25'
     entity: component
+    role: Рабочий сервер 1С:Предприятие 8
+    name: node3-app3
+    ip: 127.0.0.25
+    cpu: 96
+    ram: 768
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.App4:
-    title: 'Сервер приложений 1С\n(Рабочий сервер под рег. задания)\nname: node1-app4\nIP: 127.0.0.26'
+    title: 'Сервер приложений 1С\n(Рабочий сервер под рег. задания)\nname: node3-app4\nIP: 127.0.0.26'
     entity: component
+    role: Рабочий сервер 1С:Предприятие 8 (рег. задания)
+    name: node3-app4
+    ip: 127.0.0.26
+    cpu: 96
+    ram: 960
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.Db1:
-    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-db1\nIP: 127.0.0.27'
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node3-db1\nIP: 127.0.0.27'
     entity: database
+    role: Сервер СУБД
+    name: node3-db1
+    ip: 127.0.0.27
+    cpu: 30
+    ram: 300
+    storage_size_hdd_type_1: 0
+    storage_size_hdd_type_2: 10000
+    storage_size_hdd_type_3: 100
+    isVM: true
 
   Romashka.Clusters.Prod.FinancialManagement.Node3.Db2:
-    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-db2\nIP: 127.0.0.28'
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node3-db2\nIP: 127.0.0.28'
     entity: database
-
+    role: Сервер СУБД
+    name: node3-db2
+    ip: 127.0.0.28
+    cpu: 60
+    ram: 600
+    storage_size_hdd_type_1: 0
+    storage_size_hdd_type_2: 10000
+    storage_size_hdd_type_3: 100
+    isVM: true
 
 links:
 
@@ -116,28 +198,28 @@ links:
 
   #  APP - DB
 
-  Romashka.link.from.Node3.App1.to.Node3.Db1:
+  Romashka.link.from.Node3.Node3.App1.to.Node3.Db1:
     from: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
     to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db1
     title: undefined
     description: undefined
     code: undefined
 
-  Romashka.link.from.Node3.App1.to.Node3.Db2:
+  Romashka.link.from.Node3.Node3.App1.to.Node3.Db2:
     from: Romashka.Clusters.Prod.FinancialManagement.Node3.App1
     to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db2
     title: undefined
     description: undefined
     code: undefined
 
-  Romashka.link.from.Node3.App2.to.Node3.Db1:
+  Romashka.link.from.Node3.Node3.App2.to.Node3.Db1:
     from: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
     to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db1
     title: undefined
     description: undefined
     code: undefined
 
-  Romashka.link.from.Node3.App2.to.Node3.Db2:
+  Romashka.link.from.Node3.Node3.App2.to.Node3.Db2:
     from: Romashka.Clusters.Prod.FinancialManagement.Node3.App2
     to: Romashka.Clusters.Prod.FinancialManagement.Node3.Db2
     title: undefined

@@ -62,6 +62,16 @@ entities:
         source: >
           (
               $id := $params.id;
+              $node := $lookup($.components, $id);
+              $Domain_id := $split($id, ".", 4)~> $join('.');
+          
+              {
+                "Domain_id": $Domain_id,                
+                "node_id": $id,
+                "node_link": "/architect/components/" & $id,
+                "node_title": $node.title,
+                "node_description": $node.description
+              }
           )
       extended_card_cluster:
         title: Расширенная карточка кластера
@@ -69,7 +79,18 @@ entities:
         template: extended_card_cluster.md
         source: >
           (
-              $id := $params.id;
+          
+             $id := $params.id;
+             $Cluster := $lookup($.components, $id);
+    
+             {
+               "Contur_id": $split($id, ".", 2)~> $join('.'),                
+               "Cluster_id": $id,
+               "Cluster_link": "/architect/components/" & $id,
+               "Cluster_title": $Cluster.title,
+               "Cluster_description": $Cluster.description
+             }
+          
           )
       extended_card_functional_cluster:
         title: Расширенная карточка функционального кластера
@@ -77,5 +98,16 @@ entities:
         template: extended_card_functional_cluster.md
         source: >
           (
+          
               $id := $params.id;
+              $Domain := $lookup($.components, $id);
+
+              {
+                "Cluster_id": $split($id, ".", 3)~> $join('.'),                
+                "Domain_id": $id,
+                "Domain_link": "/architect/components/" & $id,
+                "Domain_title": $Domain.title,
+                "Domain_description": $Domain.description
+              }
+          
           )

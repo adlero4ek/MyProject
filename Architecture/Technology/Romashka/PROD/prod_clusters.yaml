@@ -1,20 +1,21 @@
 components:
 
   Romashka.Clusters.Prod:
-    title: Сервера продуктивного контура
+    title: Продуктивный контур
     entity: collections
     description: "Совокупность версий информационных систем, предназначенных для выполнения процессов, имеющих юридическую значимость"
     extension:
       type: Группа серверов
 
   Romashka.Clusters.Prod.FinancialManagement:
-    title: Сервера финансового контура
+    title: Сервера финансовых систем
     entity: collections
+    description: "Cовокупность серверов для функционирования информационных систем финансового контура в ПРОДУКТИВНОМ контуре"
     extension:
       type: Группа серверов функциональной области
 
   Romashka.Clusters.Prod.DocumentManagement:
-    title: Сервера документооборота (ЭДО, ЮЗЭДО, ВКЭДО)
+    title: Сервера (ЭДО, ЮЗЭДО, ВКЭДО)
     entity: collections
     extension:
       type: Группа серверов функциональной области
