@@ -126,3 +126,11 @@ datasets:
 
         ))^(BusinessObject_title)
       )
+
+
+  # Перечень процессов
+  SequenceDiagrams.dataset.SequenceDiagramsList:
+    source: >
+      (
+        $eval($.functions.get_sequence_diagrams_list);
+      )   

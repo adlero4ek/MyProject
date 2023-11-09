@@ -19,3 +19,18 @@ dochub_menu:
     title: Объекты бизнеса и процессов
     order: 2130
     visible: true
+
+  dochub.BusinessArchitecture.Romashka.SequenceDiagrams:
+    title: Бизнес процессы (as-is)
+    order: 2200
+    visible: true
+
+  dochub.BusinessArchitecture.Romashka.SequenceDiagrams.SequenceDiagramsList:
+    title: Cписок процессов
+    order: 2250
+    visible: true
+
+  dochub.BusinessArchitecture.Romashka.SequenceDiagrams.SequenceTree:
+    title: Дерево процессов
+    order: 2300
+    visible: true

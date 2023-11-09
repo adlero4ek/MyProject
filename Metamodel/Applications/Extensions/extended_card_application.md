@@ -1,7 +1,8 @@
 **Перейти** 
 | [Связи исходящие ({{count_links_from}})](/entities/links/OutgoingLinksFilteredBy_SystemID?id={{id}}) 
 | [Связи входящие ({{count_links_to}})](/entities/links/IncomingLinksFilteredBy_SystemID?id={{id}}) 
-| [Объекты приложения/сервиса ({{count_app_data_obj}})](/entities/ApplicationDataObjects/filteredBy_SystemID?SystemID={{id}}) |
+| [Объекты приложения/сервиса ({{count_app_data_obj}})](/entities/ApplicationDataObjects/filteredBy_SystemID?SystemID={{id}})
+| [Процессы ({{count_sequence}})](/entities/SequenceDiagrams/filteredBy_SystemID?SystemID={{id}}) |
 
 ## Приложение/сервис "{{title}}"
 - **ID**: [{{id}}]({{id_link}})

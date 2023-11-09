@@ -182,6 +182,9 @@ docs:
         text: "Функ. область"
         sortable: true
         link: domain_link
+      - value: total_nodes
+        text: "Кол-во Нод"
+        sortable: true
       - value: total_cpu
         text: "CPU/vCPU"
         sortable: true
@@ -209,8 +212,10 @@ docs:
       
         $Domain := $distinct($query.Domain_id);
       
-        $total_cpu := $query{`Domain_id`: $sum(server_cpu)};
-        $total_ram := $query{`Domain_id`: $sum(server_ram)};
+        $total_cpu   := $query{`Domain_id`: $sum(server_cpu)};
+        $total_ram   := $query{`Domain_id`: $sum(server_ram)};
+        $total_nodes := $query{`Domain_id`: $count($distinct(node_id))};
+      
         $total_storage_size_hdd_type_1 := $query{`Domain_id`: $sum(server_storage_size_hdd_type_1)};
         $total_storage_size_hdd_type_2 := $query{`Domain_id`: $sum(server_storage_size_hdd_type_2)};
         $total_storage_size_hdd_type_3 := $query{`Domain_id`: $sum(server_storage_size_hdd_type_3)};
@@ -222,10 +227,11 @@ docs:
           
           {
             "domain_id": $Domain_id,
-            "domain_title": $Domain.title,
             "domain_link": "/entities/extended_application_card/extended_card_functional_cluster?id=" & $Domain_id,
+            "domain_title": $Domain.title,
             "total_cpu": $lookup($total_cpu, $Domain_id),
             "total_ram": $lookup($total_ram, $Domain_id),
+            "total_nodes": $lookup($total_nodes, $Domain_id),
             "total_storage_size_hdd_type_1": $lookup($total_storage_size_hdd_type_1, $Domain_id),
             "total_storage_size_hdd_type_2": $lookup($total_storage_size_hdd_type_2, $Domain_id),
             "total_storage_size_hdd_type_3": $lookup($total_storage_size_hdd_type_3, $Domain_id)
@@ -233,13 +239,16 @@ docs:
           )^(domain_title)]
       )
       
-
-
+      
+      
 
   # Итоговые (сводные) ресурсы кластера
   technology.doc.CharacteristicsCluster.Total:
       type: table
       headers:
+        - value: total_nodes
+          text: "Кол-во Нод"
+          sortable: true
         - value: total_cpu
           text: "CPU/vCPU"
           align: right
@@ -261,12 +270,13 @@ docs:
           [{
             "total_cpu": $sum($query.server_cpu),
             "total_ram": $sum($query.server_ram),
+            "total_nodes": $count($distinct($query.node_id)),
             "total_storage_size_hdd_type_1": $sum($query.server_storage_size_hdd_type_1),
             "total_storage_size_hdd_type_2": $sum($query.server_storage_size_hdd_type_2),
             "total_storage_size_hdd_type_3": $sum($query.server_storage_size_hdd_type_3)
           }]
         )
-
+        
 
   # Аппартаные ресурсы кластера в разрезе функционаьльных групп серверов
   technology.doc.CharacteristicsOrg:
@@ -377,11 +387,17 @@ docs:
       - value: system_title
         text: "Приложение"
         link: system_link
-      - value: server_title
-        text: "Сервер"
+      - value: server_name
+        text: "Имя сервера"
+        link: server_link
+      - value: server_role
+        text: "Роль сервера"
+        link: server_link
+      - value: server_IP
+        text: "IP сервера"
         link: server_link
       - value: db_name
-        text: "Имя БД"
+        text: "Имя информационой базы"
       - value: description
         text: "Назначение"
     source: >

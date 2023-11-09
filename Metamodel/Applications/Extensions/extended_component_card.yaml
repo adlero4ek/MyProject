@@ -12,9 +12,12 @@ entities:
           (
 
               $id := $params.id;
-              $IsDomain := $count($split($id, "."))=3;
+              
+              $IsDomain := $count($split($id, ".")) = 3;
               $DomainName := $split($id, ".", 2)~> $join('.');
               
+              $count_sequence := $count($eval($.functions.get_sequence_diagrams_list)[System_id=$id]);              
+
               $query_count_app_data_obj := $.ApplicationDataObjects.$spread().(
                 $.*.{
                   "system_id": system,
@@ -49,7 +52,8 @@ entities:
                   "provider_type": extension.provider_type,
                   "count_app_data_obj": $IsDomain = true ? $sum($query_count_app_data_obj.count_domain) : $sum($query_count_app_data_obj.count_app),
                   "count_links_from": $sum($query_count_links.count_from),
-                  "count_links_to": $sum($query_count_links.count_to)
+                  "count_links_to": $sum($query_count_links.count_to),
+                  "count_sequence": $count_sequence
                 }
           
               )[id=$params.id]

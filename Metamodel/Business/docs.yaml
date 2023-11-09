@@ -11,3 +11,4 @@ docs:
         text: "Описание"
         wight: 50%
     source: BusinessObjects.dataset.ParametersList
+

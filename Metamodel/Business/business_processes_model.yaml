@@ -124,3 +124,29 @@ entities:
                   $result 
               )];
           )
+      filteredBy_SystemID:
+        title: Таблица процессов, отфильтрованных по ID приложения/сервиса
+        type: table
+        headers:
+        - value: Diagram_code
+          text: "Код"
+          sortable: true
+          link: Diagram_link
+        - value: Diagram_title
+          text: "Наименование"
+          sortable: true
+          link: Diagram_link
+        - value: Diagram_description
+          text: "Описание"
+        - value: Diagram_output
+          text: "Подсистема/Модуль"
+          link: SybSystem_link
+        - value: Diagram_input
+          text: "Вход"
+        - value: Diagram_output
+          text: "Выход"
+        origin: SequenceDiagrams.dataset.SequenceDiagramsList
+        source: >
+          (
+            [$[System_id=$params.SystemID]]
+          )

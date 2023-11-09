@@ -3,6 +3,9 @@ components:
   Lutik:
     title: "Лютик"
     entity: component
+    extension:
+      type: organization
+      description: "Выращивание, культивирование, продажа лютиков"
 
   Lutik.Divisions:
     title: "Подразделения"

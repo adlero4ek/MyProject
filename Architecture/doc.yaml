@@ -1,0 +1,31 @@
+docs:
+
+  Common.doc.ListOfOrganizations:
+    location: "Бизнес архитектура/Список организаций"
+    type: table
+    headers:
+      - value: title
+        text: "Наименование"
+        sortable: true
+        align: left
+        link: link
+      - value: description
+        text: "Описание"
+        align: left
+    source: > 
+      (
+
+        [components.$spread().(
+  
+            $component_id := $keys()[0];
+  
+            $.{
+                "id": $component_id,
+                "link": "/architect/components/" & $component_id,
+                "title": *.title,
+                "description": *.extension.description,
+                "type": *.extension.type
+            };
+  
+         )[type="organization"]]      
+      )

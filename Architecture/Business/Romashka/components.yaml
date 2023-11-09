@@ -3,10 +3,15 @@ components:
   Romashka:
     title: "Ромашка"
     entity: component
+    extension:
+      type: organization
+      description: "Выращивание, культивирование, продажа ромашек"
 
   Romashka.Divisions:
     title: "Подразделения"
     entity: component
+    extension:
+      type: DivisionGroups
 
   Romashka.Divisions.FinancialService:
     title: "Финансовый департамент"

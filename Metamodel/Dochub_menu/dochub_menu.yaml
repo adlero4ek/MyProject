@@ -26,6 +26,11 @@ dochub_menu:
     title: Бизнес архитектура
     order: 2000
     visible: true
+
+  dochub.BusinessArchitecture.ListOfOrganizations:
+    title: Список организаций
+    order: 2010
+    visible: true
   #
   #  dochub.inform_arch:
   #    title: Информационная архитектура

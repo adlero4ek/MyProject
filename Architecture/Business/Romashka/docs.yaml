@@ -89,3 +89,29 @@ docs:
       (
           $[Organization_id="Romashka"]
       )
+
+  Romashka.doc.SequenceDiagramsList:
+    type: table
+    location: "Бизнес архитектура/Ромашка/Бизнес процессы (as-is)/Cписок процессов"
+    headers:
+      - value: Diagram_code
+        text: "Код"
+        sortable: true
+        link: Diagram_link
+      - value: Diagram_title
+        text: "Наименование"
+        sortable: true
+        link: Diagram_link
+      - value: Diagram_description
+        text: "Описание"
+      - value: Diagram_input
+        text: "Вход"
+      - value: Diagram_output
+        text: "Выход"
+      - value: System_Title
+        text: "Приложение"
+        link: System_link
+      - value: SybSystem_Title
+        text: "Подсистема/Модуль"
+        link: SybSystem_link
+    source: SequenceDiagrams.dataset.SequenceDiagramsList

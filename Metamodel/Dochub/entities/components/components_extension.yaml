@@ -33,13 +33,15 @@ entities:
               {"link": $type = "Нода" ? "/entities/extended_application_card/extended_card_node?id=" : false},
               {"link": $type = "system" ? "/entities/extended_application_card/blank?id=" : false},
               {"link": $type = "subsystem" ? "/entities/extended_application_card/blank?id=" : false}
+              {"link": "/architect/components/"} /* значение по-умочанию*/
             ];
   
-            $Query.(
+            ($Query.(
               {
                 "link": link,
                 "system_link": link & $id
               } 
-            )[link!=false]
+            )[link!=false])[0]
           
           )
+          
