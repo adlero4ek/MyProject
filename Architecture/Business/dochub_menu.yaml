@@ -16,7 +16,7 @@ dochub_menu:
     visible: true
 
   dochub.BusinessArchitecture.Romashka.BuisnessObjs:
-    title: Объекты бизнеса и процессов
+    title: Бизнес-сущности и объекты процессов
     order: 2130
     visible: true
 

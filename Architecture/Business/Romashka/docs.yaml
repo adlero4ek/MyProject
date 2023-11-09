@@ -33,7 +33,7 @@ docs:
 
   Romashka.doc.ListOfBusinessObjectsAsTable:
     type: table
-    location: "Бизнес архитектура/Ромашка/Объекты бизнеса и процессов"
+    location: "Бизнес архитектура/Ромашка/Бизнес-сущности и объекты процессов"
     headers:
       - value: title
         text: Бизнес объект

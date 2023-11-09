@@ -16,7 +16,7 @@ dochub_menu:
     visible: true
 
   dochub.TechnologyArchitecture.Romashka.views.CommonList:
-    title: Текущие аппаратные ресурсы
+    title: Список используемых аппаратных ресурсов
     order: 6210
     visible: true
 
@@ -31,7 +31,7 @@ dochub_menu:
     visible: true
 
   dochub.TechnologyArchitecture.Romashka.views.Couturs:
-    title: Контура
+    title: Среды развертывания
     order: 6400
     visible: true
 

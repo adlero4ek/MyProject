@@ -17,22 +17,22 @@ docs:
 
   Romashka.doc.Tech_Architecture_Dev:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Контура/Dev
+    location: Технологическая архитектура/Ромашка/Среды развертывания/Dev
     source: Templates/dev_landscape.md
 
   Romashka.doc.Tech_Architecture_Test:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Контура/Test
+    location: Технологическая архитектура/Ромашка/Среды развертывания/Test
     source: Templates/test_landscape.md
 
   Romashka.doc.Tech_Architecture_Stage:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Контура/Stage
+    location: Технологическая архитектура/Ромашка/Среды развертывания/Stage
     source: Templates/stage_landscape.md
 
   Romashka.doc.Tech_Architecture_Prod:
     type: markdown
-    location: Технологическая архитектура/Ромашка/Контура/Prod
+    location: Технологическая архитектура/Ромашка/Среды развертывания/Prod
     source: Templates/prod_landscape.md
 
   technologies_table_list:
