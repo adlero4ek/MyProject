@@ -120,3 +120,68 @@ docs:
         align: left
         width: 40%
     source: Application.dataset.KeyContacts
+
+  # Сетевая диаграмма приложений
+  Application.doc.Network:
+    location: "Архитектура приложений/Сетевая диаграмма систем и сервисов"
+    type: Network
+    source: >
+      (
+        $manifest := $;
+
+        $adges :=  $distinct(links.$spread().(
+            $d := $.*;
+            {
+             "from": $d.from,
+             "to": $d.to,
+             "type": $lookup($manifest.components, $d.from).extension.type 
+            }
+        ))[type="system"];
+
+        /* Выявляем ноды из связей */
+        $nodes := $distinct($append($adges.from, $adges.to)).(
+          $struct := $split($, ".");
+          $group := $replace($, "." & $reverse($struct)[0], "");
+          {
+            "id": $,
+            "label": $lookup($manifest.components, $).title,
+            "group": $group,
+            "level": $count($struct),
+            /* Позиционируем ноду тем выше, чем выше слой */
+            "y": $count($struct) * 200
+          }
+        );
+        /* Добавляем ноды легенды */
+        $nodes := $append($nodes, (
+          /* Получаем максимальную точку позиции нод */
+          $height := $max($nodes.y);
+          $groups := $distinct($nodes.group)^($);
+          /* Вычисляем центр легенды */
+          $offset := -($height / 2);
+          /* Определяем шаг легенды */
+          $step := $height / $count($groups);
+          /* Строим легенду */
+          $map($groups, function($v, $i, $a) {
+            {
+              "id": "legend-" & $string($i),
+              "x": -600,
+              "y": $i * $step + $offset,
+              "shape": "square",
+              "label":  $lookup($manifest.components, $v).title,
+              "group": $v,
+              "value": 1,
+              "size": 5,
+              "fixed": true,
+              "physics": false
+            }
+          })
+        ));
+        /* Выводим результат */
+        {
+          "nodes": $nodes, /* Массив нод */
+          "edges": $adges, /* Массив связей */
+          "options": {     /* Параметры сетевой диаграммы https://visjs.github.io/vis-network/docs/network/ */
+            "clickToUse": false /* Отключаем обязательный клик перед взаимодействем с пользователем */
+          }
+        }
+      )

@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO:
-    title: ЕК АСУФР-3. 1С:ДО (эталон)
+    title: Документоборот (эталон)
     entity: component
     description:
       "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,

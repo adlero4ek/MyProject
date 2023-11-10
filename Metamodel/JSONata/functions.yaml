@@ -183,3 +183,74 @@ functions:
 
         )[Diagram_isgroup=false]^(Diagram_code)
       )
+
+  # $eval($FUNCTIONS.get_quality_features,{"feature": "total_cpu"})
+  # Варианты feature описаны в методе $GetTotal
+
+  # $eval($.functions.get_quality_features,{"feature": "total_cpu", "query": $query, "components": components});
+  # Варианты feature описаны в методе $GetTotal
+  get_quality_features: >
+    (
+
+     $GetColor := function($x) {(
+
+        $contains($x, ".Dev") ? "green" :
+          $contains($x, ".Prod") ? "lightblue" :
+            $contains($x, ".Test") ? "orange" :
+              $contains($x, ".Stage") ? "pink" : "red"
+
+      )};
+
+      $GetTotal := function($x, $c) {(
+
+        $x = "total_cpu" ? $c{`Cluster_id`: $sum(server_cpu)} :
+          $x = "total_ram" ? $c{`Cluster_id`: $sum(server_ram)} :
+            $x = "total_nodes" ? $c{`Cluster_id`: $count($distinct(node_id))} :
+              $x = "total_servers" ? $c{`Cluster_id`: $count($distinct(server_id))} :
+                $x = "total_size_hdd_type_1" ? $c{`Cluster_id`: $sum(server_storage_size_hdd_type_1)} :
+                  $x = "total_size_hdd_type_2" ? $c{`Cluster_id`: $sum(server_storage_size_hdd_type_2)} :
+                    $x = "total_size_hdd_type_3" ? $c{`Cluster_id`: $sum(server_storage_size_hdd_type_3)} : 0
+
+        )};
+
+      $feature    := $.feature;
+      $query      := $.query;
+      $components := $.components;
+      $Clusters   := $distinct($query.Cluster_id);
+
+      {
+        "datasets": 
+
+            $Clusters.(
+
+              $Cluster_id := $;
+              $Cluster := $lookup($components, $Cluster_id);
+
+              {
+                "label": $Cluster.title,      
+                "backgroundColor": $GetColor($Cluster_id),
+                "data":[$lookup($GetTotal($feature, $query), $Cluster_id)]
+              }
+
+           )
+      }
+
+    )
+    
+
+#    components.$spread().(
+#    
+#    $system_id := $keys()[0];
+#
+#    *.aspects.(
+#
+#        $aspect_id := $;
+#
+#        {
+#            "system_id": $system_id,
+#            "aspect_id":  $aspect_id,
+#            "aspect_title": $lookup($DataLake.aspects, $aspect_id).title,
+#            "aspect_link": "/architect/aspects/" & $aspect_id
+#        }
+#    );
+#    )

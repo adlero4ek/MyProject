@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring:
-    title: ЕК АСУТР-3. ПИМ
+    title: ERP (Пользователи и мониторинг)
     entity: component
     description:
       "Единая корпоративная платформа автоматизация процессов ведения пользователей и полномочий пользователей, а также обеспечение технического мониторинга функциональных

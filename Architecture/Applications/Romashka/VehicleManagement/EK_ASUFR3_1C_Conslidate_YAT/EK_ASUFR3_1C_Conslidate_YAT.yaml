@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT:
-    title: ЕК АСУФР-3. 1С:УАТ (консолидация)
+    title: УАТ (консолидация)
     entity: component
     description:
       "Автоматизированная система для централизованного хранения данных «ЕК АСУФР-3. 1С:УАТ всех бизнес-единиц ОАО «Ромашка» с целью организации оперативного

@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_MDM:
-    title: ЕК АСУТР-2. ЦНСИ
+    title: ЗУП (ЦНСИ)
     entity: component
     description:
       "Единая корпоративная платформа управления процессом ведения нормативно-справочной информации функциональных компонент ЕК АСУТР-2"

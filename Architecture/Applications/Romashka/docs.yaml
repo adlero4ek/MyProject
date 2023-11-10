@@ -38,6 +38,21 @@ docs:
         sortable: true
     source: Romashka.dataset.ListOfInformationSystems
 
+  #  Оценка характеристик приложений и сервисов
+
+  Romashka.doc.QualityFeatures:
+    type: markdown
+    location: "Архитектура приложений/Ромашка/Оценка приложений и сервисов"
+    source: Templates/quality_features.md
+
+  Romashka.doc.ExampleRadar:
+    description: Диаграммы Радар
+    author: S.Sultanov
+    type: chart-radar
+    size: 600
+    origin: Romashka.dataset.ExampleRadar
+    source: ($)
+
   Romashka.doc.IntegrationsList:
     location: "Архитектура приложений/Ромашка/Интеграционные потоки приложений и сервисов"
     type: table

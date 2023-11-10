@@ -1,0 +1,53 @@
+docs:
+
+  Romashka.doc.Example.Feature.CPU:
+    description: Пример использования cтолбиковой диаграммы
+    author: S.Sultanov
+    type: chart-bar
+    labels:
+      - CPU/vCPU
+    height: 200
+    source: >
+      (
+          $query      := $eval($.functions.get_hardware_resources);
+          $dataset    := $eval($.functions.get_quality_features,{"feature": "total_cpu", "query": $query, "components": components});
+      )
+
+  Romashka.doc.Example.Feature.Ram:
+    description: Пример использования cтолбиковой диаграммы
+    author: S.Sultanov
+    type: chart-bar
+    labels:
+      - ОЗУ, ГБ
+    height: 200
+    source: >
+      (
+          $query      := $eval($.functions.get_hardware_resources);
+          $dataset    := $eval($.functions.get_quality_features,{"feature": "total_ram", "query": $query, "components": components});
+      )
+
+  Romashka.doc.Example.Feature.Nodes:
+    description: Пример использования cтолбиковой диаграммы
+    author: S.Sultanov
+    type: chart-bar
+    labels:
+      - Ноды, шт
+    height: 200
+    source: >
+      (
+          $query      := $eval($.functions.get_hardware_resources);
+          $dataset    := $eval($.functions.get_quality_features,{"feature": "total_nodes", "query": $query, "components": components});
+      )
+
+  Romashka.doc.Example.Feature.Servers:
+    description: Пример использования cтолбиковой диаграммы
+    author: S.Sultanov
+    type: chart-bar
+    labels:
+      - Сервера, шт
+    height: 200
+    source: >
+      (
+          $query      := $eval($.functions.get_hardware_resources);
+          $dataset    := $eval($.functions.get_quality_features,{"feature": "total_servers", "query": $query, "components": components});
+      )

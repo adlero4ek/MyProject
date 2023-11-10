@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP:
-    title: ЕК АСУФР-3. ЦНСИ
+    title: ERP (ЦНСИ)
     entity: component
     description:
       "Единая корпоративная платформа управление процессом ведения нормативно-справочной информации функциональных компонент ЕК АСУФР-3"

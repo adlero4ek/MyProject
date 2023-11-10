@@ -13,3 +13,29 @@ datasets:
       (
         [$[$contains(component_from_id, "Romashka") or $contains(component_to_id, "Romashka")]]
       )
+
+  Romashka.dataset.ExampleRadar:
+    source: >
+      (
+        {
+          'size': 600,
+          'labels': ['доступность', 'производительность', 'надежность', 'сопровождаемость', 'обслуживаемость', 'безопасность'],
+          'datasets': [
+            {
+                "label": "ERP",
+                "color": "magenta",
+                "data": [50, 20, 30, 40, 35, 60]
+            },
+            {
+                "label": "ЗУП",
+                "color": "green",
+                "data": [95, 50, 75, 65, 55, 45]
+            },
+            {
+                "label": "Документооборот",
+                "color": "blue",
+                "data": [95, 85, 75, 65, 55, 80]
+            }
+          ]
+        }
+      )

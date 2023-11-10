@@ -25,6 +25,11 @@ dochub_menu:
     order: 4120
     visible: true
 
+  dochub.ApplicationsArchitecture.Romashka.QualityFeatures:
+    title: Оценка приложений и сервисов
+    order: 4125
+    visible: true
+
   dochub.ApplicationsArchitecture.Romashka.Links:
     title: Интеграционные потоки приложений и сервисов
     order: 4140

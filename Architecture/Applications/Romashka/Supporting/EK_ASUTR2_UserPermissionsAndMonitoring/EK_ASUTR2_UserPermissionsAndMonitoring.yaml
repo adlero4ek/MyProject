@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring:
-    title: ЕК АСУТР-2. ПИМ
+    title: ЗУП (Пользователи и мониторинг)
     entity: component
     description:
       "Единая корпоративная платформа автоматизация процессов ведения пользователей и полномочий пользователей, а также обеспечение технического мониторинга функциональных
