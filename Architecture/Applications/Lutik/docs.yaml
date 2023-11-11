@@ -43,10 +43,10 @@ docs:
       - value: link_code
         text: Код
         sortable: true
-        link: link_id
+        link: link_link
       - value: link_title
         text: Описание
-        link: link_id
+        link: link_link
       - value: component_from_title
         text: Источник
         sortable: true

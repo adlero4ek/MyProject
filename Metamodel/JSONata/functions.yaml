@@ -184,8 +184,39 @@ functions:
         )[Diagram_isgroup=false]^(Diagram_code)
       )
 
-  # $eval($FUNCTIONS.get_quality_features,{"feature": "total_cpu"})
-  # Варианты feature описаны в методе $GetTotal
+
+  # $eval($.functions.get_system_and_subsystem_by_id,{"Id": $Id})
+  get_system_and_subsystem_by_id: >
+    (
+  
+      $Id := $.Id;
+      $Datalake := $.Datalake;
+    
+      $CountPoints := $count($split($Id, "."));
+      $ParrentComponent_Id := $split($Id, ".", $CountPoints-1)~> $join('.');
+      
+      $Component := $lookup($Datalake.components, $Id);
+      $ComponentIsObject := $type($Component)="object";
+      
+      $ComponentType := $Component.extension.type;
+      
+      $System := $ComponentIsObject=false ? "" :
+        $ComponentType="system" ? $Id :
+          $ComponentType="subsystem" ? $ParrentComponent_Id : "";
+      
+      $SybSystem := $ComponentIsObject=false ? "":
+        $ComponentType="system" ? "":
+          $ComponentType="subsystem" ? $Id : "";
+        
+        {
+          "System_Id": $System,
+          "System_link": "/architect/components/" & $System,
+          "System_title": $lookup($Datalake.components, $System).title,
+          "SubSystem_Id": $SybSystem,
+          "SubSystem_link": "/architect/components/" & $SybSystem,
+          "SubSystem_title": $lookup($Datalake.components, $SybSystem).title
+        }
+    )
 
   # $eval($.functions.get_quality_features,{"feature": "total_cpu", "query": $query, "components": components});
   # Варианты feature описаны в методе $GetTotal
@@ -236,21 +267,3 @@ functions:
       }
 
     )
-    
-
-#    components.$spread().(
-#    
-#    $system_id := $keys()[0];
-#
-#    *.aspects.(
-#
-#        $aspect_id := $;
-#
-#        {
-#            "system_id": $system_id,
-#            "aspect_id":  $aspect_id,
-#            "aspect_title": $lookup($DataLake.aspects, $aspect_id).title,
-#            "aspect_link": "/architect/aspects/" & $aspect_id
-#        }
-#    );
-#    )

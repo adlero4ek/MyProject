@@ -1,13 +1,12 @@
 links:
 
-  Romashka.link.from.EK_ASUFR3_1C_ERP.to.SPPR._.9.9.1:
+  Romashka.link.from.EK_ASUFR3_1C_ERP.to.SPPR._1:
+    type: Интеграционный поток данных
     from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-    from_sybsystem: undefined
     to: Romashka.Systems.Technological.SPPR
-    to_sybsystem: undefined
     title: Обращения пользователей (ошибки)
     description: undefined
-    code: И.9.9.1
+    code: ERP.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

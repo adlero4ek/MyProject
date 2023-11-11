@@ -1,7 +1,7 @@
 imports:
+  - docs.yaml
   - Business/root.yaml
   - Applications/root.yaml
   - Technology/root.yaml
   - Data/root.yaml
   - Welcome/root.yaml
-  - doc.yaml

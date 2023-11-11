@@ -24,7 +24,7 @@ rules:
             {
               "uid": "$custom-technologies-empty-" & id,
               "location": "/architect/components/" & id,
-              "correction": "Укажите технологии (свойство technologies) системы '" & title,
+              "correction": "Укажите технологии (свойство technologies) системы:" & title,
               "description": "У каждой системы должен быть указан список технологий c целью контроля технологического радара"
             }
           )

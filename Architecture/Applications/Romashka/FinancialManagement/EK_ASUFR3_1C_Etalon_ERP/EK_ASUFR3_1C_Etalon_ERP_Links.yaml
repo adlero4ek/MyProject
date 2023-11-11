@@ -1,13 +1,12 @@
 links:
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._.22.1.1:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
-    to_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._.1:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     title: Класификатор, используемых ролей пользователей
     description: Класификатор, используемых в "ЕК АСУФР-3. 1С:ERP" ролей пользователей
-    code: И.22.1.1
+    code: ERP-Э.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -24,14 +23,13 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._.22.1.2:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
-    to_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._.2:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     title: Класификатор, используемых профилей групп доступа
     description: Класификатор, используемых в "ЕК АСУФР-3. 1С:ERP" профилей и возможных органичений (видов доступа) групп доступа
-    code: И.22.1.2
+    code: ERP-Э.2
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -48,14 +46,13 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._.22.1.3:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    from_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
-    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-    to_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.UserPermissions
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._.3:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
+    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.UserPermissions
     title: Класификатор, используемых профилей групп доступа
     description: Класификатор, используемых в "ЕК АСУФР-3. 1С:ERP" профилей и возможных органичений (видов доступа) групп доступа
-    code: И.22.1.3
+    code: ERP-Э.3
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -72,15 +69,14 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_Conslidate_ERP._.22.1.4:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP
-    from_sybsystem: undefined
-    to_sybsystem: undefined
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_Conslidate_ERP._.4:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
+    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP.MDM
     title: Централизованные класификаторы 'ЕК АСУФР-3. 1С:ERP'
     description: "Централизованные класификаторы 'ЕК АСУФР-3. 1С:ERP', которые как загружаются из 'ЕК АСУФР-3. ЦНСИ' с дополнительным обогащаением
      спецификой 'ЕК АСУФР-3. 1С:ERP', так и формируются внутри контура 'ЕК АСУФР-3. 1С:ERP' (локальная НСИ)"
-    code: И.22.1.4
+    code: ERP-Э.4
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -97,15 +93,14 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._.22.1.5:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-    from_sybsystem: undefined
-    to_sybsystem: undefined
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._.5:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
+    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.MDM
     title: Централизованные класификаторы 'ЕК АСУФР-3. 1С:ERP'
     description: "Централизованные класификаторы 'ЕК АСУФР-3. 1С:ERP', которые как загружаются из 'ЕК АСУФР-3. ЦНСИ' с дополнительным обогащаением
      спецификой 'ЕК АСУФР-3. 1С:ERP', так и формируются внутри контура 'ЕК АСУФР-3. 1С:ERP' (локальная НСИ)"
-    code: И.22.1.5
+    code: ERP-Э.5
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

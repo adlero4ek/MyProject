@@ -3,38 +3,56 @@ datasets:
   links.dataset.MainListOfLinks:
     source: >
       (
-          $c := $.components;
+      
+          $Datalake   := $;      
+          $Components := $Datalake.components;
           
           $.links.$spread().(
           
-            $d := *.$;
+            $Link   := *.$;
+            $LinkId := $keys()[0];
+      
+            $SystemAndSubSystem_From := $eval($Datalake.functions.get_system_and_subsystem_by_id,{"Id": $Link.from, "Datalake": $Datalake});
+            $SystemAndSubSystem_To   := $eval($Datalake.functions.get_system_and_subsystem_by_id,{"Id": $Link.to, "Datalake": $Datalake});
             
             {
-              "link_id": "/entities/links/blank?id=" & $keys()[0],
-              "link_code": $d.code,
-              "link_title": $d.title,
-              "link_description": $d.description,
-              "link_state": $d.state,
-              "link_state_update_date": $d.state_update_date,
+              "link_id": $LinkId,
+              "link_link": "/entities/links/blank?id=" & $LinkId,
+              "link_code": $Link.code,
+              "link_title": $Link.title,
+              "link_description": $Link.description,
+              "link_state": $Link.state,
+              "link_state_update_date": $Link.state_update_date,
+              "link_asynchronous": $Link.asynchronous,
+              "link_size_mb": $Link.size_mb,
+              "link_periodicity": $Link.periodicity,
       
-              "component_from_id": $d.from,
-              "component_from_link": "/architect/components/" & $d.from,
-              "component_from_title": $lookup($c, $d.from).title,
+              "isIntegrationDataFlow": $Link.type = "Интеграционный поток данных",
       
-              "component_from_sybsystem_id": $d.sybsystem_from,
-              "component_from_sybsystem_link": "/architect/components/" & $d.from_sybsystem,
-              "component_from_sybsystem_title": $lookup($c, $d.from_sybsystem).title,
-            
-              "component_to_id": $d.to,
-              "component_to_link": "/architect/components/" & $d.to,
-              "component_to_title": $lookup($c, $d.to).title,
+              "component_from_id": $SystemAndSubSystem_From.System_Id,
+              "component_from_link": $SystemAndSubSystem_From.System_link,
+              "component_from_title": $SystemAndSubSystem_From.System_title,
       
-              "interface_via": $d.interface_via,
-              "interface_via_title": $lookup($c, $d.interface_via).title,
-              "interface_via_link": $contains($d.interface_via, "Systems") ? "/architect/components/" & $d.interface_via : "undefined"      
+              "component_from_sybsystem_id": $SystemAndSubSystem_From.SubSystem_Id,
+              "component_from_sybsystem_link": $SystemAndSubSystem_From.SubSystem_link,
+              "component_from_sybsystem_title": $SystemAndSubSystem_From.SubSystem_title,
+      
+              "component_to_id": $SystemAndSubSystem_To.System_Id,
+              "component_to_link": $SystemAndSubSystem_To.System_link,
+              "component_to_title": $SystemAndSubSystem_To.System_title != "" ? $SystemAndSubSystem_To.System_title : "undefined",
+      
+              "component_to_sybsystem_id": $SystemAndSubSystem_To.SubSystem_Id,
+              "component_to_sybsystem_link": $SystemAndSubSystem_To.SubSystem_title != "" ? $SystemAndSubSystem_To.SubSystem_link : "" ,
+              "component_to_sybsystem_title": $SystemAndSubSystem_To.SubSystem_title != "" ? $SystemAndSubSystem_To.SubSystem_title : "undefined",
+              
+              "interface": $Link.interface,
+              "interface_standard_type": $Link.interface_standard_type,
+              "interface_via": $Link.interface_via,
+              "interface_via_title": $lookup($Components, $Link.interface_via).title,
+              "interface_via_link": $contains($Link.interface_via, "Systems") ? "/architect/components/" & $Link.interface_via : "undefined"      
             }
       
-          )^(link_code)
+          )[isIntegrationDataFlow=true]^(link_code)
       
       )
 

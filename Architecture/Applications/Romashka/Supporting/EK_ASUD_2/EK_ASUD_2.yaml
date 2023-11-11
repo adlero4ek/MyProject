@@ -12,7 +12,7 @@ components:
     budget_holder: Zakharova Vasilisa Artemovna
     architect: Solovyova Vera Georgievna
     extension:
-      type: external system
+      type: system
       state: Проектируется
       state_update_date: 01.01.2023
       development_platform: undefined

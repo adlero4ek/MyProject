@@ -14,5 +14,5 @@
 - **Подразделение:** [{{division_owner_title}}]({{division_owner_link}})
 - **Ответственный за ведение:** {{owner}}
 
-#### Ключевые атрибуты бизнес-объекта
+#### Ключевые атрибуты бизнес-сущности
 ![Получаем список атрибутов](@document/BusinessObjects.doc.ParametersList?id={{id}})

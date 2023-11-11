@@ -6,36 +6,10 @@ entities:
         title: Основная карточка потока данных
         type: markdown
         template: templates/link_main_card.md
+        origin: links.dataset.MainListOfLinks
         source: >
           (
-          
-            $MANIFEST := $;
-  
-            $distinct(links.$spread().(
-  
-                $link_id := $keys()[0];
-  
-                $.*.{
-                    "id": $link_id,
-                    "title": title,
-                    "code": code,
-                    "description": description,
-                    "component_from": $lookup($MANIFEST.components, from).title,
-                    "component_from_link": "/architect/components/" & from,
-                    "component_to": $lookup($MANIFEST.components, to).title,
-                    "component_to_link": "/architect/components/" & to,
-                    "state": state,
-                    "state_update_date": state_update_date,
-                    "interface": interface,
-                    "interface_standard_type": interface_standard_type,
-                    "asynchronous": asynchronous,
-                    "size_mb": size_mb,
-                    "periodicity": periodicity,
-                    "interface_via": $lookup($MANIFEST.components, interface_via).title,
-                    "interface_via_link": $contains(interface_via, "Systems") ? "/architect/components/" & interface_via : "undefined" 
-                };          
-            ))[id=$params.id]
-          
+            $[link_id=$params.id]
           )
       filtered:
         type: table
@@ -43,7 +17,7 @@ entities:
           - value: link_code
             text: Код
             sortable: true
-            link: link_id
+            link: link_link
           - value: link_title
             text: Описание
           - value: component_from_title
@@ -76,7 +50,7 @@ entities:
           - value: link_code
             text: Код
             sortable: true
-            link: link_id
+            link: link_link
           - value: link_title
             text: Описание
           - value: component_from_title
@@ -110,7 +84,7 @@ entities:
           - value: link_code
             text: Код
             sortable: true
-            link: link_id
+            link: link_link
           - value: link_title
             text: Описание
           - value: component_from_title

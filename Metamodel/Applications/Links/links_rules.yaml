@@ -1,4 +1,3 @@
-#todo отдельная проверка что компоненты from, from_sybsystem подчиненны друг другу
 rules:
   validators:
     ComponentLinks:
@@ -10,15 +9,9 @@ rules:
           from:
             type: string
             minLength: 10
-          from_sybsystem:
-            type: string
-            minLength: 9
           to:
             type: string
             minLength: 10
-          to_sybsystem:
-            type: string
-            minLength: 9
           title:
             type: string
             minLength: 5
@@ -73,9 +66,7 @@ rules:
                 - type
         required:
           - from
-          - from_sybsystem
           - to
-          - to_sybsystem
           - title
           - description
           - code
@@ -85,7 +76,7 @@ rules:
           - interface_via
           - interface_standard_type
           - asynchronous
-          - size_mb
+          - size_mb111
           - periodicity
           - parameters
         additionalProperties: true
@@ -99,11 +90,12 @@ rules:
 
               {
                   "id": $ID,
-                  "isvalid": $validator($.*),
-                  "isTechnologyLink": $contains(*.from, "Clusters")
+                  "isValid": $validator($.*),
+                  "isTechnologyLink": $contains(*.from, "Clusters"),
+                  "isIntegrationDataFlow": *.type = "Интеграционный поток данных"
               }
 
-          )[isvalid != true and $contains(id, "Romashka") and isTechnologyLink = false];
+          )[isValid != true and $contains(id, "Romashka") and isTechnologyLink = false and isIntegrationDataFlow=true];
         
           [$Query.(
         
@@ -117,7 +109,7 @@ rules:
             }
           )]
         )
-    ComponentIsExist:
+    ComponentIsExist: #todo убрать from_sybsystem
       title: "Интеграционные связи (links): Компоненты, указанные в атрибутах связей существуют (описаны) в проекте"
       source: >  
         (
@@ -175,47 +167,6 @@ rules:
                   "location": "/entities/links/blank?id=" & id,
                   "correction": "Корректно заполните реквизит: " & attribute,
                   "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
-              }
-          )]
-        )
-    ComponentsWithinSameDomain:
-      title: "Интеграционные связи (links): Компоненты, указанные в атрибутах связей (from+from_sybsystem или to+to_sybsystem) принадлежат одному домену"
-      source: >
-        (
-          $IsComponent := function($c, $component_id) {(
-                        $type($lookup($c, $component_id).title)="string")};
-
-          $c := $.components;
-
-          $Query := $.links.$spread().(
-
-              $ID := $keys()[0];
-
-              $append(
-                  {
-                      "id": $ID,
-                      "attribute": "from_sybsystem",
-                      "attribute_value": *.from_sybsystem,
-                      "attribute_domain": *.from,              
-                      "isvalid": ($IsComponent($c, *.from) and $IsComponent($c, *.from_sybsystem)) and ($contains(*.from_sybsystem, *.from)=true)
-                  },
-                  {
-                      "id": $ID,
-                      "attribute": "to_sybsystem",
-                      "attribute_value": *.to_sybsystem,
-                      "attribute_domain": *.to,
-                      "isvalid": ($IsComponent($c, *.to) and $IsComponent($c, *.to_sybsystem)) and ($contains(*.to_sybsystem, *.to)=true)
-                  }
-              )
-
-          )[isvalid=false and $contains(id, "Romashka") and attribute_value!="undefined"];
-                
-          [$Query.(
-              {
-                  "uid": "$custom-ComponentsWithinSameDomain-" & id & "-" & attribute,
-                  "location": "/entities/links/blank?id=" & id,
-                  "correction": "Корректно заполните реквизит: " & attribute,
-                  "description": "Значение реквизита должно быть заполнено подчиненным комопнентом: " & attribute_domain & ".[Имя подчиненного компонента]" 
               }
           )]
         )

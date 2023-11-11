@@ -20,6 +20,10 @@
 - **Официальный сайт:** {{basic_solution_link}}
 - **Статус развития:** {{basic_solution_state}}
 
+#### Ключевая функциональность
+
+![Ключевые сотрудники](@document/Application.doc.Aspects?component={{id}})
+
 #### Ключевые сотрудники, контакты
 
 ![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{id}})

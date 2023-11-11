@@ -1,26 +1,5 @@
-# После того как Рома завез возможность сортировать меню, мы реализовали сущность при помощи которой можно задавать первичную структуру меню
+
 dochub_menu:
-  #  dochub:
-  #    title: DocHub
-  #    order: 1
-  #    visible: false #  Невидимый в меню
-  #
-  #  dochub.arch_governance:
-  #    title: "Архитектурные принципы и стандарты"
-  #    order: 1000
-  #    visible: false
-  #  dochub.arch_governance.principles:
-  #    title: Принципы
-  #    order: 1100
-  #    visible: false
-  #  dochub.arch_governance.platforms:
-  #    title: Стандарты по платформам
-  #    order: 1200
-  #    visible: false
-  #  dochub.arch_governance.implement_patterns:
-  #    title: Паттерны реализации задач
-  #    order: 1300
-  #    visible: false
 
   dochub.BusinessArchitecture:
     title: Бизнес архитектура
@@ -31,20 +10,7 @@ dochub_menu:
     title: Список организаций
     order: 2010
     visible: true
-  #
-  #  dochub.inform_arch:
-  #    title: Информационная архитектура
-  #    order: 3000
-  #    visible: false
-  #  dochub.inform_arch.business_entities:
-  #    title: Бизнес-сущности
-  #    order: 3100
-  #    visible: false
-  #  dochub.inform_arch.systems_business_entities:
-  #    title: Список бизнес-сущностей в системах
-  #    order: 3200
-  #    visible: false
-  #
+
   dochub.ApplicationsArchitecture:
     title: Архитектура приложений
     order: 4000
@@ -55,117 +21,7 @@ dochub_menu:
     order: 4400
     visible: true
 
-
-#
-#  dochub.app_arch.Romashka.systems_list1:
-#    title: Архитектура приложений/Ромашка/Объекты приложений и сервисов
-#    order: 4200
-#    visible: true
-
-
-
-#  dochub.app_arch.systems_list:
-#    title: Приложения и сервисы
-#    order: 4100
-#    visible: true
-
-#  dochub.app_arch.pal1:
-#    title: Прикладной ландшафт ПА-L1
-#    order: 4200
-#    visible: false
-#  dochub.app_arch.pal2:
-#    title: Детальная архитектуры систем ПА-L2
-#    order: 4300
-#    visible: false
-
-
-
-#  dochub.app_arch.systems_graph:
-#    title: Graph систем
-#    order: 4500
-#    visible: false
-#  dochub.app_arch.libraries:
-#    title: Библиотеки
-#    order: 4600
-#    visible: false
-#  dochub.app_arch.libraries.list:
-#    title: Каталог библиотек
-#    order: 4610
-#    visible: false
-#  dochub.app_arch.libraries.in_systems:
-#    title: Список библиотек в системах
-#    order: 4620
-#    visible: false
-#
   dochub.DataArchitecture:
     title: Архитектура данных
     order: 5000
     visible: true
-
-#  dochub.TechnologyArchitecture:
-#    title: Технологическая архитектура
-#    order: 6000
-#    visible: true
-#
-#  dochub.TechnologyArchitecture.technology_list:
-#    title: Таблица технологий
-#    order: 6100
-#    visible: true
-
-#  dochub.TechnologyArchitecture.technology_list:
-#    title: Общий ландшафт
-#    order: 6200
-#    visible: true
-
-#  dochub.tech_arch.environments:
-#    title: Среды развертывания ГК Болото
-#    order: 5200
-#    visible: false
-#
-#  dochub.arch_decision:
-#    title: Архитектура решений
-#    order: 6000
-#    visible: false
-#  dochub.arch_decision.adl:
-#    title: Architecture decision log
-#    order: 6100
-#    visible: false
-#
-#  dochub.arch_dev:
-#    title: Развитие корп архитектуры
-#    order: 7000
-#    visible: false
-#  dochub.arch_dev.processes:
-#    title: Политики и архитектурные процессы
-#    order: 7100
-#    visible: false
-#  dochub.arch_dev.tools:
-#    title: Инструменты
-#    order: 7200
-#    visible: false
-#  dochub.arch_dev.tools.dochub:
-#    title: DocHub
-#    order: 7210
-#    visible: false
-#
-#  dochub.dictionaries:
-#    title: Справочники
-#    order: 8000
-#    visible: false
-#
-#  dochub.documentation:
-#    title: Документация
-#    order: 9000
-#    visible: false
-#  dochub.documentation.arch_intro:
-#    title: Введение в архитектуру
-#    order: 9100
-#    visible: false
-#  dochub.documentation.glossary:
-#    title: Глоссарий терминов
-#    order: 9200
-#    visible: false
-#  dochub.documentation.useful_links:
-#    title: Полезные ссылки
-#    order: 9300
-#    visible: false

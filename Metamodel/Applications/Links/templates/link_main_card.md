@@ -1,28 +1,30 @@
-## Информационный поток данных "{{title}}"
-- **ID**: {{id}}
-- **Код**: {{code}}
-- **Расширеное описание**: {{description}}
+## Информационный поток данных "{{link_title}}"
+- **ID**: {{link_id}}
+- **Код**: {{link_code}}
+- **Расширеное описание**: {{link_description}}
 
-## Стороны взаимодействия
-- **Источник:** [{{component_from}}]({{component_from_link}})
-- **Приемник:** [{{component_to}}]({{component_to_link}})
+### Статус использования
+- **Статус:** {{link_state}}
+- **Дата актуализации:** {{link_state_update_date}}
 
-## Статус использования
-- **Статус:** {{state}}
-- **Дата актуализации:** {{state_update_date}}
+### Стороны взаимодействия
+- **Источник:** [{{component_from_title}}]({{component_from_link}})
+- **Подсистема источника:** [{{component_from_sybsystem_title}}]({{component_from_sybsystem_link}})
+- **Приемник:** [{{component_to_title}}]({{component_to_link}})
+- **Подсистема приемника:** [{{component_to_sybsystem_title}}]({{component_to_sybsystem_link}})
 
-## Характеристики
+### Характеристики
 - **Протокол**: {{interface}}
-- **Транспорт**: [{{interface_via}}]({{interface_via_link}}) 
+- **Транспорт**: [{{interface_via_title}}]({{interface_via_link}}) 
 - **Правило описания пакета**: {{interface_standard_type}}
-- **Асинхронное взаимодействие**: {{asynchronous}}
-- **Размер**: {{size_mb}} мб
-- **Периодичность**: {{periodicity}}
+- **Асинхронное взаимодействие**: {{link_asynchronous}}
+- **Размер**: {{link_size_mb}} мб
+- **Периодичность**: {{link_periodicity}}
 
-## Спецификация
+### Спецификация
 
-![Получаем список атрибутов](@document/links.doc.ParametersList?id={{id}})
+![Получаем список атрибутов](@document/links.doc.ParametersList?id={{link_id}})
 
-## Используемые бизнес-объекты
+### Используемые бизнес-сущности
 
-![Получаем список атрибутов](@document/links.doc.BusinessObjects?id={{id}})
+![Получаем список атрибутов](@document/links.doc.BusinessObjects?id={{link_id}})

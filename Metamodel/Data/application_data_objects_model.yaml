@@ -111,7 +111,7 @@ entities:
         type: table
         headers:
           - value: BusinessObject_title
-            text: Бизнес-объект
+            text: Бизнес-сущность
             link: BusinessObject_link
             sortable: true
           - value: BusinessObject_description

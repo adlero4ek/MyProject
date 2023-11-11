@@ -285,7 +285,7 @@ docs:
     type: table
     headers:
       - value: Cluster_title
-        text: "Контур"
+        text: "Среда развертывания"
         sortable: true
         link: Cluster_link
       - value: total_count_nodes
@@ -360,7 +360,7 @@ docs:
     type: table
     headers:
       - value: cluster_title
-        text: "Контур"
+        text: "Среда развертывания"
         link: cluster_link
       - value: domain_title
         text: "Функ. область"
