@@ -34,8 +34,8 @@ datasets:
               "component_from_title": $SystemAndSubSystem_From.System_title,
       
               "component_from_sybsystem_id": $SystemAndSubSystem_From.SubSystem_Id,
-              "component_from_sybsystem_link": $SystemAndSubSystem_From.SubSystem_link,
-              "component_from_sybsystem_title": $SystemAndSubSystem_From.SubSystem_title,
+              "component_from_sybsystem_link": $SystemAndSubSystem_From.SubSystem_title != "" ? $SystemAndSubSystem_From.SubSystem_link : "" ,
+              "component_from_sybsystem_title": $SystemAndSubSystem_From.SubSystem_title != "" ? $SystemAndSubSystem_From.SubSystem_title : "undefined",
       
               "component_to_id": $SystemAndSubSystem_To.System_Id,
               "component_to_link": $SystemAndSubSystem_To.System_link,

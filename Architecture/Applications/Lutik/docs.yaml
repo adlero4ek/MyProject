@@ -52,11 +52,22 @@ docs:
         sortable: true
         link: component_from_link
       - value: component_from_sybsystem_title
-        text: Подсистема/Модуль источника
+        text: Подсистема источника
         sortable: true
         link: component_from_sybsystem_link
       - value: component_to_title
         text: Получатель
         sortable: true
         link: component_to_link
+      - value: component_to_sybsystem_title
+        text: Подсистема получателя
+        sortable: true
+        link: component_to_sybsystem_link
+      - value: link_asynchronous
+        text: Асинхр.
+      - value: link_size_mb
+        text: Размер пакета (мб)
+        align: right
+      - value: link_periodicity
+        text: Периодичность
     source: Lutik.dataset.IntegrationsList

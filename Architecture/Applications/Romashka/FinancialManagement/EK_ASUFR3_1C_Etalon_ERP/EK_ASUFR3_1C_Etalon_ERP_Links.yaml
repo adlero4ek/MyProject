@@ -1,6 +1,6 @@
 links:
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._.1:
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._1:
     type: Интеграционный поток данных
     from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
     to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
@@ -23,7 +23,7 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._.2:
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_UserPermissionsAndMonitoring._2:
     type: Интеграционный поток данных
     from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
     to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
@@ -46,7 +46,7 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._.3:
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._3:
     type: Интеграционный поток данных
     from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
     to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.UserPermissions
@@ -69,7 +69,7 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_Conslidate_ERP._.4:
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_Conslidate_ERP._4:
     type: Интеграционный поток данных
     from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
     to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP.MDM
@@ -93,7 +93,7 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._.5:
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_ERP.to.EK_ASUFR3_1C_ERP._5:
     type: Интеграционный поток данных
     from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
     to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP.MDM

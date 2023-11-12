@@ -1,14 +1,13 @@
 links:
 
   #  EK_ASUFR3_1C_MDM_ERP -> EK_ASUFR3_1C_Etalon_ERP -> Централизованные класификаторы (ЦНСИ)
-  Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_ERP._.24.1.1:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP
-    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    from_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP.MDM
-    to_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
+  Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_ERP._1:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP.MDM
+    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.MDM
     title: Централизованные класификаторы (ЦНСИ)
     description: Централизованные класификаторы (ЦНСИ)
-    code: И.24.1.1
+    code: ERP-MDM.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -26,14 +25,13 @@ links:
         type: Строка (35)
 
   #  EK_ASUFR3_1C_MDM_ERP -> EK_ASUFR3_1C_Etalon_DO -> Централизованные класификаторы (ЦНСИ)
-  Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_DO._.24.1.2:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP
-    from_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP.MDM
-    to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO
-    to_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.MDM
+  Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_DO._2:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP.MDM
+    to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.MDM
     title: Централизованные класификаторы (ЦНСИ)
     description: Централизованные класификаторы (ЦНСИ)
-    code: И.24.1.1
+    code: ERP-MDM.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -51,14 +49,13 @@ links:
         type: Строка (35)
 
   #  EK_ASUFR3_1C_MDM_ERP -> EK_ASUFR3_1C_Etalon_YAT -> Централизованные класификаторы (ЦНСИ)
-  Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_YAT._.24.1.3:
-    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP
-    from_sybsystem: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP.MDM
-    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT
-    to_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.MDM
+  Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_YAT._3:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_MDM_ERP.MDM
+    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.MDM
     title: Централизованные класификаторы (ЦНСИ)
     description: Централизованные класификаторы (ЦНСИ)
-    code: И.24.1.3
+    code: ERP-MDM.3
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

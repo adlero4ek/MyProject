@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO:
-    title: Документоборот
+    title: 1С:Документоборот
     entity: component
     description:
       "Автоматизированная система управления задачами ЭДО, ЮЗЭДО, ВК ЭДО, формирования и согласования реестров ПУД внутри контура ЕК АСУФР-3"
@@ -97,7 +97,7 @@ components:
 contexts:
 
   Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO:
-    title: ЕК АСУФР-3. 1С:ДО
+    title: 1С:Документоборот
     location:
     extra-links: true
     components:

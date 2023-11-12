@@ -1,14 +1,13 @@
 links:
 
   #  EK_ASUFR3_UserPermissionsAndMonitoring -> EK_ASUFR3_1C_ERP -> Учетные записи пользователей
-  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_ERP._.23.1.1:
-    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
+  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_ERP._1:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     title: Учетные записи пользователей
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ERP"
-    code: И.23.1.1
+    code: ПИМ-ЗУП.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -26,14 +25,13 @@ links:
         type: Строка (35)
 
   #  EK_ASUFR3_UserPermissionsAndMonitoring - > EK_ASUFR3_1C_Etalon_ERP -> Учетные записи пользователей
-  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Etalon_ERP._.23.1.2:
-    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
+  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Etalon_ERP._2:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions
     title: Учетные записи пользователей
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ERP (эталон)"
-    code: И.23.1.2
+    code: ПИМ-ЗУП.2
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -51,14 +49,13 @@ links:
         type: Строка (35)
 
   #  EK_ASUFR3_UserPermissionsAndMonitoring - > EK_ASUFR3_1C_Conslidate_ERP -> Учетные записи пользователей
-  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Conslidate_ERP._.23.1.3:
-    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
+  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Conslidate_ERP._3:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     to: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
     title: Учетные записи пользователей
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ERP (консолидация)"
-    code: И.23.1.3
+    code: ПИМ-ЗУП.3
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -76,14 +73,13 @@ links:
         type: Строка (35)
 
   #  EK_ASUFR3_UserPermissionsAndMonitoring - > EK_ASUFR3_1C_DO -> Учетные записи пользователей
-  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_DO._.23.1.4:
-    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
-    to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
-    to_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.UserPermissions
+  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_DO._4:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.UserPermissions
     title: Учетные записи пользователей
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ДО"
-    code: И.23.1.4
+    code: ПИМ-ЗУП.4
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -101,14 +97,13 @@ links:
         type: Строка (35)
 
   #  EK_ASUFR3_UserPermissionsAndMonitoring - > EK_ASUFR3_1C_Etalon_DO -> Учетные записи пользователей
-  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Etalon_DO._.23.1.5:
-    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
-    to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO
-    to_sybsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.UserPermissions
+  Romashka.link.from.EK_ASUFR3_UserPermissionsAndMonitoring.to.EK_ASUFR3_1C_Etalon_DO._5:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO.UserPermissions
     title: Учетные записи пользователей
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ДО (эталон)"
-    code: И.23.1.5
+    code: ПИМ-ЗУП.5
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT:
-    title: УАТ (эталон)
+    title: 1С:Управление Автотранспортом (эталон)
     entity: component
     description:
       "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,
@@ -47,7 +47,7 @@ components:
 contexts:
 
   Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT:
-    title: ЕК АСУФР-3. 1С:УАТ (эталон)
+    title: 1С:Управление Автотранспортом (эталон)
     location:
     extra-links: true
     components:

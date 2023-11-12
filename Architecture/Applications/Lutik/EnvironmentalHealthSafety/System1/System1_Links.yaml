@@ -1,10 +1,9 @@
 links:
 
-  Lutik.link.from.System1.to.System2._.1:
+  Lutik.link.from.System1.to.System2._1:
+    type: Интеграционный поток данных
     from: Lutik.Systems.EnvironmentalHealthSafety.System1
-    from_sybsystem: undefined
     to: Lutik.Systems.EnvironmentalHealthSafety.System2
-    to_sybsystem: undefined
     title: Поток №1
     description: Расширенное описание потока №1
     code: И.1
@@ -35,11 +34,10 @@ links:
         description: "Ставка НДС, %, Принимает значение: 0 | 10 | 18 | 20"
         type: Число положительное
 
-  Lutik.link.from.System2.to.System1._.2:
+  Lutik.link.from.System2.to.System1._2:
+    type: Интеграционный поток данных
     from: Lutik.Systems.EnvironmentalHealthSafety.System2
-    from_sybsystem: undefined
     to: Lutik.Systems.EnvironmentalHealthSafety.System1
-    to_sybsystem: undefined
     title: Поток №2
     description: Расширенное описание потока №2
     code: И.2
@@ -59,11 +57,10 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Дата (ГГГГ-ММ-ДД)
 
-  Lutik.link.from.System2.to.EK_ASUFR3_1C_YAT._.3:
+  Lutik.link.from.System2.to.EK_ASUFR3_1C_YAT._3:
+    type: Интеграционный поток данных
     from: Lutik.Systems.EnvironmentalHealthSafety.System2
-    from_sybsystem: undefined
     to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT
-    to_sybsystem: undefined
     title: Поток №3
     description: Расширенное описание потока №3
     code: И.3
@@ -83,11 +80,10 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Дата (ГГГГ-ММ-ДД)
 
-  Lutik.link.from.System2.to.EK_ASUFR3_UserPermissionsAndMonitoring._.4:
+  Lutik.link.from.System2.to.EK_ASUFR3_UserPermissionsAndMonitoring._4:
+    type: Интеграционный поток данных
     from: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    from_sybsystem: undefined
     to: Lutik.Systems.EnvironmentalHealthSafety.System2
-    to_sybsystem: undefined
     title: Поток №4
     description: Расширенное описание потока №4
     code: И.3

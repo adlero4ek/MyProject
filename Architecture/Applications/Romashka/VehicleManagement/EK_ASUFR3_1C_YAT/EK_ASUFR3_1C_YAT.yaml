@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT:
-    title: УАТ
+    title: 1С:Управление Автотранспортом
     entity: component
     description:
       "Автоматизации управления на автотранспортных предприятиях различного масштаба, использующих автотранспорт для собственных нужд, с расширенными
@@ -74,7 +74,7 @@ components:
 contexts:
 
   Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT:
-    title: ЕК АСУФР-3. 1С:УАТ
+    title: 1С:Управление Автотранспортом
     location:
     extra-links: false
     components:

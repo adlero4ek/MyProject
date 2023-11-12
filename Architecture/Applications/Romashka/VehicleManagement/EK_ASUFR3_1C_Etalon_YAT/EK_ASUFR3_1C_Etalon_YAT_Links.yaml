@@ -1,13 +1,12 @@
 links:
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_UserPermissionsAndMonitoring._.26.1.1:
-    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT
-    from_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
-    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    to_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_UserPermissionsAndMonitoring._1:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     title: Класификатор, используемых ролей пользователей
-    description: Класификатор, используемых в "ЕК АСУФР-3. 1С:УАТ" ролей пользователей
-    code: И.26.1.1
+    description: Класификатор, используемых в "1С:Управление Автотранспортом" ролей пользователей
+    code: УАТ-Э.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -24,14 +23,13 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_UserPermissionsAndMonitoring._.26.1.2:
-    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT
-    from_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
-    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring
-    to_sybsystem: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_UserPermissionsAndMonitoring._2:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions
     title: Класификатор, используемых профилей групп доступа
-    description: Класификатор, используемых в "ЕК АСУФР-3. 1С:УАТ" профилей и возможных органичений (видов доступа) групп доступа
-    code: И.26.1.2
+    description: Класификатор, используемых в "1С:Управление Автотранспортом" профилей и возможных органичений (видов доступа) групп доступа
+    code: УАТ-Э.2
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -48,14 +46,13 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_1C_YAT._.26.1.3:
-    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT
-    from_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
-    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT
-    to_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.UserPermissions
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_1C_YAT._3:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
+    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.UserPermissions
     title: Класификатор, используемых профилей групп доступа
-    description: Класификатор, используемых в "ЕК АСУФР-3. 1С:УАТ" профилей и возможных органичений (видов доступа) групп доступа
-    code: И.26.1.3
+    description: Класификатор, используемых в "1С:Управление Автотранспортом" профилей и возможных органичений (видов доступа) групп доступа
+    code: УАТ-Э.3
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -72,15 +69,14 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_1C_Conslidate_YAT._.26.1.4:
-    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT
-    from_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.MDM
-    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT
-    to_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.MDM
-    title: Централизованные класификаторы 'ЕК АСУФР-3. 1С:УАТ'
-    description: "Централизованные класификаторы 'ЕК АСУФР-3. 1С:УАТ', которые как загружаются из 'ЕК АСУФР-3. ЦНСИ' с дополнительным обогащаением
-     спецификой 'ЕК АСУФР-3. 1С:УАТ', так и формируются внутри контура 'ЕК АСУФР-3. 1С:УАТ' (локальная НСИ)"
-    code: И.26.1.4
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_1C_Conslidate_YAT._4:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.MDM
+    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Conslidate_YAT.MDM
+    title: Централизованные класификаторы '1С:Управление Автотранспортом'
+    description: "Централизованные класификаторы '1С:Управление Автотранспортом', которые как загружаются из 'ЦНСИ' с дополнительным обогащаением
+     спецификой '1С:Управление Автотранспортом', так и формируются внутри контура '1С:Управление Автотранспортом' (локальная НСИ)"
+    code: УАТ-Э.4
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -97,15 +93,14 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_1C_YAT._.26.1.5:
-    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT
-    from_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
-    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT
-    to_sybsystem: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.UserPermissions
-    title: Централизованные класификаторы 'ЕК АСУФР-3. 1С:УАТ'
-    description: "Централизованные класификаторы 'ЕК АСУФР-3. 1С:УАТ', которые как загружаются из 'ЕК АСУФР-3. ЦНСИ' с дополнительным обогащаением
-     спецификой 'ЕК АСУФР-3. 1С:УАТ', так и формируются внутри контура 'ЕК АСУФР-3. 1С:УАТ' (локальная НСИ)"
-    code: И.26.1.5
+  Romashka.link.from.EK_ASUFR3_1C_Etalon_YAT.to.EK_ASUFR3_1C_YAT._5:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_Etalon_YAT.UserPermissions
+    to: Romashka.Systems.VehicleManagement.EK_ASUFR3_1C_YAT.UserPermissions
+    title: Централизованные класификаторы '1С:Управление Автотранспортом'
+    description: "Централизованные класификаторы '1С:Управление Автотранспортом', которые как загружаются из 'ЦНСИ' с дополнительным обогащаением
+     спецификой '1С:Управление Автотранспортом', так и формируются внутри контура '1С:Управление Автотранспортом' (локальная НСИ)"
+    code: УАТ-Э.5
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

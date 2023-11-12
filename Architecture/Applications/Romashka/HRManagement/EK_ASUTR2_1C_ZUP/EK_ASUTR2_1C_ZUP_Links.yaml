@@ -1,13 +1,12 @@
 links:
 
-  Romashka.link.from.EK_ASUTR2_1C_Etalon_ZUP.to.EK_ASUTR2_UserPermissionsAndMonitoring._.21.1.1:
-    from: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP
-    to: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
-    to_sybsystem: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
+  Romashka.link.from.EK_ASUTR2_1C_Etalon_ZUP.to.EK_ASUTR2_UserPermissionsAndMonitoring._1:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
     title: Класификатор, используемых ролей пользователей
     description: Класификатор, используемых в "ЕК АСУТР-2. 1С:ЗУП" ролей пользователей
-    code: И.21.1.1
+    code: ЗУП-Э.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -24,14 +23,13 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUTR2_1C_Etalon_ZUP.to.EK_ASUTR2_UserPermissionsAndMonitoring._.21.1.2:
-    from: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP
-    to: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring
-    from_sybsystem: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
-    to_sybsystem: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
+  Romashka.link.from.EK_ASUTR2_1C_Etalon_ZUP.to.EK_ASUTR2_UserPermissionsAndMonitoring._2:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
+    to: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
     title: Класификатор, используемых профилей групп доступа
     description: Класификатор, используемых в "ЕК АСУТР-2. 1С:ЗУП" профилей и возможных органичений (видов доступа) групп доступа
-    code: И.21.1.2
+    code: ЗУП-Э.2
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -48,14 +46,13 @@ links:
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
 
-  Romashka.link.from.EK_ASUTR2_1C_Etalon_ZUP.to.EK_ASUTR2_1C_ZUP._.21.1.3:
-    from: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP
-    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
-    from_sybsystem: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
-    to_sybsystem: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP.UserPermissions
+  Romashka.link.from.EK_ASUTR2_1C_Etalon_ZUP.to.EK_ASUTR2_1C_ZUP._3:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
+    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP.UserPermissions
     title: Класификатор, используемых профилей групп доступа
     description: Класификатор, используемых в "ЕК АСУТР-2. 1С:ЗУП" профилей и возможных органичений (видов доступа) групп доступа
-    code: И.21.1.3
+    code: ЗУП-Э.3
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

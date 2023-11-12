@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP:
-    title: ERP (консолидация)
+    title: 1С:ERP Управление предприятием (консолидация)
     entity: component
     description:
       "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,
@@ -51,7 +51,7 @@ components:
 contexts:
 
   Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP:
-    title: ЕК АСУФР-3. 1С:ERP (консолидация)
+    title: 1С:ERP Управление предприятием (консолидация)
     location:
     extra-links: true
     components:

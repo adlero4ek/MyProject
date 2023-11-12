@@ -1,13 +1,12 @@
 links:
 
-  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_ZUP._.20.1.1:
-    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring
-    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
+  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_ZUP._1:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP.UserPermissions
     title: Учетные записи пользователей
-    description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУТР-2. 1С:ЗУП"
-    code: И.20.1.1
+    description: Учетные записи пользователей, используемые для авторизации в информационной системе "1С:ЗУП"
+    code: ПИМ-ERP.1
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -26,14 +25,13 @@ links:
 
   # EK_ASUTR2_UserPermissionsAndMonitoring -> EK_ASUTR2_1C_Etalon_ZUP
 
-  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_Etalon_ZUP._.20.1.2:
-    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring
-    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
+  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_Etalon_ZUP._2:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
     title: Учетные записи пользователей
-    description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУТР-2. 1С:ЗУП (эталон)"
-    code: И.20.1.2
+    description: Учетные записи пользователей, используемые для авторизации в информационной системе "1С:ЗУП (эталон)"
+    code: ПИМ-ERP.2
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -52,14 +50,13 @@ links:
 
   # EK_ASUTR2_UserPermissionsAndMonitoring -> EK_ASUTR2_1C_Etalon_ZUP
 
-  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_Etalon_ZUP._.20.1.3:
-    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring
-    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
-    title: Полномочия учетных записей пользователей в информационной системе "ЕК АСУТР-2. 1С:ЗУП (эталон)"
+  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_Etalon_ZUP._3:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_Etalon_ZUP.UserPermissions
+    title: Полномочия учетных записей пользователей в информационной системе "1С:ЗУП (эталон)"
     description: Полномочия учетных записей пользователей (роли, группы доступа, виды доступа, ограничения для RLS)
-    code: И.20.1.3
+    code: ПИМ-ERP.3
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис
@@ -78,14 +75,13 @@ links:
 
   # EK_ASUTR2_UserPermissionsAndMonitoring -> EK_ASUTR2_1C_Etalon_ZUP
 
-  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_ZUP._.20.1.4:
-    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring
-    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
-    from_sybsystem: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
-    to_sybsystem: undefined
-    title: Полномочия учетных записей пользователей  в информационной системе "ЕК АСУТР-2. 1С:ЗУП"
+  Romashka.link.from.EK_ASUTR2_UserPermissionsAndMonitoring.to.EK_ASUTR2_1C_ZUP._4:
+    type: Интеграционный поток данных
+    from: Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions
+    to: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP.UserPermissions
+    title: Полномочия учетных записей пользователей  в информационной системе "1С:ЗУП"
     description: Полномочия учетных записей пользователей (роли, группы доступа, виды доступа, ограничения для RLS)
-    code: И.20.1.4
+    code: ПИМ-ERP.4
     state: Проектируется
     state_update_date: 01.01.2023
     interface: WEB-сервис

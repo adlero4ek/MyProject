@@ -1,7 +1,7 @@
 components:
 
   Romashka.Systems.Technological.SPPR:
-    title: СППР
+    title: 1С:СППР
     entity: component
     description:
       "Система проектирования прикладных решений (СППР) предназначена для проектирования прикладных решений (конфигураций) на платформе «1С:Предприятие» и 
