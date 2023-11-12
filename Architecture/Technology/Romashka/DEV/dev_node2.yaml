@@ -1,0 +1,99 @@
+contexts:
+
+  Romashka.Clusters.Dev.Common.Node2:
+    title: Нода №1 (разработка) 1С:Зарплата и управление персоналом 8
+    extra-links: true
+    entity: collections
+    location:
+    components:
+      - Romashka.Clusters.Dev.Common.Node2.*
+
+components:
+
+  Romashka.Clusters.Dev.Common.Node2:
+    title: Нода №1 (разработка) 1С:Зарплата и управление персоналом 8
+    entity: collections
+    description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы  1С:Зарплата и управление персоналом 8 в тестовом контуре организации.
+      Сайзинг Ноды рассчитан на 1 000 одномерно работающих пользователей"
+    access_approver: Egorov Demid Nikitich
+    budget_holder: Zakharova Vasilisa Artemovna
+    extension:
+      type: Нода
+    parameters:
+      - Romashka.Clusters.Dev.Common.Node2.WS1
+      - Romashka.Clusters.Dev.Common.Node2.App1
+      - Romashka.Clusters.Dev.Common.Node2.Db1
+
+  Romashka.Clusters.Dev.Common.Node2.WS1:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: Node2-Dev-ws1\nIP: 127.0.3.1'
+    role: Web-сервер
+    entity: component
+    name: Node2-Dev-ws1
+    ip: 127.0.3.1
+    cpu: 4
+    ram: 8
+    storage_size_hdd_type_1: 50
+    storage_size_hdd_type_2: 0
+    storage_size_hdd_type_3: 0
+    isVM: false
+
+  Romashka.Clusters.Dev.Common.Node2.App1:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: Node2-Dev-app1\nIP: 127.0.3.2'
+    entity: component
+    role: Сервер приложений 1С:Предприятие 8
+    name: Node2-Dev-app1
+    ip: 127.0.3.2
+    cpu: 50
+    ram: 500
+    storage_size_hdd_type_1: 1000
+    storage_size_hdd_type_2: 600
+    storage_size_hdd_type_3: 0
+    isVM: true
+
+  Romashka.Clusters.Dev.Common.Node2.Db1:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: Node2-Dev-db2\nIP: 127.0.3.3'
+    entity: database
+    role: Сервер СУБД
+    name: Node2-Dev-db1
+    ip: 127.0.3.3
+    cpu: 50
+    ram: 500
+    storage_size_hdd_type_1: 0
+    storage_size_hdd_type_2: 10000
+    storage_size_hdd_type_3: 100
+    isVM: true
+    installed_systems:
+      - system_id: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
+        db_name: zup_Dev_1
+        description: База разработчика №1
+      - system_id: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
+        db_name: zup_Dev_1
+        description: База разработчика №2
+      - system_id: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
+        db_name: zup_Dev_1
+        description: База разработчика №2
+      - system_id: Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP
+        db_name: zup_Dev_2
+        description: База разработчика №3
+
+links:
+
+  #  WS - APP
+
+  Romashka.link.from.Node2.Dev.WS1.to.Node2.Dev.App1:
+    type: Взаимодействие приложений
+    from: Romashka.Clusters.Dev.Common.Node2.WS1
+    to: Romashka.Clusters.Dev.Common.Node2.App1
+    title: undefined
+    description: undefined
+    code: undefined
+
+  #  APP - DB
+
+  Romashka.link.from.Dev.Node2.App1.to.Node2.Db1:
+    type: Взаимодействие приложений
+    from: Romashka.Clusters.Dev.Common.Node2.App1
+    to: Romashka.Clusters.Dev.Common.Node2.Db1
+    title: undefined
+    description: undefined
+    code: undefined

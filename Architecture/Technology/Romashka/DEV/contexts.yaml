@@ -1,0 +1,14 @@
+contexts:
+
+  Romashka.Clusters.Dev:
+    extra-links: true
+    location:
+    components:
+      - Romashka.Clusters.Dev.*
+
+  Romashka.Clusters.Dev.Common:
+    title: "Сервера разработки"
+    extra-links: true
+    location:
+    components:
+      - Romashka.Clusters.Dev.Common.*

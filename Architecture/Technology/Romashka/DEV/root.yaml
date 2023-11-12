@@ -1,0 +1,8 @@
+imports:
+  - contexts.yaml
+  - dev_clusters.yaml
+  - dev_node1.yaml
+  - dev_node2.yaml
+  - dev_node3.yaml
+  - dev_node4.yaml
+  - dev_node5.yaml

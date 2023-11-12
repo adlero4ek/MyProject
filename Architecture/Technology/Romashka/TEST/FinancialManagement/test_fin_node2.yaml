@@ -1,16 +1,16 @@
 contexts:
 
-  Romashka.Clusters.Test.FinancialManagement.Node1:
+  Romashka.Clusters.Test.FinancialManagement.Node2:
     title: Нода (тестирование) 1C:ERP №1
     extra-links: true
     entity: collections
     location:
     components:
-      - Romashka.Clusters.Test.FinancialManagement.Node1.*
+      - Romashka.Clusters.Test.FinancialManagement.Node2.*
 
 components:
 
-  Romashka.Clusters.Test.FinancialManagement.Node1:
+  Romashka.Clusters.Test.FinancialManagement.Node2:
     title: Нода (тестирование)  1C:ERP №1
     entity: collections
     description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы  1С:ERP в тестовом контуре организации.
@@ -20,16 +20,16 @@ components:
     extension:
       type: Нода
     parameters:
-      - Romashka.Clusters.Test.FinancialManagement.Node1.WS1
-      - Romashka.Clusters.Test.FinancialManagement.Node1.App1
-      - Romashka.Clusters.Test.FinancialManagement.Node1.Db1
+      - Romashka.Clusters.Test.FinancialManagement.Node2.WS1
+      - Romashka.Clusters.Test.FinancialManagement.Node2.App1
+      - Romashka.Clusters.Test.FinancialManagement.Node2.Db1
 
-  Romashka.Clusters.Test.FinancialManagement.Node1.WS1:
-    title: 'Web-сервер\n(Apache, Nginx)\nname: node1-test-ws1\nIP: 127.0.2.1'
+  Romashka.Clusters.Test.FinancialManagement.Node2.WS1:
+    title: 'Web-сервер\n(Apache, Nginx)\nname: node2-test-ws1\nIP: 127.0.1.1'
     role: Web-сервер
     entity: component
-    name: node1-test-ws1
-    ip: 127.0.2.1
+    name: node2-test-ws1
+    ip: 127.0.1.1
     cpu: 4
     ram: 8
     storage_size_hdd_type_1: 50
@@ -37,27 +37,27 @@ components:
     storage_size_hdd_type_3: 0
     isVM: false
 
-  Romashka.Clusters.Test.FinancialManagement.Node1.App1:
-    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node1-test-app1\nIP: 127.0.2.2'
+  Romashka.Clusters.Test.FinancialManagement.Node2.App1:
+    title: 'Сервер приложений 1С\n(Центральный сервер)\nname: node2-test-app1\nIP: 127.0.1.2'
     entity: component
     role: Сервер приложений 1С:Предприятие 8
-    name: node1-test-app1
-    ip: 127.0.2.2
-    cpu: 50
-    ram: 500
+    name: node2-test-app1
+    ip: 127.0.1.2
+    cpu: 96
+    ram: 768
     storage_size_hdd_type_1: 1000
     storage_size_hdd_type_2: 600
     storage_size_hdd_type_3: 0
     isVM: true
 
-  Romashka.Clusters.Test.FinancialManagement.Node1.Db1:
-    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node1-test-db2\nIP: 127.0.2.3'
+  Romashka.Clusters.Test.FinancialManagement.Node2.Db1:
+    title: 'СУБД\n(Postgres Pro Enterprise)\nname: node2-test-db2\nIP: 127.0.1.3'
     entity: database
     role: Сервер СУБД
-    name: node1-test-db1
-    ip: 127.0.2.3
-    cpu: 50
-    ram: 500
+    name: node2-test-db1
+    ip: 127.0.1.3
+    cpu: 96
+    ram: 768
     storage_size_hdd_type_1: 0
     storage_size_hdd_type_2: 10000
     storage_size_hdd_type_3: 100
@@ -80,20 +80,20 @@ links:
 
   #  WS - APP
 
-  Romashka.link.from.Node1.Test.WS1.to.Node1.Test.App1:
+  Romashka.link.from.Node2.Test.WS1.to.Node2.Test.App1:
     type: Взаимодействие приложений
-    from: Romashka.Clusters.Test.FinancialManagement.Node1.WS1
-    to: Romashka.Clusters.Test.FinancialManagement.Node1.App1
+    from: Romashka.Clusters.Test.FinancialManagement.Node2.WS1
+    to: Romashka.Clusters.Test.FinancialManagement.Node2.App1
     title: undefined
     description: undefined
     code: undefined
 
   #  APP - DB
 
-  Romashka.link.from.Test.Node1.App1.to.Node1.Db1:
+  Romashka.link.from.Test.Node2.App1.to.Node2.Db1:
     type: Взаимодействие приложений
-    from: Romashka.Clusters.Test.FinancialManagement.Node1.App1
-    to: Romashka.Clusters.Test.FinancialManagement.Node1.Db1
+    from: Romashka.Clusters.Test.FinancialManagement.Node2.App1
+    to: Romashka.Clusters.Test.FinancialManagement.Node2.Db1
     title: undefined
     description: undefined
     code: undefined

@@ -4,4 +4,4 @@ imports:
   - STAGE/stage_clusters.yaml
   - TEST/root.yaml
   - PROD/root.yaml
-  - DEV/dev_clusters.yaml
+  - DEV/root.yaml
