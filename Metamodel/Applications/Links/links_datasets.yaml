@@ -60,19 +60,17 @@ datasets:
     source: >
       (
 
-        $log($params.id);
+        links.$spread().(
       
-        $.links.$spread().(
-
           $link_id :=  $keys()[0];
-
-          $.*.parameters.{
-              "id": $link_id,
-              "name": name,
-              "description": description,
-              "type": type
-          } 
-
+      
+          *.parameters.{
+            "id": $link_id,
+            "name": name,
+            "description": description,
+            "type": type
+           }
+        
         )[id=$params.id]
       
       )
@@ -80,30 +78,28 @@ datasets:
     source: >
       (
 
-        $MANIFEST := $;
+        $Datalake := $;
   
-        $.links.$spread().(
+        links.$spread().(
         
-          $link_id :=  $keys()[0];
-          
-          $.*.BusinessObjects.(
+          $Link_id :=  $keys()[0];
+         
+          *.BusinessObjects.(
           
             $Object  := $;
-            $Objects := $lookup($MANIFEST.BusinessObjects, $Object);
+            $Objects := $lookup($Datalake.BusinessObjects, $Object);
             $Objects := $merge([$Objects, {"id": $Object}]);
-            
+      
             {
+                "Link_id": $Link_id,
+                "BusinessObject_id": $Objects.id,
+                "BusinessObject_title": $Objects.title,
+                "BusinessObject_description": $Objects.description,
+                "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $Objects.id
               
-              "link_id": $link_id,
-              "BusinessObject_id": $Objects.id,
-              "BusinessObject_title": $Objects.title,
-              "BusinessObject_description": $Objects.description,
-              "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $Objects.id
-            
             }
-          
           )
-        
-        )[link_id=$params.id]
+          
+        )[Link_id=$params.id]
       
       )
