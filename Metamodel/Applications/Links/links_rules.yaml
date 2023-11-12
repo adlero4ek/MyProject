@@ -20,7 +20,7 @@ rules:
             minLength: 9
           code:
             type: string
-            minLength: 5
+            minLength: 2
           state:
             type: string
             minLength: 5
@@ -76,97 +76,73 @@ rules:
           - interface_via
           - interface_standard_type
           - asynchronous
-          - size_mb111
+          - size_mb
           - periodicity
           - parameters
         additionalProperties: true
       source: >
         (
-          $validator := $jsonschema(rules.validators.ComponentLinks.schema);
+            $validator := $jsonschema(rules.validators.ComponentLinks.schema);
 
-          $Query := $.links.$spread().(
+            $Query := links.$spread().(
 
-              $ID := $keys()[0];
+                $Link_Id := $keys()[0];
 
-              {
-                  "id": $ID,
-                  "isValid": $validator($.*),
-                  "isTechnologyLink": $contains(*.from, "Clusters"),
-                  "isIntegrationDataFlow": *.type = "Интеграционный поток данных"
-              }
+                {
+                    "Link_Id": $Link_Id,
+                    "IsValid": $validator($.*),
+                    "IsIntegrationDataFlow": *.type = "Интеграционный поток данных"
+                }
 
-          )[isValid != true and $contains(id, "Romashka") and isTechnologyLink = false and isIntegrationDataFlow=true];
+            )[IsValid != true and IsIntegrationDataFlow=true];
         
-          [$Query.(
+            [$Query.IsValid.{
+
+                "uid": "$custom-links-main-attributes-" & %.Link_Id & "-" & params.missingProperty & $replace(instancePath, "/", "-"),
+                "location": "/entities/links/blank?id=" & %.Link_Id,
+                "correction": "Корректно заполните реквизит: " & $replace(instancePath, "/", "",1),
+                "description": message
+            }]
         
-            $id := id;
-        
-            $.isvalid.{
-              "uid": "$custom-links-main-attributes-" & $id & "-" & params.missingProperty & $replace(instancePath, "/", "-"),
-              "location": "/entities/links/blank?id=" & $id,
-              "correction": "Корректно заполните реквизит: " & $replace(instancePath, "/", "",1),
-              "description": message
-            }
-          )]
+      
         )
-    ComponentIsExist: #todo убрать from_sybsystem
-      title: "Интеграционные связи (links): Компоненты, указанные в атрибутах связей существуют (описаны) в проекте"
+    ComponentIsExist:
+      title: "Интеграционные связи (links): Компоненты, указанные в атрибутах from и  to связей существуют (описаны) в проекте"
       source: >  
         (
         
-          $IsComponent := function($c, $component_id) {(
-              $type($lookup($c, $component_id).title)="string")};
+            $IsComponent := function($c, $component_id) {(
+                $type($lookup($c, $component_id))="object")};
+        
+            $Components := $.components;
+            
+            $Query := links.$spread().(
+            
+              $Link_Id := $keys()[0];
+              
+              [
+                {
+                    "Link_Id": $Link_Id,
+                    "Attribute": "from",
+                    "Attribute_value": *.from,
+                    "IsValid": $IsComponent($Components, *.from)
+                },
+                {
+                    "Link_Id": $Link_Id,
+                    "Attribute": "to",
+                    "Attribute_value": *.to,
+                      "IsValid": $IsComponent($Components, *.to)
+                }
+              ][IsValid=false]
+        
+            );
   
-          $c := $.components;
-  
-          $Query_from := $.links.$spread().(
-  
-              $ID := $keys()[0];
-  
-              $append(
-                  {
-                      "id": $ID,
-                      "attribute": "from",
-                      "attribute_value": *.from,
-                      "isvalid": $IsComponent($c, *.from)
-                  },
-                  {
-                      "id": $ID,
-                      "attribute": "from_sybsystem",
-                      "attribute_value": *.from_sybsystem,
-                      "isvalid": $IsComponent($c, *.from_sybsystem)
-                  }
-              )
-          )[isvalid!=true and attribute_value!="undefined"];
-  
-          $Query_to := $.links.$spread().(
-  
-              $ID := $keys()[0];
-  
-              $append(
-                  {
-                      "id": $ID,
-                      "attribute": "to",
-                      "attribute_value": *.to,
-                      "isvalid": $IsComponent($c, *.to)
-                  },
-                  {
-                      "id": $ID,
-                      "attribute": "to_sybsystem",
-                      "attribute_value": *.to_sybsystem,
-                      "isvalid": $IsComponent($c, *.to_sybsystem)
-                  }
-              )
-          )[isvalid!=true and attribute_value!="undefined"];
-  
-          $Query := $distinct($append($Query_from, $Query_to));
-  
-          [$Query.(
-              {
-                  "uid": "$custom-ComponentIsExist-" & id & "-" & attribute,
-                  "location": "/entities/links/blank?id=" & id,
-                  "correction": "Корректно заполните реквизит: " & attribute,
-                  "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
-              }
-          )]
+            [$Query.(
+                {
+                    "uid": "$custom-links-ComponentIsExist-" & Link_Id & "-" & Attribute,
+                    "location": "/entities/links/blank?id=" & Link_Id,
+                    "correction": "Корректно заполните реквизит: " & Attribute,
+                    "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
+                }
+            )]
         )

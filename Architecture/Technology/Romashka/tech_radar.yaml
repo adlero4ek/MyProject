@@ -111,11 +111,11 @@ components:
       - 1C "Предприятие 8"
       - Postgresql Pro Enterprise
 
-#  Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring:
-#    technologies:
-#      - 1C "Предприятие 8"
-#      - Postgresql Pro Enterprise
-#      - Allure
+  Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring:
+    technologies:
+      - 1C "Предприятие 8"
+      - Postgresql Pro Enterprise
+      - Allure
 
   Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring:
     technologies:

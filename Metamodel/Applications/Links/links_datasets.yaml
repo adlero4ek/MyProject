@@ -62,10 +62,10 @@ datasets:
 
         links.$spread().(
       
-          $link_id :=  $keys()[0];
+          $Link_id :=  $keys()[0];
       
           *.parameters.{
-            "id": $link_id,
+            "id": $Link_id,
             "name": name,
             "description": description,
             "type": type
