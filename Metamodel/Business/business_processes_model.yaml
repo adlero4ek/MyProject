@@ -34,6 +34,7 @@ entities:
         template: Templates/business_processes_card.puml
         source: > 
           (
+              $datalake := $;
               $components := $.components;
               $obj := $lookup($.SequenceDiagrams, $params.id);
               $makeLink := function($entity) {(
@@ -70,6 +71,10 @@ entities:
               );
 
               $merge([{"components": $components, "title":$obj.title}, {
+                  "input": $obj.input,    
+                  "output": $obj.output,
+                  "code": $obj.code,
+                  "system": $lookup($datalake.components, $obj.system).title,
                   "groups": $obj.groups.(
                   {
                       "title": $.title,

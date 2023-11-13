@@ -5,6 +5,20 @@ skinparam ParticipantPadding 20
 skinparam BoxPadding 20
 
 {{#.}}
+
+header
+    Код процесса: {{{code}}}
+    Вход: {{{input}}}
+    Выход: {{{output}}}
+    Система: {{{system}}}
+endheader
+
+footer
+    Автор: Султанов Станислав
+    Версия: '0.0.1'
+    Дата: 01.11.2023
+endfooter
+
 title {{{title}}}
 
 {{#components}}
