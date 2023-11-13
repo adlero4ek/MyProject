@@ -36,7 +36,7 @@ docs:
     location: "Бизнес архитектура/Ромашка/Бизнес-сущности и объекты процессов"
     headers:
       - value: title
-        text: Бизнес объект
+        text: Бизнес сущность
         sortable: true
         link: link_id
       - value: description

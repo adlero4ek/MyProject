@@ -107,7 +107,7 @@ entities:
             [$[BusinessObject_id=$id]]
           )
       filteredBy_AppDataObjID_and_SystemID:
-        title: Таблица бизнес обектов, отфильтрованных по объекту приложения и приложению
+        title: Таблица бизнес сущностей, отфильтрованных по объекту приложения и приложению
         type: table
         headers:
           - value: BusinessObject_title

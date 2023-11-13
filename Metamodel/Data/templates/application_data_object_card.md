@@ -1,4 +1,4 @@
-**Перейти** | [Бизнес объекты ({{count_business_data_obj}})](/entities/ApplicationDataObjects/filteredBy_AppDataObjID_and_SystemID?system_id={{system_id}}&app_data_id={{id}}) |
+**Перейти** | [Бизнес-сущности ({{count_business_data_obj}})](/entities/ApplicationDataObjects/filteredBy_AppDataObjID_and_SystemID?system_id={{system_id}}&app_data_id={{id}}) |
 
 # Объект приложения/сервиса "{{title}}"
 
@@ -16,6 +16,6 @@
 - **Подразделение:** [{{division_owner_title}}]({{division_owner_link}})
 - **Ответственный за ведение:** {{owner}}
 
-## Ключевые атрибуты бизнес-сущности
+## Ключевые атрибуты
 ![Получаем список атрибутов](@document/ApplicationDataObjects.doc.ParametersList?id={{id}})
 

@@ -1,6 +1,6 @@
 **Перейти** | [Объекты приложений ({{count_app_data_obj}})](/entities/ApplicationDataObjects/filteredBy_BusinessObjectID?id={{id}}) |
 
-### Бизнес объект "{{title}}"
+### Бизнес сущности "{{title}}"
 
 - **ID**: {{id}}
 - **Класс объекта:** {{type}}

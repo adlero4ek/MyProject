@@ -62,4 +62,4 @@ ApplicationDataObjects:
     owner: Иванов И.И
     division_owner: Romashka.Divisions.FinancialService
     business_Objects: #todo добавить контроль наличия объектов
-      - Romashka.BusinessObject.Document_M11
+      - Romashka.BusinessObject.Document_M4
