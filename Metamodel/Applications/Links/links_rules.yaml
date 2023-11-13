@@ -1,6 +1,6 @@
 rules:
   validators:
-    ComponentLinks:
+    LinksBasic:
       title: "Интеграционные связи (links): Базовые проверки полноты и корректности заполнения"
       schema:
         type: object
@@ -82,7 +82,7 @@ rules:
         additionalProperties: true
       source: >
         (
-            $validator := $jsonschema(rules.validators.ComponentLinks.schema);
+            $validator := $jsonschema(rules.validators.LinksBasic.schema);
 
             $Query := links.$spread().(
 
@@ -126,14 +126,14 @@ rules:
                     "Attribute": "from",
                     "Attribute_value": *.from,
                     "IsValid": $IsComponent($Components, *.from)
-                },
+                }[IsValid=false],
                 {
                     "Link_Id": $Link_Id,
                     "Attribute": "to",
                     "Attribute_value": *.to,
-                      "IsValid": $IsComponent($Components, *.to)
-                }
-              ][IsValid=false]
+                    "IsValid": $IsComponent($Components, *.to)
+                }[IsValid=false]
+              ]
         
             );
   

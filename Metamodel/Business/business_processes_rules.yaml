@@ -1,0 +1,148 @@
+rules:
+
+  validators:
+    
+    SequenceDiagrams_SystemsIsComponent:
+        title: "Описание процессов (SequenceDiagrams): Компоненты, указанные в атрибутах system и subsystem существуют (описаны) в проекте"
+        source: >
+          (
+          
+            $ParticipantIsComponent := function($Components, $Component_Id) {(
+
+                $type($lookup($Components, $Component_Id))="object"
+
+            )};
+
+            $Components := $.components;
+
+            $Query := $distinct(SequenceDiagrams.$spread().(
+
+                $SequenceDiagram_Id := $keys()[0];
+                $IsDefinitionSequence := $count($split($SequenceDiagram_Id, "."))>3;
+
+                [
+                    {
+                        "SequenceDiagram_Id": $SequenceDiagram_Id,
+                        "Attribute": "system",
+                        "Attribute_value": *.system,
+                        "IsValid": $ParticipantIsComponent($Components, *.system)
+                    }[$IsDefinitionSequence and IsValid=false],
+                    {
+                        "SequenceDiagram_Id": $SequenceDiagram_Id,
+                        "Attribute": "subsystem",
+                        "Attribute_value": *.subsystem,
+                        "IsValid": $ParticipantIsComponent($Components, *.subsystem)
+                    }[$IsDefinitionSequence and IsValid=false]
+                ]
+
+            ));
+
+            [$Query.(
+                {
+                    "uid": "$custom-SequenceDiagrams-SystemsIsComponent-" & SequenceDiagram_Id & "-" & Attribute,
+                    "location": "/entities/links/blank?id=" & SequenceDiagram_Id,
+                    "correction": "Корректно заполните реквизит: " & Attribute & " текущее значение = " & Attribute_value,
+                    "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
+                }
+            )]
+          )
+
+    SequenceDiagrams_ParticipantOfStepsIsComponent:
+      title: "Описание процессов (SequenceDiagrams): Стороны шагов процесса, указанные в атрибутах from и to существуют (описаны) в проекте"
+      source: >
+        (
+
+            $ParticipantIsComponent := function($Component_Id, $Components) {(
+
+              $type($lookup($Components, $Component_Id))="object"
+
+            )};
+
+            $Datalake   := $;
+            $Components := $Datalake.components;
+  
+            $Query := $distinct(SequenceDiagrams.$spread().(
+  
+                $SequenceDiagrams_ID :=  $keys()[0];
+  
+                *.groups.steps.(
+  
+                    [
+                       {
+                            "SequenceDiagram_Id": $SequenceDiagrams_ID,
+                            "Attribute": "from",
+                            "Attribute_value": from,
+                            "IsValid": $ParticipantIsComponent(from, $Components)
+                        }[IsValid=false],
+                        {
+                            "SequenceDiagram_Id": $SequenceDiagrams_ID,
+                            "Attribute": "to",
+                            "Attribute_value": to,
+                            "IsValid": $ParticipantIsComponent(to, $Components)
+                        }[IsValid=false]
+                    ]
+                )    
+            ));
+        
+          [$Query.(
+              {
+                  "uid": "$custom-SequenceDiagrams-ParticipantOfStepsIsComponent-" & SequenceDiagram_Id & "-" & Attribute,
+                  "location": "/entities/links/blank?id=" & SequenceDiagram_Id,
+                  "correction": "Корректно заполните реквизит: " & Attribute & " в шагах процесса\n текущее значение = " & Attribute_value,
+                  "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
+              }
+          )]
+        
+        )
+    SequenceDiagrams_LinkIsEntity:
+      title: "Описание процессов (SequenceDiagrams): Компоненты, указанные в атрибутах system и subsystem существуют (описаны) в проекте"
+      source: >
+        (
+
+           $LinkIsValid := function($Link, $Datalake) {(
+
+           $IdForSearch := $split($Link, "=", 2)[1];
+            $IdForSearch := $IdForSearch != "" ? $IdForSearch : "undefine";
+        
+            $IsEntity    := $contains($Link, "links") or $contains($Link, "BusinessObjects");
+            
+            $IsEntity = false ? true :
+              $contains($Link, "BusinessObjects") ? $type($lookup($Datalake.BusinessObjects, $IdForSearch)) = "object" :
+                $contains($Link, "links") ? $type($lookup($Datalake.links, $IdForSearch)) = "object" : false;
+          
+          )};
+          
+          $Datalake   := $;
+          $Components := $Datalake.components;
+          
+          $Query := $distinct(SequenceDiagrams.$spread().(
+          
+            $SequenceDiagrams_ID :=  $keys()[0];
+          
+            $IsEntity = false ? true :
+              $contains($Link, "BusinessObjects") ? $type($lookup($Datalake.BusinessObjects, $IdForSearch)) = "object" :
+                $contains($Link, "links") ? $type($lookup($Datalake.links, $IdForSearch)) = "object" : false;
+            
+            *.groups.steps.(
+            
+              [
+                {
+                  "SequenceDiagram_Id": $SequenceDiagrams_ID,
+                  "Attribute": "link",
+                  "Attribute_value": link,
+                  "IsValid": $LinkIsValid(link, $Datalake)
+                }[IsValid=false]
+              ]
+            )
+          ));
+        
+          [$Query.(
+              {
+                  "uid": "$custom-SequenceDiagrams-LinkIsEntity-" & SequenceDiagram_Id & "-" & Attribute,
+                  "location": "/entities/links/blank?id=" & SequenceDiagram_Id,
+                  "correction": "Корректно заполните реквизит: " & Attribute & " в шагах процесса\n текущее значение = " & Attribute_value,
+                  "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на Entity одного из вида BusinessObjects, links"
+              }
+          )]
+        
+        )

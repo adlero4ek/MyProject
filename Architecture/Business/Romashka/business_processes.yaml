@@ -21,7 +21,7 @@ SequenceDiagrams:
       На массовые однородные грузы, прибывающие от одного и того же поставщика несколько раз в течение дня, допускается составление одного приходного ордера в целом за день.
       Приходный ордер должен выписываться на фактически принятое количество ценностей."
     system: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
-    sybsytem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+    subsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
     input: Получены документы на приход ТМЦ
     output: М-4 подготовлен и утвержден
     groups:
@@ -50,7 +50,7 @@ SequenceDiagrams:
           - from: Romashka.Roles.Storekeeper
             to: Romashka.Systems.Supporting.EK_ASUD_2
             value: И.11.1.4 Передача пакета М-4 с КЭП в АСД
-            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._1
             return:
         results:
           - М-4 подготовлен и утвержден
@@ -79,7 +79,7 @@ SequenceDiagrams:
           - from: Romashka.Roles.Storekeeper
             to: Romashka.Systems.Supporting.EK_ASUD_2
             value: И.11.1.4 Передача ЭД аннулирования с КЭП в пакет ЭД М-4 в АСД
-            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._1
         results:
           - М-4 аннулирован
 
@@ -92,7 +92,7 @@ SequenceDiagrams:
       Документ содержит реквизиты организации, сведения об отправителе и получателе, список ТМЦ, дату и номер формы М-11.Требование-накладную 
       можно использовать не только для перемещения и списания ТМЦ, но и как основание для выдачи инструмента сотруднику"
     system: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
-    sybsytem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
+    subsystem: Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.EDO_VK
     input: Получены документы на приход ТМЦ
     output: М-11 подготовлен и утвержден
     groups:
@@ -121,7 +121,7 @@ SequenceDiagrams:
           - from: Romashka.Roles.Storekeeper
             to: Romashka.Systems.Supporting.EK_ASUD_2
             value: И.11.1.4 Передача пакета М-11 с КЭП в АСД
-            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._2
             return:
         results:
           - М-11 подготовлен и утвержден
@@ -150,6 +150,6 @@ SequenceDiagrams:
           - from: Romashka.Roles.Storekeeper
             to: Romashka.Systems.Supporting.EK_ASUD_2
             value: И.11.1.4 Передача ЭД аннулирования с КЭП в пакет ЭД М-11 в АСД
-            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._.11.1.4
+            link: /entities/links/blank?id=Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUD_2._1
         results:
           - М-11 аннулирован
