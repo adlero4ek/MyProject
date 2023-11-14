@@ -2,7 +2,7 @@ entities:
 
   BusinessObjects:
     title: Бизнес сущность
-    description: "Бизнес объекты - это представления реальных объектов деятельности. Они могут отображать
+    description: "Бизнес сущности - это представления реальных объектов деятельности. Они могут отображать
       - как физические объекты: помещения, активы, контракты
       - так и абстрактные понятия: сорта яблок, обращения клиентов."
     presentations:
@@ -13,34 +13,32 @@ entities:
         source: >
           (
           
-            $MANIFEST := $;  
-  
-            $query := $.ApplicationDataObjects.$spread().(
-  
-                $app_data_obj_id := $keys()[0];
-  
-                *.business_Objects.(
-  
-                    $array_busness_obj := $;
-                    $busness_obj := $lookup($MANIFEST.BusinessObjects, $array_busness_obj);
-                    $busness_obj := $merge([$busness_obj, {"id": $array_busness_obj}]);
-  
-                    {
-                      "AppDataObject_id": $app_data_obj_id,              
-                      "BusinessObject_id": $busness_obj.id
-                    }       
-                );
-  
-            )[BusinessObject_id=$params.id];
+            $Datalake := $;
+            
+            $Query := $distinct(ApplicationDataObjects.$spread().(
+            
+              $AppDataObject_id := $keys()[0];
+              
+              *.business_Objects.(
+              
+                $BusinessObject_id := $;
+                
+                {
+                  "AppDataObject_id": $AppDataObject_id,
+                  "BusinessObject_id": $BusinessObject_id
+                }
+          
+              );
+            ))[BusinessObject_id=$params.id];
 
-            $count_app_data_obj := $count($query);
+            $CountAppDataObject := $count($Query);
           
             $distinct(BusinessObjects.$spread().(
             
-              $Object_id := $keys()[0];
+              $BusinessObject_id := $keys()[0];
               
               $.*.{
-                "id": $Object_id,
+                "id": $BusinessObject_id,
                 "title": title,
                 "description": description,
                 "type": type,
@@ -49,8 +47,8 @@ entities:
                 "owner": owner,
                 "division_owner": division_owner,
                 "division_owner_link": "/architect/components/" & division_owner,
-                "division_owner_title": $lookup($MANIFEST.components, division_owner).title,
-                "count_app_data_obj": $count_app_data_obj
+                "division_owner_title": $lookup($Datalake.components, division_owner).title,
+                "count_app_data_obj": $CountAppDataObject
               };
               
               ))[id=$params.id]

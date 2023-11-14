@@ -83,22 +83,21 @@ datasets:
         links.$spread().(
         
           $Link_id :=  $keys()[0];
-         
-          *.BusinessObjects.(
-          
-            $Object  := $;
-            $Objects := $lookup($Datalake.BusinessObjects, $Object);
-            $Objects := $merge([$Objects, {"id": $Object}]);
       
+          *.BusinessObjects.(
+    
+            $BusinessObject_Id := $;
+            $BusinessObject    := $lookup($Datalake.BusinessObjects, $BusinessObject_Id);
+  
             {
                 "Link_id": $Link_id,
-                "BusinessObject_id": $Objects.id,
-                "BusinessObject_title": $Objects.title,
-                "BusinessObject_description": $Objects.description,
-                "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $Objects.id
-              
+                "BusinessObject_id": $BusinessObject_ID,
+                "BusinessObject_title": $BusinessObject.title,
+                "BusinessObject_description": $BusinessObject.description,
+                "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $BusinessObject_Id
+  
             }
-          )
+        )
           
         )[Link_id=$params.id]
       

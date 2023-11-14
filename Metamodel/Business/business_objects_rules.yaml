@@ -1,7 +1,7 @@
 rules:
   validators:
     BusinessObjects:
-      title: "Объекты бизнеса (BusinessObjects): Базовые проверки полноты и корректности заполнения"
+      title: "Бизнес сущности (BusinessObjects): Базовые проверки полноты и корректности заполнения"
       schema:
         type: object
         properties:
@@ -71,7 +71,7 @@ rules:
                   "isvalid": $validator($.*)
               }
 
-          )[isvalid != true and $contains(id, "Romashka")];
+          )[isvalid != true];
         
           [$Query.(
         
@@ -84,4 +84,72 @@ rules:
               "description": message
             }
           )]
+        )
+    BusinessObjects_HeaderAttributes:
+      title: "Бизнес сущности (BusinessObjects): Значения, указанные в поле type являются бизнес сущностями"
+      source: >
+        (
+       
+          $Datalake := $;
+          
+          $Query := $distinct(BusinessObjects.$spread().(
+          
+            $BusinessObject_ID :=  $keys()[0];
+            
+            {
+              "BusinessObject_ID": $BusinessObject_ID,
+              "Attribute": "division_owner",
+              "Attribute_value": *.division_owner,
+              "IsValid": $type($lookup($Datalake.components, *.division_owner))="object"
+            }[IsValid=false]
+          
+          ));
+          
+          [$Query.(
+            {
+              "uid": "$custom-BusinessObjects-HeaderAttributes-" & BusinessObject_ID & "-" & Attribute,
+              "location": "/entities/links/blank?id=" & BusinessObject_ID,
+              "correction": "Корректно заполните реквизит: " & Attribute & " \n текущее значение = " & Attribute_value,
+              "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся components"
+            }
+          )]
+        
+        )
+    BusinessObjects_TypeIsBusinessObject:
+      title: "Бизнес сущности (BusinessObjects): Значения, указанные в поле type являются бизнес сущностями"
+      source: >
+        (
+           $TypeIsValid := function($Type, $Datalake) {(
+
+                $contains($Type, "BusinessObject") = false ? 
+                    true : $type($lookup($Datalake.BusinessObjects, $Type)) = "object"
+          )};
+        
+          $Datalake   := $;
+          $Components := $Datalake.components;
+        
+          $Query := $distinct(BusinessObjects.$spread().(
+        
+            $BusinessObject_ID :=  $keys()[0];
+        
+            *.parameters.(
+
+                {
+                  "BusinessObject_ID": $BusinessObject_ID,
+                  "Attribute": "type",
+                  "Attribute_value": type,
+                  "IsValid": $TypeIsValid(type, $Datalake)
+                }[IsValid=false]
+            )
+          ));
+        
+          [$Query.(
+              {
+                  "uid": "$custom-BusinessObjects-TypeIsBusinessObject-" & BusinessObject_ID & "-" & Attribute,
+                  "location": "/entities/links/blank?id=" & BusinessObject_ID,
+                  "correction": "Корректно заполните реквизит: " & Attribute & " в шагах процесса\n текущее значение = " & Attribute_value,
+                  "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся BusinessObjects"
+              }
+          )]
+        
         )

@@ -28,7 +28,7 @@ BusinessObjects:
     type: Классификатор
     state: Проектируется
     state_update_date: 01.01.2023
-    division_owner: Romashka.Divisions.FinancialService #todo добавить контроль наличия ссылочного компонента
+    division_owner: Romashka.Divisions.FinancialService
     owner: Иванов И.И
     parameters:
       - name: Полное (публичное) наименование
@@ -39,7 +39,7 @@ BusinessObjects:
         type: Строка
       - name: Бизнес-регион
         description: Бизнес-регион, к которому относится партнер
-        type: Romashka.BusinessObject.BusinessRegion #todo добавить контроль наличия ссылочного компонента
+        type: Romashka.BusinessObject.BusinessRegion
       - name: Контактное лицо
         description: Основное контактное лицо контрагента
         type: Romashka.BusinessObject.PhysicalPerson

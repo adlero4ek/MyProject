@@ -95,20 +95,19 @@ rules:
         
         )
     SequenceDiagrams_LinkIsEntity:
-      title: "Описание процессов (SequenceDiagrams): Компоненты, указанные в атрибутах system и subsystem существуют (описаны) в проекте"
+      title: "Описание процессов (SequenceDiagrams): Компоненты, указанные атрибуте link проекте"
       source: >
         (
-
            $LinkIsValid := function($Link, $Datalake) {(
 
-           $IdForSearch := $split($Link, "=", 2)[1];
-            $IdForSearch := $IdForSearch != "" ? $IdForSearch : "undefine";
+                $IdForSearch := $split($Link, "=", 2)[1];
+                $IdForSearch := $IdForSearch != "" ? $IdForSearch : "undefine";
         
-            $IsEntity    := $contains($Link, "links") or $contains($Link, "BusinessObjects");
+                $IsEntity    := $contains($Link, "links") or $contains($Link, "BusinessObjects");
             
-            $IsEntity = false ? true :
-              $contains($Link, "BusinessObjects") ? $type($lookup($Datalake.BusinessObjects, $IdForSearch)) = "object" :
-                $contains($Link, "links") ? $type($lookup($Datalake.links, $IdForSearch)) = "object" : false;
+                $IsEntity = false ? true :
+                  $contains($Link, "BusinessObjects") ? $type($lookup($Datalake.BusinessObjects, $IdForSearch)) = "object" :
+                      $contains($Link, "links") ? $type($lookup($Datalake.links, $IdForSearch)) = "object" : false;
           
           )};
           
@@ -118,10 +117,6 @@ rules:
           $Query := $distinct(SequenceDiagrams.$spread().(
           
             $SequenceDiagrams_ID :=  $keys()[0];
-          
-            $IsEntity = false ? true :
-              $contains($Link, "BusinessObjects") ? $type($lookup($Datalake.BusinessObjects, $IdForSearch)) = "object" :
-                $contains($Link, "links") ? $type($lookup($Datalake.links, $IdForSearch)) = "object" : false;
             
             *.groups.steps.(
             
