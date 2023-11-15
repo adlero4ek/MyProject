@@ -8,7 +8,7 @@ links:
     description: Расширенное описание потока №1
     code: И.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_standard_type: Канонический формат
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
@@ -42,7 +42,7 @@ links:
     description: Расширенное описание потока №2
     code: И.2
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -65,7 +65,7 @@ links:
     description: Расширенное описание потока №3
     code: И.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -88,7 +88,7 @@ links:
     description: Расширенное описание потока №4
     code: И.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат

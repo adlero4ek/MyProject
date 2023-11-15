@@ -1,0 +1,6 @@
+dochub_menu:
+
+  dochub.ControlReports:
+    title: Контрольные отчеты
+    order: 10000
+    visible: true

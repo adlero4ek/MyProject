@@ -14,6 +14,34 @@ docs:
     location: "Архитектура приложений/Ромашка/Архитектурные схемы/Уровень 1"
     source: Templates/architecture_lvl_1.md
 
+  # Истекший срок актуализации состояния компонент
+
+  Romashka.doc.ObjectsAreExpiredForUpdating:
+    location: "Контрольные отчеты/Истекший срок актуализации состояния компонент"
+    type: table
+    headers:
+      - value: Title
+        text: "Наименование"
+        sortable: true
+        link: Link
+      - value: Type
+        text: "Тип"
+        sortable: true
+      - value: Date_Сurrent
+        text: "Дата пред."
+        sortable: true
+      - value: Date_New_Update
+        text: "Дата текущая"
+        sortable: true
+      - value: Application_Title
+        text: "Приложение/сервис"
+        sortable: true
+        link: Application_Link
+      - value: Account_Title
+        text: "Ответственный"
+        sortable: true
+    source: Basic.dataset.ObjectsAreExpiredForUpdating
+
   # Прочее
 
   Romashka.doc.ListOfInformationSystems:
@@ -91,6 +119,7 @@ docs:
 
   # Опциональная документация по системе или её компонентам, документация не выводится в меню, он прикрепляется к карточке системы
       
+
   Romashka.doc.DevelopmentRegulations:
     type: markdown
     category: Документация по системе или её компонентам

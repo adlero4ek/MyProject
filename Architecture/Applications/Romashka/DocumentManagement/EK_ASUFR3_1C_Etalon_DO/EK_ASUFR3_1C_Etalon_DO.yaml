@@ -17,7 +17,7 @@ components:
       type: system
       area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
       state: Проектируется
-      state_update_date: 01.01.2023
+      state_update_date: 2023-01-01
       development_platform: "1С:Предприятие 8"
       basic_solution: "1С:Документооборот 8 КОРП, редакция 3.0"
       basic_solution_state: Развивается поставщиком

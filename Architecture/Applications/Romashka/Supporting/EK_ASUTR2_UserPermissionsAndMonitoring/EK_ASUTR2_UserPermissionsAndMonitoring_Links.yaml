@@ -8,7 +8,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "1С:ЗУП"
     code: ПИМ-ERP.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -33,7 +33,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "1С:ЗУП (эталон)"
     code: ПИМ-ERP.2
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -58,7 +58,7 @@ links:
     description: Полномочия учетных записей пользователей (роли, группы доступа, виды доступа, ограничения для RLS)
     code: ПИМ-ERP.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -83,7 +83,7 @@ links:
     description: Полномочия учетных записей пользователей (роли, группы доступа, виды доступа, ограничения для RLS)
     code: ПИМ-ERP.4
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат

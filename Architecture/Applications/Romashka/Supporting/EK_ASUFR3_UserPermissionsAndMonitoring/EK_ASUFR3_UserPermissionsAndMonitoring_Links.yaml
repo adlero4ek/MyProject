@@ -9,7 +9,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ERP"
     code: ПИМ-ЗУП.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -33,7 +33,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ERP (эталон)"
     code: ПИМ-ЗУП.2
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -57,7 +57,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ERP (консолидация)"
     code: ПИМ-ЗУП.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -81,7 +81,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ДО"
     code: ПИМ-ЗУП.4
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -105,7 +105,7 @@ links:
     description: Учетные записи пользователей, используемые для авторизации в информационной системе "ЕК АСУФР-3. 1С:ДО (эталон)"
     code: ПИМ-ЗУП.5
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат

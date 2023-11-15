@@ -267,3 +267,43 @@ functions:
       }
 
     )
+
+
+  # $eval($.functions.add_months,{"dateString": now(), "addMonths": 12});
+  # dateString - исходная дата
+  # addMonths - количество добавляемых месяцев
+
+  add_months: >
+    (
+      $dateString := $.dateString;
+      $addMonths  := $.addMonths;
+    
+      $date := $dateString ~> $toMillis();
+      
+      $newYear := ($date ~> $fromMillis("[Y,4]") ~> $number());
+      $newMonth := ($date ~> $fromMillis("[M]") ~> $number()) + $addMonths;
+      $newDay := ($date ~> $fromMillis("[D]") ~> $number());
+      
+      $newMonth > 12
+      ?   $newYear := $newYear + 1;
+      
+      $newMonth > 12
+      ?   $newMonth := $newMonth - 12;
+      
+      $lastDay := (
+        $newMonth in [1,3,5,7,8,10,12]
+        ?   31
+          : $newMonth in [4,6,9,11]
+        ?   30
+          : (   $newYear%4=0
+              and
+              ($newYear%100 != 0 or $newYear%400 = 0)
+              ?   29
+          : 28)
+        );
+      
+      $newDay > $lastDay ? $newDay := $lastDay;
+      
+      ($newYear & "-" & $newMonth & "-" & $newDay) ~> $toMillis("[Y]-[M]-[D]")  ~> $fromMillis()
+    
+    )

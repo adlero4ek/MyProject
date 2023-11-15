@@ -30,7 +30,7 @@ ApplicationDataObjects:
         description: "Используется при нумерации документов. В начало каждого номера документов данной организации добавляется два буквенных символа"
         type: Строка (2)
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     owner: Иванов И.И
     division_owner: Romashka.Divisions.FinancialService
     business_Objects: #todo добавить контроль наличия объектов
@@ -67,7 +67,7 @@ ApplicationDataObjects:
         description: Перемещаемые товары между складами предприятия
         type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_ERP.GoodsTransfer_TableGoods
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     owner: Иванов И.И
     division_owner: Romashka.Divisions.FinancialService
     business_Objects: #todo добавить контроль наличия объектов
@@ -95,7 +95,7 @@ ApplicationDataObjects:
         description: Заказ на перемещение, по которому оформляется строка перемещения
         type: Строка
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     owner: Иванов И.И
     division_owner: Romashka.Divisions.FinancialService
     business_Objects: #todo добавить контроль наличия объектов приложений
@@ -117,6 +117,6 @@ ApplicationDataObjects:
         description: Наименование склада организации
         type: Строка
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     owner: Иванов И.И
     division_owner: Romashka.Divisions.FinancialService

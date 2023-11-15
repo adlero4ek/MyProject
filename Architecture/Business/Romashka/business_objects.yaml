@@ -6,9 +6,9 @@ BusinessObjects:
       "Балансовые единицы (структурные подразделения), в рамках которого регистрируются хозяйственные операции и формируются отчетные формы"
     type: Классификатор
     division_owner: Romashka.Divisions.FinancialService
+    architect: Zakharova Vasilisa Artemovna
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
     parameters:
       - name: Наименование
         description: Наименование
@@ -27,9 +27,9 @@ BusinessObjects:
        зарегистрированы регламентированные (финансовые) отношения"
     type: Классификатор
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     division_owner: Romashka.Divisions.FinancialService
-    owner: Иванов И.И
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: Полное (публичное) наименование
         description: Публичное наименование контрагента, например, для печати или устного обращения
@@ -55,8 +55,8 @@ BusinessObjects:
     type: Классификатор
     division_owner: Romashka.Divisions.FinancialService
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: Наименование
         description: Публичное наименование контрагента, например, для печати или устного обращения
@@ -73,8 +73,8 @@ BusinessObjects:
     type: Классификатор
     division_owner: Romashka.Divisions.FinancialService
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: ФИО
         description: Фамилия, Имя, Отчетство
@@ -90,8 +90,8 @@ BusinessObjects:
     type: Классификатор
     division_owner: Romashka.Divisions.FinancialService
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: Наименование
         description: Наименование
@@ -111,8 +111,8 @@ BusinessObjects:
     type: Документ
     division_owner: Romashka.Divisions.FinancialService
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: Дата
         description: Дата документа
@@ -134,8 +134,8 @@ BusinessObjects:
     type: Документ
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: Номер
         description: Номер требования-накладной в соответствии с внутренним документооборотом организации
@@ -174,8 +174,8 @@ BusinessObjects:
     type: Таблица
     division_owner: Romashka.Divisions.FinancialService
     state: Проектируется
-    state_update_date: 01.01.2023
-    owner: Иванов И.И
+    state_update_date: 2023-01-01
+    architect: Zakharova Vasilisa Artemovna
     parameters:
       - name: Наименование
         description: Наименование

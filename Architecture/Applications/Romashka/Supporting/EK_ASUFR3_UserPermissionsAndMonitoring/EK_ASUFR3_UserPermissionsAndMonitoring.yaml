@@ -16,7 +16,7 @@ components:
       type: system
       area: Обеспечивающие (поддерживающие) системы
       state: Проектируется
-      state_update_date: 01.01.2023
+      state_update_date: 2023-01-01
       development_platform: "1С:Предприятие 8"
       basic_solution: 1С:Библиотека стандартных подсистем
       basic_solution_state: Развивается поставщиком

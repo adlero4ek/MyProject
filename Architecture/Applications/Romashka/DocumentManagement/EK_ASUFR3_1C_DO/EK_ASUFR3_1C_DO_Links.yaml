@@ -8,7 +8,7 @@ links:
     description: undefined
     code: ДО.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -47,7 +47,7 @@ links:
     description: undefined
     code: ДО.2
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -70,7 +70,7 @@ links:
     description: undefined
     code: ДО.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -93,7 +93,7 @@ links:
     description: undefined
     code: ДО.4
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -116,7 +116,7 @@ links:
     description: undefined
     code: ДО.5
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -139,7 +139,7 @@ links:
     description: undefined
     code: ДО.6
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -162,7 +162,7 @@ links:
     description: undefined
     code: ДО.7
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -185,7 +185,7 @@ links:
     description: undefined
     code: ДО.8
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -208,7 +208,7 @@ links:
     description: undefined
     code: ДО.9
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -231,7 +231,7 @@ links:
     description: undefined
     code: ДО.10
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат

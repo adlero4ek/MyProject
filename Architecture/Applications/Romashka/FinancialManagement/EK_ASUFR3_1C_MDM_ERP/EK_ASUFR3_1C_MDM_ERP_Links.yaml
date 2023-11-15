@@ -9,7 +9,7 @@ links:
     description: Централизованные класификаторы (ЦНСИ)
     code: ERP-MDM.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -33,7 +33,7 @@ links:
     description: Централизованные класификаторы (ЦНСИ)
     code: ERP-MDM.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -57,7 +57,7 @@ links:
     description: Централизованные класификаторы (ЦНСИ)
     code: ERP-MDM.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат

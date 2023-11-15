@@ -15,7 +15,7 @@ components:
       type: system
       area: Финансовый контур
       state: Проектируется
-      state_update_date: 01.01.2023
+      state_update_date: 2023-02-01
       development_platform: "1С:Предприятие 8"
       basic_solution: "1С:ERP, редакция 2.5"
       basic_solution_state: Развивается поставщиком

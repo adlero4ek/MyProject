@@ -26,7 +26,7 @@ rules:
             minLength: 5
           state_update_date:
             type: string
-            pattern: \d{2}[-.]\d{2}[-.]\d{4}
+            pattern: \d{4}[-.]\d{2}[-.]\d{2}
           interface:
             type: string
             minLength: 5

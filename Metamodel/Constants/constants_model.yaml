@@ -1,0 +1,10 @@
+entities:
+
+  Constants:
+    title: Константы
+    description: Используемые константы в проекте, например, периодичность проведения актуализации архитектуры
+
+Constants:
+
+  BasicConstants:
+    PeriodicityOfArchUpdating: 6 # периодичность проведения актуализации архитектуры в месяцах

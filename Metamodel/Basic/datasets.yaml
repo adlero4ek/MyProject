@@ -1,0 +1,98 @@
+datasets:
+
+  Basic.dataset.ObjectsAreExpiredForUpdating:
+    source: >
+      (
+
+        $IsExpired := function($d, $p, $Datalake) {(
+        
+          $TestDate := $toMillis($d, '[Y]-[M]-[D]') ~> $fromMillis();
+          $IsDate   := $exists($TestDate);
+      
+          $Result := $isDate=false ? false :
+              $now() > $eval($Datalake.functions.add_months,{"dateString": $TestDate, "addMonths": $p}) ? true  : false
+        
+        )};
+      
+        $NewUpdateDate := function($d, $p, $Datalake) {(
+  
+            $TestDate := $toMillis($d, '[Y]-[M]-[D]') ~> $fromMillis();
+            $IsDate   := $exists($TestDate);
+  
+            $Result   := $isDate=false ? false :  $eval($Datalake.functions.add_months,{"dateString": $TestDate, "addMonths": $p});
+            $Result   := $replace($string($Result), "T00:00:00.000Z", "")
+  
+        )};
+          
+        $Datalake    := $;
+        $Accounts    := $Datalake.dictionaries."accounts".parameters;
+        $Periodicity := Constants.BasicConstants.PeriodicityOfArchUpdating;
+      
+      
+        /* Приложения/сервисы */
+        
+        $Query := components.$spread().(
+        
+          $Id := $keys()[0];
+      
+          *.{
+             
+              "Id": $Id,
+              "Link": "/entities/extended_application_card/blank?id=" & $Id,
+              "Title": title,
+              "Type": "Приложение/сервис",
+              "Application_Title": title,
+              "Application_Link": "/entities/extended_application_card/blank?id=" & $Id,
+              "Account_Title": $eval($Datalake.functions.get_account,{"username": architect, "accounts": $Accounts}).title,
+              "Account_Email": $eval($Datalake.functions.get_account,{"username": architect, "accounts": $Accounts}).email,
+              "Date_Сurrent": extension.state_update_date,
+              "Date_New_Update": $NewUpdateDate(extension.state_update_date, $Periodicity, $Datalake),
+              "IsExpired": $IsExpired(extension.state_update_date, $Periodicity, $Datalake)
+      
+          }[IsExpired=true]
+          
+        );
+        
+        /* Бизнес-сущности */
+        
+        $Query := $append($Query, BusinessObjects.$spread().(
+        
+          $Id := $keys()[0];
+      
+          *.{
+            "Id": $Id,
+            "Link": "/entities/BusinessObjects/blank?id=" & $Id,
+            "Title": title,
+            "Type": "Бизнес-сущность",
+            "Application_Title": "-",
+            "Application_Link": "",
+            "Account_Title": $eval($Datalake.functions.get_account,{"username": architect, "accounts": $Accounts}).title,
+            "Account_Email": $eval($Datalake.functions.get_account,{"username": architect, "accounts": $Accounts}).email,
+            "Date_Сurrent": state_update_date,
+            "Date_New_Update": $NewUpdateDate(state_update_date, $Periodicity, $Datalake),
+            "IsExpired": $IsExpired(state_update_date, $Periodicity, $Datalake)
+          }[IsExpired=true]
+        
+        ));
+        
+        /* Интеграционные потоки */
+        
+        $Query := $append($Query, links.$spread().(
+        
+          $Id := $keys()[0];
+      
+          *.{
+            "Id": $Id,
+            "Link": "/entities/links/blank?id=" & $Id,
+            "Title": title,
+            "Type": "Интеграционный поток", 
+            "Application_Title": $eval($Datalake.functions.get_system_and_subsystem_by_id,{"Id": from, "Datalake": $Datalake}).System_title,
+            "Application_Link": $eval($Datalake.functions.get_system_and_subsystem_by_id,{"Id": from, "Datalake": $Datalake}).System_link,
+            "Date_Сurrent": state_update_date,
+            "Date_New_Update": $NewUpdateDate(state_update_date, $Periodicity, $Datalake),
+            "IsExpired": $IsExpired(state_update_date, $Periodicity, $Datalake)
+          }[IsExpired=true]
+      
+        ));
+      
+      )

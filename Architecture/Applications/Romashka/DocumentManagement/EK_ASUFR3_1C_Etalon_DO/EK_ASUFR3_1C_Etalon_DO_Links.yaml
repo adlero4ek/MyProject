@@ -8,7 +8,7 @@ links:
     description: Класификатор, используемых в "ЕК АСУФР-3. 1C:ДО" ролей пользователей
     code: ДО-Э.1
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -31,7 +31,7 @@ links:
     description: Класификатор, используемых в "ЕК АСУФР-3. 1C:ДО" профилей и возможных органичений (видов доступа) групп доступа
     code: ДО-Э.2
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -54,7 +54,7 @@ links:
     description: Класификатор, используемых в "ЕК АСУФР-3. 1C:ДО" профилей и возможных органичений (видов доступа) групп доступа
     code: ДО-Э.3
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат
@@ -78,7 +78,7 @@ links:
      спецификой 'ЕК АСУФР-3. 1C:ДО', так и формируются внутри контура 'ЕК АСУФР-3. 1C:ДО' (локальная НСИ)"
     code: ДО-Э.5
     state: Проектируется
-    state_update_date: 01.01.2023
+    state_update_date: 2023-01-01
     interface: WEB-сервис
     interface_via: Romashka.Systems.Technological.ESB_1CIntegrationCORP
     interface_standard_type: Канонический формат

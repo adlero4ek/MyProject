@@ -23,8 +23,8 @@ rules:
             minLength: 5
           state_update_date:
             type: string
-            pattern: \d{2}[-.]\d{2}[-.]\d{4}
-          owner:
+            pattern: \d{4}[-.]\d{2}[-.]\d{2}
+          architect:
             type: string
             minLength: 5
           # Состав атрибутов
@@ -55,7 +55,7 @@ rules:
           - division_owner
           - state
           - state_update_date
-          - owner
+          - architect
           - parameters
         additionalProperties: true
       source: >

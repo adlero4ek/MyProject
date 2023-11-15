@@ -17,7 +17,7 @@ components:
       type: system
       area: Управление автотранспортом
       state: Проектируется
-      state_update_date: 01.01.2023
+      state_update_date: 2023-01-01
       development_platform: "1С:Предприятие 8"
       basic_solution: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
       basic_solution_state: Развивается поставщиком
