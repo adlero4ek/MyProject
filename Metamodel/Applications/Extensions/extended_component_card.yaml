@@ -14,7 +14,7 @@ entities:
               $id := $params.id;
               
               $IsDomain := $count($split($id, ".")) = 3;
-              $DomainName := $split($id, ".", 2)~> $join('.');
+              $DomainName := $split($id, ".", 3)~> $join('.');
               
               $count_sequence := $count($eval($.functions.get_sequence_diagrams_list)[System_id=$id]);              
 
@@ -26,9 +26,12 @@ entities:
                 }
               )[system_id=$id or $contains(system_id, $DomainName)]; 
           
-              $query_count_links := $.links.$spread().(
-                  $.*.{"count_from": ($IsDomain=false ? from=$id : $contains(from, $id)) ? 1 : 0,
-                       "count_to": ($IsDomain=false ? to=$id : $contains(to, $id)) ? 1 : 0});
+              $query_count_links := links.$spread().(
+                $.*.{
+                  "count_to": $contains(to, $id) ? 1 : 0,
+                  "count_from": $contains(from, $id) ? 1 : 0
+                }
+              );
           
               components.$spread().(
               
