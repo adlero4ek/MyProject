@@ -27,7 +27,7 @@ docs:
       - value: Type
         text: "Тип"
         sortable: true
-      - value: Date_Сurrent
+      - value: Date_Current
         text: "Дата пред."
         sortable: true
       - value: Date_New_Update
