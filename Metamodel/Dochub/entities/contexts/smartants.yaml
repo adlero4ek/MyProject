@@ -113,7 +113,7 @@ entities:
             "dh-context-id":
               title: Идентификатор контекста
               type: string
-              pattern: ^[0-9a-zA-Z][a-zA-Z0-9_-]*(\.[0-9a-zA-Z][a-zA-Z0-9_-]*)*$
+              pattern: ^[0-9a-zA-Z][a-zA-Z0-9_-]*(\.[a-zA-Z][a-zA-Z0-9_-]*)*$
           required:
             - dh-context-id
         type: smartants
@@ -134,28 +134,48 @@ entities:
               "extra-links": $isExtraLinks,
               "componentId": $params.componentId
             });
-
+          
+           /*+++ДОБАВЛЕНИЕ+++*/
+           /* Получаем список связей */
+           $links := $eval($defFunctions.fetchLinks, {
+             "manifest": $manifest,
+             "components": $components
+           }).{
+             "from": from,
+             "to": to,
+             "style": "-->",
+             "title": ""}[from!=to];
+          
+           $links := $distinct($links);
+           $components := $merge([$components, 
+              ($links.({from: $lookup($manifest.components, from)}))
+           ]);
+           /*+++ДОБАВЛЕНИЕ+++*/          
+          
             /* Строим из компонентов ноды */
             $nodes := $eval($defFunctions.makeSANodes, {
               "manifest": $manifest,
               "components": $components
             });
-
+          
             /* Создаем библиотеку символов */
             $symbols := $eval($defFunctions.makeSASymbolLibrary, {
               "manifest": $manifest,
               "components": $components
             });
 
-            /* Получаем список связей */
-            $links := $eval($defFunctions.fetchLinks, {
+            /* Получаем список связей 
+            /*+++ОРИГИНАЛ+++*/
+            /*$links := $eval($defFunctions.fetchLinks, {
+              "manifest": $manifest,
               "components": $components
             }).{
               "from": from,
               "to": to,
               "style": direction,
               "title": title
-            };
+            };*/
+            /*---ОРИГИНАЛ---*/
             /* Готовим данные для передачи в шаблон */
             {
               "nodes": $nodes,

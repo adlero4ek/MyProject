@@ -205,7 +205,6 @@ entities:
             /* Формируем заголовок */ 
             $header := "$Header(\"" & ($context.title ? $context.title : $id ) & "\", \"" & $context.uml."$autor" & "\", \"" & $context.uml."$version" & "\" , \"" & $context.uml."$moment" & "\")\n";
            
-
             /* Получаем все компоненты входящие в контекст */
             $components := $eval($defFunctions.fetchComponents, $merge([$params, {
               "manifest": $manifest,

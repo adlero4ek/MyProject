@@ -132,7 +132,7 @@ entities:
                 )
             ));
           
-            /* Добавляем окружение, если это нужно 
+            /* Добавляем окружение, если это нужно
             $merge([$components, $isExtraLinks ? (
                 $components.*.links.(
                     {
