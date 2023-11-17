@@ -3,10 +3,6 @@ docs:
     type: table
     # location: Глоссарий терминов
     headers:
-      - value: type
-        text: Тип
-        sortable: true
-        align: left
 
       - value: name
         text: Термин
@@ -15,6 +11,11 @@ docs:
 
       - value: shortname
         text: Сокращение
+        sortable: true
+        align: left
+
+      - value: type
+        text: Тип
         sortable: true
         align: left
 
