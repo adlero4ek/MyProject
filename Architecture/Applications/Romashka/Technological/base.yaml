@@ -8,7 +8,7 @@ contexts:
 
   Romashka.Systems.Technological:
     title: Технологический контур
-    location: "Ромашка/Архитектурные схемы/Уровень 3/Технологический контур"
+    location: "Ромашка/Архитектурные схемы/Уровень 2/Технологический контур"
     extra-links: true
     components:
       - Romashka.Systems.Technological.*

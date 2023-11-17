@@ -1,7 +1,7 @@
 contexts:
 
   Romashka.Clusters.Test.FinancialManagement.Node2:
-    title: Нода (тестирование) 1C:ERP №1
+    title: Нода (тестирование) 1C:ERP №2
     extra-links: true
     entity: collections
     location:
@@ -11,7 +11,7 @@ contexts:
 components:
 
   Romashka.Clusters.Test.FinancialManagement.Node2:
-    title: Нода (тестирование)  1C:ERP №1
+    title: Нода (тестирование)  1C:ERP №2
     entity: collections
     description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы  1С:ERP в тестовом контуре организации.
       Сайзинг Ноды рассчитан на 1 000 одномерно работающих пользователей"
@@ -64,17 +64,17 @@ components:
     isVM: true
     installed_systems:
       - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-        db_name: doc_test_1
-        description: База разработчика №1
+        db_name: erp_test_11
+        description: База разработчика №11
       - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-        db_name: doc_test_1
-        description: База разработчика №2
+        db_name: erp_test_12
+        description: База разработчика №12
       - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-        db_name: doc_test_1
-        description: База разработчика №2
+        db_name: erp_test_13
+        description: База разработчика №13
       - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
-        db_name: doc_test_2
-        description: База разработчика №3
+        db_name: erp_test_14
+        description: База разработчика №14
 
 links:
 

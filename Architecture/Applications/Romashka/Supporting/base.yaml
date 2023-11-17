@@ -8,7 +8,7 @@ contexts:
 
   Romashka.Systems.Supporting:
     title: "Обеспечивающие (поддерживающие) системы"
-    location: "Ромашка/Архитектурные схемы/Уровень 3/Обеспечивающие (поддерживающие) системы"
+    location: "Ромашка/Архитектурные схемы/Уровень 2/Обеспечивающие (поддерживающие) системы"
     extra-links: true
     components:
       - Romashka.Systems.Supporting.*

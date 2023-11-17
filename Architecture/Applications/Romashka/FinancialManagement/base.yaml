@@ -12,7 +12,7 @@ contexts:
 
   Romashka.Systems.FinancialManagement:
     title: Финансовый контур
-    location: "Ромашка/Архитектурные схемы/Уровень 3/Финансовый контур"
+    location: "Ромашка/Архитектурные схемы/Уровень 2/Финансовый контур"
     extra-links: true
     components:
       - Romashka.Systems.FinancialManagement.*

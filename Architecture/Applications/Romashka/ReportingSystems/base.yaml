@@ -10,7 +10,7 @@ contexts:
 
   Romashka.Systems.ReportingSystems:
     title: Консолидированная отчетность
-    location: "Ромашка/Архитектурные схемы/Уровень 3/Консолидированная отчетность"
+    location: "Ромашка/Архитектурные схемы/Уровень 2/Консолидированная отчетность"
     extra-links: true
     components:
       - Romashka.Systems.ReportingSystems.*

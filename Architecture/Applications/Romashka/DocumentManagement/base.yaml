@@ -12,7 +12,7 @@ contexts:
 
   Romashka.Systems.DocumentManagement:
     title: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
-    location: "Ромашка/Архитектурные схемы/Уровень 3/ЭДО,ЮЗЭДО,ВКЭДО"
+    location: "Ромашка/Архитектурные схемы/Уровень 2/ЭДО,ЮЗЭДО,ВКЭДО"
     extra-links: true
     components:
       - Romashka.Systems.DocumentManagement.*
