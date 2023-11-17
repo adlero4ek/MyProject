@@ -127,14 +127,20 @@ docs:
         $DataLake := $;
 
         $adges :=  $distinct(links.$spread().(
+            
             $d := $.*;
-            {
-             "from": $d.from,
-             "to": $d.to,
-             "type": $lookup($DataLake.components, $d.from).extension.type 
-            }
-        ))[type="system"];
+            
+            $AppID_to   := $eval($DataLake.functions.get_system_and_subsystem_by_id,{"Id": $d.to, "Datalake": $DataLake}).System_Id;
+            $AppID_from := $eval($DataLake.functions.get_system_and_subsystem_by_id,{"Id": $d.from, "Datalake": $DataLake}).System_Id;
 
+            {
+             "from": $AppID_from,
+             "to": $AppID_to,
+             "type": $lookup($DataLake.components, $AppID_from).extension.type 
+            }
+        ))[type="system" or type="subsystem"];
+      
+      
         /* Выявляем ноды из связей */
         $nodes := $distinct($append($adges.from, $adges.to)).(
           $struct := $split($, ".");

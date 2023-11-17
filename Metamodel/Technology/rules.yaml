@@ -1,5 +1,6 @@
 rules:
   validators:
+
     technologiesIsEmpty:
       title: "Техрадар: Контроль заполнения технологий (technologies)"
       source: >
@@ -26,5 +27,35 @@ rules:
               "correction": "Укажите технологии (свойство technologies) системы:" & title,
               "description": "У каждой системы должен быть указан список технологий c целью контроля технологического радара"
             }
+          )]
+        )
+    InstalledSystemsIsExist:
+      title: "Приложения (сервисы), указанные в свойстве installed_systems существуют (описаны) в проекте"
+      source: >
+        (
+        
+          $Datalake := $;
+          $Query := $distinct(components.$spread().(
+
+            $Server_id  := $keys()[0];
+            $Node_id    := $split($Server_id, ".", 5)~> $join('.');
+
+            *.installed_systems.(
+                {
+                    "System_id": system_id,
+                    "Server_id": $Server_id,
+                    "Node_link": $Datalake.Constants.ComponentCard.Noda & $Node_id,
+                    "SystemIsValid": $type($lookup($Datalake.components, system_id))="object"
+                }
+            )[SystemIsValid=false]
+          ));
+        
+          [$Query.(
+              {
+                  "uid": "$custom-InstalledSystemsIsExist-" & System_id & "-" & Server_id,
+                  "location": Node_link,
+                  "correction": "Корректно заполните реквизит: system_id в описание сервера " & Server_id,
+                  "description": "Значение реквизита должно быть заполнено строкой в формате DDD, ссылающейся на компонент"
+              }
           )]
         )

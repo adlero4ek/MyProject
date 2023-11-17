@@ -6,5 +6,13 @@ entities:
 
 Constants:
 
-  BasicConstants:
-    PeriodicityOfArchUpdating: 6 # периодичность проведения актуализации архитектуры в месяцах
+  Basic:
+    PeriodicityOfArchUpdating: 6 # Периодичность проведения актуализации архитектуры в месяцах
+
+  ComponentCard:
+    Cluster:           "/entities/extended_application_card/extended_card_cluster?id="            #  Группа серверов
+    ClusterFunctional: "/entities/extended_application_card/extended_card_functional_cluster?id=" #  Группа серверов функциональной области
+    Noda:              "/entities/extended_application_card/extended_card_node?id="               #  Нода
+    System:            "/entities/extended_application_card/blank?id="                            #  Приложение, сервис
+    Subsystem:         "/entities/extended_application_card/blank?id="                            #  Подсистема, модуль приложения (сервиса)
+    Default:           "/architect/components/"

@@ -1,7 +1,7 @@
 contexts:
 
   Romashka.Clusters.Dev.Common.Node1:
-    title: Нода (разработка) 1C:ERP №1
+    title: Нода №1 (разработка) 1C:ERP
     extra-links: true
     entity: collections
     location:
@@ -11,7 +11,7 @@ contexts:
 components:
 
   Romashka.Clusters.Dev.Common.Node1:
-    title: Нода (разработка) 1C:ERP №1
+    title: Нода №1 (разработка) 1C:ERP
     entity: collections
     description: "Нода, как совокупность серверов, предназначена для развертывания информационной системы  1С:ERP в тестовом контуре организации.
       Сайзинг Ноды рассчитан на 1 000 одномерно работающих пользователей"
@@ -63,16 +63,16 @@ components:
     storage_size_hdd_type_3: 100
     isVM: true
     installed_systems:
-      - system_id: Romashka.Systems.Common.EK_ASUFR3_1C_ERP
+      - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
         db_name: erp_Dev_1
         description: База разработчика №1
-      - system_id: Romashka.Systems.Common.EK_ASUFR3_1C_ERP
+      - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
         db_name: erp_Dev_1
         description: База разработчика №2
-      - system_id: Romashka.Systems.Common.EK_ASUFR3_1C_ERP
+      - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
         db_name: erp_Dev_1
         description: База разработчика №2
-      - system_id: Romashka.Systems.Common.EK_ASUFR3_1C_ERP
+      - system_id: Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
         db_name: erp_Dev_2
         description: База разработчика №3
 

@@ -146,7 +146,6 @@ entities:
              "style": "-->",
              "title": ""}[from!=to];
           
-           $links := $distinct($links);
            $components := $merge([$components, 
               ($links.({from: $lookup($manifest.components, from)}))
            ]);

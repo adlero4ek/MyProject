@@ -132,18 +132,18 @@ functions:
             
             "cluster_title": $cluster.title,
             "cluster_id": $cluster_id,
-            "cluster_link": "/entities/extended_application_card/extended_card_cluster?id=" & $cluster_id,
+            "cluster_link": $datalake.Constants.ComponentCard.Cluster & $cluster_id,
             
             "domain_title": $domain.title,
-            "domain_link": "/entities/extended_application_card/extended_card_functional_cluster?id=" & $domain_id,
+            "domain_link": $datalake.Constants.ComponentCard.ClusterFunctional & $domain_id,
             "domain_id": $domain_id,
             
             "node_title": $node.title,
-            "node_link": "/entities/extended_application_card/extended_card_node?id=" & $node_id,
+            "node_link": $datalake.Constants.ComponentCard.Noda & $node_id,
             "node_id": $node_id,
             
             "system_title": $lookup($datalake.components, system_id).title,
-            "system_link": "/entities/extended_application_card/blank?id=" & system_id
+            "system_link": $datalake.Constants.ComponentCard.System & system_id
           
           }
         )
