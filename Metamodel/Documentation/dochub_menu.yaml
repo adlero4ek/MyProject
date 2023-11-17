@@ -1,0 +1,16 @@
+dochub_menu:
+
+  dochub.documentation:
+    title: Документация
+    order: 1000
+    visible: true
+
+  dochub.documentation.glossary:
+    title: Глоссарий терминов
+    order: 1100
+    visible: true
+
+  dochub.documentation.useful_links:
+    title: Полезные ссылки
+    order: 1300
+    visible: true

@@ -1,0 +1,11 @@
+docs:
+
+  documentation.glossary:
+    location: Документация/Глоссарий терминов
+    type: markdown
+    source: glossary/glossary.md
+
+  documentation.useful_links:
+    location: Документация/Полезные ссылки
+    type: markdown
+    source: useful_links/useful_links.md

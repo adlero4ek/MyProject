@@ -1,0 +1,5 @@
+imports:
+  - glossary/root.yaml
+  - useful_links/root.yaml
+  - docs.yaml
+  - dochub_menu.yaml
