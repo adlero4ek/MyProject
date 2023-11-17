@@ -118,7 +118,7 @@ docs:
         width: 40%
     source: Application.dataset.KeyContacts
 
-  # Сетевая диаграмма приложений
+  # Общая сетевая диаграмма приложений
   Application.doc.Network:
     location: "Архитектура приложений/Сетевая диаграмма систем и сервисов"
     type: Network
