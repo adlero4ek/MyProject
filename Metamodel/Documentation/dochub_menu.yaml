@@ -2,15 +2,20 @@ dochub_menu:
 
   dochub.documentation:
     title: Документация
-    order: 1000
+    order: 700
+    visible: true
+
+  dochub.documentation.Metamodel:
+    title: Метамодель проекта
+    order: 720
     visible: true
 
   dochub.documentation.glossary:
     title: Глоссарий терминов
-    order: 1100
+    order: 740
     visible: true
 
   dochub.documentation.useful_links:
     title: Полезные ссылки
     order: 1300
-    visible: true
+    visible: 760

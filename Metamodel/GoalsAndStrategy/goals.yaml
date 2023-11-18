@@ -1,0 +1,16 @@
+entities:
+  Goals:
+    presentations:
+      registry:
+        type: table
+        headers:
+          - value: ID
+            text: Идентификатор
+          - value: Goal
+            text: Бизнес-цель
+            align: left
+          - value: Horizont
+            text: Горизонт
+            sortable: true
+            align: left
+        source: GoalsAndStrategy.dataset.MainList

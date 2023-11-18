@@ -5,3 +5,4 @@ imports:
   - Technology/root.yaml
   - Data/root.yaml
   - Welcome/root.yaml
+  - GoalsAndStrategy/root.yaml

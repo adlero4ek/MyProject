@@ -1,0 +1,14 @@
+docs:
+
+  Romashka.doc.GoalsList:
+    type: table
+    location: "Цели и стратегия/Цели"
+    headers:
+      - value: Goal
+        text: Бизнес-цель
+        align: left
+      - value: Horizont
+        text: Горизонт
+        sortable: true
+        align: left
+    source: GoalsAndStrategy.dataset.MainList

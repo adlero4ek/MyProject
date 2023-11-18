@@ -9,3 +9,4 @@ imports:
   - Constants/root.yaml
   - Basic/root.yaml
   - Documentation/root.yaml
+  - GoalsAndStrategy/root.yaml

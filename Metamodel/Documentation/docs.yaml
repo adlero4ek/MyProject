@@ -1,5 +1,47 @@
 docs:
 
+  documentation.Metamodel:
+    location: Документация/Метамодель проекта
+    title: Карта сущностей метамодели
+    type: smartants
+    source: >
+      (
+      
+         $nodes := {
+             "Бизнес архитектура.BusinessEntities": {"title": "Бизнес-сущности",  "symbol": "component"},
+             "Бизнес архитектура.BusinessProcesses": {"title": "Бизнес процессы",  "symbol": "component"},
+             "Бизнес архитектура.Goals": {"title": "Цели",  "symbol": "component"},
+             "Бизнес архитектура.Strategy": {"title": "Стратегия",  "symbol": "component"},
+             "Архитектура приложений.Applications": {"title": "Приложения/сервисы",  "symbol": "component"},
+             "Архитектура приложений.Functionality": {"title": "Функциональность",  "symbol": "component"},
+             "Архитектура данных.ApplicationObjects": {"title": "Объекты данных",  "symbol": "component"},
+             "Архитектура приложений.Integrations": {"title": "Интеграции",  "symbol": "component"},
+             "Технологическая архитектура.DeploymentEnvironments": {"title": "Среды развертывания",  "symbol": "component"}};
+      
+         $links := ([
+            {"from": "Архитектура приложений.Functionality", "to": "Архитектура приложений.Applications",        "style": "->"},
+            {"from": "Технологическая архитектура.DeploymentEnvironments",  "to": "Архитектура приложений.Applications",        "style": "->"},
+            {"from": "Архитектура приложений.Integrations", "to": "Архитектура приложений.Applications",        "style": "->"},
+            {"from": "Бизнес архитектура.BusinessProcesses", "to": "Бизнес архитектура.BusinessEntities",    "style": "->"},      
+            {"from": "Бизнес архитектура.BusinessProcesses", "to": "Архитектура приложений.Functionality",    "style": "->"},
+            {"from": "Архитектура данных.ApplicationObjects", "to": "Архитектура приложений.Integrations",        "style": "->"},
+            {"from": "Архитектура данных.ApplicationObjects", "to": "Архитектура приложений.Applications",        "style": "->"},
+            {"from": "Бизнес архитектура.BusinessEntities", "to": "Архитектура данных.ApplicationObjects",  "style": "->"},
+            {"from": "Бизнес архитектура.BusinessProcesses", "to": "Архитектура приложений.Applications",        "style": "->"}
+         ]);
+      
+         $symbols := {};
+         $config  := {"distance": 100, "trackWidth": 50};
+      
+         {
+          "header": {"title": "Метамодель"},
+          "nodes": $nodes,
+          "links": $links,
+          "symbols": $symbols,
+          "config": $config
+         }
+      )
+
   documentation.glossary:
     location: Документация/Глоссарий терминов
     type: markdown

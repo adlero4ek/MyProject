@@ -1,0 +1,16 @@
+dochub_menu:
+
+  dochub.GoalsAndStrategy:
+    title: Цели и стратегия
+    order: 800
+    visible: true
+
+  dochub.GoalsAndStrategy.Goals:
+    title: Цели
+    order: 820
+    visible: true
+
+  dochub.GoalsAndStrategy.Strategy:
+    title: Стратегия
+    order: 840
+    visible: true

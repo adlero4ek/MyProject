@@ -24,6 +24,11 @@ docs:
         sortable: true
         align: left
 
+      - value: synonym
+        text: Синоним
+        sortable: true
+        align: left
+
     source: >
       (
          $.glossary.terms^(type, name)

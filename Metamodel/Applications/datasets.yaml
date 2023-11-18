@@ -40,6 +40,7 @@ datasets:
 
   
 
+
   # Опциональная документация по системе или её компонентам, документация не выводится в меню, он прикрепляется к карточке системы
   Application.dataset.ApplicationDocs:
     source: >
@@ -66,6 +67,7 @@ datasets:
 
 
 
+
   # Используемые технологии при разработке приложения
   Application.dataset.Technologies:
     source: >
@@ -89,6 +91,7 @@ datasets:
   
           );
       )
+
 
 
   # Ключевые сотрудники, контакты
@@ -138,6 +141,7 @@ datasets:
       
       )
 
+
   # Функциональность приложений и сервисов
   Application.dataset.Aspects:
     source: >   
@@ -163,4 +167,5 @@ datasets:
             )[component_id=$system_id]
           )
         )^(aspect_title)   
-      )
+      )   
+
