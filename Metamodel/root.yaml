@@ -10,3 +10,5 @@ imports:
   - Basic/root.yaml
   - Documentation/root.yaml
   - GoalsAndStrategy/root.yaml
+  - Dictionaries/root.yaml
+  - ArchitectureDecisionLog/root.yaml

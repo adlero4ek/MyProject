@@ -1,0 +1,17 @@
+entities:
+
+  ArchitectureDecisionLog:
+    title: Architecture decision log
+    description: "Architecture decision record (ADR) — это регулярная фиксация принятых и непринятых в ходе разработки программного обеспечения 
+      решений, затрагивающих дизайн, проектирование, выбор инструментов и подходов, и отвечающих определенным функциональным или нефункциональным требованиям. Вместе с 
+      решением фиксируется его контекст, последствия и альтернативы, из которых делался выбор."
+    presentations:
+      blank:
+        title: Основная карточка потока данных
+        type: markdown
+        template: templates/adr_main_card.md
+        origin: Adr.dataset.ListOfAdrs
+        source: >
+          (
+            $[Adr_Id=$params.id]
+          )

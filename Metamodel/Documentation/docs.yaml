@@ -1,25 +1,7 @@
 docs:
 
   documentation.Metamodel:
-    location: Документация/Метамодель проекта
-    title: Карта сущностей метамодели
-    type: smartants
-    source: # Задаем константные данные для генерации диаграммы
-      config:
-        distance: 100
-        trackWidth: 50
-      nodes:
-        BusinessArchitecture:
-          title: Бизнес архитектура
-          symbol: component
-        BusinessArchitecture.BusinessEntities:
-          title: "Бизнес-сущности"
-          symbol: component
-        BusinessArchitecture.BusinessProcesses:
-          title: "Бизнес процессы"
-
-  documentation.Metamodel1:
-    location: Документация/11111
+    location: Метамодель проекта
     title: Карта сущностей метамодели
     type: smartants
     source: >
@@ -33,10 +15,12 @@ docs:
              "Архитектура приложений.Applications": {"title": "Приложения/сервисы",  "symbol": "component"},
              "Архитектура приложений.Functionality": {"title": "Функциональность",  "symbol": "component"},
              "Архитектура данных.ApplicationObjects": {"title": "Объекты данных",  "symbol": "component"},
-             "Архитектура приложений.Integrations": {"title": "Интеграции",  "symbol": "component"},
+             "Архитектура приложений.Integrations": {"title": "Интеграциия приложений",  "symbol": "component"},
              "Технологическая архитектура.DeploymentEnvironments": {"title": "Среды развертывания",  "symbol": "component"}};
 
          $links := ([
+            {"from": "Бизнес архитектура.Goals", "to": "Бизнес архитектура.Strategy",  "style": "->"},      
+            {"from": "Бизнес архитектура.Strategy", "to": "Бизнес архитектура.BusinessProcesses",  "style": "->"},
             {"from": "Архитектура приложений.Functionality", "to": "Архитектура приложений.Applications",        "style": "->"},
             {"from": "Технологическая архитектура.DeploymentEnvironments",  "to": "Архитектура приложений.Applications",        "style": "->"},
             {"from": "Архитектура приложений.Integrations", "to": "Архитектура приложений.Applications",        "style": "->"},
@@ -45,6 +29,7 @@ docs:
             {"from": "Архитектура данных.ApplicationObjects", "to": "Архитектура приложений.Integrations",        "style": "->"},
             {"from": "Архитектура данных.ApplicationObjects", "to": "Архитектура приложений.Applications",        "style": "->"},
             {"from": "Бизнес архитектура.BusinessEntities", "to": "Архитектура данных.ApplicationObjects",  "style": "->"},
+            {"from": "Бизнес архитектура.Strategy", "to": "Бизнес архитектура.BusinessProcesses",  "style": "->"},
             {"from": "Бизнес архитектура.BusinessProcesses", "to": "Архитектура приложений.Applications",        "style": "->"}
          ]);
 

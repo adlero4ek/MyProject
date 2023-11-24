@@ -1,0 +1,25 @@
+datasets:
+
+  Adr.dataset.ListOfAdrs:
+    source: >
+      (
+        
+          $datalake := $;
+      
+          ArchitectureDecisionLog.$spread().(
+          {
+            "Adr_Id": $keys()[0],
+            "Adr_Link": $datalake.Constants.ComponentCard.Adr & $keys()[0],
+            "Title": *.Title,
+            "Project": *.Project,
+            "Date": *.Date,
+            "Issue": *.Issue,
+            "Decision": *.Decision,
+            "Status": *.Status,
+            "Group": *.Group,
+            "Assumptions": *.Assumptions,
+            "Constraints": *.Constraints,
+            "Implications": *.Implications,
+            "Participants": $join(*.Participants, ", ")
+        })
+      )

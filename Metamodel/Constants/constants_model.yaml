@@ -16,3 +16,4 @@ Constants:
     System:            "/entities/extended_application_card/blank?id="                            #  Приложение, сервис
     Subsystem:         "/entities/extended_application_card/blank?id="                            #  Подсистема, модуль приложения (сервиса)
     Default:           "/architect/components/"
+    Adr:               "/entities/ArchitectureDecisionLog/blank?id="                              #  Architecture decision record

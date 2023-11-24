@@ -1,17 +1,22 @@
 dochub_menu:
 
-  dochub.documentation:
-    title: Документация
+  dochub.Metamodel:
+    title: Метамодель проекта
     order: 700
     visible: true
 
-  dochub.documentation.Metamodel:
-    title: Метамодель проекта
+  dochub.documentation:
+    title: Документация
     order: 720
     visible: true
 
   dochub.documentation.glossary:
     title: Глоссарий терминов
+    order: 730
+    visible: true
+
+  dochub.documentation.ADRs:
+    title: Реестр архитектурных решений
     order: 740
     visible: true
 

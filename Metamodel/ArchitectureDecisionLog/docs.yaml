@@ -1,0 +1,32 @@
+docs:
+
+  ADRs.doc.List:
+    location: Документация/Реестр архитектурных решений
+    type: markdown
+    source: templates/adr_list.md
+
+  ADRs.doc.ListOfAdrs:
+    type: table
+    headers:
+      - value: Title
+        text: ADR
+        sortable: true
+        wight: 30%
+      - value: Project
+        text: Проект
+        sortable: true
+      - value: Date
+        text: Дата
+        sortable: true
+      - value: Issue
+        text: Проблема
+      - value: Decision
+        text: Решение
+      - value: Status
+        text: Статус
+      - value: Implications
+        text: Последствия
+      - value: Participants
+        text: Участники
+    source: Adr.dataset.ListOfAdrs
+

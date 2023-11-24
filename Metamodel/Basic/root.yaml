@@ -1,3 +1,2 @@
 imports:
-  - datasets.yaml
-  - dochub_menu.yaml
+  - Monitoring/root.yaml
