@@ -1,49 +1,96 @@
 docs:
 
   documentation.Metamodel:
-    location: Метамодель проекта
+    location: Метамодель
     title: Карта сущностей метамодели
     type: smartants
-    source: >
-      (
-
-         $nodes := {
-             "Бизнес архитектура.BusinessEntities": {"title": "Бизнес-сущности",  "symbol": "component"},
-             "Бизнес архитектура.BusinessProcesses": {"title": "Бизнес процессы",  "symbol": "component"},
-             "Бизнес архитектура.Goals": {"title": "Цели",  "symbol": "component"},
-             "Бизнес архитектура.Strategy": {"title": "Стратегия",  "symbol": "component"},
-             "Архитектура приложений.Applications": {"title": "Приложения/сервисы",  "symbol": "component"},
-             "Архитектура приложений.Functionality": {"title": "Функциональность",  "symbol": "component"},
-             "Архитектура данных.ApplicationObjects": {"title": "Объекты данных",  "symbol": "component"},
-             "Архитектура приложений.Integrations": {"title": "Интеграциия приложений",  "symbol": "component"},
-             "Технологическая архитектура.DeploymentEnvironments": {"title": "Среды развертывания",  "symbol": "component"}};
-
-         $links := ([
-            {"from": "Бизнес архитектура.Goals", "to": "Бизнес архитектура.Strategy",  "style": "->"},      
-            {"from": "Бизнес архитектура.Strategy", "to": "Бизнес архитектура.BusinessProcesses",  "style": "->"},
-            {"from": "Архитектура приложений.Functionality", "to": "Архитектура приложений.Applications",        "style": "->"},
-            {"from": "Технологическая архитектура.DeploymentEnvironments",  "to": "Архитектура приложений.Applications",        "style": "->"},
-            {"from": "Архитектура приложений.Integrations", "to": "Архитектура приложений.Applications",        "style": "->"},
-            {"from": "Бизнес архитектура.BusinessProcesses", "to": "Бизнес архитектура.BusinessEntities",    "style": "->"},
-            {"from": "Бизнес архитектура.BusinessProcesses", "to": "Архитектура приложений.Functionality",    "style": "->"},
-            {"from": "Архитектура данных.ApplicationObjects", "to": "Архитектура приложений.Integrations",        "style": "->"},
-            {"from": "Архитектура данных.ApplicationObjects", "to": "Архитектура приложений.Applications",        "style": "->"},
-            {"from": "Бизнес архитектура.BusinessEntities", "to": "Архитектура данных.ApplicationObjects",  "style": "->"},
-            {"from": "Бизнес архитектура.Strategy", "to": "Бизнес архитектура.BusinessProcesses",  "style": "->"},
-            {"from": "Бизнес архитектура.BusinessProcesses", "to": "Архитектура приложений.Applications",        "style": "->"}
-         ]);
-
-         $symbols := {};
-         $config  := {"distance": 100, "trackWidth": 50};
-
-         {
-          "header": {"title": "Метамодель"},
-          "nodes": $nodes,
-          "links": $links,
-          "symbols": $symbols,
-          "config": $config
-         }
-      )
+    source: # Задаем константные данные для генерации диаграммы
+      config:
+        distance: 100
+        trackWidth: 30
+      nodes:
+        BusinessArchitecture:
+          title: Бизнес архитектура
+        BusinessArchitecture.Goals:
+          title: Цели
+          symbol: component
+        BusinessArchitecture.Strategy:
+          title: Стратегия
+          symbol: component
+        BusinessArchitecture.BusinessEntities:
+          title: Бизнес-сущности
+          symbol: component
+        BusinessArchitecture.BusinessProcesses:
+          title: Бизнес процессы
+          symbol: component
+        ApplicationArchitecture:
+          title: Архитектура приложений
+        ApplicationArchitecture.Applications:
+          title: Приложения/сервисы
+          symbol: component
+        ApplicationArchitecture.Functionality:
+          title: Функциональность приложений/сервисов
+          symbol: component
+        ApplicationArchitecture.Integrations:
+          title: Интеграциия приложений/сервисов
+          symbol: component
+        DataArchitecture:
+          title: Архитектура данных
+        DataArchitecture.ApplicationObjects:
+          title: Объекты данных приложений/сервисов
+          symbol: component
+        TechnologicalArchitecture:
+          title: ИТ-инфраструктура
+        TechnologicalArchitecture.Clusters:
+          title: Среды разветрывания приложений/сервисов
+          symbol: component
+      links:
+        - from: BusinessArchitecture.Goals
+          to: BusinessArchitecture.Strategy
+          style: "->"
+        - from: BusinessArchitecture.Strategy
+          to: BusinessArchitecture.BusinessProcesses
+          style: "->"
+        - from: BusinessArchitecture.BusinessProcesses
+          to: BusinessArchitecture.BusinessEntities
+          style: "->"
+        - from: BusinessArchitecture.BusinessProcesses
+          to: ApplicationArchitecture.Functionality
+          style: "->"
+        - from: BusinessArchitecture.BusinessProcesses
+          to: ApplicationArchitecture.Applications
+          style: "->"
+        - from: BusinessArchitecture.BusinessEntities
+          to: DataArchitecture.ApplicationObjects
+          style: "->"
+        - from: ApplicationArchitecture.Functionality
+          to: ApplicationArchitecture.Applications
+          style: "->"
+        - from: ApplicationArchitecture.Applications
+          to: ApplicationArchitecture.Integrations
+          style: "->"
+        - from: ApplicationArchitecture.Applications
+          to: DataArchitecture.ApplicationObjects
+          style: "->"
+        - from: ApplicationArchitecture.Applications
+          to: TechnologicalArchitecture.Clusters
+          style: "->"
+        - from: DataArchitecture.ApplicationObjects
+          to: ApplicationArchitecture.Integrations
+          style: "->"
+      animation:
+        actions:
+          hello:
+            - action: info                    # Информировать пользователя. Доступны: clean / info / focus-node / focus-neighbors
+              text: Давай я объясню как здесь все устроено
+        scenarios:
+          explain:
+            title: Объясни мне, что означает "Цели"  # Название сценария для пользователя
+            steps:
+              - action: clean
+              - action: hello
+                delay: 2000
+                voice: true
 
   documentation.glossary:
     location: Документация/Глоссарий терминов

@@ -1,7 +1,7 @@
 dochub_menu:
 
   dochub.Metamodel:
-    title: Метамодель проекта
+    title: Метамодель
     order: 700
     visible: true
 
