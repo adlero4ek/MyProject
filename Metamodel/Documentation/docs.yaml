@@ -95,9 +95,14 @@ docs:
   documentation.glossary:
     location: Документация/Глоссарий терминов
     type: markdown
-    source: glossary/glossary.md
+    source: Glossary/glossary.md
+
+  documentation.CriteriaForSelectingSolutions:
+    location: Документация/Подходы к выбору приложений
+    type: markdown
+    source: CriteriaForSelecting/CriteriaForSelectingSolutions.md
 
   documentation.useful_links:
     location: Документация/Полезные ссылки
     type: markdown
-    source: useful_links/useful_links.md
+    source: Useful_links/useful_links.md

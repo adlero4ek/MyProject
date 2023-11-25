@@ -15,6 +15,11 @@ dochub_menu:
     order: 730
     visible: true
 
+  dochub.documentation.CriteriaForSelectingSolutions:
+    title: Подходы к выбору приложений
+    order: 735
+    visible: true
+
   dochub.documentation.ADRs:
     title: Реестр архитектурных решений
     order: 740
