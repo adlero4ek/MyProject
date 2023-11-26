@@ -21,11 +21,36 @@ useful_links:
 
   - name: Комьюнити DocHub
     link: https://t.me/archascode
-    description: Хочешь стать частью комьюнити DocHub, задавать вопросы и отвечать на чужие – тебе сюда.
+    description: Хочешь стать частью комьюнити DocHub, задавать вопросы и отвечать на чужие – тебе сюда.
     section: Архитектура
 
   - name: Митапы по работе с DocHub
     link: https://www.youtube.com/@user-eq5pj3zk6w
     description: Обучающие видео от участников комьюнити.
     section: Архитектура
+
+  - name: JSONata Documentation
+    link: https://jsonata.org/
+    description: JSONata Documentation (базовая документация)
+    section: JSONata
+
+  - name: JSONata Documentation
+    link: https://yokota.blog/2023/05/29/understanding-jsonata/
+    description: JSONata Documentation (дополнительные примеры, в том числе inner join +)
+    section: JSONata
+
+  - name: Using JSONata to Transform JSON
+    link: https://dev.blues.io/guides-and-tutorials/notecard-guides/using-jsonata-to-transform-json/
+    description: JSONata Documentation (++)
+    section: JSONata
+
+  - name: PlantUML
+    link: https://plantuml.com/ru/
+    description: PlantUML - это универсальный компонент, позволяющий быстро и просто создавать диаграммы. Пользователи могут создавать различные диаграммы, используя простой и интуитивно понятный язык
+    section: PlantUML
+
+  - name: Vue.js
+    link: https://ru.vuejs.org/v2/guide/
+    description: фреймворк для создания пользовательских интерфейсов. В отличие от фреймворков-монолитов, Vue создан пригодным для постепенного внедрения.
+    section: Vue.js
 
