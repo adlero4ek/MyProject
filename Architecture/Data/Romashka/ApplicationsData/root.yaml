@@ -2,3 +2,4 @@ imports:
   - EK_ASUFR3_1C_Etalon_ERP.yaml
   - EK_ASUFR3_1C_ERP.yaml
   - EK_ASUFR3_1C_DO.yaml
+  - SPPR.yaml

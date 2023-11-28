@@ -69,6 +69,8 @@ entities:
             link: link_id
           - value: description
             text: Описание
+          - value: type
+            text: Вид
           - value: state
             text: Статус
             sortable: true

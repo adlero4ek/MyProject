@@ -72,6 +72,10 @@ datasets:
         $GetTypeAsLink := function($typeid) {(
             $lookup(ApplicationDataObjects, $typeid).title)};
       
+        $GetTypeDescription := function($typeid) {(
+            $contains($typeid, "ApplicationDataObject") ? $lookup(ApplicationDataObjects, $typeid).title : $typeid
+        )};
+      
         $.ApplicationDataObjects.$spread().(
       
             $ENTITY_ID :=  $keys()[0];
@@ -79,10 +83,10 @@ datasets:
                 "id": $ENTITY_ID,
                 "name": name,
                 "description": description,
-                "type": $contains(type, "ApplicationDataObject")? $GetTypeAsLink(type):type,
+                "type": $map($split(type, ","), $GetTypeDescription)~>$join(","),
                 "link": $contains(type, "ApplicationDataObject")? "/entities/ApplicationDataObjects/blank?id="&type:"" 
             } 
         )[id=$params.id]
       
       )
-
+      
