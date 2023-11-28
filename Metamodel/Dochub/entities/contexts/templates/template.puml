@@ -174,7 +174,7 @@ skinparam component<<Person>> {
 !endprocedure
 
 !unquoted procedure $EntityExpand($entity, $ID)
-    !if ($entity == component || $entity == system || $entity == collections)
+    !if ($entity == component || $entity == system || $entity == collections || $entity == node)
         ---
         [[/entities/contexts/{{presentation}}?dh-context-id=$ID ≫≫]]
     !else
@@ -183,7 +183,7 @@ skinparam component<<Person>> {
 !endprocedure
 
 !unquoted procedure $EntityExpand($entity, $ID)
-    !if ($entity == component || $entity == system || $entity == collections || $entity == folder || $entity == node)
+    !if ($entity == component || $entity == system || $entity == collections || $entity == folder)
         ---
         [[/entities/contexts/{{presentation}}?dh-context-id=$ID ≫≫]]
     !else

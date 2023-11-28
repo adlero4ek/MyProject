@@ -140,7 +140,6 @@ docs:
             }
         ))[type="system" or type="subsystem"];
       
-      
         /* Выявляем ноды из связей */
         $nodes := $distinct($append($adges.from, $adges.to)).(
           $struct := $split($, ".");
