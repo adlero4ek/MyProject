@@ -1,4 +1,5 @@
-**Перейти** | [Бизнес-сущности ({{count_business_data_obj}})](/entities/ApplicationDataObjects/filteredBy_AppDataObjID_and_SystemID?system_id={{system_id}}&app_data_id={{id}}) |
+**Перейти** | [Бизнес-сущности ({{count_business_data_obj}})](/entities/ApplicationDataObjects/filteredBy_AppDataObjID_and_SystemID?system_id={{system_id}}&app_data_id={{id}}) | 
+[ER диаграмма](/entities/erdiagram/blank?id={{id}})  |
 
 # Объект приложения/сервиса "{{title}}"
 

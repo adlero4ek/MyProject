@@ -8,6 +8,7 @@ Constants:
 
   Basic:
     PeriodicityOfArchUpdating: 6 # Периодичность проведения актуализации архитектуры в месяцах
+    ApplicationSpecificationLevel: 4 # Увровень, на котором описывается приложение/сервис в строке DDD
 
   ComponentCard:
     Cluster:           "/entities/extended_application_card/extended_card_cluster?id="            #  Группа серверов

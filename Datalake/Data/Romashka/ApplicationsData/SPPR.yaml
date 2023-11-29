@@ -13,7 +13,7 @@ ApplicationDataObjects:
     parameters:
       - name: ВидОперации
         description: Вид операции
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVidyOperatsiyGruppirovkiProektnykhZadach
+        type: Виды операций группировки проектных задач
       - name: ГруппаЗадачПроекта
         description: Группа задач проекта
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.rtKlassifikatorGruppZadachProekta
@@ -91,1597 +91,13 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.rtNaboryKontrolnykhTochekTekhnicheskikhProektov
       - name: Событие
         description: Событие
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.rtSobytiyaInitsiiruyushchieTestirovanie
+        type: События инициирующие тестирование
       - name: СрокПредстоящейКонтрольнойТочки
         description: Срок предстоящей контрольной точки
         type: Дата
       - name: ПройденнаяКонтрольнаяТочка
         description: Пройденная контрольная точка
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.KontrolnyeTochkiTekhnicheskikhProektov
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.AvtoIspolzovanieObshchegoRekvizita:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Авто использование общего реквизита
-    type: Перечисления
-    table_name: Перечисления.АвтоИспользованиеОбщегоРеквизита
-    description: Авто использование общего реквизита
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.Vazhnost:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Важность
-    type: Перечисления
-    table_name: Перечисления.Важность
-    description: Важность
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VazhnostPravilProverki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Важность правил проверки
-    type: Перечисления
-    table_name: Перечисления.ВажностьПравилПроверки
-    description: Важность правил проверки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantySMTPAutentifikatsii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты SMTP аутентификации
-    type: Перечисления
-    table_name: Перечисления.ВариантыSMTPАутентификации
-    description: Варианты SMTP аутентификации
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyIzmeneniyaSpravki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты изменения справки
-    type: Перечисления
-    table_name: Перечисления.ВариантыИзмененияСправки
-    description: Варианты изменения справки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyIspolzovaniyaVneshnikhKomponent:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты использования внешних компонент
-    type: Перечисления
-    table_name: Перечисления.ВариантыИспользованияВнешнихКомпонент
-    description: Варианты использования внешних компонент
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyNapravleniyaOshibokNaZakrytie:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты направления ошибок на закрытие
-    type: Перечисления
-    table_name: Перечисления.ВариантыНаправленияОшибокНаЗакрытие
-    description: Варианты направления ошибок на закрытие
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyNapravleniyaOshibokNaProverku:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты направления ошибок на проверку
-    type: Перечисления
-    table_name: Перечисления.ВариантыНаправленияОшибокНаПроверку
-    description: Варианты направления ошибок на проверку
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyObnaruzheniyaOshibki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты обнаружения ошибки
-    type: Перечисления
-    table_name: Перечисления.ВариантыОбнаруженияОшибки
-    description: Варианты обнаружения ошибки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyOchistkiFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты очистки файлов
-    type: Перечисления
-    table_name: Перечисления.ВариантыОчисткиФайлов
-    description: Варианты очистки файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyPlanirovaniyaObshchikhZadach:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты планирования общих задач
-    type: Перечисления
-    table_name: Перечисления.ВариантыПланированияОбщихЗадач
-    description: Варианты планирования общих задач
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyPovtornogoIspolzovaniyaVozvrashchaemykhZnacheniy:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты повторного использования возвращаемых значений
-    type: Перечисления
-    table_name: Перечисления.ВариантыПовторногоИспользованияВозвращаемыхЗначений
-    description: Варианты повторного использования возвращаемых значений
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyPravilZapolneniyaRekvizitov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты правил заполнения реквизитов
-    type: Перечисления
-    table_name: Перечисления.ВариантыПравилЗаполненияРеквизитов
-    description: Варианты правил заполнения реквизитов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyProverkiZapolneniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты проверки заполнения
-    type: Перечисления
-    table_name: Перечисления.ВариантыПроверкиЗаполнения
-    description: Варианты проверки заполнения
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyPublikatsiiDopolnitelnykhOtchetovIObrabotok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты публикации дополнительных отчетов и обработок
-    type: Перечисления
-    table_name: Перечисления.ВариантыПубликацииДополнительныхОтчетовИОбработок
-    description: Варианты публикации дополнительных отчетов и обработок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantySzhatiyaTIFF:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты сжатия TIFF
-    type: Перечисления
-    table_name: Перечисления.ВариантыСжатияTIFF
-    description: Варианты сжатия TIFF
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidDvizheniyaRegistra:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Вид движения регистра
-    type: Перечисления
-    table_name: Перечисления.ВидДвиженияРегистра
-    description: Вид движения регистра
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyVkhodyashchikhSvyazeyFunktsiy:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды входящих связей функций
-    type: Перечисления
-    table_name: Перечисления.ВидыВходящихСвязейФункций
-    description: Виды входящих связей функций
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyDneyProizvodstvennogoKalendarya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды дней производственного календаря
-    type: Перечисления
-    table_name: Перечисления.ВидыДнейПроизводственногоКалендаря
-    description: Виды дней производственного календаря
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyDopolnitelnykhOtchetovIObrabotok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды дополнительных отчетов и обработок
-    type: Перечисления
-    table_name: Перечисления.ВидыДополнительныхОтчетовИОбработок
-    description: Виды дополнительных отчетов и обработок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyIerarkhii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды иерархии
-    type: Перечисления
-    table_name: Перечисления.ВидыИерархии
-    description: Виды иерархии
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyKlientov1SPredpriyatiya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды клиентов1С:Предприятия
-    type: Перечисления
-    table_name: Перечисления.ВидыКлиентов1СПредприятия
-    description: Виды клиентов1СПредприятия
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyKlyuchevykhOperatsiy:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды ключевых операций
-    type: Перечисления
-    table_name: Перечисления.ВидыКлючевыхОпераций
-    description: Виды ключевых операций
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyObektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды объектов
-    type: Перечисления
-    table_name: Перечисления.ВидыОбъектов
-    description: Виды объектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyPereklyuchatelyaVAnketakh:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды переключателя в анкетах
-    type: Перечисления
-    table_name: Перечисления.ВидыПереключателяВАнкетах
-    description: Виды переключателя в анкетах
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyPravilDlyaObmenaDannymi:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды правил для обмена данными
-    type: Перечисления
-    table_name: Перечисления.ВидыПравилДляОбменаДанными
-    description: Виды правил для обмена данными
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyRegistrovNakopleniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды регистров накопления
-    type: Перечисления
-    table_name: Перечисления.ВидыРегистровНакопления
-    description: Виды регистров накопления
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyRekvizitov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды реквизитов
-    type: Перечисления
-    table_name: Перечисления.ВидыРеквизитов
-    description: Виды реквизитов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyTransportaSoobshcheniyObmena:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды транспорта сообщений обмена
-    type: Перечисления
-    table_name: Перечисления.ВидыТранспортаСообщенийОбмена
-    description: Виды транспорта сообщений обмена
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyElementovSkhem:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды элементов схем
-    type: Перечисления
-    table_name: Перечисления.ВидыЭлементовСхем
-    description: Виды элементов схем
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.VosproizvedenieOshibok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Воспроизведение ошибок
-    type: Перечисления
-    table_name: Перечисления.ВоспроизведениеОшибок
-    description: Воспроизведение ошибок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.DeystviyaPriObmene:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Действия при обмене
-    type: Перечисления
-    table_name: Перечисления.ДействияПриОбмене
-    description: Действия при обмене
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.DeystviyaPriSokhraneniiSEP:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Действия при сохранении с ЭП
-    type: Перечисления
-    table_name: Перечисления.ДействияПриСохраненииСЭП
-    description: Действия при сохранении с ЭП
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.DeystviyaSFaylamiPoDvoynomuShchelchku:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Действия с файлами по двойному щелчку
-    type: Перечисления
-    table_name: Перечисления.ДействияСФайламиПоДвойномуЩелчку
-    description: Действия с файлами по двойному щелчку
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.DopolnitelnyeZnacheniyaDostupa:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Дополнительные значения доступа
-    type: Перечисления
-    table_name: Перечисления.ДополнительныеЗначенияДоступа
-    description: Дополнительные значения доступа
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.DostupnyePeriodyOtcheta:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Доступные периоды отчета
-    type: Перечисления
-    table_name: Перечисления.ДоступныеПериодыОтчета
-    description: Доступные периоды отчета
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.ZonyZadach:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Зоны задач
-    type: Перечисления
-    table_name: Перечисления.ЗоныЗадач
-    description: Зоны задач
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.IstochnikiPravilDlyaObmenaDannymi:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Источники правил для обмена данными
-    type: Перечисления
-    table_name: Перечисления.ИсточникиПравилДляОбменаДанными
-    description: Источники правил для обмена данными
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.KategoriiGruppKomand:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Категории групп команд
-    type: Перечисления
-    table_name: Перечисления.КатегорииГруппКоманд
-    description: Категории групп команд
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.LogicheskieOperatsii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Логические операции
-    type: Перечисления
-    table_name: Перечисления.ЛогическиеОперации
-    description: Логические операции
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.MetodyVyyavleniyaOshibok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Методы выявления ошибок
-    type: Перечисления
-    table_name: Перечисления.МетодыВыявленияОшибок
-    description: Методы выявления ошибок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PeremeshchenieGranitsyPriProvedenii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Перемещение границы при проведении
-    type: Перечисления
-    table_name: Перечисления.ПеремещениеГраницыПриПроведении
-    description: Перемещение границы при проведении
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PeriodichnostiRaspisaniyRassylokOtchetov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Периодичности расписаний рассылок отчетов
-    type: Перечисления
-    table_name: Перечисления.ПериодичностиРасписанийРассылокОтчетов
-    description: Периодичности расписаний рассылок отчетов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PeriodOchistkiFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Период очистки файлов
-    type: Перечисления
-    table_name: Перечисления.ПериодОчисткиФайлов
-    description: Период очистки файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PoryadokPomeshcheniyaObrabotchikovVOchered:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Порядок помещения обработчиков в очередь
-    type: Перечисления
-    table_name: Перечисления.ПорядокПомещенияОбработчиковВОчередь
-    description: Порядок помещения обработчиков в очередь
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PravaDostupa:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Права доступа
-    type: Перечисления
-    table_name: Перечисления.ПраваДоступа
-    description: Права доступа
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PravilaIspolzovaniyaObektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Правила использования объектов
-    type: Перечисления
-    table_name: Перечисления.ПравилаИспользованияОбъектов
-    description: Правила использования объектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PravilaPodderzhki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Правила поддержки
-    type: Перечисления
-    table_name: Перечисления.ПравилаПоддержки
-    description: Правила поддержки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PravilaPostavki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Правила поставки
-    type: Перечисления
-    table_name: Перечисления.ПравилаПоставки
-    description: Правила поставки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.PrioritetyObektovObmena:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Приоритеты объектов обмена
-    type: Перечисления
-    table_name: Перечисления.ПриоритетыОбъектовОбмена
-    description: Приоритеты объектов обмена
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RazmeryBumagi:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Размеры бумаги
-    type: Перечисления
-    table_name: Перечисления.РазмерыБумаги
-    description: Размеры бумаги
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RazresheniyaSkanirovannogoIzobrazheniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Разрешения сканированного изображения
-    type: Перечисления
-    table_name: Перечисления.РазрешенияСканированногоИзображения
-    description: Разрешения сканированного изображения
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimIzmeneniyaProvedennogoDokumentaDannymi1SDokumentooborota:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режим изменения проведенного документа данными 1С:Документооборота
-    type: Перечисления
-    table_name: Перечисления.РежимИзмененияПроведенногоДокументаДанными1СДокументооборота
-    description: Режим изменения проведенного документа данными 1СДокументооборота
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimRazrabotki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режим разработки
-    type: Перечисления
-    table_name: Перечисления.РежимРазработки
-    description: Режим разработки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimyAnketirovaniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режимы анкетирования
-    type: Перечисления
-    table_name: Перечисления.РежимыАнкетирования
-    description: Режимы анкетирования
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimyVygruzkiObektovObmena:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режимы выгрузки объектов обмена
-    type: Перечисления
-    table_name: Перечисления.РежимыВыгрузкиОбъектовОбмена
-    description: Режимы выгрузки объектов обмена
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimyVypolneniyaObrabotchikovObnovleniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режимы выполнения обработчиков обновления
-    type: Перечисления
-    table_name: Перечисления.РежимыВыполненияОбработчиковОбновления
-    description: Режимы выполнения обработчиков обновления
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimyVypolneniyaOtlozhennykhObrabotchikovObnovleniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режимы выполнения отложенных обработчиков обновления
-    type: Перечисления
-    table_name: Перечисления.РежимыВыполненияОтложенныхОбработчиковОбновления
-    description: Режимы выполнения отложенных обработчиков обновления
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimySovmestimostiRazresheniyDopolnitelnykhOtchetovIObrabotok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Режимы совместимости разрешений дополнительных отчетов и обработок
-    type: Перечисления
-    table_name: Перечисления.РежимыСовместимостиРазрешенийДополнительныхОтчетовИОбработок
-    description: Режимы совместимости разрешений дополнительных отчетов и обработок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RezultatyVypolneniyaObmena:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Результаты выполнения обмена
-    type: Перечисления
-    table_name: Перечисления.РезультатыВыполненияОбмена
-    description: Результаты выполнения обмена
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.RoliUchastnikovTekhnicheskikhProektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Роли участников технических проектов
-    type: Перечисления
-    table_name: Перечисления.РолиУчастниковТехническихПроектов
-    description: Роли участников технических проектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyanieOshibkiAPK:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояние ошибки АПК
-    type: Перечисления
-    table_name: Перечисления.СостояниеОшибкиАПК
-    description: Состояние ошибки АПК
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyanieSoglasovaniyaResursov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояние согласования ресурсов
-    type: Перечисления
-    table_name: Перечисления.СостояниеСогласованияРесурсов
-    description: Состояние согласования ресурсов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaZadachProtsessov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояния задач процессов
-    type: Перечисления
-    table_name: Перечисления.СостоянияЗадачПроцессов
-    description: Состояния задач процессов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaZayavleniyaNaVypuskSertifikata:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояния заявления на выпуск сертификата
-    type: Перечисления
-    table_name: Перечисления.СостоянияЗаявленияНаВыпускСертификата
-    description: Состояния заявления на выпуск сертификата
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaIspravleniyaOshibok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояния исправления ошибок
-    type: Перечисления
-    table_name: Перечисления.СостоянияИсправленияОшибок
-    description: Состояния исправления ошибок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaKontrolyaObektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояния контроля объектов
-    type: Перечисления
-    table_name: Перечисления.СостоянияКонтроляОбъектов
-    description: Состояния контроля объектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaSoglasovaniyaVDokumentooborote:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояния согласования в 1С:Документообороте
-    type: Перечисления
-    table_name: Перечисления.СостоянияСогласованияВДокументообороте
-    description: Состояния согласования в 1СДокументообороте
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaStandartov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Состояния стандартов
-    type: Перечисления
-    table_name: Перечисления.СостоянияСтандартов
-    description: Состояния стандартов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyPOP3Autentifikatsii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы POP3 аутентификации
-    type: Перечисления
-    table_name: Перечисления.СпособыPOP3Аутентификации
-    description: Способы POP3 аутентификации
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobySMTPAutentifikatsii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы SMTP аутентификации
-    type: Перечисления
-    table_name: Перечисления.СпособыSMTPАутентификации
-    description: Способы SMTP аутентификации
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyVyzovaDopolnitelnykhObrabotok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы вызова дополнительных обработок
-    type: Перечисления
-    table_name: Перечисления.СпособыВызоваДополнительныхОбработок
-    description: Способы вызова дополнительных обработок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyZapolneniyaGrafikaRaboty:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы заполнения графика работы
-    type: Перечисления
-    table_name: Перечисления.СпособыЗаполненияГрафикаРаботы
-    description: Способы заполнения графика работы
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyOtkrytiyaFaylaNaProsmotr:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы открытия файла на просмотр
-    type: Перечисления
-    table_name: Перечисления.СпособыОткрытияФайлаНаПросмотр
-    description: Способы открытия файла на просмотр
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyOtobrazheniyaPodskazok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы отображения подсказок
-    type: Перечисления
-    table_name: Перечисления.СпособыОтображенияПодсказок
-    description: Способы отображения подсказок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyPovorotaIzobrazheniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы поворота изображения
-    type: Перечисления
-    table_name: Перечисления.СпособыПоворотаИзображения
-    description: Способы поворота изображения
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyRedaktirovaniyaElektronnykhPisem:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы редактирования электронных писем
-    type: Перечисления
-    table_name: Перечисления.СпособыРедактированияЭлектронныхПисем
-    description: Способы редактирования электронных писем
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobySozdaniyaLokalnoyKopiiBazyOshibki:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы создания локальной копии базы ошибки
-    type: Перечисления
-    table_name: Перечисления.СпособыСозданияЛокальнойКопииБазыОшибки
-    description: Способы создания локальной копии базы ошибки
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobySravneniyaVersiyFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Способы сравнения версий файлов
-    type: Перечисления
-    table_name: Перечисления.СпособыСравненияВерсийФайлов
-    description: Способы сравнения версий файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SrochnostIspravleniyaOshibok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Срочность исправления ошибок
-    type: Перечисления
-    table_name: Перечисления.СрочностьИсправленияОшибок
-    description: Срочность исправления ошибок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StandartnyeGruppyKomand:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Стандартные группы команд
-    type: Перечисления
-    table_name: Перечисления.СтандартныеГруппыКоманд
-    description: Стандартные группы команд
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyVstraivaniyaFunktsiyMekhanizmov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы встраивания функций механизмов
-    type: Перечисления
-    table_name: Перечисления.СтатусыВстраиванияФункцийМеханизмов
-    description: Статусы встраивания функций механизмов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyZadach:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы задач
-    type: Перечисления
-    table_name: Перечисления.СтатусыЗадач
-    description: Статусы задач
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyZadachProtsessov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы задач процессов
-    type: Перечисления
-    table_name: Перечисления.СтатусыЗадачПроцессов
-    description: Статусы задач процессов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyIdey:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы идей
-    type: Перечисления
-    table_name: Перечисления.СтатусыИдей
-    description: Статусы идей
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyIzvlecheniyaTekstaFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы извлечения текста файлов
-    type: Перечисления
-    table_name: Перечисления.СтатусыИзвлеченияТекстаФайлов
-    description: Статусы извлечения текста файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyKontrolnykhTochekTekhnicheskikhProektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы контрольных точек технических проектов
-    type: Перечисления
-    table_name: Перечисления.СтатусыКонтрольныхТочекТехническихПроектов
-    description: Статусы контрольных точек технических проектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyObshchikhZadach:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы общих задач
-    type: Перечисления
-    table_name: Перечисления.СтатусыОбщихЗадач
-    description: Статусы общих задач
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyOshibok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы ошибок
-    type: Перечисления
-    table_name: Перечисления.СтатусыОшибок
-    description: Статусы ошибок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyPatchey:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы патчей
-    type: Перечисления
-    table_name: Перечисления.СтатусыПатчей
-    description: Статусы патчей
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyPublikatsiiOshibok:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы публикации ошибок
-    type: Перечисления
-    table_name: Перечисления.СтатусыПубликацииОшибок
-    description: Статусы публикации ошибок
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusySborokVersiiProekta:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы сборок версии проекта
-    type: Перечисления
-    table_name: Перечисления.СтатусыСборокВерсииПроекта
-    description: Статусы сборок версии проекта
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusySoglasovaniyaResursa:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы согласования ресурса
-    type: Перечисления
-    table_name: Перечисления.СтатусыСогласованияРесурса
-    description: Статусы согласования ресурса
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusySoglasovaniyaTekhnicheskikhProektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы согласования технических проектов
-    type: Перечисления
-    table_name: Перечисления.СтатусыСогласованияТехническихПроектов
-    description: Статусы согласования технических проектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyTekhnicheskikhProektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы технических проектов
-    type: Перечисления
-    table_name: Перечисления.СтатусыТехническихПроектов
-    description: Статусы технических проектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyTselevykhZadach:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы целевых задач
-    type: Перечисления
-    table_name: Перечисления.СтатусыЦелевыхЗадач
-    description: Статусы целевых задач
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyShablonaProtsessa:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Статусы шаблона процесса
-    type: Перечисления
-    table_name: Перечисления.СтатусыШаблонаПроцесса
-    description: Статусы шаблона процесса
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.StoronyElementovSkhem:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Стороны элементов схем
-    type: Перечисления
-    table_name: Перечисления.СтороныЭлементовСхем
-    description: Стороны элементов схем
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.SUBD:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: СУБД
-    type: Перечисления
-    table_name: Перечисления.СУБД
-    description: СУБД
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipBazy:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Тип базы
-    type: Перечисления
-    table_name: Перечисления.ТипБазы
-    description: Тип базы
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipParametraStsenariyaIliProtsessa:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Тип параметра сценария или процесса
-    type: Перечисления
-    table_name: Перечисления.ТипПараметраСценарияИлиПроцесса
-    description: Тип параметра сценария или процесса
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipProblemy:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Тип проблемы
-    type: Перечисления
-    table_name: Перечисления.ТипПроблемы
-    description: Тип проблемы
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipSoedineniyaBPMN:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Тип соединения BPMN
-    type: Перечисления
-    table_name: Перечисления.ТипСоединенияBPMN
-    description: Тип соединения BPMN
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipStrokiDerevaStsenariev:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Тип строки дерева сценариев
-    type: Перечисления
-    table_name: Перечисления.ТипСтрокиДереваСценариев
-    description: Тип строки дерева сценариев
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipShagaStsenariya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Тип шага сценария
-    type: Перечисления
-    table_name: Перечисления.ТипШагаСценария
-    description: Тип шага сценария
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyDannykhKeshaProgrammnykhInterfeysov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы данных кэша программных интерфейсов
-    type: Перечисления
-    table_name: Перечисления.ТипыДанныхКэшаПрограммныхИнтерфейсов
-    description: Типы данных кэша программных интерфейсов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyKontaktnoyInformatsii:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы контактной информации
-    type: Перечисления
-    table_name: Перечисления.ТипыКонтактнойИнформации
-    description: Типы контактной информации
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyMaketov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы макетов
-    type: Перечисления
-    table_name: Перечисления.ТипыМакетов
-    description: Типы макетов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyModuleyObektovMetadannykh:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы модулей объектов метаданных
-    type: Перечисления
-    table_name: Перечисления.ТипыМодулейОбъектовМетаданных
-    description: Типы модулей объектов метаданных
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyObektovDannykh:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы объектов данных
-    type: Перечисления
-    table_name: Перечисления.ТипыОбъектовДанных
-    description: Типы объектов данных
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyOtchetov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы отчетов
-    type: Перечисления
-    table_name: Перечисления.ТипыОтчетов
-    description: Типы отчетов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyPolzovateley:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы пользователей
-    type: Перечисления
-    table_name: Перечисления.ТипыПользователей
-    description: Типы пользователей
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyPrichinOsobogoPoryadkaRazrabotkiObrabotchikovObnovleniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы причин особого порядка разработки обработчиков обновления
-    type: Перечисления
-    table_name: Перечисления.ТипыПричинОсобогоПорядкаРазработкиОбработчиковОбновления
-    description: Типы причин особого порядка разработки обработчиков обновления
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyProblemObmenaDannymi:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы проблем обмена данными
-    type: Перечисления
-    table_name: Перечисления.ТипыПроблемОбменаДанными
-    description: Типы проблем обмена данными
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyTekstovElektronnykhPisem:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы текстов электронных писем
-    type: Перечисления
-    table_name: Перечисления.ТипыТекстовЭлектронныхПисем
-    description: Типы текстов электронных писем
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyFaylovDlyaVstroennogoRedaktora:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы файлов для встроенного редактора
-    type: Перечисления
-    table_name: Перечисления.ТипыФайловДляВстроенногоРедактора
-    description: Типы файлов для встроенного редактора
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyFaylovSokhraneniyaPechatnykhFormObektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы файлов сохранения печатных форм объектов
-    type: Перечисления
-    table_name: Перечисления.ТипыФайловСохраненияПечатныхФормОбъектов
-    description: Типы файлов сохранения печатных форм объектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyForm:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы форм
-    type: Перечисления
-    table_name: Перечисления.ТипыФорм
-    description: Типы форм
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyFunktsiy:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы функций
-    type: Перечисления
-    table_name: Перечисления.ТипыФункций
-    description: Типы функций
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyKhraneniyaFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы хранения файлов
-    type: Перечисления
-    table_name: Перечисления.ТипыХраненияФайлов
-    description: Типы хранения файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyElementovSkhemyBPMN:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Типы элементов схемы BPMN
-    type: Перечисления
-    table_name: Перечисления.ТипыЭлементовСхемыBPMN
-    description: Типы элементов схемы BPMN
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.FormatySkanirovannogoIzobrazheniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Форматы сканированного изображения
-    type: Перечисления
-    table_name: Перечисления.ФорматыСканированногоИзображения
-    description: Форматы сканированного изображения
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.FormatySokhraneniyaOtchetov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Форматы сохранения отчетов
-    type: Перечисления
-    table_name: Перечисления.ФорматыСохраненияОтчетов
-    description: Форматы сохранения отчетов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.FormatyKhraneniyaMnogostranichnykhFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Форматы хранения многостраничных файлов
-    type: Перечисления
-    table_name: Перечисления.ФорматыХраненияМногостраничныхФайлов
-    description: Форматы хранения многостраничных файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.FormatyKhraneniyaOdnostranichnykhFaylov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Форматы хранения одностраничных файлов
-    type: Перечисления
-    table_name: Перечисления.ФорматыХраненияОдностраничныхФайлов
-    description: Форматы хранения одностраничных файлов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.TsvetnostiIzobrazheniya:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Цветности изображения
-    type: Перечисления
-    table_name: Перечисления.ЦветностиИзображения
-    description: Цветности изображения
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVidyOperatsiyGruppirovkiProektnykhZadach:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды операций группировки проектных задач
-    type: Перечисления
-    table_name: Перечисления.ртВидыОперацийГруппировкиПроектныхЗадач
-    description: Виды операций группировки проектных задач
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVidyKontrolnykhTochekTekhnicheskikhProektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды контрольных точек технических проектов
-    type: Перечисления
-    table_name: Перечисления.ртВидыКонтрольныхТочекТехническихПроектов
-    description: Виды контрольных точек технических проектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVidySoglasuyushchikhKontrolnyeTochkiTekhnicheskikhProektov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Виды согласующих контрольные точки технических проектов
-    type: Перечисления
-    table_name: Перечисления.ртВидыСогласующихКонтрольныеТочкиТехническихПроектов
-    description: Виды согласующих контрольные точки технических проектов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.rtSobytiyaInitsiiruyushchieTestirovanie:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: События инициирующие тестирование
-    type: Перечисления
-    table_name: Перечисления.ртСобытияИнициирующиеТестирование
-    description: События инициирующие тестирование
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVariantyRezultatovTestirovaniyaShagovProtsessov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты результатов тестирования шагов процессов
-    type: Перечисления
-    table_name: Перечисления.ртВариантыРезультатовТестированияШаговПроцессов
-    description: Варианты результатов тестирования шагов процессов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
-
-  Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVariantyRezultatovTestirovaniyaProtsessov:
-    uuid:
-    system: Romashka.Systems.Technological.SPPR
-    sybsystem: Romashka.Systems.Technological.SPPR
-    title: Варианты результатов тестирования процессов
-    type: Перечисления
-    table_name: Перечисления.ртВариантыРезультатовТестированияПроцессов
-    description: Варианты результатов тестирования процессов
-    state: Проектируется
-    state_update_date: 2023-01-01
-    parameters:
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.WebServisySvoystva:
     uuid:
@@ -1768,7 +184,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PredopredelennyeVariantyOtchetovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.PredopredelennyeVariantyOtchetov
       - name: ТипОтчета
         description: Тип отчета
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyOtchetov
+        type: Типы отчетов
       - name: ТолькоДляАвтора
         description: Только для автора
         type: Булево
@@ -1864,7 +280,7 @@ ApplicationDataObjects:
         type: Строка
       - name: РежимРазработки
         description: Режим разработки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimRazrabotki
+        type: Режим разработки
       - name: НомерРедакции
         description: Номер редакции
         type: Число
@@ -1945,13 +361,13 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.VersiiFaylov
       - name: СтатусИзвлеченияТекста
         description: Статус извлечения текста
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyIzvlecheniyaTekstaFaylov
+        type: Статусы извлечения текста файлов
       - name: ТекстХранилище
         description: Текст
         type: Хранилище значения
       - name: ТипХраненияФайла
         description: Тип хранения версии файла
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyKhraneniyaFaylov
+        type: Типы хранения файлов
       - name: Том
         description: Том
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.TomaKhraneniyaFaylov
@@ -2041,7 +457,7 @@ ApplicationDataObjects:
         type: Булево
       - name: Тип
         description: Тип
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyKontaktnoyInformatsii
+        type: Типы контактной информации
       - name: УказыватьОКТМО
         description: Указывать ОКТМО
         type: Булево
@@ -2089,7 +505,7 @@ ApplicationDataObjects:
     parameters:
       - name: Использование
         description: Использование
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyIspolzovaniyaVneshnikhKomponent
+        type: Варианты использования внешних компонент
       - name: Идентификатор
         description: Идентификатор
         type: Строка
@@ -2245,7 +661,7 @@ ApplicationDataObjects:
     parameters:
       - name: Категория
         description: Категория
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.KategoriiGruppKomand
+        type: Категории групп команд
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley:
     uuid:
@@ -2281,7 +697,7 @@ ApplicationDataObjects:
         type: Строка
       - name: Вид
         description: Вид
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyDopolnitelnykhOtchetovIObrabotok
+        type: Виды дополнительных отчетов и обработок
       - name: ИмяОбъекта
         description: Имя объекта
         type: Строка
@@ -2305,7 +721,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
       - name: Публикация
         description: Публикация
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyPublikatsiiDopolnitelnykhOtchetovIObrabotok
+        type: Варианты публикации дополнительных отчетов и обработок
       - name: ХранилищеНастроек
         description: Хранилище настроек
         type: Хранилище значения
@@ -2320,7 +736,7 @@ ApplicationDataObjects:
         type: Булево
       - name: РежимСовместимостиРазрешений
         description: Режим совместимости разрешений
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimySovmestimostiRazresheniyDopolnitelnykhOtchetovIObrabotok
+        type: Режимы совместимости разрешений дополнительных отчетов и обработок
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.Zadachi:
     uuid:
@@ -2374,7 +790,7 @@ ApplicationDataObjects:
         type: Дата
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyZadach
+        type: Статусы задач
       - name: Трудоемкость
         description: Трудоемкость
         type: Число
@@ -2431,10 +847,10 @@ ApplicationDataObjects:
         type: Дата
       - name: СостояниеСогласования
         description: Состояние согласования
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyanieSoglasovaniyaResursov
+        type: Состояние согласования ресурсов
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyZadachProtsessov
+        type: Статусы задач процессов
       - name: ДатаПорученияПоЗадаче
         description: Дата поручения по задаче
         type: Дата
@@ -2527,7 +943,7 @@ ApplicationDataObjects:
     parameters:
       - name: Важность
         description: Важность
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.Vazhnost
+        type: Важность
       - name: ДатаЗакрытия
         description: Дата закрытия фактическая
         type: Дата
@@ -2560,7 +976,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.RazdelyProekta
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyIdey
+        type: Статусы идей
       - name: Тематика
         description: Тематика
         type: Строка
@@ -2725,7 +1141,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.ProizvodstvennyeKalendari
       - name: СпособЗаполнения
         description: Способ заполнения
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyZapolneniyaGrafikaRaboty
+        type: Способы заполнения графика работы
       - name: ДатаНачала
         description: Дата начала
         type: Дата
@@ -2791,7 +1207,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ВидОперации
         description: Вид операции
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyKlyuchevykhOperatsiy
+        type: Виды ключевых операций
       - name: ЦелевоеВремя
         description: Целевое время
         type: Число
@@ -2827,19 +1243,19 @@ ApplicationDataObjects:
         type: Число
       - name: Значение1
         description: Значение 1
-        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Romashka.ApplicationDataObject.SPPR.Perechislenie.DopolnitelnyeZnacheniyaDostupa,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
+        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Дополнительные значения доступа,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
       - name: Значение2
         description: Значение 2
-        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Romashka.ApplicationDataObject.SPPR.Perechislenie.DopolnitelnyeZnacheniyaDostupa,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
+        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Дополнительные значения доступа,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
       - name: Значение3
         description: Значение 3
-        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Romashka.ApplicationDataObject.SPPR.Perechislenie.DopolnitelnyeZnacheniyaDostupa,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
+        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Дополнительные значения доступа,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
       - name: Значение4
         description: Значение 4
-        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Romashka.ApplicationDataObject.SPPR.Perechislenie.DopolnitelnyeZnacheniyaDostupa,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
+        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Дополнительные значения доступа,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
       - name: Значение5
         description: Значение 5
-        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Romashka.ApplicationDataObject.SPPR.Perechislenie.DopolnitelnyeZnacheniyaDostupa,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
+        type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov,Romashka.ApplicationDataObject.SPPR.Spravochnik.VneshniePolzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.KlyuchiDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovRasshireniy,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyVneshnikhPolzovateley,Romashka.ApplicationDataObject.SPPR.Spravochnik.GruppyPolzovateley,Дополнительные значения доступа,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.DopolnitelnyeRekvizityISvedeniya,Romashka.ApplicationDataObject.SPPR.PlanVidovKharakteristik.UdalitVidyDostupa,Romashka.ApplicationDataObject.SPPR.Spravochnik.DopolnitelnyeOtchetyIObrabotki,Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty,Romashka.ApplicationDataObject.SPPR.Spravochnik.UchetnyeZapisiElektronnoyPochty,Romashka.ApplicationDataObject.SPPR.Spravochnik.IdentifikatoryObektovMetadannykh
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.KomandyObektovMetadannykh:
     uuid:
@@ -2875,7 +1291,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.TekhnicheskieProekty
       - name: ГруппаКоманд
         description: Группа команд
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StandartnyeGruppyKomand,Romashka.ApplicationDataObject.SPPR.Spravochnik.ObektyMetadannykh
+        type: Стандартные группы команд,Romashka.ApplicationDataObject.SPPR.Spravochnik.ObektyMetadannykh
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.KontrolnyeTochkiTekhnicheskikhProektov:
     uuid:
@@ -2896,7 +1312,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ВидКонтрольнойТочки
         description: Вид контрольной точки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVidyKontrolnykhTochekTekhnicheskikhProektov
+        type: Виды контрольных точек технических проектов
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.KriteriiOtboraSvoystva:
     uuid:
@@ -2935,7 +1351,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ТипМакета
         description: Тип макета
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyMaketov
+        type: Типы макетов
       - name: Ответственный
         description: Ответственный
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
@@ -3073,7 +1489,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
       - name: РежимВыполнения
         description: Режим выполнения
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimyVypolneniyaObrabotchikovObnovleniya
+        type: Режимы выполнения обработчиков обновления
       - name: Библиотека
         description: Библиотека
         type: Строка
@@ -3199,7 +1615,7 @@ ApplicationDataObjects:
         type: Дата
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyObshchikhZadach
+        type: Статусы общих задач
       - name: Описание
         description: Описание
         type: Строка
@@ -3217,7 +1633,7 @@ ApplicationDataObjects:
     parameters:
       - name: ГруппаКоманд
         description: Группа команд
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StandartnyeGruppyKomand,Romashka.ApplicationDataObject.SPPR.Spravochnik.ObektyMetadannykh
+        type: Стандартные группы команд,Romashka.ApplicationDataObject.SPPR.Spravochnik.ObektyMetadannykh
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.ObshchieMaketySvoystva:
     uuid:
@@ -3232,7 +1648,7 @@ ApplicationDataObjects:
     parameters:
       - name: ТипМакета
         description: Тип макета
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyMaketov
+        type: Типы макетов
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.ObshchieModuliSvoystva:
     uuid:
@@ -3265,7 +1681,7 @@ ApplicationDataObjects:
         type: Булево
       - name: ПовторноеИспользованиеВозвращаемыхЗначений
         description: Повторное использование возвращаемых значений
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyPovtornogoIspolzovaniyaVozvrashchaemykhZnacheniy
+        type: Варианты повторного использования возвращаемых значений
       - name: КлиентОбычноеПриложение
         description: Клиент обычное приложение
         type: Булево
@@ -3283,7 +1699,7 @@ ApplicationDataObjects:
     parameters:
       - name: Автоиспользование
         description: Автоиспользование
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.AvtoIspolzovanieObshchegoRekvizita
+        type: Авто использование общего реквизита
       - name: РазделениеДанных
         description: Разделение данных
         type: Булево
@@ -3334,7 +1750,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.ObektyMetadannykh
       - name: ТипОбъекта
         description: Тип объекта
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyObektovDannykh
+        type: Типы объектов данных
       - name: ХранилищеЗаметок
         description: Хранилище заметок
         type: Хранилище значения
@@ -3358,13 +1774,13 @@ ApplicationDataObjects:
         type: Строка
       - name: ВидИерархии
         description: Вид иерархии
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyIerarkhii
+        type: Виды иерархии
       - name: ВидОбъектаМетаданныхВЕдЧисле
         description: Вид объекта метаданных в ед числе
         type: Строка
       - name: ВидРегистраНакопления
         description: Вид регистра накопления
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyRegistrovNakopleniya
+        type: Виды регистров накопления
       - name: ВключатьСправкуВСодержание
         description: Включать справку в содержание
         type: Булево
@@ -3433,7 +1849,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ПравилоПоддержки
         description: Правило поддержки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.PravilaPodderzhki
+        type: Правила поддержки
       - name: ПредставлениеВидаОбъектаМетаданныхВЕдЧисле
         description: Представление вида объекта метаданных в ед числе
         type: Строка
@@ -3511,7 +1927,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Podsistemy,Romashka.ApplicationDataObject.SPPR.Spravochnik.ObektyMetadannykh
       - name: ТипФормы
         description: Тип формы
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyForm
+        type: Типы форм
       - name: ФормаОбъектаМетаданных
         description: Форма объекта метаданных
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.FormyObektovMetadannykh
@@ -3532,7 +1948,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
       - name: ВариантОбнаруженияОшибки
         description: Вариант обнаружения ошибки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyObnaruzheniyaOshibki
+        type: Варианты обнаружения ошибки
       - name: ВерсияВоспроизведения
         description: Версия воспроизведения
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.VersiiProekta
@@ -3619,13 +2035,13 @@ ApplicationDataObjects:
         type: Строка
       - name: Клиент
         description: Клиент
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyKlientov1SPredpriyatiya
+        type: Виды клиентов1С:Предприятия
       - name: КомуНаправлена
         description: Кому направлена
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
       - name: МетодВыявленияОшибки
         description: Метод выявления
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.MetodyVyyavleniyaOshibok
+        type: Методы выявления ошибок
       - name: НеПризнана
         description: Не признана
         type: Булево
@@ -3688,25 +2104,25 @@ ApplicationDataObjects:
         type: Дата
       - name: СрочностьИсправления
         description: Срочность исправления
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SrochnostIspravleniyaOshibok
+        type: Срочность исправления ошибок
       - name: Стандарт
         description: Стандарт
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.StandartyRazrabotki
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyOshibok
+        type: Статусы ошибок
       - name: СтатусПубликации
         description: Статус публикации
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyPublikatsiiOshibok
+        type: Статусы публикации ошибок
       - name: СУБД
         description: СУБД
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SUBD
+        type: СУБД
       - name: ТехническийПроектОбнаружения
         description: Технический проект, в котором обнаружена ошибка
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.TekhnicheskieProekty
       - name: ТипПроблемы
         description: Тип проблемы
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipProblemy
+        type: Тип проблемы
       - name: СоздатьПатч
         description: Создать патч
         type: Булево
@@ -3889,7 +2305,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Proekty
       - name: ПравилоПоддержки
         description: Правило поддержки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.PravilaPodderzhki
+        type: Правила поддержки
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli:
     uuid:
@@ -3964,7 +2380,7 @@ ApplicationDataObjects:
     parameters:
       - name: ПеремещениеГраницыПриПроведении
         description: Перемещение границы при проведении
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.PeremeshchenieGranitsyPriProvedenii
+        type: Перемещение границы при проведении
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.PravilaIntegratsiiS1SDokumentooborotom:
     uuid:
@@ -3988,7 +2404,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ТипФайловСохраненияПечатныхФорм
         description: Тип файлов сохранения печатных форм
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyFaylovSokhraneniyaPechatnykhFormObektov
+        type: Типы файлов сохранения печатных форм объектов
       - name: ВыгружатьИзменения
         description: Выгружать изменения
         type: Булево
@@ -4042,7 +2458,7 @@ ApplicationDataObjects:
         type: Строка
       - name: Важность
         description: Важность
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VazhnostPravilProverki
+        type: Важность правил проверки
       - name: Активно
         description: Активно
         type: Булево
@@ -4192,7 +2608,7 @@ ApplicationDataObjects:
     parameters:
       - name: Тип
         description: Тип
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyPrichinOsobogoPoryadkaRazrabotkiObrabotchikovObnovleniya
+        type: Типы причин особого порядка разработки обработчиков обновления
 
   Romashka.ApplicationDataObject.SPPR.Spravochnik.ProgrammyElektronnoyPodpisiIShifrovaniya:
     uuid:
@@ -4240,10 +2656,10 @@ ApplicationDataObjects:
         type: Булево
       - name: ВариантНаправленияОшибокНаЗакрытие
         description: Вариант направления ошибок на закрытие
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyNapravleniyaOshibokNaZakrytie
+        type: Варианты направления ошибок на закрытие
       - name: ВариантНаправленияОшибокНаПроверку
         description: Направление ошибок на проверку
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyNapravleniyaOshibokNaProverku
+        type: Варианты направления ошибок на проверку
       - name: ВерсияПлатформы
         description: Версия платформы
         type: Строка
@@ -4420,7 +2836,7 @@ ApplicationDataObjects:
         type: Булево
       - name: РежимРазработки
         description: Режим разработки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimRazrabotki
+        type: Режим разработки
       - name: КаталогGitРепозитория
         description: Каталог git репозитория
         type: Строка
@@ -4435,7 +2851,7 @@ ApplicationDataObjects:
         type: Строка
       - name: РежимРазработкиТехническихПроектов
         description: Режим разработки технических проектов
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimRazrabotki
+        type: Режим разработки
       - name: УказыватьВОшибкахКтоПривнес
         description: Указывать в ошибках, кто привнес
         type: Булево
@@ -4702,7 +3118,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.PapkiFaylov
       - name: ПериодичностьРасписания
         description: Периодичность расписания
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.PeriodichnostiRaspisaniyRassylokOtchetov
+        type: Периодичности расписаний рассылок отчетов
       - name: Персонализирована
         description: Персонализирована
         type: Булево
@@ -4837,7 +3253,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ВидРеквизита
         description: Вид реквизита
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VidyRekvizitov
+        type: Виды реквизитов
       - name: Имя
         description: Имя
         type: Строка
@@ -4852,7 +3268,7 @@ ApplicationDataObjects:
         type: Строка
       - name: ПроверкаЗаполнения
         description: Проверка заполнения
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantyProverkiZapolneniya
+        type: Варианты проверки заполнения
       - name: ОписаниеТиповЗначения
         description: Описание типов значения
         type: Строка
@@ -4891,7 +3307,7 @@ ApplicationDataObjects:
         type: Дата
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusySborokVersiiProekta
+        type: Статусы сборок версии проекта
       - name: РекомендуемаяВерсияПлатформы
         description: Рекомендуемая версия платформы
         type: Строка
@@ -4981,7 +3397,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
       - name: СостояниеЗаявления
         description: Состояние заявления
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SostoyaniyaZayavleniyaNaVypuskSertifikata
+        type: Состояния заявления на выпуск сертификата
       - name: СодержаниеЗаявления
         description: Содержание заявления
         type: Хранилище значения
@@ -5203,7 +3619,7 @@ ApplicationDataObjects:
         type: Дата
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyTekhnicheskikhProektov
+        type: Статусы технических проектов
       - name: ХранилищеЗаметок
         description: Хранилище заметок
         type: Хранилище значения
@@ -5260,7 +3676,7 @@ ApplicationDataObjects:
         type: Булево
       - name: РежимРазработки
         description: Режим разработки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.RezhimRazrabotki
+        type: Режим разработки
       - name: ИмяВеткиРепозитория
         description: Имя ветки репозитория
         type: Строка
@@ -5332,7 +3748,7 @@ ApplicationDataObjects:
     parameters:
       - name: SMTPАутентификация
         description: SMTP аутентификация
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.VariantySMTPAutentifikatsii
+        type: Варианты SMTP аутентификации
       - name: АдресЭлектроннойПочты
         description: Адрес электронной почты
         type: Строка
@@ -5389,10 +3805,10 @@ ApplicationDataObjects:
         type: Строка
       - name: СпособPOP3Аутентификации
         description: Способ POP3 аутентификации
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobyPOP3Autentifikatsii
+        type: Способы POP3 аутентификации
       - name: СпособSMTPАутентификации
         description: Способ SMTP аутентификации
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.SposobySMTPAutentifikatsii
+        type: Способы SMTP аутентификации
       - name: ТребуетсяВходНаСерверПередОтправкой
         description: Требуется вход на сервер перед отправкой
         type: Булево
@@ -5476,10 +3892,10 @@ ApplicationDataObjects:
         type: Булево
       - name: ТипХраненияФайла
         description: Тип хранения файла
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyKhraneniyaFaylov
+        type: Типы хранения файлов
       - name: СтатусИзвлеченияТекста
         description: Статус извлечения текста
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyIzvlecheniyaTekstaFaylov
+        type: Статусы извлечения текста файлов
       - name: ФайлХранилище
         description: Временное хранилище файла
         type: Хранилище значения
@@ -5641,7 +4057,7 @@ ApplicationDataObjects:
         type: Romashka.ApplicationDataObject.SPPR.Spravochnik.Polzovateli
       - name: ТипФункции
         description: Тип функции
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.TipyFunktsiy
+        type: Типы функций
       - name: НаименованиеВИнтерфейсе
         description: Наименование в интерфейсе
         type: Строка
@@ -5692,7 +4108,7 @@ ApplicationDataObjects:
         type: Дата
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyTselevykhZadach
+        type: Статусы целевых задач
       - name: Очередность
         description: Очередность
         type: Число
@@ -5740,7 +4156,7 @@ ApplicationDataObjects:
         type: Булево
       - name: Статус
         description: Статус
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.StatusyShablonaProtsessa
+        type: Статусы шаблона процесса
       - name: ТипПредметаПредставление
         description: Тип предмета представление
         type: Строка
@@ -5947,7 +4363,7 @@ ApplicationDataObjects:
         type: Булево
       - name: ВидСогласующегоКонтрольнойТочки
         description: Вид согласующего контрольной точки
-        type: Romashka.ApplicationDataObject.SPPR.Perechislenie.rtVidySoglasuyushchikhKontrolnyeTochkiTekhnicheskikhProektov
+        type: Виды согласующих контрольные точки технических проектов
       - name: ЗаполнятьАвтоматическиОтветсвеннымЗаТехническийПроект
         description: Заполнять автоматически ответсвенным за технический проект
         type: Булево

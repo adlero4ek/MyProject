@@ -1,0 +1,114 @@
+entities:
+
+  erdiagram:
+    title: ER диаграммы
+    description: ER диаграммы
+    presentations:
+      blank:
+        type: plantuml
+        template: templates/blank.puml
+        source: >
+          (
+              $Id := $params.id;              
+              /*$Id := "Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_DO.EK_ASUFR3_1C_Etalon_DOkument.Bron";*/
+              $Datalake := $;
+              
+              /* Удаление простых типов из массива составного типа данных */
+              
+              $RemoveSimpleTypes := function($types) {(
+                  $filter($split($types, ","), function($v) {$contains($v, "ApplicationDataObject")})
+              )};
+              
+              /* Приложение, к которому относится объект данных */
+          
+              $ApplicationFromId := $split($Id, ".", $Datalake.Constants.Basic.ApplicationSpecificationLevel) ~> $join('.');
+              
+              /* Кеш атрибутов объектов приложения, к которому относится объект данных */
+              
+              $Attributes := $Datalake.ApplicationDataObjects.$spread().(
+                  $ApplicationObject_Id := $keys()[0];
+                  *.parameters.{
+                      "ApplicationObject_Id": $ApplicationObject_Id,
+                      "Attribute_Type": type,
+                      "Attribute_Name": name
+                  }[$contains(ApplicationObject_Id, $ApplicationFromId)]
+              )^(Attribute_Name);
+
+              /* Объект анализа, переданный как ID, и его атрибуты */
+
+              $Level1 := $Datalake.ApplicationDataObjects.$spread().(
+                  $ApplicationObject_Id := $keys()[0];
+                  {
+                      "AppObj_Id": $ApplicationObject_Id,
+                      "AppObj_Key": $replace($ApplicationObject_Id, ".", "_"),
+                      "AppObj_Title": *.title,
+                      "Attributes": $Attributes[ApplicationObject_Id=$ApplicationObject_Id]
+                  }
+              )[AppObj_Id=$Id];
+
+              /* Объекты приложений, в атрибутах которых есть ссылка на объект анализа */
+
+              $Level2 := $Attributes[$contains(Attribute_Type, $Id)].(
+                  $ApplicationObject_Id := ApplicationObject_Id;
+                  {
+                      "AppObj_Id": $ApplicationObject_Id,
+                      "AppObj_Key": $replace($ApplicationObject_Id, ".", "_"),
+                      "AppObj_Title": $lookup($Datalake.ApplicationDataObjects, $ApplicationObject_Id).title,
+                      "Attributes": $Attributes[ApplicationObject_Id=$ApplicationObject_Id]
+                  }
+              );
+
+              /* Объекты приложений, которые указаны как типы данных в атрибутах объекта анализа */
+
+              $Level3 := $distinct($Attributes[ApplicationObject_Id=$Id and $contains(Attribute_Type, "ApplicationDataObject")].(
+
+                  $Attribute_Name := Attribute_Name;
+
+                  $Types := $RemoveSimpleTypes(Attribute_Type);
+                  $Types := $map([$Types], function($v) {{"Lvl3_AppObj_Id": $v}});
+
+                  $Types.(
+
+                      $ApplicationObject_Id := Lvl3_AppObj_Id;
+                      {
+                         "AppObj_Id": $ApplicationObject_Id,
+                         "AppObj_Key": $replace($ApplicationObject_Id, ".", "_"),
+                         "AppObj_Title": $lookup($Datalake.ApplicationDataObjects, $ApplicationObject_Id).title,
+                         "Lvl2_Attribute_Name": $Attribute_Name,
+                         "Attributes": $Attributes[ApplicationObject_Id=$ApplicationObject_Id]
+                      }
+                 )
+
+              ));
+          
+              $AppObjs := $append($Level1, $Level2);
+              $AppObjs := $append($AppObjs, $Level3);
+
+              /* Связи объектов приложения */
+          
+              $Links := [
+                  $Level2.(
+                      {
+                      "App1": $replace($Id, ".", "_"),
+                      "Key": "",
+                      "Link": "|o--||",
+                      "App2": AppObj_Key
+                      }
+                  ),
+                  $Level3.(
+                      {
+                      "App1": $replace($Id, ".", "_"),
+                      "Key": Lvl2_Attribute_Name,
+                      "Link": "|o--||",
+                      "App2": AppObj_Key
+                      }
+                  )
+              ];
+          
+              {
+                  "title": $Id, 
+                  "AppObjs": $AppObjs,
+                  "Links": $Links
+
+              }         
+          )
