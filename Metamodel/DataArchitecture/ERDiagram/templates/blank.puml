@@ -6,20 +6,16 @@ skinparam linetype ortho
 title {{{title}}}
 
 {{#AppObjs}}
-
     entity "{{AppObj_Title}}" as {{AppObj_Key}}
     {
             {{#Attributes}}
                 {{Attribute_Name}}
             {{/Attributes}}
     }
-
 {{/AppObjs}}
 
 {{#Links}}
-
     {{App1}} {{Link}} {{App2}}
-
 {{/Links}}
 
 {{/.}}

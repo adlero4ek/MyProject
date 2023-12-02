@@ -1,8 +1,8 @@
 imports:
   - docs.yaml
-  - Business/root.yaml
-  - Applications/root.yaml
-  - Technology/root.yaml
-  - Data/root.yaml
+  - BusinessArchitecture/root.yaml
+  - ApplicationArchitecture/root.yaml
+  - TechnologyArchitecture/root.yaml
+  - DataArchitecture/root.yaml
   - Welcome/root.yaml
   - GoalsAndStrategy/root.yaml

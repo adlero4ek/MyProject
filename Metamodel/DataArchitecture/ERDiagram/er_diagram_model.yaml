@@ -21,7 +21,7 @@ entities:
               
               /* Приложение, к которому относится объект данных */
           
-              $ApplicationFromId := $split($Id, ".", $Datalake.Constants.Basic.ApplicationSpecificationLevel) ~> $join('.');
+              $ApplicationFromId := $split($Id, ".", $Datalake.Constants.Basic.ApplicationSpecificationLevelInAppData) ~> $join('.');
               
               /* Кеш атрибутов объектов приложения, к которому относится объект данных */
               
