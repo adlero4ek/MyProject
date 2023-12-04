@@ -1,16 +1,134 @@
 docs:
 
-  ApplicationDataObjects.doc.ParametersList:
+  ApplicationDataObjects.doc.AttributesList:
     type: table
     headers:
-      - value: name
+      - value: Name
         text: "Наименование"
         sortable: true
-        link: link
-      - value: description
+        link: Link
+      - value: Description
         text: "Описание"
         wight: 50%
-      - value: type
-        text: "Тип"
+      - value: Type
+        text: "Тип/класс"
         wight: 50%
-    source: ApplicationDataObjects.dataset.ParametersList
+    source: >
+      (
+        $Id := $params.id; /* "Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron"; */
+      
+        /* Получение наименование (title) для объекта приложения. Для простых типов возвразается сам протой тип, для типов содержащих строку ApplicationDataObject */ 
+        /* возвращается title, найденного объекта приложения по его ID */
+      
+        $GetTypeDescription := function($type) {(
+          $contains($type, "ApplicationDataObject") ? $lookup(ApplicationDataObjects, $type).title : $type
+        )};
+      
+        /* Поиск приложения/сервиса выполянется по ключу, чтобы не использовать components.$spread() + [отбор по ID], */
+        /* так как на большом объеме озера данных будут наблюдаться задржки обработки данных */ 
+        $FoundAppDataObj := $lookup(ApplicationDataObjects, $Id);
+      
+        /* Получение из констант строку-описания карточки объкта приложения/сервиса - "/entities/ApplicationDataObjects/blank?id="  */
+        /* Необходимо для упрощения поддержки изменений */
+        $AppDataObjCard := Constants.AppDataObjCard.Default;
+      
+        [$FoundAppDataObj.attributes.(
+          {
+            "Id": $Id,
+            "Name": name,
+            "Description": description,
+            "Type": $map($split(type, ","), $GetTypeDescription)~>$join(","),
+            "Link": $contains(type, "ApplicationDataObject") ? $AppDataObjCard & type : ""
+          }
+        )^(Name)]
+      
+      )
+  
+
+  ApplicationDataObjects.doc.IncomingAndOutgoingConnections:
+    type: table
+    headers:
+      - value: AppObj_Title
+        text: Объект приложения/сервиса
+        sortable: true
+        link: AppObj_Link
+      - value: AppObj_Description
+        text: "Описание"
+      - value: AppObj_Type
+        text: "Тип/класс"
+      - value: Direction
+        text: Вид связи
+    source: >
+      (
+      
+        $Id := $params.id /*"Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron"*/;
+      
+        /* Озеро данных текущего проекта (совокуптность данных из yaml файлов каталогов Datalake, Metamodel) */
+        $Datalake := $;
+      
+        /* Алиас (имя) создаваемого объекта приложений на итоговой диаграмме */
+        $Id_Allias := $replace($Id, ".", "_");
+      
+        /* Удаление простых типов из массива составного типа данных, т.к. простые типы не могут являться объектами связи */
+        $RemoveSimpleTypes := function($types) {(
+            $filter($split($types, ","), function($v) {$contains($v, "ApplicationDataObject")})
+        )};
+      
+        $GetDescriptionOfApplicationObject := function($AppId, $Datalake, $Direction) {(
+      
+            $FoundAppDataObj := $lookup($Datalake.ApplicationDataObjects, $AppId);
+      
+            {
+                "AppObj_Id": $AppId,
+                "AppObj_Title": $FoundAppDataObj.title,
+                "AppObj_Type": $FoundAppDataObj.type,
+                "AppObj_Description": $FoundAppDataObj.description,
+                "AppObj_Link": "/entities/ApplicationDataObjects/blank?id=" & $AppId,
+                "Direction": $Direction
+            }[$type(AppObj_Title)="string"]
+      
+        )};
+      
+        /* Связи с объектами приложений, в атрибутах которых есть ссылка на объект анализа. Ссылка в данном случае - */
+        /* в свойстве type атрибута есть DDD с ID объекта анализа */
+        $OutgoingConnections := $Datalake.ApplicationDataObjects.$spread().(
+      
+            $ApplicationObject_Id := $keys()[0];
+      
+            *.attributes.{
+                "ApplicationObject_Id": $ApplicationObject_Id,
+                "Attribute_Type": type
+            }[ (ApplicationObject_Id = $Id)  /* Сам объект анализа */
+                or $contains(Attribute_Type, $Id) /* Объект анализа указан как тип в атрибутах других объектов приложений */
+                or (ApplicationObject_Id = $Id and $contains(Attribute_Type, "ApplicationDataObject"))  /* Атрибуты объекта анализа составного типа (не простого) */
+            ]
+      
+        );
+      
+        /* Объекты приложений, которые указаны как типы данных в атрибутах объекта анализа (в свойстве type атрибута есть DDD */ 
+        /* с ID объекта приложений) */
+        $IncomingConnections := $distinct($OutgoingConnections[ApplicationObject_Id=$Id and $contains(Attribute_Type, "ApplicationDataObject")].(
+      
+            /* Удаление простых типов из массива составного типа данных, т.к. простые типы не могут являться объектами связи */
+            $Types := $RemoveSimpleTypes(Attribute_Type);
+      
+            /* Формирование объекта на основании массива составных типов */
+            $Types := $map([$Types], function($v) {{"ApplicationObject_Id": $v}});
+      
+            /* Перечень видов объектов приложений */
+            $Types.({"ApplicationObject_Id": ApplicationObject_Id})
+      
+        ));
+      
+        $IncomingConnections := $IncomingConnections.(
+             $GetDescriptionOfApplicationObject(ApplicationObject_Id, $Datalake, "Входящая")
+        );
+      
+        $OutgoingConnections := $OutgoingConnections.(
+             $GetDescriptionOfApplicationObject(ApplicationObject_Id, $Datalake, "Исходящая")
+        )[AppObj_Id!=$Id];
+      
+        /* Используемые для построения объекты приложений. */
+        $distinct($append($IncomingConnections, $OutgoingConnections));
+      
+      )

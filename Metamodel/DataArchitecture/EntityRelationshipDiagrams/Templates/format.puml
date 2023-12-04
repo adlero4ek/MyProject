@@ -1,0 +1,133 @@
+@startuml
+
+'skinparam linetype ortho
+!pragma layout elk
+' СПРАВОЧНИК
+sprite $catalog [16x12/color] {
+zzrirSrSrSrSnRnRrSrSrSnRnRrSrSrSrRvizz
+zzj>evn=j;j<aeevn=j;j<aeevn=j;j<eunRzz
+zzafitzbvHv&aLitzbvHv&aLitzbvHv&aLj>zz
+zzafebv&v&qqaMebv&v&r*aMebv&v&r*aMj>zz
+zziweuj<j<iuaeeej<j<iuaeeej<j<iuaen?zz
+zzewewrSrSrSafewrSrSrSafewrSrSrSevn?zz
+zzafj>zzzzzzafj>zzzzzzafj>zzzzzzafj>zz
+zzafj>zzzzzzafj>zzzzzzafj>zzzzzzafj>zz
+zzafj>zzzzzzafj>zzzzzzafj>zzzzzzafj>zz
+zzafj>zzzzzzafj>zzzzzzafj>zzzzzzafj>zz
+zzafiwzzzzzzafiwzzzzzzafiwzzzzzzafj>zz
+zzafiwvzvzvzafiwvzvzvzafiwvzvzvzafj>zz
+zzafewvzvzvzafewvzvzvzafewvzvzvzafj>zz
+zzafewrjrjrjafewrjrjrjafewrjrjrjafj>zz
+zzj>afevevevWOaeevevevWOaeevevevafn?zz
+zzrin?n>n>n>n>n>n>n>n>n>n>n>n>n>nRvizz
+}
+
+' ДОКУМЕНТ
+sprite $document [16x12/color] {
+zzrSn?j?j?j?j?j?j?j?j?j?j?j?j?j?j>rSzz
+zzn?j?nRnRnRnRnRnRnRnRnRnRnRnRnRefn?zz
+zzj?nRzzzzzzzzzzvivivivivivivjzzafj>zz
+zzj?nRzzzzzzzzvirinRnRnRnRrRvizzafj>zz
+zzj?nRzzzzzzzzzzzzzzzzzzzzzzzzzzafj>zz
+zzj?nRzzzzzzzzvzvirSrSrSrSrivizzafj>zz
+zzj?nRzzzzzzzzvzviririririvivizzafj>zz
+zzj?nRzzzzzzzzzzzzzzzzzzzzzzzzzzafj>zz
+zzj?nRzzvzvjvjvjvjvjvzvjvjvzvzzzafj>zz
+zzj?nRvjrSnRnRnRnRnRnRnRnRnRrivzafj>zz
+zzj?n?vjviriririririririririvivzafj>zz
+zzj?n?vjrirSrSrSrSrSrSrSrSrSrivzafj>zz
+zzj?j?rinSnRnRnRnRnRnRnRnRnRrSvjafj>zz
+zzj?j?ririririririririririririvjafj>zz
+zzj?j?rinRj?j?j?j?j?j?j?j?j?nRviafj>zz
+zzj?n?vjriririririririririririvzafj>zz
+zzewavj>j>j>j>j>j>j>j>j>j>j>j>j>WOj>zz
+zzj>afafafafafafafafafafafafafafafnRzz
+}
+
+' РЕСУРС
+sprite $r [16x16/color] {
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzjaXHTGT%zzzzzzzzzz
+zzzzzzzzzzzzjbbHTHT%T#zzzzzzzzzz
+zzzzzzzzzznbbHXHX%T#Olzzzzzzzzzz
+zzzzzzzzzznYnYnYT#SlOlzzzzzzzzzz
+zzzzzzzzzznYnYjYT#OlKVzzzzzzzzzz
+zzzzzzzzzznYjYbHOlKVK~zzzzzzzzzz
+zzzzzzzzzzjYbHXHOlKVG_zzzzzzzzzz
+zzzzzzzzzzbHXHP$KVG_@!zzzzzzzzzz
+zzzzzzzzzzXHP$H#K~G!aszzzzzzzzzz
+zzzzzzzzzzP$H#^#G_aszzzzzzzzzzzz
+zzzzzzzzzzH#^#^#b:zzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+}
+
+' ИЗМЕРЕНИЕ
+sprite $d [16x16/color] {
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaOzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzn>;&n>zzzzzzzzzzzzzzzzzzzzzz
+zzzzJb;&Jbzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaNzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaNzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaNzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaNzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaNzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzaNzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzuMt$uMzzzzzzzzzzzzJbn>zzzzzz
+zzzzt$smt$aNaNaNaNaNaN;&;&aOzzzz
+zzzzuMt%uMzzzzzzzzzzzzJbn>zzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+}
+
+' АТРИБУТ
+sprite $attribute <svg viewBox="0 0 16 16">
+<g><path style="opacity:1" fill="#7e9fb8" d="M 2.5,5.5 C 5.83333,5.5 9.16667,5.5 12.5,5.5C 12.5,6.83333 12.5,8.16667 12.5,9.5C 9.16667,9.5 5.83333,9.5 2.5,9.5C 2.5,8.16667 2.5,6.83333 2.5,5.5 Z"/></g>
+</svg>
+
+sprite $inforg [16x12/color] {
+zzvinRj?j?j?j?j?j?j?j?j?j?j?j?j?nRvizz
+zznRj>j=f=euevj>j=f=euevj>j=f=euaenRzz
+zzj?j=nejNb-f<nPnOjNb-f<nPnejNb-WMj>zz
+zzj?f<jNf-WpWdeujNf-WpWdeujNf-WpSMj>zz
+zzj?WsWpWpWpSLSbWpWpWpSLSbWpWpWpSMj>zz
+zzj?avatWdSLS:S:SLSLSLS:S:SMadauWNj>zz
+zzj?j>nRn?iwWNaOiwiwiwWNaOj>n?nRWOj>zz
+zzj?j?vjzzzzaeiwzzzzzzaeiwzzzzviafj>zz
+zzj?j?vivjviaeevviviviaeevvivjriaej>zz
+zzj?ewiwafWNS;S;S;S;S;S;S;WOefewWOj>zz
+zzj?j?nSrSnRWOadf<f;asSMafrRrSnRWej>zz
+zzj?j?rizzzzaeWcf:b-b+SMiwzzzzriaej>zz
+zzj?j>nRrSrRWOSLSaSaSaS:afrRrSnRWej>zz
+zzj?ewewafWNS;S;S;S;S;S;S;WOefewWOj>zz
+zzj?j?rivivievj>vivivievj>vivirSaej>zz
+zzj?j?riririj>n?riririj>n?riririaej>zz
+zzn?ewewewewafafewewewafafewewewafn?zz
+zzrSj>afafafafafafafafafafafafafj>vizz
+}
+
+
+{{#.}}
+title {{{Title}}}
+
+{{#ApplicationDataObjects}}
+    entity "[[/entities/erdiagram/format?id={{AppObj_Id}} {{AppObj_Title}}]]" as {{AppObj_Allias}} <<{{AppObj_Sprite}}>>
+    {
+            {{#Attributes}}
+                 <{{Attribute_Sprite}}> {{Attribute_Name}}
+            {{/Attributes}}
+    }
+{{/ApplicationDataObjects}}
+
+{{#Links}}
+    {{ApplicationSource}}::{{ApplicationSource_Attribute_Link}} {{{Link}}} {{ApplicationRecipient}}::{{ApplicationRecipient_Attribute_Link}}
+{{/Links}}
+
+{{/.}}
+
+
+@enduml

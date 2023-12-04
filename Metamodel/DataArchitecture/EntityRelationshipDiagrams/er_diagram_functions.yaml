@@ -1,0 +1,153 @@
+functions:
+
+  # Пример вызова
+  # $eval($FUNCTIONS.get_er_diagram_dataset,{"app_data_id": "Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron", })
+  get_er_diagram_dataset: >
+    (
+      $Id := $.AppDataId; /* "Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron"; */
+     
+      /* Озеро данных текущего проекта (совокуптность данных из yaml файлов каталогов Datalake, Metamodel) */
+      $Datalake := $.Datalake; /* $; */
+    
+      /* Алиас (имя) создаваемого объекта приложений на итоговой диаграмме */
+      $Id_Allias := $replace($Id, ".", "_");
+
+      /* Определение пиктограммы (спрайта) отображения элементов схемы в привычном для 1С разрабочиков виде */
+      $GetSprite := function($Id) {(
+
+          $contains($Id, ".Spravochnik.") ? "$catalog" : 
+              $contains($Id, ".Dokument.") ? "$document" : 
+                  $contains($Id, ".RegistrSvedeniy.") ? "$inforg" : 
+                      $contains($Id, "Реквизит") ? "$attribute" : 
+                          $contains($Id, "Измерение") ? "$d" : 
+                              $contains($Id, "Ресурс") ? "$r" : ""
+
+      )};
+
+      /* Удаление простых типов из массива составного типа данных, т.к. простые типы не могут являться объектами связи */
+      $RemoveSimpleTypes := function($types) {(
+          $filter($split($types, ","), function($v) {$contains($v, "ApplicationDataObject")})
+      )};
+
+      /* Универсальное формирование описание объектов приложения для формирования диаграммы */
+      /* Атрибуты сортируются по классу+имени, чтобы не схеме не было бардака (пересортицы) при отрисовке пиктограмм */
+      $GetDescriptionOfApplicationObject := function($AppId, $Datalake) {(
+
+          $FoundAppDataObj := $lookup($Datalake.ApplicationDataObjects, $AppId);
+
+          {
+              "AppObj_Id": $AppId, /* Объект приложений */
+              "AppObj_Allias": $replace($AppId, ".", "_"), /* Алиас используемый в диаграмме для указания связей */
+              "AppObj_Title": $FoundAppDataObj.title, /* Представление объекта приложений */
+              "AppObj_Sprite": $GetSprite($AppId), /* Используемый в заголовке элемента диаграммы спрайт */
+              "Attributes":$FoundAppDataObj.attributes.(
+                  {
+                      "Attribute_Name": name, /* имя атрибута, отображаемое на диаграмме */
+                      "Attribute_Type": type, /* тип атрибута для расчета зависимостей */
+                      "Attribute_Class": class, /* класс атрибута, необходим для сортировки и определения спрайта */
+                      "Attribute_Sprite": $GetSprite(class) /* спрайт атрибуа , отображаемый на диаграмме */
+                  })^(Attribute_Class, Attribute_Name) 
+          }[$type(AppObj_Title)="string"]
+      )};
+        
+      /* Объекты приложений, в атрибутах которых есть ссылка на объект анализа. Ссылка в данном случае - 
+      /* в свойстве type атрибута есть DDD с ID объекта анализа */
+
+      $OutgoingConnections := $Datalake.ApplicationDataObjects.$spread().(
+
+          $ApplicationObject_Id := $keys()[0];
+
+          *.attributes.{
+              "ApplicationObject_Id": $ApplicationObject_Id,
+              "Attribute_Type": type
+          }[ (ApplicationObject_Id = $Id)  /* Сам объект анализа */
+              or $contains(Attribute_Type, $Id) /* Объект анализа указан как тип в атрибутах других объектов приложений */
+              or (ApplicationObject_Id = $Id and $contains(Attribute_Type, "ApplicationDataObject"))  /* Атрибуты объекта анализа составного типа (не простого) */
+           ]
+
+      );
+
+      /* Объекты приложений, которые указаны как типы данных в атрибутах объекта анализа (в свойстве type атрибута есть DDD */ 
+      /* с ID объекта приложений) */
+
+      $IncomingConnections := $distinct($OutgoingConnections[ApplicationObject_Id=$Id and $contains(Attribute_Type, "ApplicationDataObject")].(
+
+          /* Удаление простых типов из массива составного типа данных, т.к. простые типы не могут являться объектами связи */
+          $Types := $RemoveSimpleTypes(Attribute_Type);
+
+          /* Формирование объекта на основании массива составных типов */
+          $Types := $map([$Types], function($v) {{"ApplicationObject_Id": $v}});
+
+          /* Перечень видов объектов приложений */
+          $Types.({"ApplicationObject_Id": ApplicationObject_Id})
+
+      ));
+
+      /* Оставляем только описание объектов приложение без дополнительного поля Attribute_Type */
+      $OutgoingConnections := $distinct($OutgoingConnections.({"ApplicationObject_Id": ApplicationObject_Id}))[ApplicationObject_Id!=$Id];
+
+      /* Используемые для построения объекты приложений. */
+      $UsedTypesApplicationObjects := $append($IncomingConnections, $OutgoingConnections);
+
+      /* Описание объекта анализа, переданного как ID с перечнем его атрибутов */
+      $ApplicationDataObjects := $GetDescriptionOfApplicationObject($Id, $Datalake);
+      
+      /* Заголовок диаграммы */  
+      $Title := $ApplicationDataObjects.AppObj_Title;
+
+      /* Объекты приложений, в атрибутах которых есть ссылка на объект анализа. Ссылка в данном случае*/
+      /* в свойстве type атрибута есть DDD с ID объекта анализа */
+      $OutgoingConnections := $OutgoingConnections.(
+         $GetDescriptionOfApplicationObject(ApplicationObject_Id, $Datalake); 
+      );
+
+      /* Объекты приложений, которые указаны как типы данных в атрибутах объекта анализа (в свойстве type атрибута есть DDD */ 
+      /* с ID объекта приложений) */
+      $IncomingConnections := $IncomingConnections.(
+         $GetDescriptionOfApplicationObject(ApplicationObject_Id, $Datalake); 
+      );
+
+      /* Связи с объектами приложений, в атрибутах которых есть ссылка на объект анализа. Ссылка в данном случае - */
+      /* в свойстве type атрибута есть DDD с ID объекта анализа */
+      $OutgoingLinks := $OutgoingConnections.(
+
+          $ApplicationRecipient := AppObj_Allias;
+
+          Attributes[$contains(Attribute_Type, $Id)].{
+              "ApplicationSource": $Id_Allias,
+              "ApplicationSource_Attribute_Link": "Ссылка",
+              "Link": "-->",
+              "ApplicationRecipient": $ApplicationRecipient,
+              "ApplicationRecipient_Attribute_Link": Attribute_Name
+          }
+      ) ;
+
+      /* Объекты приложений, которые указаны как типы данных в атрибутах объекта анализа (в свойстве type атрибута есть DDD */ 
+      /* с ID объекта приложений) */
+      $IncomingLinks := $IncomingConnections.(
+
+          $AppObj_Id := AppObj_Id;
+          $AppObj_Allias := AppObj_Allias;
+
+          $ApplicationDataObjects.Attributes[$contains(Attribute_Type, $AppObj_Id)].
+          {
+              "ApplicationSource": $AppObj_Allias,
+              "ApplicationSource_Attribute_Link": "Ссылка",
+              "Link": "-->",
+              "ApplicationRecipient": $Id_Allias,
+              "ApplicationRecipient_Attribute_Link": Attribute_Name
+          } 
+      );
+
+      $ApplicationDataObjects := $append($ApplicationDataObjects, $IncomingConnections);
+      $ApplicationDataObjects := $append($ApplicationDataObjects, $OutgoingConnections);
+
+      $Links := $append($IncomingLinks, $OutgoingLinks);
+
+      {
+          "Title": $Title,
+          "ApplicationDataObjects": $ApplicationDataObjects,
+          "Links": $Links
+      }
+    
+    )

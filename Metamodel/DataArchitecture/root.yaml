@@ -2,4 +2,4 @@ imports:
   - application_data_objects_model.yaml
   - datasets.yaml
   - docs.yaml
-  - ERDiagram/root.yaml
+  - EntityRelationshipDiagrams/root.yaml

@@ -1,0 +1,23 @@
+@startuml
+
+'skinparam linetype ortho
+
+{{#.}}
+title {{{Title}}}
+
+{{#ApplicationDataObjects}}
+    entity "[[/entities/erdiagram/blank?id={{AppObj_Id}} {{AppObj_Title}}]]" as {{AppObj_Allias}}
+    {
+            {{#Attributes}}
+                {{Attribute_Name}}
+            {{/Attributes}}
+    }
+{{/ApplicationDataObjects}}
+
+{{#Links}}
+    {{ApplicationSource}}::{{ApplicationSource_Attribute_Link}} {{{Link}}} {{ApplicationRecipient}}::{{ApplicationRecipient_Attribute_Link}}
+{{/Links}}
+
+{{/.}}
+
+@enduml
