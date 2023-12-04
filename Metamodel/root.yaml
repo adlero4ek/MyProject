@@ -2,12 +2,6 @@ imports:
   - BusinessArchitecture/root.yaml
   - ApplicationArchitecture/root.yaml
   - DataArchitecture/root.yaml
-  - Dochub/root.yaml
-  - Dochub_menu/root.yaml
   - TechnologyArchitecture/root.yaml
-  - Constants/root.yaml
-  - Basic/root.yaml
-  - Documentation/root.yaml
   - GoalsAndStrategy/root.yaml
-  - Dictionaries/root.yaml
-  - ArchitectureDecisionLog/root.yaml
+  - Extensions/root.yaml

@@ -1,0 +1,8 @@
+imports:
+  - ArchitectureDecisionLog/root.yaml
+  - Basic/root.yaml
+  - Constants/root.yaml
+  - Dictionaries/root.yaml
+  - Dochub/root.yaml
+  - Dochub_menu/root.yaml
+  - Documentation/root.yaml
