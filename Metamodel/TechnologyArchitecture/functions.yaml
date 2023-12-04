@@ -1,0 +1,107 @@
+functions:
+
+  get_hardware_resources: >
+    (
+      
+      $DataLake := $;
+      $DataLake.components.$spread().(
+  
+          $Node_id    := $keys()[0];
+          $Node_link  := "/architect/components/" & $Node_id;
+          $Node_title := *.title;
+          $c_type     := *.extension.type;
+  
+          $DomainName   := $split($Node_id, ".", 4)~> $join('.');
+          $Cluster      := $split($Node_id, ".", 3)~> $join('.');
+          $organization := $split($Node_id, ".", 2)~> $join('.');
+  
+          $component := $;
+          $component_id := $keys()[0];
+  
+          $component.*.parameters.(
+  
+              $server := $;
+              $servers := $lookup($DataLake.components, $server);
+              $servers := $merge([$servers, {"id": $server}]);
+              $component := $lookup($DataLake.components, $component_id);
+  
+              {
+                  "Organization_id": $organization,    
+                  "Cluster_id": $Cluster,
+                  "Domain_id": $DomainName,
+                  "c_type": $c_type,
+                  "node_id": $Node_id,
+                  "node_link": $Node_link,
+                  "node_title": $Node_title,
+                  "server_id": $servers.id,
+                  "server_name": $servers.name,
+                  "server_role": $servers.role,
+                  "server_link": "/architect/components/" & $servers.id,
+                  "server_title": "/architect/components/" & $servers.title,
+                  "server_ip": $servers.ip,
+                  "server_cpu": $servers.cpu,
+                  "server_ram": $servers.ram,
+                  "server_storage_size_hdd_type_1": $servers.storage_size_hdd_type_1,
+                  "server_storage_size_hdd_type_2": $servers.storage_size_hdd_type_2,
+                  "server_storage_size_hdd_type_3": $servers.storage_size_hdd_type_3,
+                  "server_isVM": $servers.isVM=true ? "Да" : "Нет"
+              }
+  
+          );
+  
+      )[c_type = "Нода"];
+    )
+
+  get_installed_systems: >
+    (
+    
+      $datalake := $;
+      $datalake.components.$spread().(
+      
+        $server_id  := $keys()[0];
+        $server     := $lookup($datalake.components, $server_id);
+        
+        $node_id    := $split($server_id, ".", 5)~> $join('.');
+        $node       := $lookup($datalake.components, $node_id);
+        
+        $domain_id  := $split($server_id, ".", 4)~> $join('.');
+        $domain     := $lookup($datalake.components, $domain_id);
+        
+        $cluster_id := $split($server_id, ".", 3)~> $join('.');
+        $cluster    := $lookup($datalake.components, $cluster_id);
+        
+        *.installed_systems.(
+          {
+            "system_id": system_id,
+            
+            "server_id": $server_id,
+            "server_title": $server.name & "\n(" & $server.role & ")\nIP:" & $server.ip,
+            "server_link": "/architect/components/" & $server_id,
+    
+            "server_name": $server.name,
+            "server_role": $server.role,
+            "server_IP": $server.ip,
+    
+            "db_name": db_name,
+            "description": description,
+            
+            "cluster_title": $cluster.title,
+            "cluster_id": $cluster_id,
+            "cluster_link": $datalake.Constants.ComponentCard.Cluster & $cluster_id,
+            
+            "domain_title": $domain.title,
+            "domain_link": $datalake.Constants.ComponentCard.ClusterFunctional & $domain_id,
+            "domain_id": $domain_id,
+            
+            "node_title": $node.title,
+            "node_link": $datalake.Constants.ComponentCard.Noda & $node_id,
+            "node_id": $node_id,
+            
+            "system_title": $lookup($datalake.components, system_id).title,
+            "system_link": $datalake.Constants.ComponentCard.System & system_id
+          
+          }
+        )
+      )
+    )
+

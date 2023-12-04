@@ -7,3 +7,4 @@ imports:
   - business_objects_rules.yaml
   - business_processes_model.yaml
   - business_processes_rules.yaml
+  - business_processes_functions.yaml

@@ -1,2 +1,3 @@
 imports:
   - Monitoring/root.yaml
+  - functions.yaml

@@ -61,13 +61,17 @@ entities:
         source: >
           (
               $id := $params.id;
-              $node := $lookup($.components, $id);
               
-              $Domain_id := $split($id, ".", 4) ~> $join('.');
-              $Domain_title := $lookup($.components, $Domain_id).title;
+              /* Технологическая Нода */
+              $Node := $lookup(components, $id);
           
+              /* Функциональный контур */
+              $Domain_id := $split($id, ".", 4) ~> $join('.');
+              $Domain_title := $lookup(components, $Domain_id).title;
+          
+              /* Среда развертывания */
               $Cluster_id := $split($id, ".", 3) ~> $join('.');              
-              $Cluster_title := $lookup($.components, $Cluster_id).title;
+              $Cluster_title := $lookup(components, $Cluster_id).title;
           
               {
                 "Cluster_id": $Cluster_id,
@@ -76,22 +80,24 @@ entities:
                 "domain_title": $Domain_title,
                 "node_id": $id,
                 "node_link": "/architect/components/" & $id,
-                "node_title": $node.title,
-                "node_description": $node.description
+                "node_title": $Node.title,
+                "node_description": $Node.description
               }
           )
       extended_card_cluster:
-        title: Расширенная карточка кластера
+        title: Расширенная карточка кластера (среды развертывания)
         type: markdown
         template: extended_card_cluster.md
         source: >
           (
           
              $id := $params.id;
-             $Cluster := $lookup($.components, $id);
-    
+             
+             /* Среда развертывания */
+             $Cluster := $lookup(components, $id);
+                 
              {
-               "Contur_id": $split($id, ".", 2)~> $join('.'),                
+               "Contur_id": $split($id, ".", 2) ~> $join('.'),                
                "Cluster_id": $id,
                "Cluster_link": "/architect/components/" & $id,
                "Cluster_title": $Cluster.title,
@@ -107,9 +113,13 @@ entities:
           (
           
               $id := $params.id;
-              $Domain := $lookup($.components, $id);
+          
+              /* Функциональный контур */
+              $Domain := $lookup(components, $id);
+          
+              /* Среда развертывания */              
               $Cluster_id := $split($id, ".", 3)~> $join('.');              
-              $Cluster_title := $lookup($.components, $Cluster_id).title;
+              $Cluster_title := $lookup(components, $Cluster_id).title;
 
               {
                 "Cluster_id": $Cluster_id,                

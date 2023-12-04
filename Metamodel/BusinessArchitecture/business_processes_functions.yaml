@@ -1,0 +1,34 @@
+functions:
+
+  get_sequence_diagrams_list: >
+    (
+      $DataLake := $;
+      $SequenceDiagrams := $DataLake.SequenceDiagrams;
+    
+      $SequenceDiagrams.$spread().(
+    
+        $Diagram_Id := $keys()[0];
+        $Diagram    := $lookup($SequenceDiagrams, $Diagram_Id);
+        $System     := $lookup($DataLake.components, $Diagram.system);
+        $Subsystem  := $lookup($DataLake.components, $Diagram.sybsytem);
+    
+        {
+    
+          "Diagram_id": $Diagram_Id,
+          "Diagram_title": $Diagram.title,
+          "Diagram_link": "/entities/SequenceDiagrams/blank?id=" & $Diagram_Id,
+          "Diagram_isgroup": $Diagram.isgroup,
+          "Diagram_code": $Diagram.code,
+          "Diagram_description": $Diagram.description,
+          "System_id": $Diagram.system,
+          "System_link": "/entities/extended_application_card/blank?id=" & $Diagram.system,
+          "System_Title": $System.title,
+          "SybSystem_id": $Diagram.sybsytem,
+          "SybSystem_link": "/entities/extended_application_card/blank?id=" & $Diagram.sybsytem,
+          "SybSystem_Title": $Subsystem.title,
+          "Diagram_input": $Diagram.input,
+          "Diagram_output": $Diagram.output     
+        }
+    
+      )[Diagram_isgroup=false]^(Diagram_code)
+    )

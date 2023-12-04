@@ -4,23 +4,29 @@ datasets:
     source: >
       (
 
-        $manifest := $;
+        $Datalake := $;
+        $ComponentCardSystem  := Constants.ComponentCard.System;
+        $ComponentCardDefault := Constants.ComponentCard.Default;
   
         $distinct(components.$spread().(
       
           $component_id := $keys()[0];
+          
+          /*Организация-владелец*/
           $organization_id := $split($component_id, ".", 1) ~> $join('.');
+      
+          /* Функцональный контура приложений/сервисов */
           $functional_area_id := $split($component_id, ".", 3) ~> $join('.');
       
-          $.*.{
-            "id":                      "/architect/components/" & $component_id,
-            "extended_component_card": "/entities/extended_application_card/blank?id=" & $component_id,
+          *.{
+            "id":                      $ComponentCardDefault & $component_id,
+            "extended_component_card": $ComponentCardSystem & $component_id,
             "title":                   title,
             "entity":                  entity,
             "description":             description,
             "type":                    extension.type,
             "area":                    $functional_area_id ? $lookup($manifest.components, $functional_area_id).title : $functional_area_id,
-            "area_id":                 $functional_area_id ? "/architect/components/" & $functional_area_id: "",
+            "area_id":                 $functional_area_id ? $ComponentCardDefault & $functional_area_id: "",
             "state":                   extension.state,
             "state_update_date":       extension.state_update_date,
             "development_platform":    extension.development_platform,
@@ -30,16 +36,16 @@ datasets:
             "basic_solution_summary":  (extension.basic_solution & ", статус: " & extension.basic_solution_state),
             "provider":                extension.provider,
             "provider_type":           extension.provider_type,
-            "organization_title":      $organization_id ? $lookup($manifest.components, $organization_id).title : $organization_id,
-            "organization_link":       $organization_id ? "/architect/components/" & $organization_id: ""
+            "organization_title":      $organization_id ? $lookup($Datalake.components, $organization_id).title : $organization_id,
+            "organization_link":       $organization_id ? $ComponentCardDefault & $organization_id: ""
           };
       
         ))[type="system" or type="external system"]^(organization_title)
       
       )
 
-  
-
+      
+      
 
   # Опциональная документация по системе или её компонентам, документация не выводится в меню, он прикрепляется к карточке системы
   Application.dataset.ApplicationDocs:

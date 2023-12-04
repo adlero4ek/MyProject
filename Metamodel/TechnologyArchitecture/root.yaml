@@ -3,3 +3,4 @@ imports:
   - rules.yaml
   - datasets.yaml
   - doc.yaml
+  - functions.yaml

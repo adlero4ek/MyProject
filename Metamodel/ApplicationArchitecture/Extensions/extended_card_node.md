@@ -6,7 +6,7 @@
 - **ID**: [{{node_id}}]({{node_link}})
 - **Описание**: {{node_description}}
 
-#### Ключевые сотрудники, контакты
+#### Ключевые сотрудники, контакты:
 
 ![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{node_id}})
 

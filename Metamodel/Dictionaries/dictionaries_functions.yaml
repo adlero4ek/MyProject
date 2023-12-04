@@ -1,0 +1,46 @@
+functions:
+  # Пример вызова
+  # $eval($FUNCTIONS.get_account,{"username": "v.lebedev", "accounts": $DICTIONARIES."accounts".parameters})
+  get_account: >
+    (
+      $username := $.username;
+      $accounts := $.accounts;
+      $acc_link := "https://team.romashkagroup.ru/profile/" & $username;
+      $type($username)="string"
+      ?   (
+          $full_account := $accounts[name=$username];
+          $count($full_account) = 1
+          ?   (
+              $type($full_account.title)="string"
+              ?
+              $merge([$full_account, {"error" : false, "acc_link": $acc_link}])
+              :
+              {
+                  "name": $username,
+                  "title": $username,
+                  "bu": "Наименование БЮ неопределенно",
+                  "error" : true
+              };
+              )
+          : $count($full_account) > 1
+            ?
+              $full_account.(
+                $type($.bu) = "string"
+                ? $merge([$, {"error" : false, "acc_link": $acc_link}])
+              )
+            :
+              {
+                "name": "Аккаунт не указан",
+                "title": "Аккаунта " & $username & " нет в справочнике",
+                "bu": "Наименование организации неопределенно",
+                "error" : true
+              };
+          )
+      :
+          {
+              "name": "Аккаунт не указан",
+              "title": "Аккаунт не указан",
+              "bu": "Наименование БЮ неопределенно",
+              "error" : true
+          };
+    )
