@@ -1,0 +1,4 @@
+imports:
+  - indicators.yaml
+  - indicator_values.yaml
+  - ratings.yaml

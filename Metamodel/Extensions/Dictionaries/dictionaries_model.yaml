@@ -2,3 +2,8 @@ dictionaries:
 
   settings:
     title: Настройки
+
+  applications_health:
+    title: Показатели здоровья приложений/сервисов
+    order: 8300
+    description:

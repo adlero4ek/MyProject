@@ -1,0 +1,27 @@
+dictionaries:
+
+  applications_health.ratings:
+    title: Общий рейтинг системы
+    order: 8330
+    description: Общий рейтинг, демонстрирует комплексный показатель системы
+    parameters:
+      - name: A
+        threshold: 0.94
+        color: "#C5E1A5"
+        title: Отлично
+      - name: B
+        threshold: 0.85
+        color: "#FFF59D"
+        title: Хорошо
+      - name: C
+        threshold: 0.70
+        color: "#FFE082"
+        title: Удовлетворительно
+      - name: D
+        threshold: 0.5
+        color: "#FFCC80"
+        title: Неудовлетворительно
+      - name: E
+        threshold: 0
+        color: "#EF9A9A"
+        title: Неприемлемо

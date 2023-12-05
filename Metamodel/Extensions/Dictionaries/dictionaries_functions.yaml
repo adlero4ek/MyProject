@@ -1,6 +1,8 @@
 functions:
+
   # Пример вызова
-  # $eval($FUNCTIONS.get_account,{"username": "v.lebedev", "accounts": $DICTIONARIES."accounts".parameters})
+  # $eval($.get_account,{"username": "v.lebedev", "accounts": dictionaries."accounts".parameters})
+
   get_account: >
     (
       $username := $.username;
@@ -43,4 +45,98 @@ functions:
               "bu": "Наименование БЮ неопределенно",
               "error" : true
           };
+    )
+
+  get_application_indicators: >
+    (
+    
+      $AppId    := $.AppId;    /* "Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO"; */
+      $Datalake := $.Datalake; /* $; */
+    
+      $Application := $lookup($Datalake.components, $AppId);
+      $Indicators  := $Datalake.dictionaries."applications_health.indicators".parameters;
+    
+      $Indicators.(
+    
+        $Indicator        := $;
+        $AppIndicator     := $Application.indicators[id = $Indicator.name];
+        $IndicatorIdFound := $type($AppIndicator)="object";
+    
+        $IndicatorIdFound ?
+        {
+          "id": $Indicator.name,
+          "fit": $AppIndicator.fit,
+          "comment": $AppIndicator.comment,
+          "date": $AppIndicator.date
+        } :
+        {
+          "id": $Indicator.name,
+          "fit": "none",
+          "comment": "Результат проверки не найден",
+          "date": null
+        }
+      )
+  
+    )
+
+
+  # Расчет общего рейтинга системы на основании оценок индикаторов здоровья
+  get_indicators_total_rating: >
+    (
+
+      $AppIndicators := $.AppIndicators;    /* "Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO"; */
+      $Datalake      := $.Datalake; /* $; */
+    
+      /* Классификатор индикаторов */
+      $DictionaryIndicators := $Datalake.dictionaries."applications_health.indicators".parameters;
+      $MaxIndicatorWeight   := $max($DictionaryIndicators.weight);
+  
+      /* Варианты значений индикаторов */
+      $DictionaryIndicatorValues := $Datalake.dictionaries."applications_health.indicator_values".parameters;
+      $MinIndicatorValue := $sort($DictionaryIndicatorValues, function ($l, $r) { $l.rate > $r.rate })[0].name;
+  
+      /* Классификатор рейтинга приложений и сервисов */
+      $DictionaryRatings := $Datalake.dictionaries."applications_health.ratings".parameters;
+  
+      /* Нормализация индикаторов здоровья */
+      $NormalizedAppIndicators := $map($AppIndicators,
+          function($indicator, $k) {
+              {
+                  "id": $indicator.id,
+                  "fit": 1 - (1 - $DictionaryIndicatorValues[name=$indicator.fit].rate) * $DictionaryIndicators[name=$indicator.id].weight / $MaxIndicatorWeight
+              }});
+  
+      $AppAverageFit := $count(
+          $filter($AppIndicators, 
+            function ($indicator) { $indicator.fit = $MinIndicatorValue and $DictionaryIndicators[name=$indicator.id].is_critical }
+          ));
+      
+      $AppAverageFit := $AppAverageFit > 0 ? 0 : $average($NormalizedAppIndicators.fit);
+  
+      $Rate := $reduce(
+                $sort($DictionaryRatings, function ($a, $b) {$a.threshold > $b.threshold}), 
+                function ($rating, $value) {
+                    $rating := $AppAverageFit >= $value.threshold ? $value.name : $rating
+                },
+                null
+            );
+  
+      $DictionaryRatings[name=$Rate];
+
+    )
+
+
+  # Получение общего рейтинга системы
+  get_application_total_rating: >
+    (
+      $AppId     := $.AppId;
+      $Datalake  := $.Datalake;
+    
+      $IsSystem  := $lookup($Datalake.components, $AppId).extension.type = "system";
+
+      $IsSystem != true ? "1" :
+            (
+                $AppIndicators := $eval($Datalake.functions.get_application_indicators, {"AppId": $AppId, "Datalake": $Datalake});
+                $Rate := $eval($Datalake.functions.get_indicators_total_rating, {"AppIndicators": $AppIndicators, "Datalake": $Datalake});
+            );
     )

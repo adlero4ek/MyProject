@@ -2,3 +2,4 @@ imports:
   - dictionaries_model.yaml
   - dictionaries_functions.yaml
   - Settings/root.yaml
+  - ApplicationsHealth/root.yaml

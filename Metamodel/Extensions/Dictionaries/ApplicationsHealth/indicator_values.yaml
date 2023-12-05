@@ -1,0 +1,22 @@
+dictionaries:
+
+  applications_health.indicator_values:
+    title: Значения индикаторов
+    order: 8320
+    description: Оценка степени соответствия требованиям индикатора
+    parameters:
+      - name: fully
+        title: Соответствует
+        description: Система полностью соответствует критерию индикатора.
+        rate: 1
+        color: "#C5E1A5"
+      - name: partially
+        title: Частично соответствует
+        description: Система частично соответствует критерию индикатора.
+        rate: 0.5
+        color: "#FFE082"
+      - name: none
+        title: Не соответствует
+        description: Система совсем не соответствует критерию индикатора.
+        rate: 0
+        color: "#EF9A9A"

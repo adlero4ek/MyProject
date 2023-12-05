@@ -25,6 +25,27 @@ components:
       - DocumentManagement.EDO
       - DocumentManagement.EDO_VK
       - DocumentManagement.YUZEDO
+    indicators:
+      - id: indicator_arch_maturity
+        fit: none
+        comment: Полно костылей, нужно все перепроектировать
+        date: 2023-10-07
+      - id: indicator_code_control
+        fit: fully
+        comment: Автоматически сгенерированный комментарий
+        date: 2023-10-07
+      - id: indicator_vendor
+        fit: partially
+        comment: Автоматически сгенерированный комментарий
+        date: 2023-10-07
+      - id: indicator_team_capacity
+        fit: fully
+        comment: Автоматически сгенерированный комментарий
+        date: 2023-10-07
+      - id: indicator_process
+        fit: none
+        comment: Автоматически сгенерированный комментарий
+        date: 2023-10-07
 
   Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.MDM:
     title: Управление НСИ
