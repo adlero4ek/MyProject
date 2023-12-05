@@ -50,8 +50,13 @@ entities:
                   $not($isAreaBegin) and $component ? (
                       /* Открываем секцию компонента */
                       $entity := $component.entity ? $component.entity : "component";
+                      /* +++ДОБАВЛЕНИЕ: Здоровье систем*/
+                      $system_rate := $eval($manifest.functions.get_application_total_rating, {'AppId': $domain, 'Datalake': $manifest});
+                      /* +++ОРИГИНАЛ
                       $system_rate := $eval($manifest.functions.get_systems_total_rating, {'system_id': $domain,
-                        'components': $manifest.components, 'dictionaries': $manifest.dictionaries, 'functions': $manifest.functions});
+                           'components': $manifest.components, 'dictionaries': $manifest.dictionaries, 'functions': $manifest.functions});
+                      /* ---ОРИГИНАЛ
+                      /* ---ДОБАВЛЕНИЕ*/        
                       $color := $domain = $focusId ? "#FFBBCC" : ($exists($system_rate.color) ? $system_rate.color : "");
                       $result := "$Entity(\"" 
                           & $entity 

@@ -26,6 +26,27 @@ components:
       provider_type: Собственная разработка
     aspects:
       - CommonAspects.ConsolidatedStatements
+    indicators:
+      - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
+        fit: fully
+        comment:
+        date: 07.10.2023
+      - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
+        fit: fully
+        comment:
+        date: 07.10.2023
+      - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
+        fit: fully
+        comment:
+        date: 07.10.2023
+      - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
+        fit: fully
+        comment:
+        date: 07.10.2023
+      - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
+        fit: fully
+        comment:
+        date: 07.10.2023
 
   Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Conslidate_ERP.UserPermissions:
     title: Права и роли пользователей

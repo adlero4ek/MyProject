@@ -23,6 +23,28 @@ components:
       basic_solution_link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
       provider: ООО Ромашка
       provider_type: Собственная разработка
+    indicators:
+      - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
+        fit: none
+        comment: Архитектуры нет, говнокодим с колес
+        date: 07.10.2023
+      - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
+        fit: fully
+        comment: Автоматически сгенерированный комментарий
+        date: 07.10.2023
+      - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
+        fit: fully
+        comment: Автоматически сгенерированный комментарий
+        date: 07.10.2023
+      - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
+        fit: none
+        comment: Болотная лихорадка выкосила 90% команды
+        date: 07.10.2023
+      - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
+        fit: none
+        comment: Процесса нет, бегаем по кругу и кричим аааааа
+        date: 07.10.2023
+
 
   Romashka.Systems.Supporting.EK_ASUTR2_UserPermissionsAndMonitoring.UserPermissions:
     title: Права и роли пользователей
