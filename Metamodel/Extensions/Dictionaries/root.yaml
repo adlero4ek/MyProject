@@ -1,5 +1,6 @@
 imports:
   - dictionaries_model.yaml
   - dictionaries_functions.yaml
+  - dictionaries.yaml
   - Settings/root.yaml
   - ApplicationsHealth/root.yaml

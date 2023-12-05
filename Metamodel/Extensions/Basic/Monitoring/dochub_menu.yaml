@@ -2,5 +2,5 @@ dochub_menu:
 
   dochub.ControlReports:
     title: Контрольные отчеты
-    order: 10000
+    order: 7800
     visible: true

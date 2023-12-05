@@ -1,0 +1,9 @@
+dictionaries:
+
+  settings:
+    title: Настройки
+
+  applications_health:
+    title: Показатели здоровья приложений и сервисов
+    order: 8300
+    description:

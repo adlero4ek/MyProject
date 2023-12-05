@@ -25,3 +25,8 @@ dochub_menu:
     title: Архитектура данных
     order: 5000
     visible: true
+
+  dochub.dictionaries:
+    title: Справочники
+    order: 8000
+    visible: true
