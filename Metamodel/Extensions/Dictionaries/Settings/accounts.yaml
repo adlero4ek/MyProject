@@ -1,0 +1,26 @@
+dictionaries:
+
+  accounts:
+    title: Учётные записи пользователей
+    description: Справочник учётных записей пользователей
+    parameters:
+      - name: Egorov Demid Nikitich
+        title: Егоров Демид Никитич
+        email: Egorov@Romashka.ru
+        bu: Romashka
+      - name: Zvereva Ksenia Matveevna
+        title: Зверева Ксения Матвеевна
+        email: Zvereva@Romashka.ru
+        bu: Romashka
+      - name: Zakharova Vasilisa Artemovna
+        title: Захарова Василиса Артёмовна
+        email: Zakharova@Romashka.ru
+        bu: Romashka
+      - name: Solovyova Vera Georgievna
+        title: Соловьева Вера Георгиевна
+        email: Solovyova@Romashka.ru
+        bu: Romashka
+      - name: Novikova Ekaterina Maximovna
+        title: Новикова Екатерина Максимовна
+        email: Novikova@Romashka.ru
+        bu: Romashka

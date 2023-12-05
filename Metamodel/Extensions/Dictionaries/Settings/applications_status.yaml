@@ -1,0 +1,39 @@
+dictionaries:
+
+  settings.applications_status:
+    title: Статусы систем
+    order: 8130
+    description: Статус системы определяет её этап в жизненном цикле
+    parameters:
+      - name: concept
+        title: Инициатива
+        description: Этот статус появляется у системы/сервиса в момент планирования архитектуры to-be.
+        is_system_active: false
+      - name: implementation
+        title: Реализация
+        description: Этот статус появляется у системы/сервиса когда она находится либо в процессе разработки, либо в процессе внедрения для внешних систем.
+        is_system_active: true
+      - name: production
+        title: В продуктиве
+        description: Этот статус появляется у системы/сервиса когда она находится в продуктиве.
+        is_system_active: true
+      - name: trial
+        title: Опытная эксплуатация
+        description: Этот статус появляется у системы/сервиса когда она находится на этапе опытной эксплуатации.
+        is_system_active: true
+      - name: decommissioning
+        title: Вывод из эксплуатации
+        description: Этот статус появляется, когда принято решение о выводе системы/сервиса из эксплуатации.
+        is_system_active: true
+      - name: archive
+        title: Архивная
+        description: Этот статус появляется, когда принято решение оставить систему/сервис в качестве архивной (когда система работает, но доступ к ней есть только на чтение к старым данным).
+        is_system_active: true
+      - name: retirement
+        title: Выведена из эксплуатации
+        description: Этот статус появляется у системы/сервиса, когда она выведена из эксплуатации.
+        is_system_active: false
+      - name: migration
+        title: Передана другому БЮ
+        description: Этот статус появляется у системы/сервиса в момент когда она передаётся на поддержку и развитие в другой бизнес-юнит.
+        is_system_active: true

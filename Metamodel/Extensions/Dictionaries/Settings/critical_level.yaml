@@ -1,0 +1,32 @@
+dictionaries:
+
+  settings.critical_level:
+    title: Уровень критичности приложений
+    order: 8110
+    description: Справочник уровней критичности приложения/системы/сервиса с точки зрения бизнеса
+    link: https://about.gitlab.com/handbook/security/security-assurance/security-risk/storm-program/critical-systems.html
+    parameters:
+      - name: administrative
+        title: Administrative
+        description: Приложение/система/сервис является обеспечивающим
+        order: 1
+        icon: mdi-cog-outline
+        color: gray lighten-3
+      - name: business_operational
+        title: Business Operational
+        description: Приложение/система/сервис обеспечивает текущую операционную деятельность компании
+        order: 2
+        icon: mdi-handshake
+        color: green lighten-3
+      - name: business_critical
+        title: Business Critical
+        description: Приложение/система/сервис является критически важным для текущей деятельности компании
+        order: 3
+        icon: mdi-cash-multiple
+        color: orange lighten-3
+      - name: mission_critical
+        title: Mission Critical
+        description: Работоспособность приложения/сервиса влияет на само существование компании или на достижение её критических целей
+        order: 4
+        icon: mdi-bullseye-arrow
+        color: red lighten-3
