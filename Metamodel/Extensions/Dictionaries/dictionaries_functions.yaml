@@ -2,7 +2,6 @@ functions:
 
   # Пример вызова
   # $eval($.get_account,{"username": "v.lebedev", "accounts": dictionaries."accounts".parameters})
-
   get_account: >
     (
       $username := $.username;
@@ -46,7 +45,11 @@ functions:
               "error" : true
           };
     )
+    
 
+
+  # Пример вызова
+  # $eval($.functions.get_application_indicators, {"AppId": $AppId, "Datalake": $Datalake})
   get_application_indicators: >
     (
     
@@ -80,7 +83,9 @@ functions:
     )
 
 
+
   # Расчет общего рейтинга системы на основании оценок индикаторов здоровья
+  # $eval($.functions.get_indicators_total_rating, {"AppIndicators": $AppIndicators, "Datalake": $Datalake});
   get_indicators_total_rating: >
     (
 
@@ -126,7 +131,9 @@ functions:
     )
 
 
+
   # Получение общего рейтинга системы
+  # $eval($.functions.get_application_total_rating, {'AppId': AppId, 'Datalake': Datalake});
   get_application_total_rating: >
     (
       $AppId     := $.AppId;
