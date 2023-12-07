@@ -6,3 +6,4 @@ imports:
   - Dochub/root.yaml
   - Dochub_menu/root.yaml
   - Documentation/root.yaml
+  - DevTool/docs.yaml

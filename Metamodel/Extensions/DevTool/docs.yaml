@@ -1,0 +1,5 @@
+docs:
+
+  dochub.plugins:
+    location: DevTool
+    type: devtool
