@@ -5,65 +5,62 @@ datasets:
   Business.dataset.DivisionList:
     source: >
       (
-        $distinct(components.$spread().(
-        
-          $COMPONENT_ID := $keys()[0];
+        components.$spread().(
           
-          $.*.{
-            "id": $COMPONENT_ID,
-            "link_id": "/architect/components/" & $COMPONENT_ID,
+          $Component_Id := $keys()[0];
+          
+          *.{
+            "id": $Component_Id,
+            "link_id": "/architect/components/" & $Component_Id,
             "title": title,
             "entity": entity,
             "description": description,
             "type": extension.type,
             "owner": extension.owner
           };
-        
-        ))[type="division"]^(title)
       
+        )[type="division"]^(title)
+            
       )
 
   Business.dataset.ActorList:
     source: >
       (
-      
-        $distinct(components.$spread().(
+        components.$spread().(
   
-          $COMPONENT_ID := $keys()[0];
+          $Component_Id := $keys()[0];
           
-          $.*.{
-          
-            "id": $COMPONENT_ID,
-            "link":"/architect/components/" & $COMPONENT_ID,
+          *.{
+            "id": $Component_Id,
+            "link":"/architect/components/" & $Component_Id,
             "title": title,
             "entity": entity,
             "description": description
           };
           
-          ))[entity="actor"]^(title)
+        )[entity="actor"]^(title)
       )
 
   BusinessObjects.dataset.ListOfBusinessObjects:
     source: >
       (
 
-        $.BusinessObjects.$spread().(
-
-          $ENTITY_ID :=  $keys()[0];
-
-          $entities := $.*.{
-              "id": $ENTITY_ID,
-              "link_id": "/entities/BusinessObjects/blank?id=" & $ENTITY_ID,
-              "title": title,
-              "description":       description,
-              "type": type,
-              "state": state,
-              "state_update_date": state_update_date,
-              "owner": owner,
-              "division_owner": division_owner
-              
+        BusinessObjects.$spread().(
+      
+          $BusinessObject_Id := $keys()[0];
+          
+          *.{
+            "id": $BusinessObject_Id,
+            "link_id": "/entities/BusinessObjects/blank?id=" & $BusinessObject_Id,
+            "title": title,
+            "description": description,
+            "type": type,
+            "state": state,
+            "state_update_date": state_update_date,
+            "owner": owner,
+            "division_owner": division_owner
           };
-
+        
         )^(title)
 
       ) 
@@ -72,65 +69,77 @@ datasets:
     source: >
       (
       
+        $BusinessDataObject_Id := $params.id; /*"Romashka.BusinessObject.Contractor"*/
+  
         $GetTypeAsLink := function($typeid) {(
-            $lookup(BusinessObjects, $typeid).{"title": type&" <"&title&">"}.title)};
+            $lookup(BusinessObjects, $typeid).{"title": type&" <"&title&">"}.title
+        )};
   
-        $.BusinessObjects.$spread().(
-  
-            $ENTITY_ID :=  $keys()[0];
-            $.*.parameters.{
-                "id": $ENTITY_ID,
-                "name": name,
-                "description": description,
-                "type": $contains(type, "BusinessObject")? $GetTypeAsLink(type):type,
-                "link": $contains(type, "BusinessObject")? "/entities/BusinessObjects/blank?id="&type:"" 
-            } 
-        )[id=$params.id]
+        /* Поиск приложения/сервиса выполянется по ключу, чтобы не использовать BusinessObjects.$spread() + [отбор по ID], */
+        /* так как на большом объеме озера данных будут наблюдаться задржки обработки данных */
       
+        $FoundBusinessDataObj := $lookup(BusinessObjects, $BusinessDataObject_Id);
+  
+        /* Параметры как массив, т.к. при наличии одной записи таблица не формируется (особенность реализации в 2023) */
+      
+        [$FoundBusinessDataObj.parameters.{
+            "id": $BusinessObject_Id,
+            "name": name,
+            "description": description,
+            "type": $contains(type, "BusinessObject")? $GetTypeAsLink(type):type,
+            "link": $contains(type, "BusinessObject")? "/entities/BusinessObjects/blank?id="&type:"" 
+        }] 
+    
       )
       
   BusinessObjects.dataset.BusinessObjectsInSystems:
     source: >      
       (
 
-        $MANIFEST := $;
-        $distinct($MANIFEST.components.$spread().(
-
-          $SubSystem := $;
-          
-          $SubSystem_ID    := $keys()[0];
-          $System_ID       := $split($SubSystem_ID, ".", 4)~> $join('.');
-          $Organization_ID := $split($SubSystem_ID, ".", 1)~> $join('.');
-
-          $BusinessObjects := $distinct($SubSystem.*.*.BusinessObjects.(
-
-            $Object := $;
-            $Objects := $lookup($MANIFEST.BusinessObjects, $Object);
-            $Objects := $merge([$Objects, {"id": $Object}]);
-            $SubSystem := $lookup($MANIFEST.components, $SubSystem_ID);
-
-              {
-                "Organization_id": $Organization_ID,          
-                "System_id": "/architect/components/" & $System_ID,
-                "System_name": $lookup($MANIFEST.components, $System_ID).title,
-                "Subsystem_id": "/architect/components/" & $SubSystem_ID,
-                "Subsystem_name": $SubSystem.title,
-                "BusinessObject_id": $Objects.id,
-                "BusinessObject_type": $Objects.type,
-                "BusinessObject_title": $Objects.title,
-                "BusinessObject_description": $Objects.description,
-                "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $Objects.id
-              }
-
-            ));
-
-        ))^(BusinessObject_title)
+        $Datalake := $;
+  
+        /* Бизнес сущности могут указываются на уровне описания приложения/сервиса или подсистемы приложения / сервиса */
+        components.$spread().(
+        
+            $Component_Id := $keys()[0];
+      
+            /* Организация */
+            $Organization_Id := $split($Component_Id, ".", 1)~>$join('.');
+      
+            /* Приложение/сервис */
+            $System_Id := $split($Component_Id, ".", 4)~> $join('.');
+      
+            /* Подсистема приложения/сервиса */
+            $SubSystem_Id := $split($Component_Id, ".", 5)~> $join('.');
+      
+            *.extension.BusinessObjects.(
+      
+                $BusinessObject_Id := $;
+                $BusinessObject    := $lookup($Datalake.BusinessObjects, $BusinessObject_Id);
+      
+                { 
+                    "Organization_id": $Organization_Id,        
+      
+                    "System_id": "/architect/components/" & $System_Id,
+                    "System_name": $lookup($Datalake.components, $System_Id).title,
+      
+                    "Subsystem_id": "/architect/components/" & $SubSystem_Id,
+                    "Subsystem_name": $lookup($Datalake.components, $SubSystem_Id).title,
+      
+                    "BusinessObject_id": $BusinessObject_Id,
+                    "BusinessObject_type": $BusinessObject.type,
+                    "BusinessObject_title": $BusinessObject.title,
+                    "BusinessObject_description": $BusinessObject.description,
+                    "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $BusinessObject_Id 
+                }
+            )
+        )^(BusinessObject_title)
+      
       )
-
 
   # Перечень процессов
   SequenceDiagrams.dataset.SequenceDiagramsList:
     source: >
       (
         $eval($.functions.get_sequence_diagrams_list);
-      )   
+      )

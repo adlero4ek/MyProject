@@ -62,15 +62,12 @@ rules:
         (
           $validator := $jsonschema(rules.validators.BusinessObjects.schema);
 
-          $Query := $.BusinessObjects.$spread().(
-
+          $Query := BusinessObjects.$spread().(
               $ID := $keys()[0];
-
               {
-                  "id": $ID,
-                  "isvalid": $validator($.*)
+                "id": $ID,
+                "isvalid": $validator($.*)
               }
-
           )[isvalid != true];
         
           [$Query.(
@@ -83,6 +80,7 @@ rules:
               "correction": "Корректно заполните реквизит: " & $replace(instancePath, "/", "",1),
               "description": message
             }
+        
           )]
         )
     BusinessObjects_HeaderAttributes:

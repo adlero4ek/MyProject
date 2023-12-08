@@ -16,6 +16,7 @@ entities:
             $BusinessDataObject_Id := $params.id; /*"Romashka.BusinessObject.Organizations";*/
           
             $Datalake := $;
+          
             /* Количество связанных объектов приложений/сервисов */
             $CountAppDataObject := $count(ApplicationDataObjects.*.business_Objects[$=$BusinessDataObject_Id]);
             
