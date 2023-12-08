@@ -11,14 +11,6 @@ Constants:
     ApplicationSpecificationLevel: 4 # Увровень, на котором описывается приложение/сервис в строке DDD
     ApplicationSpecificationLevelInAppData: 3 # Увровень, на котором описывается приложение/сервис в строке DDD
 
-#  NumberDomainInComponens:
-#
-#      $Domain_id := $split($id, ".", 4) ~> $join('.');
-#      $Domain_title := $lookup($.components, $Domain_id).title;
-#
-#      $Cluster_id := $split($id, ".", 3) ~> $join('.');
-#      $Cluster_title := $lookup($.components, $Cluster_id).title;
-
   ComponentCard:
     Cluster:           "/entities/extended_application_card/extended_card_cluster?id="            #  Группа серверов
     ClusterFunctional: "/entities/extended_application_card/extended_card_functional_cluster?id=" #  Группа серверов функциональной области

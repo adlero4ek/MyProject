@@ -71,9 +71,6 @@ datasets:
 
       )
 
-
-
-
   # Используемые технологии при разработке приложения
   Application.dataset.Technologies:
     source: >

@@ -1,39 +1,51 @@
 datasets:
 
+  # Список объектов приложений и связанных с ними бизнес-сущностями
   ApplicationDataObjects.dataset.MainListOfApplicationDataObjects:
     source: >
       (
-        $MANIFEST := $;        
+        
+        $Datalake := $;        
+        $ComponentCardSystem  := Constants.ComponentCard.System;
 
-        $.ApplicationDataObjects.$spread().(
+        ApplicationDataObjects.$spread().(
 
-            $app_data_obj_id := $keys()[0];
-            $app_data_obj    := $lookup($MANIFEST.ApplicationDataObjects, $app_data_obj_id);
-
-            *.business_Objects.(
-
-                $array_busness_obj := $;
-                $busness_obj := $lookup($MANIFEST.BusinessObjects, $array_busness_obj);
-                $busness_obj := $merge([$busness_obj, {"id": $array_busness_obj}]);
+            $AppDataObj_Id := $keys()[0];
       
+            /* Объект приложения /сервиса */  
+            $AppDataObj := $lookup($Datalake.ApplicationDataObjects, $AppDataObj_Id);
+            
+            /* Приложение/сервис */
+            $SystemObj  := $lookup($Datalake.components, $AppDataObj.system);
+      
+            /* Связанные бизнес-сущности, указанные как массив */
+            *.business_Objects.(
+                
+                /* ID бизнес-сущности */
+                $BusinessDataObj_Id := $;
+      
+                /* Бизнес-сущность */
+                $BusinessDataObj := $lookup($Datalake.BusinessObjects, $BusinessDataObj_Id);
+
                 {
-                    "AppDataObject_id": $app_data_obj_id,
-                    "AppDataObject_link": "/entities/ApplicationDataObjects/blank?id=" & $app_data_obj_id,
-                    "AppDataObject_title": $app_data_obj.title,
-                    "AppDataObject_state": $app_data_obj.state,
-                    "AppDataObject_state_update_date": $app_data_obj.state_update_date,
-                    "AppDataObject_description": $app_data_obj.description,
-                    "System_id": $app_data_obj.system,
-                    "System_title":  $lookup($MANIFEST.components, $app_data_obj.system).title,
-                    "System_link": "/entities/extended_application_card/blank?id=" & $app_data_obj.system,
-                    "BusinessObject_id": $busness_obj.id,
-                    "BusinessObject_title": $busness_obj.title,
-                    "BusinessObject_description": $busness_obj.description,
-                    "BusinessObject_state": $busness_obj.state,
-                    "BusinessObject_state_update_date": $busness_obj.state_update_date,
-                    "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $busness_obj.id
-                }       
-            );
+                  "AppDataObject_id": $AppDataObj_Id,
+                  "AppDataObject_link": "/entities/ApplicationDataObjects/blank?id=" & $app_data_obj_id,
+                  "AppDataObject_title": $AppDataObj.title,
+                  "AppDataObject_state": $AppDataObj.state,
+                  "AppDataObject_state_update_date": $AppDataObj.state_update_date,
+                  "AppDataObject_description": $AppDataObj.description,
+                  "System_id": $AppDataObj.system,
+                  "System_title":  $SystemObj.title,
+                  "System_link": $ComponentCardSystem & $AppDataObj.system,
+                  "BusinessObject_id": $BusinessDataObj_Id,
+                  "BusinessObject_title": $BusinessDataObj.title,
+                  "BusinessObject_description": $BusinessDataObj.description,
+                  "BusinessObject_state": $BusinessDataObj.state,
+                  "BusinessObject_state_update_date": $BusinessDataObj.state_update_date,
+                  "BusinessObject_link": "/entities/BusinessObjects/blank?id=" & $BusinessDataObj_Id
+
+                }
+            )
         )^(BusinessObject_title)
       
       )
@@ -42,51 +54,28 @@ datasets:
     source: >
       (
 
-        $MANIFEST := $;        
-        $.ApplicationDataObjects.$spread().(
-
-          $ENTITY_ID :=  $keys()[0];
-
-          $entities := $.*.{
-              "id": $ENTITY_ID,
-              "link_id": "/entities/ApplicationDataObjects/blank?id=" & $ENTITY_ID,
-              "title": title,
-              "description": description,      
-              "system_id": system,
-              "system_link": "/entities/extended_application_card/blank?id=" & system,
-              "system_title": $lookup($MANIFEST.components, system).title,
-              "type": type,
-              "state": state,
-              "state_update_date": state_update_date,
-              "owner": owner,
-              "division_owner": division_owner
+        $Datalake := $;        
+        $ComponentCardSystem := Constants.ComponentCard.System;
+        
+        ApplicationDataObjects.$spread().(
+        
+          $AppDataObj_Id := $keys()[0];
+          
+          *.{
+            "id": $AppDataObj_Id,
+            "link_id": "/entities/ApplicationDataObjects/blank?id=" & $AppDataObj_Id,
+            "title": title,
+            "description": description,
+            "system_id": system,
+            "system_link": $ComponentCardSystem & system,
+            "system_title": $lookup($Datalake.components, system).title,
+            "type": type,
+            "state": state,
+            "state_update_date": state_update_date,
+            "owner": owner,
+            "division_owner": division_owner
           };
-
+        
         )^(system_title)
 
-      ) 
-
-  ApplicationDataObjects.dataset.ParametersList:
-    source: >
-      (
-        $GetTypeAsLink := function($typeid) {(
-            $lookup(ApplicationDataObjects, $typeid).title)};
-      
-        $GetTypeDescription := function($typeid) {(
-            $contains($typeid, "ApplicationDataObject") ? $lookup(ApplicationDataObjects, $typeid).title : $typeid
-        )};
-      
-        $.ApplicationDataObjects.$spread().(
-      
-            $ENTITY_ID :=  $keys()[0];
-            $.*.parameters.{
-                "id": $ENTITY_ID,
-                "name": name,
-                "description": description,
-                "type": $map($split(type, ","), $GetTypeDescription)~>$join(","),
-                "link": $contains(type, "ApplicationDataObject")? "/entities/ApplicationDataObjects/blank?id="&type:"" 
-            } 
-        )[id=$params.id]
-      
       )
-      

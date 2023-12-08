@@ -90,7 +90,6 @@ entities:
         template: extended_card_cluster.md
         source: >
           (
-          
              $id := $params.id;
              
              /* Среда развертывания */
@@ -111,7 +110,6 @@ entities:
         template: extended_card_functional_cluster.md
         source: >
           (
-          
               $id := $params.id;
           
               /* Функциональный контур */

@@ -12,45 +12,28 @@ entities:
         template: templates/business_object_card.md
         source: >
           (
+
+            $BusinessDataObject_Id := $params.id; /*"Romashka.BusinessObject.Organizations";*/
           
             $Datalake := $;
+            /* Количество связанных объектов приложений/сервисов */
+            $CountAppDataObject := $count(ApplicationDataObjects.*.business_Objects[$=$BusinessDataObject_Id]);
             
-            $Query := $distinct(ApplicationDataObjects.$spread().(
+            /* Поиск приложения/сервиса выполянется по ключу, чтобы не использовать components.$spread() + [отбор по ID], */
+            /* так как на большом объеме озера данных будут наблюдаться задржки обработки данных */
+            $FoundBusinessDataObj := $lookup(BusinessObjects, $BusinessDataObject_Id);
             
-              $AppDataObject_id := $keys()[0];
-              
-              *.business_Objects.(
-              
-                $BusinessObject_id := $;
-                
-                {
-                  "AppDataObject_id": $AppDataObject_id,
-                  "BusinessObject_id": $BusinessObject_id
-                }
-          
-              );
-            ))[BusinessObject_id=$params.id];
-
-            $CountAppDataObject := $count($Query);
-          
-            $distinct(BusinessObjects.$spread().(
+            {
+              "id": $BusinessDataObject_Id,
+              "title": $FoundBusinessDataObj.title,
+              "description":  $FoundBusinessDataObj.description,
+              "type":  $FoundBusinessDataObj.type,
+              "state":  $FoundBusinessDataObj.state,
+              "state_update_date":  $FoundBusinessDataObj.state_update_date,
+              "division_owner":  $FoundBusinessDataObj.division_owner,
+              "division_owner_link": "/architect/components/" & $FoundBusinessDataObj.division_owner,
+              "division_owner_title": $FoundBusinessDataObj.$lookup($Datalake.components, division_owner).title,
+              "count_app_data_obj": $CountAppDataObject
+            };          
             
-              $BusinessObject_id := $keys()[0];
-              
-              $.*.{
-                "id": $BusinessObject_id,
-                "title": title,
-                "description": description,
-                "type": type,
-                "state": state,
-                "state_update_date": state_update_date,
-                "owner": owner,
-                "division_owner": division_owner,
-                "division_owner_link": "/architect/components/" & division_owner,
-                "division_owner_title": $lookup($Datalake.components, division_owner).title,
-                "count_app_data_obj": $CountAppDataObject
-              };
-              
-              ))[id=$params.id]
-          
           )

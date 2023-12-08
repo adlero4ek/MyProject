@@ -1,6 +1,4 @@
 imports:
-  - components.yaml
-  - contexts.yaml
   - docs.yaml
   - datasets.yaml
   - business_objects_model.yaml

@@ -56,23 +56,22 @@ datasets:
       
       )
 
+  # Параметры интеграционного потокола данных
   links.dataset.ParametersList:
     source: >
       (
+        $Id := $params.id; /*"Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_ERP._1"*/        
 
-        links.$spread().(
+        /* Поиск выполянется по ключу, чтобы не использовать components.$spread() + [отбор по ID], */
+        /* так как на большом объеме озера данных будут наблюдаться задржки обработки данных */ 
+        $FoundLink := $lookup(links, $Id);
       
-          $Link_id :=  $keys()[0];
-      
-          *.parameters.{
-            "id": $Link_id,
-            "name": name,
-            "description": description,
-            "type": type
-           }
-        
-        )[id=$params.id]
-      
+        $FoundLink.parameters.{
+           "id": $Id,
+           "name": name,
+           "description": description,
+           "type": type
+        }
       )
   links.dataset.BusinessObjects:
     source: >

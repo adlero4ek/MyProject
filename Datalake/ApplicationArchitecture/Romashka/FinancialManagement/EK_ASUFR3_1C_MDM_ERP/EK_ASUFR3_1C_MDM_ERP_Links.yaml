@@ -23,6 +23,9 @@ links:
       - name: ATTRIBUTE 2
         description: Расширенное описание атрибута, используемое для идентификации правил использования
         type: Строка (35)
+      - name: ATTRIBUTE 3
+        description: Расширенное описание атрибута, используемое для идентификации правил использования
+        type: Строка (35)
 
   #  EK_ASUFR3_1C_MDM_ERP -> EK_ASUFR3_1C_Etalon_DO -> Централизованные класификаторы (ЦНСИ)
   Romashka.link.from.EK_ASUFR3_1C_MDM_ERP.to.EK_ASUFR3_1C_Etalon_DO._2:
