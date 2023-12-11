@@ -11,7 +11,7 @@ datasets:
                 "technologies": technologies,
                 "technologies_count": $count(technologies)
             }
-        )[type="system"and technologies_count = 0];
+        )[type="system" and technologies_count = 0];
       
       )
 

@@ -1,8 +1,10 @@
 ## Установка программного обеспечения	
-- Устанавливаем Vagrant https://developer.hashicorp.com/vagrant/downloads (vagrant_2.4.0_windows_amd64.msi)
+- Устанавливаем Vagrant https://developer.hashicorp.com/vagrant/downloads (vagrant_2.4.0_windows_amd64.msi) (требуется VPN)
 - Устанавливаем Visual Studio Code (https://code.visualstudio.com)
 - Устанавливаем Git (https://git-scm.com/downloads)
 - Скачиваем образ focal64 Vagrant box (https://app.vagrantup.com/ubuntu/boxes/focal64)
+- Устанавливаем IntelliJ IDEA (https://www.jetbrains.com/idea/download/?section=windows), например, IntelliJ IDEA Community Edition
+- Устанавливаем VirtualBox (https://www.virtualbox.org/wiki/Downloads)
 
 ## Создание проекта
 - Создаем каталог проекта, например, "D:\Dochub\"
@@ -49,7 +51,7 @@
      if Vagrant.has_plugin?("vagrant-vbguest") then
        config.vbguest.auto_update = false
      end
-   
+  end   
 ```   
 - Запускаем VS Code в каталоге проекта.
 - Запускаем терминал (`CTRL+~`) и вводим команду `vagrant box add --name ubuntu/focal64 Vagrant.box`. 
