@@ -55,13 +55,13 @@ docs:
         text: "ОЗУ, ГБ"
         align: right
       - value: total_storage_size_hdd_type_1
-        text: "Диск тип 1, ГБ"
+        text: "Диск тип 1,ГБ"
         align: right
       - value: total_storage_size_hdd_type_2
-        text: "Диск тип 2, ГБ"
+        text: "Диск тип 2,ГБ"
         align: right
       - value: total_storage_size_hdd_type_3
-        text: "Диск тип 3, ГБ"
+        text: "Диск тип 3,ГБ"
         align: right
     source: >
       (
