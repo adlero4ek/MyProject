@@ -22,7 +22,7 @@
 
 #### Ключевая функциональность
 
-![Ключевые сотрудники](@document/Application.doc.Aspects?component={{id}})
+![Ключевая функциональность](@document/Application.doc.Aspects?component={{id}})
 
 #### Ключевые сотрудники, контакты
 

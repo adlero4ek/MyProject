@@ -3,16 +3,17 @@ datasets:
   technology.dataset.SystemsWithEmptyListOfTechnologies:
     source: >
       (
-         components.$spread().*.(
+        $Components := $distinct(components.$sift(function($v) {
+            ($v.extension.type="system" and $count($v.technologies) = 0)
+        }));
+  
+        $Components.$spread().*.(
             {
                 "id": %.$keys()[0],
                 "title": title,
                 "type": extension.type,
-                "technologies": technologies,
-                "technologies_count": $count(technologies)
-            }
-        )[type="system" and technologies_count = 0];
-      
+                "technologies": technologies 
+            })
       )
 
   technology.dataset.technologies_list:

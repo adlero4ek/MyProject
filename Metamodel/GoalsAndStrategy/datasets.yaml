@@ -3,16 +3,11 @@ datasets:
   GoalsAndStrategy.dataset.MainList:
     source: >
       (
-
         Goals.$spread().(
-  
-            $Goal_Id := $keys()[0];
-  
+            $GoalId := $keys()[0];
             {
-              "Goal_Id": $Goal_Id,
+              "Goal_Id": $GoalId,
               "Goal": *.Goal,
               "Horizont": *.Horizont
-            }
-        )^(Horizont)
-      
+            })^(Horizont)
       )

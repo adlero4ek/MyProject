@@ -26,19 +26,22 @@ datasets:
   Business.dataset.ActorList:
     source: >
       (
-        components.$spread().(
-  
-          $Component_Id := $keys()[0];
+      
+        $Components := $distinct(components.$sift(function($v) { $v.entity="actor"}));
+      
+        $Components.$spread().(
+        
+          $ActorId := $keys()[0];
           
           *.{
-            "id": $Component_Id,
-            "link":"/architect/components/" & $Component_Id,
+            "id": $ActorId,
+            "link":"/architect/components/" & $ActorId,
             "title": title,
             "entity": entity,
             "description": description
           };
-          
-        )[entity="actor"]^(title)
+        
+        )^(title)
       )
 
   BusinessObjects.dataset.ListOfBusinessObjects:

@@ -7,8 +7,10 @@ datasets:
         $Datalake := $;
         $ComponentCardSystem  := Constants.ComponentCard.System;
         $ComponentCardDefault := Constants.ComponentCard.Default;
-  
-        $distinct(components.$spread().(
+      
+        $Components := $distinct($Datalake.components.$sift(function($v) { $v.extension.type="system"}));
+      
+        $Components.$spread().(
       
           $component_id := $keys()[0];
           
@@ -40,12 +42,9 @@ datasets:
             "organization_link":       $organization_id ? $ComponentCardDefault & $organization_id: ""
           };
       
-        ))[type="system" or type="external system"]^(organization_title)
+        )
       
-      )
-
-      
-      
+      )     
 
   # Опциональная документация по системе или её компонентам, документация не выводится в меню, он прикрепляется к карточке системы
   Application.dataset.ApplicationDocs:
@@ -150,25 +149,17 @@ datasets:
     source: >   
       (  
 
-        $DataLake  := $;     
-        $system_id   := $params.component;
+        $DataLake := $;
+        $AppId := $params.component; /* "Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP";*/
         
-        $distinct($DataLake.components.$spread().(
-    
-          $component_id := $keys()[0];
+        $FoundApplication := $lookup($DataLake.components, $AppId);
+        
+        $FoundApplication.aspects.(
+          {
+            "component_id": $AppId,
+            "aspect_id":  $,
+            "aspect_title": $lookup($DataLake.aspects, $).title,
+            "aspect_link": "/architect/aspects/" & $aspect_id
+          })^(aspect_title)        
       
-            *.aspects.(
-        
-                $aspect_id := $;
-        
-                {
-                  "component_id": $component_id,
-                  "aspect_id":  $aspect_id,
-                  "aspect_title": $lookup($DataLake.aspects, $aspect_id).title,
-                  "aspect_link": "/architect/aspects/" & $aspect_id
-                }
-            )[component_id=$system_id]
-          )
-        )^(aspect_title)   
-      )   
-
+      )
