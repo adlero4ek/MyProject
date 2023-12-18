@@ -1,0 +1,216 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: DocHub backend API
+  description: >
+    Данный документ актуален только для развертывания в режиме Client-Server.
+    В этом режиме предоставляются интеграционные API, которые вы можете использовать для 
+    встраивания DocHub в свои производственные процессы.
+    Подробнее тут http://dochub.info/docs/dochub.deployment
+servers:
+  - url: "http://localhost:3030/"
+    description: Локальный сервер
+tags:
+- name: DataLake
+  description: "API для доступа в озеро данных архитектуры"
+- name: Entities
+  description: "API взаимодействия с сущностями"
+  externalDocs:
+    url: "https://dochub.info/docs/dochub.flex_metamodel.entities"
+paths:
+  /core/storage/jsonata/{query}:
+    get:
+      tags:
+      - DataLake
+      summary: Выполняет произвольный запрос JSONata к данным архитектуры 
+      parameters:
+        - in: path
+          name: query
+          description: JSONata запрос в скобках "([запрос])" или идентификатор DataSet без скобок
+          required: true
+          schema:
+            $ref: '#/components/schemas/JSONataQuery'
+          example: >
+            ({"id": $params.id, "limit": $params.limit, "type": $self.type, "template": $self.template})
+        - in: query
+          name: params
+          description: > 
+            JSON структура с параметрами передающаяся в запрос.
+            Будет доступна в переменной $params.
+          required: false
+          schema:
+            $ref: '#/components/schemas/JSONataParams'
+          example: '{"id":"sber.rdwsoft","limit":8}'
+        - in: query
+          name: subject
+          description: > 
+            JSON структура с профилем объекта, который выполняет запрос.
+            Будет доступна в переменной $self.
+          required: false
+          schema:
+            $ref: '#/components/schemas/JSONataParams'
+          example: '{"type":"markdown","template":"template.md"}'
+      responses:
+        "200":
+          description: "Результат выполнения запроса"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONataResult'
+  /core/storage/reload?secret={reloadSecret}:
+    put:
+      tags:
+      - DataLake
+      summary: Выполняет запрос перезагрузки данным архитектуры
+      parameters:
+        - in: path
+          name: reloadSecret
+          description: secret для доступа к запросу. Указывается в .env переменной VUE_APP_DOCHUB_RELOAD_SECRET
+          required: true
+          schema:
+            $ref: '#/components/schemas/JSONataQuery'
+          example: '12345'
+      responses:
+        "200":
+          description: "Результат выполнения запроса"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONataResult'
+  /core/storage/release-data-profile/{path}:
+    get:
+      tags:
+      - DataLake
+      summary: >
+        По указанному пути возвращает результат реализации профиля данных.
+        Подробнее здесь - https://dochub.info/docs/dochub.datasets
+      parameters:
+        - in: path
+          name: path
+          description: Путь к профилю данных
+          required: true
+          schema:
+            $ref: '#/components/schemas/PathToDataProfile'
+          example: "/entities/interactions/presentations/blank"
+        - in: query
+          name: params
+          description: > 
+            JSON структура с параметрами передающаяся в запрос.
+            Будет доступна в переменной $params.
+          required: false
+          schema:
+            $ref: '#/components/schemas/JSONataParams'
+          example: '{"id":"dochub.user"}'
+      responses:
+        "200":
+          description: "Результат выполнения запроса"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONataResult'
+  /core/storage/problems/:
+    get:
+      tags:
+      - DataLake
+      summary: Возвращает перечень обнаруженных проблем
+      responses:
+        "200":
+          description: "Массив обнаруженных проблем"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemsResult'
+  /entities/{entity}/presentations/{presentation}:
+    get:
+      tags:
+      - Entities
+      summary: Вызывает специальную (upload) презентацию сущности 
+      parameters:
+        - in: path
+          name: entity
+          description: Идентификатор сущности
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityID'
+          example: interactions
+        - in: path
+          name: presentation
+          description: Идентификатор презентации
+          required: true
+          schema:
+            $ref: '#/components/schemas/PresentationID'
+          example: export
+        - in: query
+          name: id
+          description: >
+            Параметр передающийся в презентацию. Зависит от самой презентации.
+            Будет доступен в презентации в $params.
+          schema:
+            $ref: '#/components/schemas/EntityParam'
+          example: dochub.user
+      
+      responses:
+        "200":
+          description: "Массив обнаруженных проблем"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemsResult'
+components:
+  schemas:
+    JSONataQuery:
+      type: string
+      pattern: '^([a-zA-Z\_]*(\.[a-zA-Z\_][a-zA-Z\_]*)*)|(\(.*\))$'
+    JSONataParams:
+      type: string
+    JSONataResult:
+      type: object
+    PathToDataProfile:
+      type: string
+      pattern: '^\/[a-zA-Z][a-zA-Z\_0-9]*(\/[a-zA-Z][a-zA-Z\_0-9]*)*$'
+    EntityID: 
+      type: string
+      pattern: '^[a-zA-Z][a-zA-Z\_0-9]*$'
+    PresentationID: 
+      type: string
+      pattern: '^[a-zA-Z][a-zA-Z\_0-9]*$'
+    EntityParam:
+      type: string
+    ProblemsResult:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            title: Идентификатор валидатора.
+          title:
+            type: string
+            title: Описание валидатора.
+          items:
+            type: array
+            title: Выявленные проблемы.
+            items:
+              type: object
+              properties:
+                uid:
+                  type: string
+                  title: Уникальный идентификатор ошибки. 
+                title:
+                  type: string
+                  title: Краткие сведения о нарушении.
+                location:
+                  type: string
+                  title: URL с расположением объекта, где выявлена ошибка.
+                correction:
+                  type: string
+                  title: Краткое пояснение, как исправить ошибку.
+                description:
+                  type: string
+                  title: Описание причины ошибки.
+                cause:
+                  type: string
+                  title: Идентификатор или URL документа, на основании которого создан валидатор.
+              required:
+                - uid
+                - title

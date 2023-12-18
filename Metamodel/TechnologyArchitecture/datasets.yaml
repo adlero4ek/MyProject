@@ -25,8 +25,7 @@ datasets:
     
         /* Технологии приложений/сервисов вне списка технологий */
         $TechnologyOffList := $distinct(components.*.technologies.(
-            {"title": $, "link": "", "section": $NotDefine, "status": $NotDefine, "aliases": $NotDefine,
-            "IsTechnologyOffList": $type($lookup($Datalake.technologies.items, $))="object"}
+            {"title": $, "link": "", "section": $NotDefine, "status": $NotDefine, "aliases": $NotDefine, "IsTechnologyOffList": $type($lookup($Datalake.technologies.items, $))="object"}
         )[IsTechnologyOffList!=true]);
         
         /* Описание секций технологического радара */

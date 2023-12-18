@@ -1,3 +1,4 @@
 imports:
   - Dochub.yaml
   - Dochub_Links.yaml
+  - Dochub_API.yaml

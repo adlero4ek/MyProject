@@ -18,16 +18,17 @@ entities:
               $FoundAppDataObj := $lookup(components, $Id);
 
               /* Количество объектов приложения */
-              $CountAppDataObj := $count(ApplicationDataObjects.$spread().(*.{"system_id": system})[system_id=$Id]);
+              $CountAppDataObj := $count(ApplicationDataObjects.$spread().( *.{ "system_id": system } )[system_id=$Id]);
 
               /* Интеграционных связей приложений / сервисов  */
               $QueryCountLinks := links.$spread().(
-                 *.{
-                      "count_to": $contains(to, $Id) ? 1 : 0,
-                      "count_from": $contains(from, $Id) ? 1 : 0
-                 }
+                 *.{ "count_to": $contains(to, $Id) ? 1 : 0, "count_from": $contains(from, $Id) ? 1 : 0  }
               )[count_to!=0 or count_from!=0];
 
+              /* Ссылка на документацию API */
+              $Docs := docs.$sift(function($v) { $v.type ="OpenAPI" and ($Id in $v.subjects) });
+              $DocID := $keys($Docs[0]);
+          
               /* Количество процессов приложений / сервисов  */
               $CountSequenceDiagrams := $count($eval($.functions.get_sequence_diagrams_list)[System_id=$Id]);              
 
@@ -50,7 +51,8 @@ entities:
                   "count_app_data_obj": $CountAppDataObj,
                   "count_links_from": $sum($QueryCountLinks.count_from),
                   "count_links_to": $sum($QueryCountLinks.count_to),
-                  "count_sequence": $CountSequenceDiagrams
+                  "count_sequence": $CountSequenceDiagrams,
+                  "doc_id": $DocID
               }
           
           )

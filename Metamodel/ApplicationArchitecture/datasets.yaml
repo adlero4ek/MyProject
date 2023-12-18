@@ -74,27 +74,27 @@ datasets:
   Application.dataset.Technologies:
     source: >
       (
-          $manifest    := $;
-          $system_id   := $params.component;
-          $system_tech := $lookup($.components, $system_id).technologies;
+      
+        $DataLake := $;
+        $AppId    := $params.component; /*"Romashka.Systems.ArchitectureManagement.Dochub";*/
+        $FoundApp := $lookup(components, $AppId);
   
-          $system_tech.(
+        $FoundApp.technologies.(
   
-            $technology := $lookup($manifest.technologies.items, $);
+            $FoundTechnologyOfApp := $lookup($DataLake.technologies.items, $);
   
             {
-              "technology_ID": $,
-              "technology_title": $technology ? $technology.title : "",
-              "technology_link": $technology ? $technology.link : "",
-              "technology_section": $technology? $technology.section : "",
-              "technology_status": $technology ? $technology.status : "Не определён",
-              "technology_aliases": $technology ? $join($technology.aliases, ", ") : ""
+                "technology_ID": $,
+                "technology_title": $FoundTechnologyOfApp ? $FoundTechnologyOfApp.title : $,
+                "technology_link": $FoundTechnologyOfApp ? $FoundTechnologyOfApp.link : "",
+                "technology_section": $FoundTechnologyOfApp? $FoundTechnologyOfApp.section : "Не определён",
+                "technology_status": $FoundTechnologyOfApp ? $FoundTechnologyOfApp.status : "Не определён",
+                "technology_aliases": $FoundTechnologyOfApp ? $join($FoundTechnologyOfApp.aliases, ", ") : ""
             }
   
-          );
-      )
+        )^(technology_title);
 
-
+      )    
 
   # Ключевые сотрудники, контакты
   Application.dataset.KeyContacts:
