@@ -3,24 +3,22 @@ components:
   Romashka.Systems.ArchitectureManagement.Dochub:
     title: DocHub
     entity: component
-    description:
-      "DocHub - инструмент описания архитектуры через код (Architecture as a code). Код архитектуры - ансамбль файлов на языках, решающих задачу описания архитектуры."
-    business_owners:
-      - Egorov Demid Nikitich
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
+    description: "DocHub - инструмент описания архитектуры через код (Architecture as a code). Код архитектуры - ансамбль файлов на языках, решающих задачу описания архитектуры."
     extension:
       type: system
       area: Управление архитектурой
-      state: Проектируется
       state_update_date: 2023-01-01
-      development_platform: JS
+      state: implementation
+      category: it_app
       basic_solution: DocHub
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://dochub.info/main
-      provider: ООО Ромашка
-      provider_type: Собственная разработка
+      development_model: external
+      contacts:
+        business_owners:
+          - Egorov Demid Nikitich
+          - Zakharova Vasilisa Artemovna
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna
 
 docs:
 

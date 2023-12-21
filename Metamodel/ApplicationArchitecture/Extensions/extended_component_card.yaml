@@ -17,6 +17,19 @@ entities:
               /* так как на большом объеме озера данных будут наблюдаться задржки обработки данных */ 
               $FoundAppDataObj := $lookup(components, $Id);
 
+             /* Используемые справочники */
+             $DictionaryAppStatus := $.dictionaries."settings.applications_status".parameters;
+             $GetStatus := function($v) {( $DictionaryAppStatus[name=$v] )};
+
+             $DictionaryDevModel := $.dictionaries."settings.development_model".parameters;
+             $GetDevModel := function($v) {( $DictionaryDevModel [name=$v] )};
+
+             $DictionaryBasicSolutions := $.dictionaries."settings.BasicSolutions".parameters;
+             $GetBasicSolutions := function($v) {( $DictionaryBasicSolutions [name=$v] )};
+          
+             /* Базовое решение */
+             $BasicSolutions := $GetBasicSolutions($FoundAppDataObj.extension.basic_solution);
+          
               /* Количество объектов приложения */
               $CountAppDataObj := $count(ApplicationDataObjects.$spread().( *.{ "system_id": system } )[system_id=$Id]);
 
@@ -30,28 +43,34 @@ entities:
               $DocID := $keys($Docs[0]);
           
               /* Количество процессов приложений / сервисов  */
-              $CountSequenceDiagrams := $count($eval($.functions.get_sequence_diagrams_list)[System_id=$Id]);              
-
+              $CountSequenceDiagrams := $count($eval($.functions.get_sequence_diagrams_list)[System_id=$Id]);
+          
+              /* Итоговая выборка */
               {
                   "id": $Id,
                   "id_link": Constants.ComponentCard.Default & $Id,
+          
                   "title": $FoundAppDataObj.title,
                   "entity": $FoundAppDataObjentity,
                   "description": $FoundAppDataObj.description,
                   "type": $FoundAppDataObj.extension.type,
                   "area": $FoundAppDataObj.extension.area,
-                  "state": $FoundAppDataObj.extension.state,
+          
+                  "state": $GetStatus($FoundAppDataObj.extension.state).title,
                   "state_update_date": $FoundAppDataObj.extension.state_update_date,
-                  "development_platform": $FoundAppDataObj.extension.development_platform,
-                  "basic_solution": $FoundAppDataObj.extension.basic_solution,
-                  "basic_solution_link": $FoundAppDataObj.extension.basic_solution_link,
-                  "basic_solution_state": $FoundAppDataObj.extension.basic_solution_state,
-                  "provider": $FoundAppDataObj.extension.provider,
-                  "provider_type": $FoundAppDataObj.extension.provider_type,
+          
+                  "development_model": $GetDevModel($FoundAppDataObj.extension.development_model).title,
+          
+                  "development_platform": $BasicSolutions.development_platform,
+                  "basic_solution": $BasicSolutions.title,
+                  "basic_solution_link": $BasicSolutions.link,
+                  "basic_solution_state": $BasicSolutions.state,
+          
                   "count_app_data_obj": $CountAppDataObj,
                   "count_links_from": $sum($QueryCountLinks.count_from),
                   "count_links_to": $sum($QueryCountLinks.count_to),
                   "count_sequence": $CountSequenceDiagrams,
+          
                   "doc_id": $DocID
               }
           

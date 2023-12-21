@@ -5,39 +5,61 @@ datasets:
       (
 
         $Datalake := $;
+      
+        /* Используемые справочники */
+        $DictionaryAppStatus := $Datalake.dictionaries."settings.applications_status".parameters;
+        $GetStatus := function($v) {( $DictionaryAppStatus[name=$v] )};
+  
+        $DictionaryDevModel := $Datalake.dictionaries."settings.development_model".parameters;
+        $GetDevModel := function($v) {( $DictionaryDevModel [name=$v] )};
+      
+        $DictionaryBasicSolutions := $Datalake.dictionaries."settings.BasicSolutions".parameters;
+        $GetBasicSolutions := function($v) {( $DictionaryBasicSolutions [name=$v] )};
+
+        /* Используемые константы */        
         $ComponentCardSystem  := Constants.ComponentCard.System;
         $ComponentCardDefault := Constants.ComponentCard.Default;
       
+        /* Компоненты типа = приложение/сервис */
         $Components := $distinct($Datalake.components.$sift(function($v) { $v.extension.type="system"}));
       
+        /* Последовательный перебор комопнентов */        
         $Components.$spread().(
       
-          $component_id := $keys()[0];
+          $ComponentId := $keys()[0];
           
           /*Организация-владелец*/
-          $organization_id := $split($component_id, ".", 1) ~> $join('.');
+          $organization_id := $split($ComponentId, ".", 1) ~> $join('.');
       
           /* Функцональный контура приложений/сервисов */
-          $functional_area_id := $split($component_id, ".", 3) ~> $join('.');
+          $functional_area_id := $split($ComponentId, ".", 3) ~> $join('.');
+      
+          /* Базовое решение */
+          $BasicSolutions := $GetBasicSolutions(*.extension.basic_solution);
       
           *.{
-            "id":                      $ComponentCardDefault & $component_id,
-            "extended_component_card": $ComponentCardSystem & $component_id,
+            "id":                      $ComponentCardDefault & $ComponentId,
+            "extended_component_card": $ComponentCardSystem & $ComponentId,
+      
             "title":                   title,
             "entity":                  entity,
             "description":             description,
+      
             "type":                    extension.type,
-            "area":                    $functional_area_id ? $lookup($manifest.components, $functional_area_id).title : $functional_area_id,
+            "area":                    $functional_area_id ? $lookup($Datalake.components, $functional_area_id).title : $functional_area_id,
             "area_id":                 $functional_area_id ? $ComponentCardDefault & $functional_area_id: "",
-            "state":                   extension.state,
+      
+            "state":                   $GetStatus(extension.state).title,
             "state_update_date":       extension.state_update_date,
-            "development_platform":    extension.development_platform,
-            "basic_solution":          extension.basic_solution,
-            "basic_solution_link":     extension.basic_solution_link,
-            "basic_solution_state":    extension.basic_solution_state,
-            "basic_solution_summary":  (extension.basic_solution & ", статус: " & extension.basic_solution_state),
-            "provider":                extension.provider,
-            "provider_type":           extension.provider_type,
+            "development_model":       $GetDevModel(extension.development_model).title,
+      
+            
+            "basic_solution":          $BasicSolutions.title,
+            "basic_solution_link":     $BasicSolutions.link,
+            "basic_solution_state":    $BasicSolutions.state,
+            "basic_solution_summary":  ($BasicSolutions.title & ", статус: " & $BasicSolutions.state),
+            "development_platform":    $BasicSolutions.development_platform,
+      
             "organization_title":      $organization_id ? $lookup($Datalake.components, $organization_id).title : $organization_id,
             "organization_link":       $organization_id ? $ComponentCardDefault & $organization_id: ""
           };
@@ -100,49 +122,56 @@ datasets:
   Application.dataset.KeyContacts:
     source: >
       (
+        $ComponentId := $params.component; /*"Romashka.Systems.ArchitectureManagement.Dochub"*/
+        
+        /* Найденный компонент */
+        $Datalake := $;
+        $FoundComponent := $lookup($Datalake.components, $ComponentId);
+        
+        /*Используемые справочники */
+        $DictionaryAccounts := $Datalake.dictionaries."accounts".parameters;
+        $DictionaryContacts := $Datalake.dictionaries."settings.contacts".parameters;
       
-        $system_id := $params.component;          
-      
-        $manifest := $;        
-        $dictionaries := $manifest.dictionaries;
-        $functions := $manifest.functions;
-        $accounts := $dictionaries."accounts".parameters;
-        $systems := $manifest.components;
-      
-        $sys_pattern := $eval("/^" &  $system_id & "$/");
-        $system := $systems.$sift(function($v, $k) {$k ~> $sys_pattern});
-      
-        $contacts := $dictionaries."settings.contacts".parameters.(
-          $name := name;
-          $contact_account_names := $spread($system.*).$sift(function ($v, $k) { $k = $name }).*;
-          {
-            "title": title,
-            "scrum_title": scrum_title,
-            "is_optional": is_optional,
-            "order_index": order_index,
-            "description": description,
-            "account_names": [$contact_account_names]
-          };
-        )[$not(is_optional) or $count(account_names) > 0];
-      
-        $sort($contacts, function ($l, $r) { $l.order_index > $r.order_index }).(
-          $contact_settings := $;
-          account_names.(
-            $account := $eval($functions.get_account,{"username": $, "accounts": $accounts});
+        /* Указанные в компоненте варианты контактов в блоке $.extension.contacts: */  
+        
+        $ComponentContacts := $DictionaryContacts.(
+  
+            $Name := name;
+            $AccountNames := $spread($FoundComponent.extension.contacts).$sift(function ($v, $k) { $k = $Name }).*;
+  
             {
-              "title": $contact_settings.title,
-              "scrum": $contact_settings.scrum_title,
-              "res_persons": $account.title,
-              "acc_persons": $account.name,
-              "acc_link": $account.acc_link,
-              "acc_email": $account.email,
-              "acc_description": $contact_settings.description
-            } 
-          )
+                "title": title,
+                "scrum_title": scrum_title,
+                "is_optional": is_optional,
+                "order_index": order_index,
+                "description": description,
+                "account_names": [$AccountNames]
+            }[$not(is_optional) or $count(account_names) > 0];
+  
+        )^(order_index);
+  
+        $ComponentContacts.(
+  
+            $ContactSettings := $;
+  
+            account_names.(
+  
+                $AccountSettings := $eval($Datalake.functions.get_account,{"username": $, "accounts": $DictionaryAccounts});
+  
+                {
+                    "title": $ContactSettings.title,
+                    "scrum": $ContactSettings.scrum_title,
+                    "res_persons": $AccountSettings.title,
+                    "acc_persons": $AccountSettings.name,
+                    "acc_link": $AccountSettings.acc_link,
+                    "acc_email": $AccountSettings.email,
+                    "acc_description": $ContactSettings.description
+                } 
+            )
         );
       
       )
-
+      
 
   # Функциональность приложений и сервисов
   Application.dataset.Aspects:

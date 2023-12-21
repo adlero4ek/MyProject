@@ -14,7 +14,7 @@
 
 ![Сайзинг_Итоговый_Таблицей](@document/technology.doc.CharacteristicsCluster.Total?Cluster_id={{Cluster_id}})
 
-### Расшифровка аппаратных ресурсов по функциональным обласлям
+### Расшифровка аппаратных ресурсов по функциональным обласлям:
 
 ![Сайзинг_Таблицей](@document/technology.doc.CharacteristicsCluster?Cluster_id={{Cluster_id}})
 

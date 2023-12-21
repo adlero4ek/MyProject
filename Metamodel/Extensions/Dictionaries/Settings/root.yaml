@@ -1,4 +1,3 @@
-
 imports:
   - accounts.yaml
   - applications_category.yaml
@@ -6,3 +5,4 @@ imports:
   - contacts.yaml
   - critical_level.yaml
   - development_model.yaml
+  - basic_solutions.yaml

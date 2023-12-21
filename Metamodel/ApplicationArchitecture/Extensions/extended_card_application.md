@@ -16,29 +16,29 @@
 ### Основные характеристики:
 - **Функциональная область:** {{area}}
 - **Платформа:** {{development_platform}}
-- **Разработчик:** {{provider}}, {{provider_type}}
+- **Модель разработки:** {{development_model}}
 
 ### Базовое решение:
 - **Базовое решение:** {{basic_solution}}
 - **Официальный сайт:** {{basic_solution_link}}
 - **Статус развития:** {{basic_solution_state}}
 
-#### Ключевая функциональность
+#### Ключевая функциональность:
 
 ![Ключевая функциональность](@document/Application.doc.Aspects?component={{id}})
 
-#### Ключевые сотрудники, контакты
+#### Ключевые сотрудники, контакты:
 
 ![Ключевые сотрудники](@document/Application.doc.KeyContacts?component={{id}})
 
-#### Документация
+#### Документация:
 
 ![Документация](@document/Application.doc.ApplicationDocs?component={{id}})
 
-#### Технологии
+#### Технологии:
 ![Технологии](@document/Application.doc.ApplicationTechnologies?component={{id}})
 
-#### Фактические инсталяции
+#### Фактические инсталяции:
 
 ![Ключевые сотрудники](@document/technology.doc.ListServersWhereApplicationIsInstalled?component={{id}})
 

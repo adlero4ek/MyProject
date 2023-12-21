@@ -6,22 +6,6 @@ components:
     description: "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков – Бухгалтерский учет по разделам учета,
        Налоговый учет, Управленческий учет по видам затрат, Функции казначейского контроля (казначейский учет), Учет по МСФО, Управление снабжением МТР,
        Система внутренних контролей и Мониторинги функциональности"
-    business_owners:
-      - Egorov Demid Nikitich
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
-    extension:
-      type: system
-      area: Финансовый контур
-      state: Проектируется
-      state_update_date: 2023-02-01
-      development_platform: "1С:Предприятие 8"
-      basic_solution: "1С:ERP, редакция 2.5"
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://solutions.1c.ru/catalog/1cerp
-      provider: ООО Ромашка
-      provider_type: Собственная разработка
     aspects:
       - FinancialManagement.RegulatedAccounting
       - FinancialManagement.TaxAccounting
@@ -32,27 +16,41 @@ components:
       - CommonAspects.MonitoringFunctionality
       - CommonAspects.StatisticsManagement
       - CommonAspects.InternalControlSystem
-    indicators:
-      - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
-        fit: fully
-        comment:
-        date: 07.10.2023
+    extension:
+      type: system
+      area: Финансовый контур
+      state: implementation
+      state_update_date: 2023-02-01
+      category: business_app
+      basic_solution: ERP
+      development_model: external
+      contacts:
+        business_owners:
+          - Egorov Demid Nikitich
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna
+      indicators:
+        - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
+          fit: fully
+          comment:
+          date: 2023-10-07
 
   # Подсистемы
 

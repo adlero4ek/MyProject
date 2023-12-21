@@ -3,47 +3,43 @@ components:
   Romashka.Systems.HRManagement.EK_ASUTR2_1C_ZUP_KZ:
     title: 1С:Зарплата и управление персоналом 8 (Казахстан)
     entity: component
-    description:
-      "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков контра расчета заработной платы и управления
+    description: "Единая корпоративная автоматизированная система предназначена для автоматизации следующих функциональных блоков контра расчета заработной платы и управления
        персоналом в соответствии с законодательством республики Казахстан"
-    business_owners:
-      - Egorov Demid Nikitich
-      - Solovyova Vera Georgievna
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Расчет з/п и управления персоналом
-      state: Проектируется
+      state: trial
       state_update_date: 2023-01-01
-      development_platform: "1С:Предприятие 8"
-      basic_solution: "1С:Зарплата и управление персоналом 8 КОРП, редакция 3.0"
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://solutions.1c.ru/catalog/hrm
-      provider: ООО Ромашка
-      provider_type: Собственная разработка
-    indicators:
-      - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
-        fit: fully
-        comment:
-        date: 07.10.2023
+      category: business_app
+      basic_solution: PayrollAndHR
+      development_model: external
+      contacts:
+        business_owners:
+          - Zvereva Ksenia Matveevna
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna
+      indicators:
+        - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
+          fit: fully
+          comment:
+          date: 2023-10-07
+        - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
+          fit: fully
+          comment:
+          date: 2023-10-07
 
 contexts:
 

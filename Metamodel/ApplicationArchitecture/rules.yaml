@@ -14,29 +14,12 @@ rules:
               state_update_date:
                 type: string
                 pattern: \d{4}[-.]\d{2}[-.]\d{2}
-              development_platform:
-                type: string
-                minLength: 5
-              basic_solution:
-                type: string
-                minLength: 5
-              basic_solution_state:
-                type: string
-                minLength: 5
-              provider:
-                type: string
-                minLength: 5
-              provider_type:
-                type: string
-                minLength: 5
             required:
               - state
               - state_update_date
-              - development_platform
+              - category
               - basic_solution
-              - basic_solution_state
-              - provider
-              - provider_type
+              - development_model
         required:
           - extension
           - title

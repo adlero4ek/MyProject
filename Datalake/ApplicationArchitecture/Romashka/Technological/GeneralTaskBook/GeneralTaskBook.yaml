@@ -3,22 +3,18 @@ components:
   Romashka.Systems.Technological.GeneralTaskBook:
     title: Общий Задачник/Отчетник
     entity: component
-    description:
-      "Автоматизированная система, предназначенная для замещения функциональности платформы SAP в части работы с несколькими мандантами в пределах одного сеанса"
-    business_owners:
-      - Egorov Demid Nikitich
-      - Solovyova Vera Georgievna
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
+    description: "Автоматизированная система, предназначенная для замещения функциональности платформы SAP в части работы с несколькими мандантами в пределах одного сеанса"
     extension:
       type: system
       area: Технологический контур
-      state: Проектируется
+      state: migration
       state_update_date: 2023-01-01
-      development_platform: "1С:Предприятие 8"
-      basic_solution: 1С:Библиотека стандартных подсистем
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
-      provider: ООО "Ромашка"
-      provider_type: Собственная разработка
+      category: it_app
+      basic_solution: LibraryOfStandardSubsystems
+      development_model: inhouse
+      contacts:
+        business_owners:
+          - Solovyova Vera Georgievna
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna

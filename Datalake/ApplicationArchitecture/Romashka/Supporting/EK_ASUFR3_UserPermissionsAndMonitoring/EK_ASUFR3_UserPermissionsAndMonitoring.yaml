@@ -3,47 +3,44 @@ components:
   Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring:
     title: Управление пользователями и мониторинг (1С:ERP, 1С:УАТ)
     entity: component
-    description:
-      "Единая корпоративная платформа автоматизация процессов ведения пользователей и полномочий пользователей, а также обеспечение технического мониторинга функциональных
+    description: "Единая корпоративная платформа автоматизация процессов ведения пользователей и полномочий пользователей, а также обеспечение технического мониторинга функциональных
          компонент ЕК АСУФР-3"
-    business_owners:
-      - Egorov Demid Nikitich
-      - Solovyova Vera Georgievna
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
     extension:
       type: system
       area: Обеспечивающие (поддерживающие) системы
-      state: Проектируется
+      state: production
       state_update_date: 2023-01-01
-      development_platform: "1С:Предприятие 8"
-      basic_solution: 1С:Библиотека стандартных подсистем
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
-      provider: ООО Ромашка
-      provider_type: Собственная разработка
-    indicators:
-      - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
-        fit: none
-        comment: Архитектуры нет, говнокодим с колес
-        date: 07.10.2023
-      - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
-        fit: fully
-        comment: Автоматически сгенерированный комментарий
-        date: 07.10.2023
-      - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
-        fit: fully
-        comment: Автоматически сгенерированный комментарий
-        date: 07.10.2023
-      - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
-        fit: none
-        comment: Болотная лихорадка выкосила 90% команды
-        date: 07.10.2023
-      - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
-        fit: none
-        comment: Процесса нет, бегаем по кругу и кричим аааааа
-        date: 07.10.2023
+      category: it_app
+      basic_solution: LibraryOfStandardSubsystems
+      development_model: inhouse
+      contacts:
+        business_owners:
+          - Egorov Demid Nikitich
+          - Solovyova Vera Georgievna
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna
+      indicators:
+        - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
+          fit: none
+          comment: Архитектуры нет, говнокодим с колес
+          date: 2023-10-07
+        - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
+          fit: fully
+          comment: Автоматически сгенерированный комментарий
+          date: 2023-10-07
+        - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
+          fit: fully
+          comment: Автоматически сгенерированный комментарий
+          date: 2023-10-07
+        - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
+          fit: none
+          comment: Болотная лихорадка выкосила 90% команды
+          date: 2023-10-07
+        - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
+          fit: none
+          comment: Процесса нет, бегаем по кругу и кричим аааааа
+          date: 2023-10-07
 
   Romashka.Systems.Supporting.EK_ASUFR3_UserPermissionsAndMonitoring.UserPermissions:
     title: Права и роли пользователей

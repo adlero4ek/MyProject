@@ -1,0 +1,77 @@
+dictionaries:
+
+  settings.BasicSolutions:
+    title: Базовые решения
+    description: Справочник базовых решений, которые используются при разработке приложений/систем/сервисов
+    order: 8120
+    parameters:
+
+      - name: undefined
+        order: 0
+        title: undefined
+        state: undefined
+        link: undefined
+        development_platform: undefined
+
+      - name: DocHub
+        order: 1
+        title: DocHub
+        state: Развивается поставщиком
+        link: https://dochub.info/main
+        development_platform: JS
+
+      - name: DocumentManagement
+        order: 2
+        title: "1С:Документооборот 8 КОРП, редакция 3.0"
+        state: Развивается поставщиком
+        link: https://solutions.1c.ru/catalog/doc8-corp
+        development_platform: "1С:Предприятие 8"
+
+      - name: ERP
+        order: 3
+        title: "1С:ERP, редакция 2.5"
+        state: Развивается поставщиком
+        link: https://solutions.1c.ru/catalog/1cerp
+        development_platform: "1С:Предприятие 8"
+
+      - name: MDM
+        order: 4
+        title: "1С:MDM"
+        state: Развивается поставщиком
+        link: https://solutions.1c.ru/catalog/mdm
+        development_platform: "1С:Предприятие 8"
+
+      - name: PayrollAndHR
+        order: 5
+        title: "1С:Зарплата и управление персоналом 8 КОРП, редакция 3.0"
+        state: Развивается поставщиком
+        link: https://solutions.1c.ru/catalog/hrm
+        development_platform: "1С:Предприятие 8"
+
+      - name: LibraryOfStandardSubsystems
+        order: 6
+        title: "1С:Библиотека стандартных подсистем"
+        state: Развивается поставщиком
+        link: https://v8.1c.ru/tekhnologii/standartnye-biblioteki/1s-biblioteka-standartnykh-podsistem/
+        development_platform: "1С:Предприятие 8"
+
+      - name: IntegrationCORP
+        order: 7
+        title: "1С:Интеграция КОРП, редакция 1.0"
+        state: Развивается поставщиком
+        link: https://solutions.1c.ru/catalog/integracorp
+        development_platform: "1С:Предприятие 8"
+
+      - name: SPPR
+        order: 8
+        title: "1С:СППР"
+        state: Развивается поставщиком
+        link: https://v8.1c.ru/tekhnologii/sistema-proektirovaniya-prikladnykh-resheniy/
+        development_platform: "1С:Предприятие 8"
+
+      - name: YAT
+        order: 9
+        title: "1С:Предприятие 8. Управление Автотранспортом ПРОФ, редакция 2.2"
+        state: Развивается поставщиком
+        link: https://solutions.1c.ru/catalog/autotransport-prof
+        development_platform: "1С:Предприятие 8"

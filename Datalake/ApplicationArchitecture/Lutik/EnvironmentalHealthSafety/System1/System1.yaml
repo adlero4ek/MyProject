@@ -9,11 +9,15 @@ components:
     extension:
       type: system
       area: Финансовый контур
-      state: Проектируется
+      state: production
       state_update_date: 2023-01-01
-      development_platform: undefined
+      category: business_app
       basic_solution: undefined
-      basic_solution_state: undefined
-      basic_solution_link: https://solutions.1c.ru/catalog/ehs_compl_corp
-      provider: undefined
-      provider_type: undefined
+      development_model: external
+      contacts:
+        business_owners:
+          - Egorov Demid Nikitich
+          - Solovyova Vera Georgievna
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna

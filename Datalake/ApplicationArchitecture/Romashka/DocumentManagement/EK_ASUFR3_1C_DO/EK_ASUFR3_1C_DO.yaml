@@ -3,49 +3,46 @@ components:
   Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO:
     title: 1С:Документоборот
     entity: component
-    description:
-      "Автоматизированная система управления задачами ЭДО, ЮЗЭДО, ВК ЭДО, формирования и согласования реестров ПУД внутри контура ЕК АСУФР-3"
-    business_owners:
-      - Egorov Demid Nikitich
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
-    extension:
-      type: system
-      area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
-      state: Проектируется
-      state_update_date: 2023-01-01
-      development_platform: "1С:Предприятие 8"
-      basic_solution: "1С:Документооборот 8 КОРП, редакция 3.0"
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://solutions.1c.ru/catalog/doc8-corp
-      provider: ООО Ромашка
-      provider_type: Собственная разработка
+    description: "Автоматизированная система управления задачами ЭДО, ЮЗЭДО, ВК ЭДО, формирования и согласования реестров ПУД внутри контура ЕК АСУФР-3"
     aspects:
       - DocumentManagement.EDO
       - DocumentManagement.EDO_VK
       - DocumentManagement.YUZEDO
-    indicators:
-      - id: indicator_arch_maturity
-        fit: none
-        comment: Полно костылей, нужно все перепроектировать
-        date: 2023-10-07
-      - id: indicator_code_control
-        fit: fully
-        comment: Автоматически сгенерированный комментарий
-        date: 2023-10-07
-      - id: indicator_vendor
-        fit: partially
-        comment: Автоматически сгенерированный комментарий
-        date: 2023-10-07
-      - id: indicator_team_capacity
-        fit: fully
-        comment: Автоматически сгенерированный комментарий
-        date: 2023-10-07
-      - id: indicator_process
-        fit: none
-        comment: Автоматически сгенерированный комментарий
-        date: 2023-10-07
+    extension:
+      type: system
+      area: Документооборот (ЭДО, ЮЗЭДО, ВКЭДО)
+      state: implementation
+      state_update_date: 2023-01-01
+      category: business_app
+      basic_solution: DocumentManagement
+      development_model: external
+      contacts:
+          business_owners:
+            - Egorov Demid Nikitich
+          application_owner: Zvereva Ksenia Matveevna
+          budget_holder: Zakharova Vasilisa Artemovna
+          architect: Solovyova Vera Georgievna
+      indicators:
+        - id: indicator_arch_maturity
+          fit: none
+          comment: Полно костылей, нужно все перепроектировать
+          date: 2023-10-07
+        - id: indicator_code_control
+          fit: fully
+          comment: Автоматически сгенерированный комментарий
+          date: 2023-10-07
+        - id: indicator_vendor
+          fit: partially
+          comment: Автоматически сгенерированный комментарий
+          date: 2023-10-07
+        - id: indicator_team_capacity
+          fit: fully
+          comment: Автоматически сгенерированный комментарий
+          date: 2023-10-07
+        - id: indicator_process
+          fit: none
+          comment: Автоматически сгенерированный комментарий
+          date: 2023-10-07
 
   Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO.MDM:
     title: Управление НСИ

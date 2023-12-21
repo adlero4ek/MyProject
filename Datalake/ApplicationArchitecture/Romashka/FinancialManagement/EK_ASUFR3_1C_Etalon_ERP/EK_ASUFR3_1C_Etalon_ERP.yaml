@@ -3,55 +3,51 @@ components:
   Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP:
     title: 1С:ERP Управление предприятием (эталон)
     entity: component
-    description:
-      "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,
+    description: "Автоматизированная система предназначена для целей управления централизованной нормативно-справочной информацией и параметрическими настройками,
        влияющими на функционирование «ЕК АСУФР-3. 1С:ERP», а также реализации функций моделирования и контроля над изменениями учетной политики с обес-печением
        переноса выполненных изменений в «ЕК АСУФР-3. 1С:ERP». Дополнительно копия системы может использоваться для проведения обучения пользователей, например,
        в процессе тиражирования или различных видов тестирования (функциональное, ре-грессионное и прочее)"
-    business_owners:
-      - Egorov Demid Nikitich
-    application_owner: Zvereva Ksenia Matveevna
-    budget_holder: Zakharova Vasilisa Artemovna
-    architect: Solovyova Vera Georgievna
-    extension:
-      type: system
-      area: Финансовый контур
-      state: Проектируется
-      state_update_date: 2023-01-01
-      development_platform: "1С:Предприятие 8"
-      basic_solution: "1С:ERP, редакция 2.5"
-      basic_solution_state: Развивается поставщиком
-      basic_solution_link: https://solutions.1c.ru/catalog/1cerp
-      provider: ООО Ромашка
-      provider_type: Собственная разработка
-      owner_name: Иванов И. И.
-      owner_email: fio@mail.ru
     aspects:
       - CommonAspects.ReferenceClassifiers
       - CommonAspects.ReferenceMDM
       - CommonAspects.ReferenceSettings
-    indicators:
-      - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
-        fit: fully
-        comment:
-        date: 07.10.2023
-      - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
-        fit: fully
-        comment:
-        date: 07.10.2023
+    extension:
+      type: system
+      area: Финансовый контур
+      state: implementation
+      state_update_date: 2023-02-01
+      category: business_app
+      basic_solution: ERP
+      development_model: external
+      contacts:
+        business_owners:
+          - Egorov Demid Nikitich
+        application_owner: Zvereva Ksenia Matveevna
+        budget_holder: Zakharova Vasilisa Artemovna
+        architect: Solovyova Vera Georgievna
+      indicators:
+        - id: indicator_arch_maturity # Система соответствует архитектурным стандартам и принципам Компании
+          fit: fully
+          comment:
+          date: 2023-02-01
+        - id: indicator_code_control # Исходный код системы полностью доступен в любой момент
+          fit: fully
+          comment:
+          date: 2023-02-01
+        - id: indicator_vendor # Отсутствуют критичные риски вендора (уход с рынка, прекращение поддержки, изменение ценовой политики)
+          fit: fully
+          comment:
+          date: 2023-02-01
+        - id: indicator_team_capacity # Ресурс команды достаточен для развития и сопровождения системы. Оценка должна выполняться на основании соответствия количества задач количеству ресурсов.
+          fit: fully
+          comment:
+          date: 2023-02-01
+        - id: indicator_process # Разработка и сопровождение системы осуществляется в соответствии с целевым процессом
+          fit: fully
+          comment:
+          date: 2023-02-01
         
+
   Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_Etalon_ERP.UserPermissions:
     title: Права и роли пользователей
     entity: component

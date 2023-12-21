@@ -62,7 +62,7 @@ functions:
       $Indicators.(
     
         $Indicator        := $;
-        $AppIndicator     := $Application.indicators[id = $Indicator.name];
+        $AppIndicator     := $Application.*.indicators[id = $Indicator.name];
         $IndicatorIdFound := $type($AppIndicator)="object";
     
         $IndicatorIdFound ?
@@ -129,8 +129,6 @@ functions:
       $DictionaryRatings[name=$Rate];
 
     )
-
-
 
   # Получение общего рейтинга системы
   # $eval($.functions.get_application_total_rating, {'AppId': AppId, 'Datalake': Datalake});
