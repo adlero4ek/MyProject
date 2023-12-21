@@ -1,0 +1,29 @@
+functions:
+
+  # получить ошибки заполнения атрибутов вида справочник
+  # noinspection YAMLSchemaValidation
+  get_errors_filling_attributes_of_directory_type: >
+    (
+        /* Параметры функции */
+        $Datalake      := $.Datalake;
+        $Dictionary    := $.Dictionary;
+        $AttrubuteName := $.AttrubuteName;
+        $DictionaryName := $.DictionaryName;
+    
+        /* Получение значение справочника по ключу */
+        $GetValueOfDictionary := function($v) {( $Dictionary[name=$v] )};
+    
+        /* Компоненты типа = приложение/сервис */
+        $Components := $Datalake.components.$sift(function($v) { $v.extension.type="system"});
+    
+        /* Выборка */
+        [$Components.$spread().(
+            *.extension.{
+                "Id": %.%.$keys()[0],                    /* ID приложения */
+                "AttrubuteName": $AttrubuteName,         /* Имя проверяемого атрибута */
+                "AttrubuteValue": $eval($AttrubuteName), /* Текущее значение проверяемого атрибута */
+                "DictionaryName": $DictionaryName,       /* Использумый справочник */
+                "isvalid": $exists($GetValueOfDictionary($eval($AttrubuteName)))}
+        )[isvalid != true]];
+    
+    )

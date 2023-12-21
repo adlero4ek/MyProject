@@ -53,3 +53,50 @@ rules:
             }
           )]
         )
+
+    ErrorsFillingAttributesOfDirectoryType:
+      title: "Ошибки заполнения атрибутов приложений/сервисов, которые ссылаются на справочники"
+      source: >
+        (
+            /* Озеро данных проекта */
+            $Datalake := $;
+        
+            /* Статус использования */          
+            $Dictionary    := $Datalake.dictionaries."settings.applications_status";
+            $AttrubuteName := "state";
+  
+            $Query := $eval($Datalake.functions.get_errors_filling_attributes_of_directory_type,
+                {"Datalake": $Datalake, "Dictionary": $Dictionary.parameters, "AttrubuteName": $AttrubuteName, "DictionaryName": $Dictionary.title});
+        
+            /* Базовое решение */
+            $Dictionary    := $Datalake.dictionaries."settings.BasicSolutions";
+            $AttrubuteName := "basic_solution";
+        
+            $Query := $append($Query, $eval($Datalake.functions.get_errors_filling_attributes_of_directory_type,
+                {"Datalake": $Datalake, "Dictionary": $Dictionary.parameters, "AttrubuteName": $AttrubuteName, "DictionaryName": $Dictionary.title}));
+ 
+            /* Категория */     
+            $Dictionary    := $Datalake.dictionaries."settings.applications_category";
+            $AttrubuteName := "category";
+            
+            $Query := $append($Query, $eval($Datalake.functions.get_errors_filling_attributes_of_directory_type,
+                { "Datalake": $Datalake, "Dictionary": $Dictionary.parameters, "AttrubuteName": $AttrubuteName, "DictionaryName": $Dictionary.title }));
+  
+            /* Модель разработки */
+            $Dictionary    := $Datalake.dictionaries."settings.development_model";
+            $AttrubuteName := "development_model";
+        
+            $Query := $append($Query, $eval($Datalake.functions.get_errors_filling_attributes_of_directory_type,
+                { "Datalake": $Datalake, "Dictionary": $Dictionary.parameters, "AttrubuteName": $AttrubuteName, "DictionaryName": $Dictionary.title }));
+
+            /* Отображение ошибок заполнения */
+            [$Query.(
+              {
+                "uid": "$custom-Systems-ErrorsFillingAttributesOfDirectoryType-" & Id & "-" & AttrubuteName,
+                "location": "/architect/components/" & Id,
+                "correction": "Корректно заполните реквизит: " & AttrubuteName & ", текущее значение = " & AttrubuteValue,
+                "description": "Значение реквизита должно быть заполнено ссылкой на справочник: " & DictionaryName
+              }
+            )]
+        
+        )

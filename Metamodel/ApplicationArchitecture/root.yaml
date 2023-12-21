@@ -4,3 +4,4 @@ imports:
   - Extensions/root.yaml
   - Links/root.yaml
   - docs.yaml
+  - functions.yaml
