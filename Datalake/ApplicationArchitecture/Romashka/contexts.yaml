@@ -30,3 +30,25 @@ contexts:
       - Romashka.Systems.VehicleManagement.*
       - Romashka.Systems.Supporting.*
       - Romashka.Systems.Technological.SPPR
+
+#  Romashka.context.GroupingByDevelopmentModel:
+#    title: Группировка по модели разработки
+#    extra-links: false
+#    location:
+#    components:
+#      - Romashka.Systems.*.*
+#    source: >
+#      (
+#
+#          $Grouping := {
+#            "GroupingName": "DevelopmentModel",                                     /* Имя группировки, добавляемое в описание идентификатора компонента DDD */
+#            "GroupingTitle": "Модель разработки",                                   /* Представление группировки, отображаемое пользователями на схеме контекста */
+#            "FieldPath": "*.extension.development_model",                           /* Путь к значениям для  расчета группировок */
+#            "Dictionary": $.dictionaries."settings.development_model".parameters};  /* Описание вариантов значений и представлений группируемого атрибута */
+#
+#          $TransformedDescription := $eval($.functions.get_transformed_components_description, {"Grouping": $Grouping, "Datalake": $});
+#
+#          $ ~> | $ | { "components": $TransformedDescription.Components } ["components"] |;
+#          $ ~> | $ | { "links": $TransformedDescription.Links } |;
+#
+#      )

@@ -3,6 +3,8 @@ components:
   Romashka.Systems:
     title: Приложения и сервисы
     entity: component
+    extension:
+      type: systems
 
 aspects:
 
