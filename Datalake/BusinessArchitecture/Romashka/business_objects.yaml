@@ -1,5 +1,28 @@
 BusinessObjects:
 
+  Romashka.BusinessObject.Bron:
+    title: Бронирование помещений
+    description:
+      "Документ бронирования помещений для провещения мероприятияй"
+    type: Документы
+    division_owner: Romashka.Divisions.FinancialService
+    architect: Zakharova Vasilisa Artemovna
+    state: Проектируется
+    state_update_date: 2023-01-01
+    parameters:
+      - name: Помещение
+        description: Помещение
+        type: Строка
+      - name: Сотрудник
+        description: Ответственный за бронирование помещений
+        type: Строка
+      - name: Время начала
+        description: Дата и время начала бронирования
+        type: Дата
+      - name: Время окончания бронирования
+        description: Дата бронирования
+        type: Дата и время начала бронирования
+
   Romashka.BusinessObject.Organizations:
     title: Балансовые единицы
     description:

@@ -53,6 +53,8 @@ ApplicationDataObjects:
             description: Сотрудник
             type: Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_DO.Spravochnik.Sotrudniki,Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_DO.Spravochnik.Polzovateli
             class: Реквизит
+      business_Objects: #todo добавить контроль наличия объектов
+        - Romashka.BusinessObject.Bron
 
   Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_DO.Dokument.VkhodyashcheePismo:
       uuid:
@@ -6319,6 +6321,8 @@ ApplicationDataObjects:
             description: Вид организации
             type: Юр физ лицо
             class: Реквизит
+      business_Objects: #todo добавить контроль наличия объектов
+        - Romashka.BusinessObject.Organizations
 
   Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_DO.Spravochnik.OcheredZadaniy:
       uuid:

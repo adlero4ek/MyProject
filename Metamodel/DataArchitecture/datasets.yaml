@@ -29,7 +29,7 @@ datasets:
 
                 {
                   "AppDataObject_id": $AppDataObj_Id,
-                  "AppDataObject_link": "/entities/ApplicationDataObjects/blank?id=" & $app_data_obj_id,
+                  "AppDataObject_link": "/entities/ApplicationDataObjects/blank?id=" & $AppDataObj_Id,
                   "AppDataObject_title": $AppDataObj.title,
                   "AppDataObject_state": $AppDataObj.state,
                   "AppDataObject_state_update_date": $AppDataObj.state_update_date,

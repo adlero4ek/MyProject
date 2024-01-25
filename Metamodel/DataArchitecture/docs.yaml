@@ -15,7 +15,7 @@ docs:
         wight: 50%
     source: >
       (
-        $Id := $params.id; /* "Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron"; */
+        $Id := $params.id; /* "Romashka.ApplicationDataObject.EK_ASUFR3_1C_Etalon_DO.Dokument.Bron"; */
       
         /* Получение наименование (title) для объекта приложения. Для простых типов возвразается сам протой тип, для типов содержащих строку ApplicationDataObject */ 
         /* возвращается title, найденного объекта приложения по его ID */
@@ -30,7 +30,7 @@ docs:
       
         /* Получение из констант строку-описания карточки объкта приложения/сервиса - "/entities/ApplicationDataObjects/blank?id="  */
         /* Необходимо для упрощения поддержки изменений */
-        $AppDataObjCard := Constants.AppDataObjCard.Default;
+        $AppDataObjCard := "/entities/ApplicationDataObjects/blank?id="; /*Constants.AppDataObjCard.Default;*/
       
         [$FoundAppDataObj.attributes.(
           {
