@@ -92,7 +92,7 @@ rules:
           
           $Query := $distinct(BusinessObjects.$spread().(
           
-            $BusinessObject_ID :=  $keys()[0];
+            $BusinessObject_ID := $keys()[0];
             
             {
               "BusinessObject_ID": $BusinessObject_ID,

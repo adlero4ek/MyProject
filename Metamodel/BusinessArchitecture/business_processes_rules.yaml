@@ -8,9 +8,7 @@ rules:
           (
           
             $ParticipantIsComponent := function($Components, $Component_Id) {(
-
                 $type($lookup($Components, $Component_Id))="object"
-
             )};
 
             $Components := $.components;

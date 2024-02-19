@@ -5,21 +5,22 @@ datasets:
   Business.dataset.DivisionList:
     source: >
       (
-        components.$spread().(
+        $Components := components.$sift(function($v) { $v.extension.type = "division" });
           
-          $Component_Id := $keys()[0];
-          
+        $Components.$spread().(
+      
+          $ComponentId := $keys()[0];
+      
           *.{
-            "id": $Component_Id,
-            "link_id": "/architect/components/" & $Component_Id,
+            "id": $ComponentId,
+            "link_id": "/architect/components/" & $ComponentId,
             "title": title,
             "entity": entity,
             "description": description,
-            "type": extension.type,
             "owner": extension.owner
-          };
+            };
       
-        )[type="division"]^(title)
+        )^(title)
             
       )
 
