@@ -4,7 +4,7 @@ functions:
   # $eval($FUNCTIONS.get_er_diagram_dataset,{"app_data_id": "Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron", })
   get_er_diagram_dataset: >
     (
-      $Id := $.AppDataId; /* "Romashka.ApplicationDataObject.DocumentFlow.Dokument.Bron"; */
+      $Id := $.AppDataId; /* "Romashka.ApplicationDataObject.Demo_1C_ERP.GruppyPolzovateley"; */
      
       /* Озеро данных текущего проекта (совокуптность данных из yaml файлов каталогов Datalake, Metamodel) */
       $Datalake := $.Datalake; /* $; */
@@ -18,7 +18,7 @@ functions:
           $contains($Id, ".Spravochnik.") ? "$catalog" : 
               $contains($Id, ".Dokument.") ? "$document" : 
                   $contains($Id, ".RegistrSvedeniy.") ? "$inforg" : 
-                      $contains($Id, "Реквизит") ? "$attribute" : 
+                      $contains($Id, "еквизит") ? "$attribute" : 
                           $contains($Id, "Измерение") ? "$d" : 
                               $contains($Id, "Ресурс") ? "$r" : ""
 
@@ -43,7 +43,7 @@ functions:
               "Attributes":$FoundAppDataObj.attributes.(
                   {
                       "Attribute_Name": name, /* имя атрибута, отображаемое на диаграмме */
-                      "Attribute_Type": type, /* тип атрибута для расчета зависимостей */
+                      "Attribute_Type": $string(type), /* тип атрибута для расчета зависимостей */
                       "Attribute_Class": class, /* класс атрибута, необходим для сортировки и определения спрайта */
                       "Attribute_Sprite": $GetSprite(class) /* спрайт атрибуа , отображаемый на диаграмме */
                   })^(Attribute_Class, Attribute_Name) 
@@ -61,7 +61,7 @@ functions:
               "ApplicationObject_Id": $ApplicationObject_Id,
               "Attribute_Type": type
           }[ (ApplicationObject_Id = $Id)  /* Сам объект анализа */
-              or $contains(Attribute_Type, $Id) /* Объект анализа указан как тип в атрибутах других объектов приложений */
+              or $contains($string(Attribute_Type), $Id) /* Объект анализа указан как тип в атрибутах других объектов приложений */
               or (ApplicationObject_Id = $Id and $contains(Attribute_Type, "ApplicationDataObject"))  /* Атрибуты объекта анализа составного типа (не простого) */
            ]
 
@@ -73,7 +73,7 @@ functions:
       $IncomingConnections := $distinct($OutgoingConnections[ApplicationObject_Id=$Id and $contains(Attribute_Type, "ApplicationDataObject")].(
 
           /* Удаление простых типов из массива составного типа данных, т.к. простые типы не могут являться объектами связи */
-          $Types := $RemoveSimpleTypes(Attribute_Type);
+          $Types := $RemoveSimpleTypes($string(Attribute_Type));
 
           /* Формирование объекта на основании массива составных типов */
           $Types := $map([$Types], function($v) {{"ApplicationObject_Id": $v}});

@@ -4,3 +4,4 @@ imports:
   - EK_ASUFR3_1C_Etalon_ERP/root.yaml
   - EK_ASUFR3_1C_Conslidate_ERP/root.yaml
   - EK_ASUFR3_1C_MDM_ERP/root.yaml
+  - DEMO/root.yaml

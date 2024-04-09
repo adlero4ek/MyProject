@@ -37,8 +37,8 @@ docs:
             "Id": $Id,
             "Name": name,
             "Description": description,
-            "Type": $map($split(type, ","), $GetTypeDescription)~>$join(","),
-            "Link": $contains(type, "ApplicationDataObject") ? $AppDataObjCard & type : ""
+            "Type": $map($split($string(type), ","), $GetTypeDescription)~>$join(","),
+            "Link": $contains($string(type), "ApplicationDataObject") ? $AppDataObjCard & type : ""
           }
         )^(Name)]
       
@@ -99,8 +99,8 @@ docs:
                 "ApplicationObject_Id": $ApplicationObject_Id,
                 "Attribute_Type": type
             }[ (ApplicationObject_Id = $Id)  /* Сам объект анализа */
-                or $contains(Attribute_Type, $Id) /* Объект анализа указан как тип в атрибутах других объектов приложений */
-                or (ApplicationObject_Id = $Id and $contains(Attribute_Type, "ApplicationDataObject"))  /* Атрибуты объекта анализа составного типа (не простого) */
+                or $contains($string(Attribute_Type), $Id) /* Объект анализа указан как тип в атрибутах других объектов приложений */
+                or (ApplicationObject_Id = $Id and $contains($string(Attribute_Type), "ApplicationDataObject"))  /* Атрибуты объекта анализа составного типа (не простого) */
             ]
       
         );
