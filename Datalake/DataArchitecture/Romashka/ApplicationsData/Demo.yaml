@@ -1,5 +1,192 @@
 ApplicationDataObjects:
 
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyTsenPostavshchikov:
+    uuid: 97e31b19-1a5d-47f7-b1dd-18efaa86646e
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Виды цен поставщиков
+    type: Справочники
+    table_name: Справочник.ВидыЦенПоставщиков
+    description: Виды цен поставщиков
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: Владелец
+        description: Владелец
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Стандартный реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PostuplenieOtPererabotchika:
+    uuid: 3a1d9a59-b4c6-4fb7-a1ef-7ea9c612d762
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Поступление от переработчика
+    type: Документы
+    table_name: Документ.ПоступлениеОтПереработчика
+    description: Поступление от переработчика
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Количество
+        description: Количество
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: КоличествоУпаковок
+        description: КоличествоУпаковок
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+      - name: ВариантПриемкиТоваров
+        description: ВариантПриемкиТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyPriemkiTovarov
+        class: Реквизит
+      - name: НаправлениеДеятельности
+        description: НаправлениеДеятельности
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NapravleniyaDeyatelnosti
+        class: Реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PostupleniePredmetovLizinga:
+    uuid: 842fa339-e5c7-4324-b3bf-b76bad0db76c
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Поступление предметов лизинга
+    type: Документы
+    table_name: Документ.ПоступлениеПредметовЛизинга
+    description: Поступление предметов лизинга
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: ДоговорЛизинга
+        description: ДоговорЛизинга
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.DogovoryLizinga
+        class: Реквизит
+      - name: СчетУчета
+        description: СчетУчета
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.PlanSchetov.Khozraschetnyy
+        class: Реквизит
+      - name: СтавкаНДС
+        description: СтавкаНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StavkiNDS
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Сумма
+        description: Сумма
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleNeotritsatelnoe
+        class: Реквизит
+      - name: СтатьяРасходов
+        description: СтатьяРасходов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.PlanVidovKharakteristik.StatiRaskhodov
+        class: Реквизит
+      - name: ГруппаФинансовогоУчета
+        description: ГруппаФинансовогоУчета
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.GruppyFinansovogoUchetaVneoborotnykhAktivov
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Подразделение
+        description: Подразделение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.StrukturaPredpriyatiya
+        class: Реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+      - name: ОсновноеСредство
+        description: ОсновноеСредство
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.ObektyEkspluatatsii
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: ЗакупкаПодДеятельность
+        description: ЗакупкаПодДеятельность
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: ВалютаВзаиморасчетов
+        description: ВалютаВзаиморасчетов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: СуммаНУ
+        description: СуммаНУ
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleNeotritsatelnoe
+        class: Реквизит
+      - name: НалогообложениеНДС
+        description: НалогообложениеНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+    business_Objects:
+
+
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VneshniePolzovateli:
     uuid: 92876c9e-52ff-480d-9878-5766f4f9d12c
     system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
@@ -9,7 +196,7 @@ ApplicationDataObjects:
     table_name: Справочник.ВнешниеПользователи
     description: Внешние пользователи
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -34,6 +221,8 @@ ApplicationDataObjects:
         description: Недействителен
         type: Булево
         class: Реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Users
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.GruppyVneshnikhPolzovateley:
     uuid: cb9b73ee-8531-48d9-9266-9aaa4336a612
@@ -44,7 +233,7 @@ ApplicationDataObjects:
     table_name: Справочник.ГруппыВнешнихПользователей
     description: Группы внешних пользователей
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -65,6 +254,8 @@ ApplicationDataObjects:
         description: Наименование
         type: Строка 150
         class: Стандартный реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Users
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.GruppyPolzovateley:
     uuid: a2782760-dd4c-44d2-a785-814d6f610455
@@ -75,7 +266,7 @@ ApplicationDataObjects:
     table_name: Справочник.ГруппыПользователей
     description: Группы пользователей
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -92,6 +283,8 @@ ApplicationDataObjects:
         description: Наименование
         type: Строка 150
         class: Стандартный реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Users
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Polzovateli:
     uuid: cffbf533-11c6-4206-9b8b-f7355cb63fd8
@@ -102,7 +295,7 @@ ApplicationDataObjects:
     table_name: Справочник.Пользователи
     description: Пользователи
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -135,6 +328,8 @@ ApplicationDataObjects:
         description: Подготовлен
         type: Булево
         class: Реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Users
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.RegistrSvedeniy.SvedeniyaOPolzovatelyakh:
     uuid: fc67b510-3fb4-4305-92d2-c252bc718f03
@@ -145,7 +340,7 @@ ApplicationDataObjects:
     table_name: РегистрСведений.СведенияОПользователях
     description: Сведения о пользователях
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -190,6 +385,8 @@ ApplicationDataObjects:
         description: ПотребоватьСменуПароляПриВходе
         type: Булево
         class: Ресурс
+    business_Objects:
+
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.RegistrSvedeniy.SostavyGruppPolzovateley:
     uuid: 86a871da-3725-43a1-a7c3-98acd187011b
@@ -200,7 +397,7 @@ ApplicationDataObjects:
     table_name: РегистрСведений.СоставыГруппПользователей
     description: Составы групп пользователей
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -217,6 +414,363 @@ ApplicationDataObjects:
         description: Используется
         type: Булево
         class: Ресурс
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty:
+    uuid: 4259c461-12b1-4f3e-8283-5927c75afdb6
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Контрагенты
+    type: Справочники
+    table_name: Справочник.Контрагенты
+    description: Контрагенты
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: ЮрФизЛицо
+        description: ЮрФизЛицо
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.YurFizLitso
+        class: Реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Contractor
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SoglasheniyaSPostavshchikami:
+    uuid: 04fbd094-37cc-4115-9af5-dd30866902f6
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Соглашения об условиях закупок
+    type: Справочники
+    table_name: Справочник.СоглашенияСПоставщиками
+    description: Соглашения об условиях закупок
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: АдресДоставкиПеревозчика
+        description: АдресДоставкиПеревозчика
+        type: Строка 500
+        class: Реквизит
+      - name: АдресДоставки
+        description: АдресДоставки
+        type: Строка 500
+        class: Реквизит
+      - name: ПеревозчикПартнер
+        description: ПеревозчикПартнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: СпособДоставки
+        description: СпособДоставки
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyDostavki
+        class: Реквизит
+      - name: ВалютаВзаиморасчетов
+        description: ВалютаВзаиморасчетов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: ВидЦеныПоставщика
+        description: ВидЦеныПоставщика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyTsenPostavshchikov
+        class: Реквизит
+      - name: ПорядокРасчетов
+        description: ПорядокРасчетов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokRaschetov
+        class: Реквизит
+      - name: ПорядокОплаты
+        description: ПорядокОплаты
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokOplatyPoSoglasheniyam
+        class: Реквизит
+      - name: ВариантПриемкиТоваров
+        description: ВариантПриемкиТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyPriemkiTovarov
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: ВариантОплаты
+        description: ВариантОплаты
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyOplatyPostavshchiku
+        class: Реквизит
+      - name: ХозяйственнаяОперация
+        description: ХозяйственнаяОперация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.KhozyaystvennyeOperatsii
+        class: Реквизит
+      - name: СпособРасчетаВознаграждения
+        description: СпособРасчетаВознаграждения
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyRaschetaKomissionnogoVoznagrazhdeniya
+        class: Реквизит
+      - name: Статус
+        description: Статус
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StatusySoglasheniySPostavshchikami
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: ПроцентЗалогаЗаТару
+        description: ПроцентЗалогаЗаТару
+        type: Число 5.2 неотр.
+        class: Реквизит
+      - name: ПроцентПлатежа
+        description: ПроцентПлатежа
+        type: Число 5.2 неотр.
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SegmentyPartnerov:
+    uuid: 4bb82865-af34-45b8-8b8f-1ab628962dc7
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Сегменты клиентов
+    type: Справочники
+    table_name: Справочник.СегментыПартнеров
+    description: Сегменты клиентов
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Наименование
+        description: Наименование
+        type: Строка 50
+        class: Стандартный реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Родитель
+        description: Родитель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SegmentyPartnerov
+        class: Стандартный реквизит
+      - name: СпособФормирования
+        description: СпособФормирования
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyFormirovaniyaSegmentov
+        class: Реквизит
+      - name: Код
+        description: Код
+        type: Строка 11
+        class: Стандартный реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PostuplenieSyryaOtDavaltsa:
+    uuid: 8f1b8cb7-8f96-42a7-b87f-b2ed7b9d42ce
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Поступление сырья от давальца
+    type: Документы
+    table_name: Документ.ПоступлениеСырьяОтДавальца
+    description: Поступление сырья от давальца
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+      - name: Количество
+        description: Количество
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: ВариантПриемкиТоваров
+        description: ВариантПриемкиТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyPriemkiTovarov
+        class: Реквизит
+      - name: ДатаВозвратаМногооборотнойТары
+        description: ДатаВозвратаМногооборотнойТары
+        type: Дата
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: КоличествоУпаковок
+        description: КоличествоУпаковок
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Назначение
+        description: Назначение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Naznacheniya
+        class: Реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery:
+    uuid: bf75bcc5-82ee-4bd0-89e1-420b42c99454
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Партнеры
+    type: Справочники
+    table_name: Справочник.Партнеры
+    description: Партнеры
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ЮрФизЛицо
+        description: ЮрФизЛицо
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.KompaniyaChastnoeLitso
+        class: Реквизит
+      - name: НаименованиеПолное
+        description: НаименованиеПолное
+        type: Строка 250
+        class: Реквизит
+      - name: Код
+        description: Код
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: ГруппаДоступа
+        description: ГруппаДоступа
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.GruppyDostupaPartnerov
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: Родитель
+        description: Родитель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Стандартный реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Contractor
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kassy:
+    uuid: f580f9ef-6c59-4e60-b909-3bb429771dc5
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Кассы
+    type: Справочники
+    table_name: Справочник.Кассы
+    description: Кассы
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ВалютаДенежныхСредств
+        description: ВалютаДенежныхСредств
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: Владелец
+        description: Владелец
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Стандартный реквизит
+      - name: ПолучательПлатежа
+        description: ПолучательПлатежа
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kassy
+        class: Реквизит
+      - name: КассоваяКнига
+        description: КассоваяКнига
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KassovyeKnigi
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.StrukturaPredpriyatiya:
+    uuid: 2914af3c-ad8f-4719-8871-98d1a256b3fb
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Структура предприятия
+    type: Справочники
+    table_name: Справочник.СтруктураПредприятия
+    description: Структура предприятия
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: СпособПолученияПолуфабрикатов
+        description: СпособПолученияПолуфабрикатов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyPolucheniyaPolufabrikatovProizvodimykhVProtsesse
+        class: Реквизит
+      - name: Код
+        description: Код
+        type: Строка 9
+        class: Стандартный реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: ВариантОбособленногоУчетаТоваров
+        description: ВариантОбособленногоУчетаТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyObosoblennogoUchetaTovarov
+        class: Реквизит
+      - name: Родитель
+        description: Родитель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.StrukturaPredpriyatiya
+        class: Стандартный реквизит
+      - name: ГрафикРаботы
+        description: ГрафикРаботы
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kalendari
+        class: Реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Organizations
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.PodrazdeleniyaOrganizatsiy:
     uuid: d5ada3af-5fe4-470a-a52d-888d88c9234f
@@ -227,7 +781,7 @@ ApplicationDataObjects:
     table_name: Справочник.ПодразделенияОрганизаций
     description: Подразделения организаций
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -256,6 +810,8 @@ ApplicationDataObjects:
         description: Владелец
         type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
         class: Стандартный реквизит
+    business_Objects:
+
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.FizicheskieLitsa:
     uuid: 92d7cba0-7873-47d5-9b94-61cc91a45609
@@ -266,7 +822,7 @@ ApplicationDataObjects:
     table_name: Справочник.ФизическиеЛица
     description: Физические лица
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -287,6 +843,962 @@ ApplicationDataObjects:
         description: Родитель
         type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.FizicheskieLitsa
         class: Стандартный реквизит
+    business_Objects:
+      - Romashka.BusinessObject.PhysicalPerson
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NomenklaturaPostavshchikov:
+    uuid: fb652c53-8b80-4555-a9eb-dba4d24c612d
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Номенклатура поставщиков
+    type: Справочники
+    table_name: Справочник.НоменклатураПоставщиков
+    description: Номенклатура поставщиков
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Код
+        description: Код
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Родитель
+        description: Родитель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NomenklaturaPostavshchikov
+        class: Стандартный реквизит
+      - name: Владелец
+        description: Владелец
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Стандартный реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Materials
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.VozvratTovarovPostavshchiku:
+    uuid: dd66a934-f22f-4ace-87f3-ce5073c9881d
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Возврат товаров поставщику
+    type: Документы
+    table_name: Документ.ВозвратТоваровПоставщику
+    description: Возврат товаров поставщику
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: НалогообложениеНДС
+        description: НалогообложениеНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: СтавкаНДС
+        description: СтавкаНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StavkiNDS
+        class: Реквизит
+      - name: Склад
+        description: Склад
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Sklady
+        class: Реквизит
+      - name: Количество
+        description: Количество
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: КоличествоУпаковок
+        description: КоличествоУпаковок
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Сумма
+        description: Сумма
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleNeotritsatelnoe
+        class: Реквизит
+      - name: ПорядокОплаты
+        description: ПорядокОплаты
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokOplatyPoSoglasheniyam
+        class: Реквизит
+      - name: НаправлениеДеятельности
+        description: НаправлениеДеятельности
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NapravleniyaDeyatelnosti
+        class: Реквизит
+      - name: ОсобыеУсловияПеревозкиОписание
+        description: ОсобыеУсловияПеревозкиОписание
+        type: Строка 0
+        class: Реквизит
+      - name: ПеревозчикПартнер
+        description: ПеревозчикПартнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: АдресДоставкиПеревозчика
+        description: АдресДоставкиПеревозчика
+        type: Строка 500
+        class: Реквизит
+      - name: СпособДоставки
+        description: СпособДоставки
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyDostavki
+        class: Реквизит
+      - name: АдресДоставки
+        description: АдресДоставки
+        type: Строка 500
+        class: Реквизит
+      - name: СпособКомпенсации
+        description: СпособКомпенсации
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyKompensatsiiVozvratovTovarov
+        class: Реквизит
+      - name: Договор
+        description: Договор
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.DogovoryKontragentov
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+      - name: ХозяйственнаяОперация
+        description: ХозяйственнаяОперация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.KhozyaystvennyeOperatsii
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PostuplenieTovarovOtKhranitelya:
+    uuid: cfd9c0ae-f750-4d3f-9f32-588b079aa237
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Поступление товаров от хранителя
+    type: Документы
+    table_name: Документ.ПоступлениеТоваровОтХранителя
+    description: Поступление товаров от хранителя
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ВариантПриемкиТоваров
+        description: ВариантПриемкиТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyPriemkiTovarov
+        class: Реквизит
+      - name: НаправлениеДеятельности
+        description: НаправлениеДеятельности
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NapravleniyaDeyatelnosti
+        class: Реквизит
+      - name: СтавкаНДС
+        description: СтавкаНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StavkiNDS
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: Склад
+        description: Склад
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Sklady
+        class: Реквизит
+      - name: Количество
+        description: Количество
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Договор
+        description: Договор
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.DogovoryKontragentov
+        class: Реквизит
+      - name: КоличествоУпаковок
+        description: КоличествоУпаковок
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: ХозяйственнаяОперация
+        description: ХозяйственнаяОперация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.KhozyaystvennyeOperatsii
+        class: Реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+      - name: Соглашение
+        description: Соглашение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SoglasheniyaSKlientami
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Sklady:
+    uuid: 07b3c407-9a3a-4f94-b798-226c96d66840
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Склады
+    type: Справочники
+    table_name: Справочник.Склады
+    description: Склады
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Поклажедержатель
+        description: Поклажедержатель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii,Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: ВидПоклажедержателя
+        description: ВидПоклажедержателя
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VidyPoklazhederzhateley
+        class: Реквизит
+      - name: ИсточникИнформацииОЦенахДляПечати
+        description: ИсточникИнформацииОЦенахДляПечати
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.IstochnikiInformatsiiOTsenakhDlyaPechati
+        class: Реквизит
+      - name: ТипСклада
+        description: ТипСклада
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipySkladov
+        class: Реквизит
+      - name: РозничныйВидЦены
+        description: РозничныйВидЦены
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyTsen
+        class: Реквизит
+      - name: Подразделение
+        description: Подразделение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.StrukturaPredpriyatiya
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 50
+        class: Стандартный реквизит
+      - name: Родитель
+        description: Родитель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Sklady
+        class: Стандартный реквизит
+      - name: ВыборГруппы
+        description: ВыборГруппы
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VyborGruppySkladov
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.RegistrSvedeniy.DatyPostupleniyaTovarovOrganizatsiy:
+    uuid: 687d8e39-c3a4-4c95-b32d-36cecfb27801
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Даты поступления товаров организаций
+    type: Регистры сведений
+    table_name: РегистрСведений.ДатыПоступленияТоваровОрганизаций
+    description: Даты поступления товаров организаций
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ДатаПоступления
+        description: ДатаПоступления
+        type: Дата и время
+        class: Ресурс
+      - name: НомерГТД
+        description: НомерГТД
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NomeraGTD
+        class: Измерение
+      - name: Назначение
+        description: Назначение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Naznacheniya
+        class: Измерение
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Измерение
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Измерение
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Измерение
+      - name: ВидЗапасов
+        description: ВидЗапасов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyZapasov
+        class: Измерение
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.ZakazPostavshchiku:
+    uuid: 8bd9f000-83c9-4a48-8166-2691b6f02183
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Заказ поставщику
+    type: Документы
+    table_name: Документ.ЗаказПоставщику
+    description: Заказ поставщику
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ПеревозчикПартнер
+        description: ПеревозчикПартнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: СпособДоставки
+        description: СпособДоставки
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyDostavki
+        class: Реквизит
+      - name: Приоритет
+        description: Приоритет
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Prioritety
+        class: Реквизит
+      - name: ЗакупкаПодДеятельность
+        description: ЗакупкаПодДеятельность
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: ДатаПоступления
+        description: ДатаПоступления
+        type: Дата
+        class: Реквизит
+      - name: Договор
+        description: Договор
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.DogovoryKontragentov
+        class: Реквизит
+      - name: ХозяйственнаяОперация
+        description: ХозяйственнаяОперация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.KhozyaystvennyeOperatsii
+        class: Реквизит
+      - name: Подразделение
+        description: Подразделение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.StrukturaPredpriyatiya
+        class: Реквизит
+      - name: НалогообложениеНДС
+        description: НалогообложениеНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: ПричинаОтмены
+        description: ПричинаОтмены
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.PrichinyOtmenyZakazovPostavshchikam
+        class: Реквизит
+      - name: АналитикаРасходов
+        description: АналитикаРасходов
+        type:
+        class: Реквизит
+      - name: СтавкаНДС
+        description: СтавкаНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StavkiNDS
+        class: Реквизит
+      - name: Статус
+        description: Статус
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StatusyZakazovPostavshchikam
+        class: Реквизит
+      - name: ДатаПоступления
+        description: ДатаПоступления
+        type: Дата
+        class: Реквизит
+      - name: Количество
+        description: Количество
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: КоличествоУпаковок
+        description: КоличествоУпаковок
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+      - name: ВариантПриемкиТоваров
+        description: ВариантПриемкиТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyPriemkiTovarov
+        class: Реквизит
+      - name: ПорядокОплаты
+        description: ПорядокОплаты
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokOplatyPoSoglasheniyam
+        class: Реквизит
+      - name: НаправлениеДеятельности
+        description: НаправлениеДеятельности
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NapravleniyaDeyatelnosti
+        class: Реквизит
+      - name: ОсобыеУсловияПеревозкиОписание
+        description: ОсобыеУсловияПеревозкиОписание
+        type: Строка 0
+        class: Реквизит
+      - name: АдресДоставкиПеревозчика
+        description: АдресДоставкиПеревозчика
+        type: Строка 500
+        class: Реквизит
+      - name: АдресДоставки
+        description: АдресДоставки
+        type: Строка 500
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.DogovoryKontragentov:
+    uuid: 3404cb9a-92ea-42b9-9086-ad481dbc27d7
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Договоры с контрагентами
+    type: Справочники
+    table_name: Справочник.ДоговорыКонтрагентов
+    description: Договоры с контрагентами
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: ВидДокумента
+        description: ВидДокумента
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyPodtverzhdayushchikhDokumentov
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 150
+        class: Стандартный реквизит
+      - name: НаправлениеДеятельности
+        description: НаправлениеДеятельности
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NapravleniyaDeyatelnosti
+        class: Реквизит
+      - name: НалогообложениеНДС
+        description: НалогообложениеНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: ЗакупкаПодДеятельность
+        description: ЗакупкаПодДеятельность
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: ПорядокОформленияСписанияНедостачПринятыхНаХранениеТоваров
+        description: ПорядокОформленияСписанияНедостачПринятыхНаХранениеТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokOformleniyaSpisaniyaNedostachPrinyatykhNaKhranenieTovarov
+        class: Реквизит
+      - name: СпособДоставки
+        description: СпособДоставки
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyDostavki
+        class: Реквизит
+      - name: ПеревозчикПартнер
+        description: ПеревозчикПартнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: АдресДоставки
+        description: АдресДоставки
+        type: Строка 500
+        class: Реквизит
+      - name: АдресДоставкиПеревозчика
+        description: АдресДоставкиПеревозчика
+        type: Строка 500
+        class: Реквизит
+      - name: ВидАгентскогоДоговора
+        description: ВидАгентскогоДоговора
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VidyAgentskikhDogovorov
+        class: Реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: ПорядокОплаты
+        description: ПорядокОплаты
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokOplatyPoSoglasheniyam
+        class: Реквизит
+      - name: ПорядокРасчетов
+        description: ПорядокРасчетов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.PoryadokRaschetov
+        class: Реквизит
+      - name: Статус
+        description: Статус
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StatusyDogovorovKontragentov
+        class: Реквизит
+      - name: ТипДоговора
+        description: ТипДоговора
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyDogovorov
+        class: Реквизит
+      - name: ГосударственныйКонтракт
+        description: ГосударственныйКонтракт
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.GosudarstvennyeKontrakty
+        class: Реквизит
+      - name: Сумма
+        description: Сумма
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleNeotritsatelnoe
+        class: Реквизит
+      - name: ВалютаВзаиморасчетов
+        description: ВалютаВзаиморасчетов
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PostuplenieTovarovNaSklad:
+    uuid: cf382c90-63f7-4150-9853-4c1d98bcb146
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Поступление товаров на склад
+    type: Документы
+    table_name: Документ.ПоступлениеТоваровНаСклад
+    description: Поступление товаров на склад
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ВариантПриемкиТоваров
+        description: ВариантПриемкиТоваров
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.VariantyPriemkiTovarov
+        class: Реквизит
+      - name: Распоряжение
+        description: Распоряжение
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.RasporyazhenieNaPostuplenie
+        class: Реквизит
+      - name: НаправлениеДеятельности
+        description: НаправлениеДеятельности
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NapravleniyaDeyatelnosti
+        class: Реквизит
+      - name: Договор
+        description: Договор
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.DogovoryKontragentov
+        class: Реквизит
+      - name: ВидДеятельностиНДС
+        description: ВидДеятельностиНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: НомерГТД
+        description: НомерГТД
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.NomeraGTD
+        class: Реквизит
+      - name: НалогообложениеНДС
+        description: НалогообложениеНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNalogooblozheniyaNDS
+        class: Реквизит
+      - name: СтавкаНДС
+        description: СтавкаНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StavkiNDS
+        class: Реквизит
+      - name: Контрагент
+        description: Контрагент
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Kontragenty
+        class: Реквизит
+      - name: Склад
+        description: Склад
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Sklady
+        class: Реквизит
+      - name: Количество
+        description: Количество
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: КоличествоУпаковок
+        description: КоличествоУпаковок
+        type: Число 15.3 неотр.
+        class: Реквизит
+      - name: Организация
+        description: Организация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii
+        class: Реквизит
+      - name: ХозяйственнаяОперация
+        description: ХозяйственнаяОперация
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.KhozyaystvennyeOperatsii
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Реквизит
+      - name: Номер
+        description: Номер
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Дата
+        description: Дата
+        type: Дата и время
+        class: Стандартный реквизит
+      - name: Серия
+        description: Серия
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.SeriiNomenklatury
+        class: Реквизит
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty:
+    uuid: 7aadbb67-f93e-43bb-9f53-f14d2c2a347a
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Валюты
+    type: Справочники
+    table_name: Справочник.Валюты
+    description: Валюты
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: СпособУстановкиКурса
+        description: СпособУстановкиКурса
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SposobyUstanovkiKursaValyuty
+        class: Реквизит
+      - name: ФормулаРасчетаКурса
+        description: ФормулаРасчетаКурса
+        type: Строка 100
+        class: Реквизит
+      - name: ОсновнаяВалюта
+        description: ОсновнаяВалюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Реквизит
+      - name: НаименованиеПолное
+        description: НаименованиеПолное
+        type: Строка 50
+        class: Реквизит
+      - name: Код
+        description: Код
+        type: Строка 3
+        class: Стандартный реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 10
+        class: Стандартный реквизит
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.BiznesRegiony:
+    uuid: f0062890-9bb3-438f-b2eb-12a2648f91f4
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Бизнес-регионы
+    type: Справочники
+    table_name: Справочник.БизнесРегионы
+    description: Бизнес-регионы
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: ЗначениеГеографическогоРегиона
+        description: ЗначениеГеографическогоРегиона
+        type: Строка 255,Число 25.0
+        class: Реквизит
+      - name: ГеографическийРегион
+        description: ГеографическийРегион
+        type: Строка 0
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: ОсновнойМенеджер
+        description: ОсновнойМенеджер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Polzovateli
+        class: Реквизит
+    business_Objects:
+      - Romashka.BusinessObject.BusinessRegion
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.RegistrSvedeniy.TsenyNomenklaturyPostavshchikov:
+    uuid: 47a462cd-a698-452a-9a66-371cc74ff5f7
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Цены номенклатуры поставщиков
+    type: Регистры сведений
+    table_name: РегистрСведений.ЦеныНоменклатурыПоставщиков
+    description: Цены номенклатуры поставщиков
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Период
+        description: Период
+        type: Дата
+        class: Стандартный реквизит
+      - name: Валюта
+        description: Валюта
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Valyuty
+        class: Ресурс
+      - name: Регистратор
+        description: Регистратор
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.RegistratsiyaTsenNomenklaturyPostavshchika,Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PriobretenieTovarovUslug,Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.KorrektirovkaRegistrov,Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.ZakazPostavshchiku,Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PriemkaTovarovNaKhranenie,Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.PostuplenieTovarovNaSklad
+        class: Стандартный реквизит
+      - name: Упаковка
+        description: Упаковка
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.UpakovkiEdinitsyIzmereniya
+        class: Ресурс
+      - name: Цена
+        description: Цена
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleNeotritsatelnoe
+        class: Ресурс
+      - name: Характеристика
+        description: Характеристика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.KharakteristikiNomenklatury
+        class: Измерение
+      - name: Номенклатура
+        description: Номенклатура
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura
+        class: Измерение
+      - name: ВидЦеныПоставщика
+        description: ВидЦеныПоставщика
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyTsenPostavshchikov
+        class: Измерение
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Измерение
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Nomenklatura:
+    uuid: fc59acc3-f1f7-4e3f-96da-e580f2c5a88f
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Номенклатура
+    type: Справочники
+    table_name: Справочник.Номенклатура
+    description: Номенклатура
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: НаименованиеПолное
+        description: НаименованиеПолное
+        type: Строка 1024
+        class: Реквизит
+      - name: Код
+        description: Код
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Артикул
+        description: Артикул
+        type: Строка 50
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+      - name: Производитель
+        description: Производитель
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Proizvoditeli
+        class: Реквизит
+      - name: ЕдиницаИзмерения
+        description: ЕдиницаИзмерения
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.UpakovkiEdinitsyIzmereniya
+        class: Реквизит
+      - name: ВидНоменклатуры
+        description: ВидНоменклатуры
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.VidyNomenklatury
+        class: Реквизит
+      - name: ТипНоменклатуры
+        description: ТипНоменклатуры
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.TipyNomenklatury
+        class: Реквизит
+      - name: СтавкаНДС
+        description: СтавкаНДС
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.StavkiNDS
+        class: Реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Materials
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.RegistrSvedeniy.SostoyaniyaZakazovPostavshchikam:
+    uuid: 68dc1454-631b-45f1-aaa5-388c0b6f5913
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Состояния заказов поставщикам
+    type: Регистры сведений
+    table_name: РегистрСведений.СостоянияЗаказовПоставщикам
+    description: Состояния заказов поставщикам
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Состояние
+        description: Состояние
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Perechislenie.SostoyaniyaZakazovPostavshchikam
+        class: Ресурс
+      - name: Заказ
+        description: Заказ
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Dokument.ZakazPostavshchiku
+        class: Измерение
+      - name: ПроцентПоступления
+        description: ПроцентПоступления
+        type: Число 3.0
+        class: Реквизит
+      - name: СуммаПоступления
+        description: СуммаПоступления
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleLyuboyZnak
+        class: Реквизит
+      - name: ПроцентОплаты
+        description: ПроцентОплаты
+        type: Число 3.0
+        class: Реквизит
+      - name: СуммаОплаты
+        description: СуммаОплаты
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.OpredelyaemyyTip.DenezhnoePoleLyuboyZnak
+        class: Реквизит
+      - name: ДатаСобытия
+        description: ДатаСобытия
+        type: Дата
+        class: Ресурс
+    business_Objects:
+
+
+  Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Proekty:
+    uuid: 4f008b09-45f5-46c4-8328-e52829147381
+    system: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    sybsystem: Romashka.Systems.FinancialManagement.Demo_1C_ERP
+    title: Проекты
+    type: Справочники
+    table_name: Справочник.Проекты
+    description: Проекты
+    state: trial
+    state_update_date: 2024-04-10
+    owner: Zakharova Vasilisa Artemovna
+    division_owner: Romashka.Divisions.DepartmentOfEconomics
+    attributes:
+
+      - name: Код
+        description: Код
+        type: Строка 11
+        class: Стандартный реквизит
+      - name: Партнер
+        description: Партнер
+        type: Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Partnery
+        class: Реквизит
+      - name: Наименование
+        description: Наименование
+        type: Строка 100
+        class: Стандартный реквизит
+    business_Objects:
+
 
   Romashka.ApplicationDataObject.Demo_1C_ERP.Spravochnik.Organizatsii:
     uuid: 35a6d3c8-3832-419f-81ef-fc7c113af6a4
@@ -297,7 +1809,7 @@ ApplicationDataObjects:
     table_name: Справочник.Организации
     description: Организации
     state: trial
-    state_update_date: 2024-04-09
+    state_update_date: 2024-04-10
     owner: Zakharova Vasilisa Artemovna
     division_owner: Romashka.Divisions.DepartmentOfEconomics
     attributes:
@@ -374,3 +1886,5 @@ ApplicationDataObjects:
         description: Наименование
         type: Строка 50
         class: Стандартный реквизит
+    business_Objects:
+      - Romashka.BusinessObject.Organizations

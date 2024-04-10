@@ -1,7 +1,7 @@
 imports:
-#  - EK_ASUFR3_1C_Etalon_ERP.yaml
-#  - EK_ASUFR3_1C_ERP.yaml
-#  - EK_ASUFR3_1C_DO.yaml
-#  - EK_ASUFR3_1C_Etalon_DO.yaml
-#  - SPPR.yaml
+  - EK_ASUFR3_1C_Etalon_ERP.yaml
+  - EK_ASUFR3_1C_ERP.yaml
+  - EK_ASUFR3_1C_DO.yaml
+  - EK_ASUFR3_1C_Etalon_DO.yaml
+  - SPPR.yaml
   - Demo.yaml

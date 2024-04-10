@@ -6,7 +6,7 @@ datasets:
       (
         
         $Datalake := $;        
-        $ComponentCardSystem  := Constants.ComponentCard.System;
+        $ComponentCardSystem := Constants.ComponentCard.System;
 
         ApplicationDataObjects.$spread().(
 
@@ -22,7 +22,7 @@ datasets:
             *.business_Objects.(
                 
                 /* ID бизнес-сущности */
-                $BusinessDataObj_Id := $;
+                $BusinessDataObj_Id := $string($);
       
                 /* Бизнес-сущность */
                 $BusinessDataObj := $lookup($Datalake.BusinessObjects, $BusinessDataObj_Id);
