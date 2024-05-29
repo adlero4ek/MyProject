@@ -55,12 +55,28 @@ links:
     size_mb: 10
     periodicity: По запросу
     parameters:
-      - name: ATTRIBUTE 1
-        description: Расширенное описание атрибута, используемое для идентификации правил использования
+      - name: NUMBER
+        description: Номер документа
         type: Строка (35)
-      - name: ATTRIBUTE 2
-        description: Расширенное описание атрибута, используемое для идентификации правил использования
+      - name: DATE
+        description: Дата документа
         type: Дата (ГГГГ-ММ-ДД)
+      - name: ACTION
+        description: "Действия. Возможные коды действий:\n
+         4 — повреждение,\n
+            15 — товар устарел,\n
+            12E — товар будет возвращен,\n
+            14E — товар будет уничтожен,\n
+            15E — товар должен быть  восстановлен/отремонтирован"
+        type: Число (3)
+      - name: VAT
+        description: "Ставка НДС, %, Принимает значение: 0 | 10 | 18 | 20"
+        type: Число положительное
+    BusinessObjects:
+      - Romashka.BusinessObject.Contractor
+      - Romashka.BusinessObject.Document_M4
+      - Romashka.BusinessObject.Organizations
+      - Romashka.BusinessObject.Materials
 
   Romashka.link.from.EK_ASUFR3_1C_DO.to.EK_ASUFR3_1C_ERP._3:
     type: Интеграционный поток данных
