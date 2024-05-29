@@ -128,6 +128,7 @@ docs:
       - Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
       - Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO
       - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+      - Romashka.Systems.FinancialManagement.Demo_1C_ERP
     source: Templates/development_regulations_on_1C.md
 
   Romashka.doc.DevelopmentRegulations2:
@@ -138,4 +139,5 @@ docs:
       - Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_DO
       - Romashka.Systems.DocumentManagement.EK_ASUFR3_1C_Etalon_DO
       - Romashka.Systems.FinancialManagement.EK_ASUFR3_1C_ERP
+      - Romashka.Systems.FinancialManagement.Demo_1C_ERP
     source: Templates/coding_rules.md

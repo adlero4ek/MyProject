@@ -13,9 +13,9 @@ components:
       - FinancialManagement.IFRSAccounting
       - FinancialManagement.TreasuryAccounting
       - FinancialManagement.MTR
-      - CommonAspects.MonitoringFunctionality
-      - CommonAspects.StatisticsManagement
-      - CommonAspects.InternalControlSystem
+#      - CommonAspects.MonitoringFunctionality
+#      - CommonAspects.StatisticsManagement
+#      - CommonAspects.InternalControlSystem
     extension:
       type: system
       area: Финансовый контур
